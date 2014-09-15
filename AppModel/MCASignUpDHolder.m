@@ -9,5 +9,5 @@
 #import "MCASignUpDHolder.h"
 
 @implementation MCASignUpDHolder
-@synthesize str_appToken,str_appVer,str_grade,str_hasChild,str_lang,str_notifyByMail,str_notifyByPush,str_signinId,str_sourceApp,str_userId,str_userIsApproved,str_userName,str_userToken,str_userType,str_zipCode,str_family;
+@synthesize str_appToken,str_appVer,str_grade,str_hasChild,str_lang,str_notifyByMail,str_notifyByPush,str_signinId,str_sourceApp,str_userId,str_userIsApproved,str_userName,str_userToken,str_userType,str_zipCode,str_family,str_priorityRegular,str_priorityHigh;
 @end

@@ -779,6 +779,7 @@
     }
     
     [self confirmationApi:nil];
+    
     NSString *str_selectedGrade = [arr_gradeList objectAtIndex:[[NSUserDefaults standardUserDefaults]integerForKey:KEY_TASK_GRADE_INDEX]];
     str_selectedGrade = [str_selectedGrade stringByReplacingOccurrencesOfString:@"th" withString:@""];
     
@@ -945,7 +946,18 @@
     arr_completedTaskList  = [NSMutableArray new];
     arr_deletedTaskList = [NSMutableArray new];
     
-    arr_taskList = [[MCADBIntraction databaseInteractionManager]retrieveTaskList:nil];
+    if ([[[NSUserDefaults standardUserDefaults]valueForKey:KEY_PRIORITY_REGULAR] isEqualToString:@"1"] && [[[NSUserDefaults standardUserDefaults]valueForKey:KEY_PRIORITY_HIGH] isEqualToString:@"1"] ) {
+        
+        arr_taskList = [[MCADBIntraction databaseInteractionManager]retrieveTaskList:nil];
+        
+    }else if ([[[NSUserDefaults standardUserDefaults]valueForKey:KEY_PRIORITY_HIGH] isEqualToString:@"1"]){
+        
+         arr_taskList = [[MCADBIntraction databaseInteractionManager]retrieveHighPriorityTaskList:nil];
+        
+    }else if([[[NSUserDefaults standardUserDefaults]valueForKey:KEY_PRIORITY_REGULAR] isEqualToString:@"1"]){
+        
+         arr_taskList = [[MCADBIntraction databaseInteractionManager]retrieveRegularPriorityTaskList:nil];
+    }
     
     for (int i = 0; i < arr_taskList.count; i++)
     {

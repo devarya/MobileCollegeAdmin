@@ -24,6 +24,7 @@
 #define PLACEHOLDER_IMAGE @"loadingImage.png"
 #define NO_IMAGE @"noimage1.png"
 #define ZIP_CODE_MSG @"The postal code should be only 5 digits."
+#define KEY_NO_EVENT_FOUND @"No Event Found"
 
 //keys
 #define KEY_USER_ID @"user_id"
@@ -33,10 +34,15 @@
 #define KEY_USER_FAMILY @"user_family"
 #define KEY_USER_GRADE @"user_grade"
 #define KEY_USER_TOKEN @"user_token"
+#define KEY_NOTIFY_BY_EMAIL @"notifyByEmail"
+#define KEY_NOTIFY_BY_PUSH @"notifyByPush"
+#define KEY_PRIORITY_HIGH @"priorityHigh"
+#define KEY_PRIORITY_REGULAR @"priorityRegular"
 #define KEY_SIGNIN_ID @"signin_id"
 #define KEY_NOW_DATE @"now_date"
 #define KEY_LANGUAGE_CODE @"language_code"
 #define KEY_STUDENT_COUNT @"stud_count"
+
 #define KEY_TASK_GRADE_INDEX @"taskGradeIndex"
 #define KEY_TASK_STUD_INDEX @"taskStudIndex"
 #define KEY_ANIMATION_FILE_RAND_NO @"animationRandNo"
@@ -46,7 +52,7 @@
 #define KEY_CAL_CURRENT_MONTH @"current_month"
 #define KEY_CAL_CURRENT_YEAR @"current_year"
 #define KEY_CAL_HEIGHT @"cal_height"
-#define KEY_NO_EVENT_FOUND @"No Event Found"
+
 
 //local folders
 #define ROOT_FOLDER         @"MobileCollegeAdmin"
@@ -92,4 +98,8 @@
 
 #define NOTIFICATION_CHANGE_PWD_SUCCESS @"notificationChangePwdSuccess"
 #define NOTIFICATION_CHANGE_PWD_FAILED @"notificationChangePwdFailed"
+
+#define NOTIFICATION_SETTING_SUCCESS @"notificationSettingSuccess"
+#define NOTIFICATION_SETTING_FAILED @"notificationSettingFailed"
+
 

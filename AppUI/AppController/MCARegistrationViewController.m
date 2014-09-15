@@ -834,6 +834,7 @@ if (![tx_addStudEmail.text isEqualToString:@""]&&![tx_addStudGrade.text isEqualT
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (tableView == tbl_StudGradeList) {
+        
         NSString *cellIdentifier =@"cell";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
         if (cell == nil)
@@ -1016,6 +1017,11 @@ if (![tx_addStudEmail.text isEqualToString:@""]&&![tx_addStudGrade.text isEqualT
          [[NSUserDefaults standardUserDefaults]setValue:signUpDHolder.str_lang forKey:KEY_LANGUAGE_CODE];
     }
 
+    [[NSUserDefaults standardUserDefaults]setValue:signUpDHolder.str_notifyByPush forKey:KEY_NOTIFY_BY_PUSH];
+    [[NSUserDefaults standardUserDefaults]setValue:signUpDHolder.str_notifyByMail forKey:KEY_NOTIFY_BY_EMAIL];
+    [[NSUserDefaults standardUserDefaults]setValue:signUpDHolder.str_priorityHigh forKey:KEY_PRIORITY_HIGH];
+    [[NSUserDefaults standardUserDefaults]setValue:signUpDHolder.str_priorityRegular forKey:KEY_PRIORITY_REGULAR];
+    
     [[NSUserDefaults standardUserDefaults]synchronize];
     [self performSegueWithIdentifier:@"signUpTabBarSegue" sender:self];
     
@@ -1041,6 +1047,11 @@ if (![tx_addStudEmail.text isEqualToString:@""]&&![tx_addStudGrade.text isEqualT
     if (![signUpDHolder.str_lang isKindOfClass:[NSNull class]]) {
         [[NSUserDefaults standardUserDefaults]setValue:signUpDHolder.str_lang forKey:KEY_LANGUAGE_CODE];
     }
+    
+    [[NSUserDefaults standardUserDefaults]setValue:signUpDHolder.str_notifyByPush forKey:KEY_NOTIFY_BY_PUSH];
+    [[NSUserDefaults standardUserDefaults]setValue:signUpDHolder.str_notifyByMail forKey:KEY_NOTIFY_BY_EMAIL];
+    [[NSUserDefaults standardUserDefaults]setValue:signUpDHolder.str_priorityHigh forKey:KEY_PRIORITY_HIGH];
+    [[NSUserDefaults standardUserDefaults]setValue:signUpDHolder.str_priorityRegular forKey:KEY_PRIORITY_REGULAR];
     [[NSUserDefaults standardUserDefaults]synchronize];
     [self performSegueWithIdentifier:@"signUpTabBarSegue" sender:self];
     

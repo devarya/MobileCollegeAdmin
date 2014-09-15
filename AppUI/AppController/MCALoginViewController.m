@@ -140,6 +140,7 @@
 -(void)loginSuccess:(NSNotification*)notification{
     
    [self keyboardDisappeared];
+    
    MCALoginDHolder *loginDHolder = notification.object;
    [[NSUserDefaults standardUserDefaults]setValue:loginDHolder.str_userId forKey:KEY_USER_ID];
    [[NSUserDefaults standardUserDefaults]setValue:loginDHolder.str_signinId forKey:KEY_SIGNIN_ID];
@@ -150,6 +151,10 @@
    [[NSUserDefaults standardUserDefaults]setValue:loginDHolder.str_grade forKey:KEY_USER_GRADE];
    [[NSUserDefaults standardUserDefaults]setInteger:loginDHolder.arr_StudentData.count forKey:KEY_STUDENT_COUNT];
    [[NSUserDefaults standardUserDefaults]setValue:loginDHolder.str_userToken forKey:KEY_USER_TOKEN];
+   [[NSUserDefaults standardUserDefaults]setValue:loginDHolder.str_notifyByPush forKey:KEY_NOTIFY_BY_PUSH];
+   [[NSUserDefaults standardUserDefaults]setValue:loginDHolder.str_notifyByMail forKey:KEY_NOTIFY_BY_EMAIL];
+   [[NSUserDefaults standardUserDefaults]setValue:loginDHolder.str_priorityHigh forKey:KEY_PRIORITY_HIGH];
+   [[NSUserDefaults standardUserDefaults]setValue:loginDHolder.str_priorityRegular forKey:KEY_PRIORITY_REGULAR];
    [[NSUserDefaults standardUserDefaults]synchronize];
   
    [HUD hide];

@@ -23,6 +23,8 @@
 @property(nonatomic,strong)NSString *str_lang;
 @property(nonatomic,strong)NSString *str_notifyByMail;
 @property(nonatomic,strong)NSString *str_notifyByPush;
+@property(nonatomic,strong)NSString *str_priorityHigh;
+@property(nonatomic,strong)NSString *str_priorityRegular;
 @property(nonatomic,strong)NSString *str_sourceApp;
 @property(nonatomic,strong)NSString *str_userToken;
 @property(nonatomic,strong)NSString *str_userType;

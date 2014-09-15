@@ -33,10 +33,27 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(UserProfileEditSuccess:) name:NOTIFICATION_USER_PROFILE_EDIT_SUCCESS object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(UserProfileEditFailed:) name:NOTIFICATION_USER_PROFILE_EDIT_FAILED object:nil];
     
-    tx_name.text = [[NSUserDefaults standardUserDefaults]valueForKey:KEY_USER_NAME];
-    tx_email.text = [[NSUserDefaults standardUserDefaults]valueForKey:KEY_SIGNIN_ID];
-    tx_zipcode.text = [[NSUserDefaults standardUserDefaults]valueForKey:KEY_USER_ZIPCODE];
+    view_parent.hidden = YES;
+    view_stud.hidden = YES;
+        
+    if ([[[NSUserDefaults standardUserDefaults]valueForKey:KEY_USER_TYPE] isEqualToString:@"p"])
+    {
+        view_parent.hidden = NO;
+        tx_pname.text = [[NSUserDefaults standardUserDefaults]valueForKey:KEY_USER_NAME];
+        tx_pemail.text = [[NSUserDefaults standardUserDefaults]valueForKey:KEY_SIGNIN_ID];
+        tx_pzipcode.text = [[NSUserDefaults standardUserDefaults]valueForKey:KEY_USER_ZIPCODE];
+        
+    }else{
+     
+        view_stud.hidden = NO;
+        arr_SelectPersonList = [[NSArray alloc]initWithObjects:@"Me",@"My Parents",@"My Brother/Sister",@"My Grandparents",@"No idea", nil];
 
+        tx_sname.text = [[NSUserDefaults standardUserDefaults]valueForKey:KEY_USER_NAME];
+        tx_semail.text = [[NSUserDefaults standardUserDefaults]valueForKey:KEY_SIGNIN_ID];
+        tx_szipcode.text = [[NSUserDefaults standardUserDefaults]valueForKey:KEY_USER_ZIPCODE];
+        tx_sfirstPerson.text = [[NSUserDefaults standardUserDefaults]valueForKey:KEY_USER_FAMILY];
+        tx_sgrade.text = [[NSUserDefaults standardUserDefaults]valueForKey:KEY_USER_GRADE];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -46,32 +63,103 @@
 }
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    [tx_email resignFirstResponder];
-    [tx_name resignFirstResponder];
-    [tx_zipcode resignFirstResponder];
+    [tx_pemail resignFirstResponder];
+    [tx_pname resignFirstResponder];
+    [tx_pzipcode resignFirstResponder];
+    
+    [tx_semail resignFirstResponder];
+    [tx_sname resignFirstResponder];
+    [tx_szipcode resignFirstResponder];
+    
+    [tbl_SelectPerson removeFromSuperview];
+    [view_Bg removeFromSuperview];
+    [self keyboardDisappeared];
+    self.view.alpha = 1.0f;
    
 }
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     
     [textField resignFirstResponder];
+    [self keyboardDisappeared];
     return YES;
 }
-
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    if (textField == tx_szipcode) {
+         [self keyboardAppeared];
+    }
+   
+    return  YES;
+}
+-(void) keyboardAppeared
+{
+    [UIView beginAnimations:@"animate" context:nil];
+    [UIView setAnimationDuration:0.2f];
+    [UIView setAnimationBeginsFromCurrentState: NO];
+    
+    if (IS_IPHONE_5) {
+        self.view.frame = CGRectMake(0,0, self.view.frame.size.width, self.view.frame.size.height);
+    }else{
+        self.view.frame = CGRectMake(0,-90, self.view.frame.size.width, self.view.frame.size.height);
+        
+    }
+    
+    [UIView commitAnimations];
+}
+-(void) keyboardDisappeared
+{
+    [UIView beginAnimations:@"animate" context:nil];
+    [UIView setAnimationDuration:0.2f];
+    [UIView setAnimationBeginsFromCurrentState: NO];
+    if ([[UIScreen mainScreen] bounds].size.height==568)
+    {
+        self.view.frame =CGRectMake(0, 64,  self.view.frame.size.width, self.view.frame.size.height);
+        //this is iphone 5
+    } else
+    {
+        self.view.frame =CGRectMake(0, 64,  self.view.frame.size.width, self.view.frame.size.height);
+        // this is iphone 4
+    }
+    [UIView commitAnimations];
+}
 
 #pragma mark - IB_ACTION
 
+-(IBAction)btnSelectPersonDidCliked:(id)sender{
+        
+    if (IS_IPHONE_5) {
+        view_Bg = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 568)];
+    }else{
+        view_Bg = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 480)];
+    }
+    
+    view_Bg.backgroundColor = [UIColor blackColor];
+    view_Bg.layer.opacity = 0.6f;
+    [self.view addSubview:view_Bg];
+    tbl_SelectPerson = [[UITableView alloc]initWithFrame:CGRectMake(8, 84, 302, 164)];
+    tbl_SelectPerson.layer.borderWidth = 0.5f;
+    tbl_SelectPerson.layer.cornerRadius = 3.0f;
+    [self.view addSubview:tbl_SelectPerson];
+    
+    
+    tbl_SelectPerson.delegate = self;
+    tbl_SelectPerson.dataSource = self;
+    [tbl_SelectPerson reloadData];
+    
+}
+
 -(IBAction)btnDoneDidClicked:(id)sender{
     
-    if (![tx_email.text isEqualToString:@""] && [MCAValidation isValidEmailId:tx_email.text]) {
-        
-        if (![tx_name.text isEqualToString:@""]) {
-            
-             NSMutableDictionary *info = [NSMutableDictionary new];
-            if (tx_zipcode.text.length != 0)
+    if ([[[NSUserDefaults standardUserDefaults]valueForKey:KEY_USER_TYPE] isEqualToString:@"p"])
+    {
+        if (![tx_pname.text isEqualToString:@""])
+        {
+            NSMutableDictionary *info = [NSMutableDictionary new];
+            if (tx_pzipcode.text.length != 0)
             {
-                if (tx_zipcode.text.length == 5)
+                if (tx_pzipcode.text.length == 5)
                 {
-                    [info setValue:tx_zipcode.text forKey:@"zipcode"];
+                    [info setValue:tx_pzipcode.text forKey:@"zipcode"];
                     
                 }else{
                     [MCAGlobalFunction showAlert:ZIP_CODE_MSG];
@@ -81,13 +169,13 @@
                 [info setValue:@"" forKey:@"zipcode"];
                 
             }
-         
-            [info setValue:tx_name.text forKey:@"user_name"];
+            
+            [info setValue:tx_pname.text forKey:@"user_name"];
             [info setValue:[[NSUserDefaults standardUserDefaults]valueForKey:KEY_USER_FAMILY] forKey:@"family"];
             [info setValue:[[NSUserDefaults standardUserDefaults]valueForKey:KEY_USER_GRADE] forKey:@"grade"];
-            [info setValue:tx_zipcode.text forKey:@"zipcode"];
+            [info setValue:tx_pzipcode.text forKey:@"zipcode"];
             [info setValue:@"edit_profile" forKey:@"cmd"];
-             NSString *str_jsonProfileEdit = [NSString getJsonObject:info];
+            NSString *str_jsonProfileEdit = [NSString getJsonObject:info];
             
             [HUD showForTabBar];
             [self requestUserProfileEdit:str_jsonProfileEdit];
@@ -96,10 +184,99 @@
             
             [MCAGlobalFunction showAlert:INVALID_USERNAME];
         }
-    }else{
-        
-        [MCAGlobalFunction showAlert:EMAIL_MESSAGE];
+    }else
+    {
+        if (![tx_sname.text isEqualToString:@""])
+        {
+            NSMutableDictionary *info = [NSMutableDictionary new];
+            if (tx_szipcode.text.length != 0)
+            {
+                if (tx_szipcode.text.length == 5)
+                {
+                    [info setValue:tx_szipcode.text forKey:@"zipcode"];
+                    
+                }else{
+                    [MCAGlobalFunction showAlert:ZIP_CODE_MSG];
+                    return;
+                }
+            }else{
+                [info setValue:@"" forKey:@"zipcode"];
+                
+            }
+            
+            [info setValue:tx_sname.text forKey:@"user_name"];
+            [info setValue:tx_sfirstPerson.text forKey:@"family"];
+            [info setValue:tx_sgrade.text forKey:@"grade"];
+            [info setValue:tx_szipcode.text forKey:@"zipcode"];
+            [info setValue:@"edit_profile" forKey:@"cmd"];
+            NSString *str_jsonProfileEdit = [NSString getJsonObject:info];
+            
+            [HUD showForTabBar];
+            [self requestUserProfileEdit:str_jsonProfileEdit];
+            
+        }else{
+            
+            [MCAGlobalFunction showAlert:INVALID_USERNAME];
+        }
     }
+}
+#pragma mark - UITABLEVIEW DELEGATE AND DATASOURCE METHODS
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    
+    return 26;
+    
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    return 28;
+}
+-(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView* headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tbl_SelectPerson.frame.size.width,30)];
+    
+    // 2. Set a custom background color and a border
+    headerView.backgroundColor = [UIColor colorWithRed:39.0/255 green:166.0/255 blue:213.0/255 alpha:1];
+    
+    // 3. Add an image
+    UILabel* headerLabel = [[UILabel alloc] init];
+    headerLabel.frame = CGRectMake(12,2,298,22);
+    headerLabel.textColor = [UIColor whiteColor];
+    headerLabel.font = [UIFont boldSystemFontOfSize:14];
+    headerLabel.text = @"Select Person";
+    headerLabel.textAlignment = NSTextAlignmentCenter;
+    
+    [headerView addSubview:headerLabel];
+    
+    // 5. Finally return
+    return headerView;
+    
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return arr_SelectPersonList.count;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *cellIdentifier =@"cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if (cell == nil)
+        cell = [[UITableViewCell alloc]
+                initWithStyle:UITableViewCellStyleDefault
+                reuseIdentifier:cellIdentifier];
+    
+    cell.textLabel.font = [UIFont systemFontOfSize:12.0f];
+    cell.textLabel.text = [arr_SelectPersonList objectAtIndex:indexPath.row];
+    tbl_SelectPerson.separatorInset=UIEdgeInsetsMake(0.0, 0 + 1.0, 0.0, 0.0);
+    return cell;
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    tx_sfirstPerson.text = [arr_SelectPersonList objectAtIndex:indexPath.row];
+    [view_Bg removeFromSuperview];
+    [tbl_SelectPerson removeFromSuperview];
+    self.view.alpha = 1.0f;
+    
 }
 
 #pragma mark - API CALLING
@@ -119,11 +296,15 @@
 -(void)UserProfileEditSuccess:(NSNotification*)notification{
     
     [HUD hide];
-    [tx_name resignFirstResponder];
-    [tx_zipcode resignFirstResponder];
+    [tx_pname resignFirstResponder];
+    [tx_pzipcode resignFirstResponder];
+    [tx_sname resignFirstResponder];
+    [tx_szipcode resignFirstResponder];
+    
     MCALoginDHolder *loginDHolder = notification.object;
     [[NSUserDefaults standardUserDefaults]setValue:loginDHolder.str_userName forKey:KEY_USER_NAME];
     [[NSUserDefaults standardUserDefaults]setValue:loginDHolder.str_zipCode forKey:KEY_USER_ZIPCODE];
+    [[NSUserDefaults standardUserDefaults]setValue:loginDHolder.str_family forKey:KEY_USER_FAMILY];
     [[NSUserDefaults standardUserDefaults]synchronize];
     
      UIAlertView *alert   = [[UIAlertView alloc]initWithTitle:@"Message"

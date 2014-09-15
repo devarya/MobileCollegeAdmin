@@ -125,6 +125,87 @@ MCADBIntraction *databaseManager = nil;
     }
     return arr_dbTaskList;
 }
+-(NSMutableArray*)retrieveHighPriorityTaskList:(id)sender{
+    
+    NSMutableArray *arr_dbTaskList=[[NSMutableArray alloc]init];
+    NSString *query= [NSString stringWithFormat:@"Select * from tbl_tasklist where taskPriority = \'%@\' order by taskStartDate ",@"h"];
+    @try
+    {
+        [dBCollgeAdmin open];
+        FMResultSet *resultSet=[dBCollgeAdmin executeQuery:query];
+        while ([resultSet next])
+        {
+            MCATaskDetailDHolder *taskDHolder=[MCATaskDetailDHolder new];
+            taskDHolder.str_taskId = [resultSet stringForColumn:@"taskId"];
+            taskDHolder.str_userId = [resultSet stringForColumn:@"userId"];
+            taskDHolder.str_taskNameEng = [resultSet stringForColumn:@"taskNameEng"];
+            taskDHolder.str_taskDetailEng = [resultSet stringForColumn:@"taskDetailEng"];
+            taskDHolder.str_taskPriority = [resultSet stringForColumn:@"taskPriority"];
+            taskDHolder.str_taskStartDate = [resultSet stringForColumn:@"taskStartDate"];
+            taskDHolder.str_taskStatus = [resultSet stringForColumn:@"taskStatus"];
+            taskDHolder.str_createdAt = [resultSet stringForColumn:@"createdAt"];
+            taskDHolder.str_createdBy = [resultSet stringForColumn:@"createdBy"];
+            taskDHolder.str_updatedAt = [resultSet stringForColumn:@"updatedAt"];
+            taskDHolder.str_grade = [resultSet stringForColumn:@"grade"];
+            taskDHolder.str_status = [resultSet stringForColumn:@"status"];
+            taskDHolder.str_nowDate = [resultSet stringForColumn:@"nowDate"];
+            taskDHolder.str_network = [resultSet stringForColumn:@"network"];
+            
+            [arr_dbTaskList addObject:taskDHolder];
+        }
+        [resultSet close];
+    }
+    @catch (NSException *exception)
+    {
+        NSLog(@"%@",exception);
+    }
+    @finally
+    {
+        [dBCollgeAdmin close];
+    }
+    return arr_dbTaskList;
+}
+-(NSMutableArray*)retrieveRegularPriorityTaskList:(id)sender{
+    
+    NSMutableArray *arr_dbTaskList=[[NSMutableArray alloc]init];
+    
+    NSString *query = [NSString stringWithFormat:@"Select * from tbl_tasklist where taskPriority = \'%@\' order by taskStartDate",@"r"];
+    @try
+    {
+        [dBCollgeAdmin open];
+        FMResultSet *resultSet=[dBCollgeAdmin executeQuery:query];
+        while ([resultSet next])
+        {
+            MCATaskDetailDHolder *taskDHolder=[MCATaskDetailDHolder new];
+            taskDHolder.str_taskId = [resultSet stringForColumn:@"taskId"];
+            taskDHolder.str_userId = [resultSet stringForColumn:@"userId"];
+            taskDHolder.str_taskNameEng = [resultSet stringForColumn:@"taskNameEng"];
+            taskDHolder.str_taskDetailEng = [resultSet stringForColumn:@"taskDetailEng"];
+            taskDHolder.str_taskPriority = [resultSet stringForColumn:@"taskPriority"];
+            taskDHolder.str_taskStartDate = [resultSet stringForColumn:@"taskStartDate"];
+            taskDHolder.str_taskStatus = [resultSet stringForColumn:@"taskStatus"];
+            taskDHolder.str_createdAt = [resultSet stringForColumn:@"createdAt"];
+            taskDHolder.str_createdBy = [resultSet stringForColumn:@"createdBy"];
+            taskDHolder.str_updatedAt = [resultSet stringForColumn:@"updatedAt"];
+            taskDHolder.str_grade = [resultSet stringForColumn:@"grade"];
+            taskDHolder.str_status = [resultSet stringForColumn:@"status"];
+            taskDHolder.str_nowDate = [resultSet stringForColumn:@"nowDate"];
+            taskDHolder.str_network = [resultSet stringForColumn:@"network"];
+            
+            [arr_dbTaskList addObject:taskDHolder];
+        }
+        [resultSet close];
+    }
+    @catch (NSException *exception)
+    {
+        NSLog(@"%@",exception);
+    }
+    @finally
+    {
+        [dBCollgeAdmin close];
+    }
+    return arr_dbTaskList;
+}
 -(NSMutableArray*)retrieveTask:(id)sender{
     
     NSMutableArray *arr_dbTask=[[NSMutableArray alloc]init];
@@ -373,6 +454,7 @@ MCADBIntraction *databaseManager = nil;
 }
 
 #pragma mark - NOTES_CATEGORY QUERY
+
 -(void)insertNotesCatList:(NSMutableArray*)arr_notesCatList{
     
     for (int i=0; i<arr_notesCatList.count;i++)

@@ -19,6 +19,8 @@
 -(void)deleteTaskList:(id)sender;
 -(void)deleteTask:(NSMutableArray*)arr_task;
 -(NSMutableArray*)retrieveTaskList:(id)sender;
+-(NSMutableArray*)retrieveHighPriorityTaskList:(id)sender;
+-(NSMutableArray*)retrieveRegularPriorityTaskList:(id)sender;
 -(NSMutableArray*)retrieveTask:(id)sender;
 -(NSMutableArray*)retrieveSelectedTask:(id)sender;
 

@@ -55,6 +55,38 @@
     return YES;
 }
 
+
+#pragma mark - IB_ACTION
+
+-(IBAction)btnDoneDidClicked:(id)sender{
+    
+    tx_oldPwd.text = [tx_oldPwd.text stringByTrimmingCharactersInSet:
+                          [NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    tx_newPwd.text = [tx_oldPwd.text stringByTrimmingCharactersInSet:
+                      [NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    tx_confirmPwd.text = [tx_oldPwd.text stringByTrimmingCharactersInSet:
+                      [NSCharacterSet whitespaceAndNewlineCharacterSet]];
+ 
+    if (![tx_oldPwd.text isEqualToString:@""]) {
+        
+        if ([tx_newPwd.text isEqualToString:tx_confirmPwd.text]) {
+            
+            NSMutableDictionary *info = [NSMutableDictionary new];
+            [info setValue:tx_oldPwd.text forKey:@"pwd"];
+            [info setValue:tx_newPwd.text forKey:@"new_pwd"];
+            [info setValue:@"change_password" forKey:@"cmd"];
+            
+            NSString *str_jsonChangePwd = [NSString getJsonObject:info];
+            [HUD showForTabBar];
+            [self requestChangePwd:str_jsonChangePwd];
+        }else{
+            
+              [MCAGlobalFunction showAlert:@"Confirm password and new password didn't match."];
+        }
+    }else{
+        [MCAGlobalFunction showAlert:INVALID_PWD];
+    }
+}
 #pragma mark - API CALLING
 
 -(void)requestChangePwd:(NSString*)info{
@@ -66,20 +98,18 @@
         [MCAGlobalFunction showAlert:NET_NOT_AVAIALABLE];
     }
 }
-#pragma mark - IB_ACTION
-
--(IBAction)btnDoneDidClicked:(id)sender{
-    
-}
-
 #pragma mark - NSNOTIFICATION SELECTOR
 
 -(void)changePwdSuccess:(NSNotification*)notification{
     
     [HUD hide];
+    
+    [tx_newPwd resignFirstResponder];
+    [tx_confirmPwd resignFirstResponder];
+    [tx_oldPwd resignFirstResponder];
       
     UIAlertView *alert   = [[UIAlertView alloc]initWithTitle:@"Message"
-                                                     message:@"Password changed successfully."
+                                                     message:notification.object
                                                     delegate:nil
                                            cancelButtonTitle:nil
                                            otherButtonTitles:nil, nil];

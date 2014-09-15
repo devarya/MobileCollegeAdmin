@@ -17,10 +17,13 @@
    IBOutlet UIButton *btn_priorityAlertHigh;
    IBOutlet UIButton *btn_priorityAlertRegular;
     
+    AryaHUD *HUD;
+    
 }
 -(IBAction)btnUserProfileDidClicked:(id)sender;
 -(IBAction)btnChangePwdDidClicked:(id)sender;
--(IBAction)btnTaskAlertDidClicked:(id)sender;
--(IBAction)btnPriorityAlertDidClicked:(id)sender;
-
+-(IBAction)btnTaskAlertPushDidCliked:(id)sender;
+-(IBAction)btnTaskAlertEmailDidCliked:(id)sender;
+-(IBAction)btnPriorityAlertHighDidClicked:(id)sender;
+-(IBAction)btnPriorityAlertRegularDidClicked:(id)sender;
 @end
