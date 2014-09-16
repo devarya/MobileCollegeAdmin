@@ -50,7 +50,9 @@
         [btn_dropBox setTitle:@"Export" forState:UIControlStateNormal];
     }
     
-   btn_dropBox.layer.cornerRadius = 12.0f;
+   btn_dropBox.layer.cornerRadius = 5.0f;
+   btn_dropBox.layer.masksToBounds = YES;
+    
    tbl_notesList.tableFooterView = [[UIView alloc] init];
 
 }

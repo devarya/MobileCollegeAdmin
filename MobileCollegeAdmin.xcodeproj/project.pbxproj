@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		CE0D694F1995DC5C009C0DBE /* MCADBIntraction.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0D694E1995DC5C009C0DBE /* MCADBIntraction.m */; };
 		CE0D69521995FE9C009C0DBE /* MCAAddTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0D69511995FE9C009C0DBE /* MCAAddTaskViewController.m */; };
+		CE0F16D419C8687F00029413 /* MCAShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0F16D319C8687F00029413 /* MCAShareViewController.m */; };
+		CE0F16D619C8692800029413 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0F16D519C8692800029413 /* Social.framework */; };
+		CE0F16D819C8692F00029413 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0F16D719C8692F00029413 /* MessageUI.framework */; };
 		CE174993198D19C200F61135 /* AryaHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = CE174992198D19C200F61135 /* AryaHUD.m */; };
 		CE17F560199C75F90027251A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE17F55F199C75F90027251A /* Images.xcassets */; };
 		CE1805A0198656260087CA3D /* MCAStudentDHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = CE18059F198656260087CA3D /* MCAStudentDHolder.m */; };
@@ -60,6 +63,7 @@
 		CE3B4FE919C19966001B07D4 /* MCAUserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3B4FE819C19966001B07D4 /* MCAUserProfileViewController.m */; };
 		CE49490619B7416A00320D8C /* MobileCollegeAdmin.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = CE49490519B7416A00320D8C /* MobileCollegeAdmin.sqlite */; };
 		CE49490719B7416A00320D8C /* MobileCollegeAdmin.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = CE49490519B7416A00320D8C /* MobileCollegeAdmin.sqlite */; };
+		CE52ED4319C806D1005B1A92 /* MCAAddStudParentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE52ED4219C806D1005B1A92 /* MCAAddStudParentViewController.m */; };
 		CE69728719C3057000DDE7F5 /* MCAChangePwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE69728619C3057000DDE7F5 /* MCAChangePwdViewController.m */; };
 		CE6E7D1E1990A963005470BC /* MCATaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6E7D1D1990A963005470BC /* MCATaskViewController.m */; };
 		CE7E430719A1F6D400A8652F /* MCAAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7E430619A1F6D400A8652F /* MCAAlertView.m */; };
@@ -136,6 +140,10 @@
 		CE0D694E1995DC5C009C0DBE /* MCADBIntraction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCADBIntraction.m; sourceTree = "<group>"; };
 		CE0D69501995FE9C009C0DBE /* MCAAddTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCAAddTaskViewController.h; sourceTree = "<group>"; };
 		CE0D69511995FE9C009C0DBE /* MCAAddTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCAAddTaskViewController.m; sourceTree = "<group>"; };
+		CE0F16D219C8687E00029413 /* MCAShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCAShareViewController.h; sourceTree = "<group>"; };
+		CE0F16D319C8687F00029413 /* MCAShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCAShareViewController.m; sourceTree = "<group>"; };
+		CE0F16D519C8692800029413 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		CE0F16D719C8692F00029413 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		CE174991198D19C200F61135 /* AryaHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AryaHUD.h; sourceTree = "<group>"; };
 		CE174992198D19C200F61135 /* AryaHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AryaHUD.m; sourceTree = "<group>"; };
 		CE17F55F199C75F90027251A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../Images.xcassets; sourceTree = "<group>"; };
@@ -225,6 +233,8 @@
 		CE3B4FE719C19966001B07D4 /* MCAUserProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCAUserProfileViewController.h; sourceTree = "<group>"; };
 		CE3B4FE819C19966001B07D4 /* MCAUserProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCAUserProfileViewController.m; sourceTree = "<group>"; };
 		CE49490519B7416A00320D8C /* MobileCollegeAdmin.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = MobileCollegeAdmin.sqlite; sourceTree = "<group>"; };
+		CE52ED4119C806D1005B1A92 /* MCAAddStudParentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCAAddStudParentViewController.h; sourceTree = "<group>"; };
+		CE52ED4219C806D1005B1A92 /* MCAAddStudParentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCAAddStudParentViewController.m; sourceTree = "<group>"; };
 		CE69728519C3057000DDE7F5 /* MCAChangePwdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCAChangePwdViewController.h; sourceTree = "<group>"; };
 		CE69728619C3057000DDE7F5 /* MCAChangePwdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCAChangePwdViewController.m; sourceTree = "<group>"; };
 		CE6E7D1C1990A963005470BC /* MCATaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCATaskViewController.h; sourceTree = "<group>"; };
@@ -333,6 +343,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE0F16D819C8692F00029413 /* MessageUI.framework in Frameworks */,
+				CE0F16D619C8692800029413 /* Social.framework in Frameworks */,
 				CEAB94F719BB1AC000D4EC9E /* libarchive.2.dylib in Frameworks */,
 				CEAB94F619BB1ABB00D4EC9E /* libarchive.dylib in Frameworks */,
 				CEAB94E119BB184300D4EC9E /* Foundation.framework in Frameworks */,
@@ -534,17 +546,17 @@
 		CE7E431A19A22B3200A8652F /* AppResources */ = {
 			isa = PBXGroup;
 			children = (
-				CE27456A19C0333C00DDA5A8 /* tutorial1.png */,
-				CE27456B19C0333C00DDA5A8 /* tutorial2.png */,
-				CE27456C19C0333C00DDA5A8 /* tutorial3.png */,
-				CE27456D19C0333C00DDA5A8 /* tutorial4.png */,
-				CE27456E19C0333C00DDA5A8 /* tutorial0.png */,
 				CE27456219C0255F00DDA5A8 /* terms.html */,
 				CE7E431B19A22B4C00A8652F /* ducksmall.mp4 */,
 				CE7E431C19A22B4C00A8652F /* mousesmall.mp4 */,
 				CE7E431D19A22B4C00A8652F /* pigsmall.mp4 */,
 				CE7E431E19A22B4C00A8652F /* rabbitsmall.mp4 */,
 				CE17F55F199C75F90027251A /* Images.xcassets */,
+				CE27456A19C0333C00DDA5A8 /* tutorial1.png */,
+				CE27456B19C0333C00DDA5A8 /* tutorial2.png */,
+				CE27456C19C0333C00DDA5A8 /* tutorial3.png */,
+				CE27456D19C0333C00DDA5A8 /* tutorial4.png */,
+				CE27456E19C0333C00DDA5A8 /* tutorial0.png */,
 			);
 			path = AppResources;
 			sourceTree = "<group>";
@@ -580,6 +592,8 @@
 		CE84C1ED1962D83800A351FF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CE0F16D719C8692F00029413 /* MessageUI.framework */,
+				CE0F16D519C8692800029413 /* Social.framework */,
 				CE36AE1A19BDD886004C047D /* libz.1.dylib */,
 				CE36AE1819BDD851004C047D /* libz.1.1.3.dylib */,
 				CE36AE1619BDD72F004C047D /* libz.1.2.5.dylib */,
@@ -753,6 +767,10 @@
 				CE3B4FE819C19966001B07D4 /* MCAUserProfileViewController.m */,
 				CE69728519C3057000DDE7F5 /* MCAChangePwdViewController.h */,
 				CE69728619C3057000DDE7F5 /* MCAChangePwdViewController.m */,
+				CE52ED4119C806D1005B1A92 /* MCAAddStudParentViewController.h */,
+				CE52ED4219C806D1005B1A92 /* MCAAddStudParentViewController.m */,
+				CE0F16D219C8687E00029413 /* MCAShareViewController.h */,
+				CE0F16D319C8687F00029413 /* MCAShareViewController.m */,
 			);
 			name = more;
 			path = ..;
@@ -966,10 +984,12 @@
 				CE27456919C031E400DDA5A8 /* MCATutorialViewController.m in Sources */,
 				CE32DA7819AAF14A0037C555 /* NSMutableArray+convenience.m in Sources */,
 				CE84C2371962DE1200A351FF /* MCALoginViewController.m in Sources */,
+				CE52ED4319C806D1005B1A92 /* MCAAddStudParentViewController.m in Sources */,
 				CEEDCAD5197F8BF30088511D /* SBJsonWriter.m in Sources */,
 				CEEDCAC1197F8BE20088511D /* ASIInputStream.m in Sources */,
 				CE278A1E19920D6700783592 /* SWUtilityButtonView.m in Sources */,
 				CE36AE0519BD8137004C047D /* MCADropBoxNotesListViewController.m in Sources */,
+				CE0F16D419C8687F00029413 /* MCAShareViewController.m in Sources */,
 				CEAB93E419BAD21C00D4EC9E /* MCADropBoxViewController.m in Sources */,
 				CE84C2411962E46800A351FF /* MCAGlobalFunction.m in Sources */,
 				CE2AE62E1998881100B23FFF /* FMDatabaseAdditions.m in Sources */,
@@ -1092,8 +1112,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Rashmi Singh (2EC659949Q)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Rashmi Singh (2EC659949Q)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1111,7 +1131,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = NO;
-				PROVISIONING_PROFILE = "d3f12233-bb5b-4175-afc6-25d8b7e67767";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1132,8 +1152,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Rashmi Singh (2EC659949Q)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Rashmi Singh (2EC659949Q)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1145,7 +1165,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = NO;
-				PROVISIONING_PROFILE = "d3f12233-bb5b-4175-afc6-25d8b7e67767";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1155,8 +1175,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Rashmi Singh (2EC659949Q)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Rashmi Singh (2EC659949Q)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1168,7 +1188,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d3f12233-bb5b-4175-afc6-25d8b7e67767";
+				PROVISIONING_PROFILE = "";
 				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1178,8 +1198,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Rashmi Singh (2EC659949Q)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Rashmi Singh (2EC659949Q)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1191,7 +1211,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d3f12233-bb5b-4175-afc6-25d8b7e67767";
+				PROVISIONING_PROFILE = "";
 				VALID_ARCHS = "armv7 armv7s arm64";
 				WRAPPER_EXTENSION = app;
 			};

@@ -67,7 +67,6 @@
          self.view.frame = CGRectMake(0,0, self.view.frame.size.width, self.view.frame.size.height);
     }else{
          self.view.frame = CGRectMake(0,-90, self.view.frame.size.width, self.view.frame.size.height);
-        
     }
         
     [UIView commitAnimations];
@@ -90,6 +89,7 @@
 }
 
 #pragma mark - IB_ACTION
+
 -(IBAction)ReturnKeyButton:(id)sender
 {
     [sender resignFirstResponder];

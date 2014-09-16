@@ -39,6 +39,8 @@
     if ([[[NSUserDefaults standardUserDefaults]valueForKey:KEY_USER_TYPE] isEqualToString:@"p"])
     {
         view_parent.hidden = NO;
+        view_parent.frame = CGRectMake(view_parent.frame.origin.x, 0, view_parent.frame.size.width, view_parent.frame.size.height);
+        
         tx_pname.text = [[NSUserDefaults standardUserDefaults]valueForKey:KEY_USER_NAME];
         tx_pemail.text = [[NSUserDefaults standardUserDefaults]valueForKey:KEY_SIGNIN_ID];
         tx_pzipcode.text = [[NSUserDefaults standardUserDefaults]valueForKey:KEY_USER_ZIPCODE];
@@ -46,6 +48,8 @@
     }else{
      
         view_stud.hidden = NO;
+        view_stud.frame = CGRectMake(view_stud.frame.origin.x, 0, view_stud.frame.size.width, view_stud.frame.size.height);
+        
         arr_SelectPersonList = [[NSArray alloc]initWithObjects:@"Me",@"My Parents",@"My Brother/Sister",@"My Grandparents",@"No idea", nil];
 
         tx_sname.text = [[NSUserDefaults standardUserDefaults]valueForKey:KEY_USER_NAME];

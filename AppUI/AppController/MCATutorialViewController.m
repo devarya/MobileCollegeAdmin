@@ -27,6 +27,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    [self setNeedsStatusBarAppearanceUpdate];
 
     btnPrevious.hidden = YES;
     [scrollView setContentSize:CGSizeMake(320*5,30)];
@@ -34,10 +36,15 @@
         
         UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(i*320, scrollView.bounds.origin.y, 320, scrollView.bounds.size.height)];
         imageView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+        imageView.contentMode = UIViewContentModeScaleAspectFit;
         imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"tutorial%d.png",i]];
         [scrollView addSubview:imageView];
     }
     preContentOffSet = scrollView.contentOffset.x;
+}
+-(UIStatusBarStyle)preferredStatusBarStyle{
+    
+    return UIStatusBarStyleLightContent;
 }
 
 - (void)didReceiveMemoryWarning
@@ -79,11 +86,8 @@
                 preContentOffSet = scrollView.contentOffset.x;
                 pageControl.currentPage = scrollView.contentOffset.x/320;
             }
-            
         }
- 
     }
-    
 }
 
 #pragma mark IB_ACTION

@@ -14,7 +14,7 @@
    IBOutlet UITextField *tx_newPwd;
    IBOutlet UITextField *tx_confirmPwd;
     
-    AryaHUD *HUD;
+   AryaHUD *HUD;
 }
 -(IBAction)btnDoneDidClicked:(id)sender;
 @end

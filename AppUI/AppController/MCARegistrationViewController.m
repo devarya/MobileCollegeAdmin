@@ -13,7 +13,6 @@
 @end
 
 @implementation MCARegistrationViewController
-
 {
     BOOL isParentNotifyPush;
     BOOL isParentNotifyEmail;
@@ -716,7 +715,7 @@ if (![tx_addStudEmail.text isEqualToString:@""]&&![tx_addStudGrade.text isEqualT
     
 }
 
-#pragma mark UITABLEVIEW DELEGATE AND DATASOURCE METHODS
+#pragma mark - UITABLEVIEW DELEGATE AND DATASOURCE METHODS
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     
@@ -924,7 +923,7 @@ if (![tx_addStudEmail.text isEqualToString:@""]&&![tx_addStudGrade.text isEqualT
     
     [self addStudentSuccess:nil];
 }
-#pragma mark - #pragma mark - API CALLING
+#pragma mark - API CALLING
 
 -(void)requestAddStudent:(NSString*)info{
     

@@ -90,6 +90,8 @@
         [self performSegueWithIdentifier:@"segue_feedback" sender:nil];
     }else if (indexPath.row == 0){
         [self performSegueWithIdentifier:@"segue_setting" sender:nil];
+    }else if (indexPath.row == 1){
+        [self performSegueWithIdentifier:@"segue_share" sender:nil];
     }
 }
 @end

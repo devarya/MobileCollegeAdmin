@@ -22,6 +22,7 @@
 }
 -(IBAction)btnUserProfileDidClicked:(id)sender;
 -(IBAction)btnChangePwdDidClicked:(id)sender;
+-(IBAction)btnAddStudParDidClicked:(id)sender;
 -(IBAction)btnTaskAlertPushDidCliked:(id)sender;
 -(IBAction)btnTaskAlertEmailDidCliked:(id)sender;
 -(IBAction)btnPriorityAlertHighDidClicked:(id)sender;

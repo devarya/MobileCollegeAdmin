@@ -19,7 +19,7 @@
     UITableView *tbl_StudList;
     UITableView *tbl_SelectPerson;
     
-    UIWindow    * tempWindow;
+    UIWindow    *tempWindow;
 
     IBOutlet UISegmentedControl *segControl_UserType;
     IBOutlet UIView *view_ParentSignup;
@@ -63,9 +63,11 @@
            NSArray *arr_SelectPersonList;
     
     NSString *json_StudString;
-    
     AryaHUD *HUD;
 }
+
+#pragma mark - PARENT_SIGNUP_ACTION
+
 -(IBAction)btnBackDidClicked:(id)sender;
 -(IBAction)btnSegControl_UserTypeDidClicked:(id)sender;
 -(IBAction)btnParentSignUpDidClicked:(id)sender;
@@ -75,6 +77,8 @@
 -(IBAction)btnParentNotifyPushDidCliked:(id)sender;
 -(IBAction)btnParentNotifyEmailDidCliked:(id)sender;
 -(IBAction)btnParentAcceptTermsDidCliked:(id)sender;
+
+#pragma mark - STUDENT_SIGNUP_ACTION
 
 -(IBAction)btnStudSignUpDidClicked:(id)sender;
 -(IBAction)btnStudNotifyPushDidCliked:(id)sender;

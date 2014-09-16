@@ -28,10 +28,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [super viewDidLoad];
+    [self setNeedsStatusBarAppearanceUpdate];
+  
     web_view.delegate = self;
     [web_view loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"terms" ofType:@"html"]isDirectory:NO]]];
 }
+-(UIStatusBarStyle)preferredStatusBarStyle{
+    
+    return UIStatusBarStyleLightContent;
+}
+
 - (void)webViewDidFinishLoad:(UIWebView *)webView{
     
 }

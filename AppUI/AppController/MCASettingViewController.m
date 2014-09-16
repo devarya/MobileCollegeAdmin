@@ -82,10 +82,19 @@
     
     btn_add.layer.borderWidth = 0.5f;
     btn_add.layer.borderColor=[UIColor colorWithRed:32.0/255.0 green:36.0/255.0 blue:48.0/255.0 alpha:1].CGColor;
-    btn_add.layer.cornerRadius = 5.0f;
+    btn_add.layer.cornerRadius = 3.0f;
+    
     btn_ViewStudParent.layer.borderWidth = 0.5f;
     btn_ViewStudParent.layer.borderColor=[UIColor colorWithRed:32.0/255.0 green:36.0/255.0 blue:48.0/255.0 alpha:1].CGColor;
-    btn_ViewStudParent.layer.cornerRadius = 5.0f;
+    btn_ViewStudParent.layer.cornerRadius = 3.0f;
+    
+    if ([[[NSUserDefaults standardUserDefaults]valueForKey:KEY_USER_TYPE] isEqualToString:@"p"]) {
+        
+         [btn_ViewStudParent setTitle:@"View My Student" forState:UIControlStateNormal];
+        
+    }else{
+         [btn_ViewStudParent setTitle:@"View My Parent" forState:UIControlStateNormal];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -106,6 +115,11 @@
     [self performSegueWithIdentifier:@"segue_userProfile" sender:nil];
     
 }
+-(IBAction)btnAddStudParDidClicked:(id)sender{
+    
+    [self performSegueWithIdentifier:@"segue_add" sender:nil];
+}
+
 -(IBAction)btnTaskAlertPushDidCliked:(id)sender{
     
     if (isTaskAlertPush) {
@@ -118,6 +132,11 @@
         [btn_taskAlertPush setImage:[UIImage imageNamed:@"blue_checkMark.png"] forState:UIControlStateNormal];
         isTaskAlertPush = YES;
     }
+    
+    btn_taskAlertPush.tag = 1;
+    btn_taskAlertEmail.tag = 0;
+    btn_priorityAlertHigh.tag = 0;
+    btn_priorityAlertRegular.tag = 0;
     
     [self setNotificationSetting:nil];
 }
@@ -133,6 +152,12 @@
         [btn_taskAlertEmail setImage:[UIImage imageNamed:@"blue_checkMark.png"] forState:UIControlStateNormal];
         isTaskAlertEmail = YES;
     }
+    
+    btn_taskAlertPush.tag = 0;
+    btn_taskAlertEmail.tag = 1;
+    btn_priorityAlertHigh.tag = 0;
+    btn_priorityAlertRegular.tag = 0;
+    
     [self setNotificationSetting:nil];
 }
 
@@ -140,52 +165,114 @@
     
     if (isPriorityHigh) {
         
-        [btn_priorityAlertHigh setImage:[UIImage imageNamed:@"blue_uncheckMark.png"] forState:UIControlStateNormal];
-        isPriorityHigh = NO;
+        if(isPriorityRegular){
+         
+            [btn_priorityAlertHigh setImage:[UIImage imageNamed:@"blue_uncheckMark.png"] forState:UIControlStateNormal];
+            isPriorityHigh = NO;
+            
+        }else{
+            
+              [MCAGlobalFunction showAlert:@"Atleast one priority should be selected."];
+              return;
+        }
         
     }else{
         
-        [btn_priorityAlertHigh setImage:[UIImage imageNamed:@"blue_checkMark.png"] forState:UIControlStateNormal];
-        isPriorityHigh = YES;
+        if (isPriorityRegular) {
+            
+            [btn_priorityAlertHigh setImage:[UIImage imageNamed:@"blue_checkMark.png"] forState:UIControlStateNormal];
+            isPriorityHigh = YES;
+            
+        }else{
+            
+            [MCAGlobalFunction showAlert:@"Atleast one priority should be selected."];
+            return;
+        }
     }
+    
+    btn_taskAlertPush.tag = 0;
+    btn_taskAlertEmail.tag = 0;
+    btn_priorityAlertHigh.tag = 1;
+    btn_priorityAlertRegular.tag = 0;
+    
+     [self setNotificationSetting:nil];
 }
 -(IBAction)btnPriorityAlertRegularDidClicked:(id)sender{
     
     if (isPriorityRegular) {
         
-        [btn_priorityAlertRegular setImage:[UIImage imageNamed:@"blue_uncheckMark.png"] forState:UIControlStateNormal];
-        isPriorityRegular = NO;
-        
-    }else{
-        
-        [btn_priorityAlertRegular setImage:[UIImage imageNamed:@"blue_checkMark.png"] forState:UIControlStateNormal];
-        isPriorityRegular = YES;
-    }
+        if (isPriorityHigh) {
+            [btn_priorityAlertRegular setImage:[UIImage imageNamed:@"blue_uncheckMark.png"] forState:UIControlStateNormal];
+            isPriorityRegular = NO;
 
+        }else{
+            [MCAGlobalFunction showAlert:@"Atleast one priority should be selected."];
+            return;
+        }
+    }else{
+        if (isPriorityHigh) {
+            
+            [btn_priorityAlertRegular setImage:[UIImage imageNamed:@"blue_checkMark.png"] forState:UIControlStateNormal];
+            isPriorityRegular = YES;
+        }else{
+            [MCAGlobalFunction showAlert:@"Atleast one priority should be selected."];
+            return;
+        }
+    }
+    
+    btn_taskAlertPush.tag = 0;
+    btn_taskAlertEmail.tag = 0;
+    btn_priorityAlertHigh.tag = 0;
+    btn_priorityAlertRegular.tag = 1;
+    
+     [self setNotificationSetting:nil];
 }
 -(void)setNotificationSetting:(id)sender{
     
     NSMutableDictionary *info = [NSMutableDictionary new];
     
-    if (isTaskAlertEmail) {
-         [info setValue:@"1" forKey:@"notify_by_email"];
-    }else{
-         [info setValue:@"0" forKey:@"notify_by_email"];
-    }
-    
-    if (isTaskAlertPush) {
-        [info setValue:@"1" forKey:@"notify_by_push"];
-    }else{
-        [info setValue:@"0" forKey:@"notify_by_push"];
-    }
-    
+    [info setValue:@"" forKey:@"notify_by_email"];
+    [info setValue:@"" forKey:@"notify_by_push"];
     [info setValue:@"" forKey:@"priority_high"];
     [info setValue:@"" forKey:@"priority_regular"];
+    
+    if (btn_taskAlertPush.tag == 1) {
+        
+        if (isTaskAlertPush) {
+            [info setValue:@"1" forKey:@"notify_by_push"];
+        }else{
+            [info setValue:@"0" forKey:@"notify_by_push"];
+        }
+        
+    }else if (btn_taskAlertEmail.tag == 1){
+        
+        if (isTaskAlertEmail) {
+            [info setValue:@"1" forKey:@"notify_by_email"];
+        }else{
+            [info setValue:@"0" forKey:@"notify_by_email"];
+        }
+        
+    }else if (btn_priorityAlertHigh.tag == 1){
+     
+        if (isPriorityHigh) {
+            [info setValue:@"1" forKey:@"priority_high"];
+        }else{
+            [info setValue:@"0" forKey:@"priority_high"];
+        }
+        
+    }else if (btn_priorityAlertRegular.tag == 1){
+        
+        if (isPriorityRegular) {
+            [info setValue:@"1" forKey:@"priority_regular"];
+        }else{
+            [info setValue:@"0" forKey:@"priority_regular"];
+        }
+    }
+ 
     [info setValue:@"notification_setting" forKey:@"cmd"];
-    
     NSString *str_jsonNotificationSetting = [NSString getJsonObject:info];
-    
     [self requestNotificationSetting:str_jsonNotificationSetting];
+    
 }
 #pragma mark - API CALLING
 
@@ -206,8 +293,8 @@
     
     [[NSUserDefaults standardUserDefaults]setValue:[notification.object valueForKey:@"notify_by_email"] forKey:KEY_NOTIFY_BY_EMAIL];
      [[NSUserDefaults standardUserDefaults]setValue:[notification.object valueForKey:@"notify_by_push"] forKey:KEY_NOTIFY_BY_PUSH];
-//     [[NSUserDefaults standardUserDefaults]setValue:[notification.object valueForKey:@""] forKey:KEY_NOTIFY_BY_EMAIL];
-//     [[NSUserDefaults standardUserDefaults]setValue:[notification.object valueForKey:@""] forKey:KEY_NOTIFY_BY_EMAIL];
+     [[NSUserDefaults standardUserDefaults]setValue:[notification.object valueForKey:@"priority_high"] forKey:KEY_PRIORITY_HIGH];
+     [[NSUserDefaults standardUserDefaults]setValue:[notification.object valueForKey:@"priority_regular"] forKey:KEY_PRIORITY_REGULAR];
     
     [[NSUserDefaults standardUserDefaults]synchronize];
     
