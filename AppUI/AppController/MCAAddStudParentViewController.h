@@ -26,8 +26,11 @@
     
     IBOutlet UIButton *btn_addParent;
     IBOutlet UIButton *btn_addStudent;
-    
+   
+    AryaHUD *HUD;
     
 }
+-(IBAction)btnAddStudentDidClicked:(id)sender;
+-(IBAction)btnAddParentDidClicked:(id)sender;
 
 @end

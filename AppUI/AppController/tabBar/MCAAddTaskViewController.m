@@ -71,7 +71,7 @@
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
         NSDateFormatter *dateFormatter1 = [[NSDateFormatter alloc]init];
         [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-        [dateFormatter1 setDateFormat:@"yyyy/MM/dd"];
+        [dateFormatter1 setDateFormat:@"yyyy/MMM/dd"];
         NSDate *date_Temp =[dateFormatter dateFromString:taskEditDHolder.str_taskStartDate];
         NSString *str_date = [dateFormatter1 stringFromDate:date_Temp];
         
@@ -425,7 +425,6 @@
     }else{
         
         [HUD hide];
-        
         [MCAGlobalFunction showAlert:NET_NOT_AVAIALABLE];
 //        MCATaskDetailDHolder *taskAddDHolder = [MCATaskDetailDHolder new];
 //        
@@ -497,7 +496,7 @@
 -(void)btnBar_doneDidClicked:(id)sender{
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
-    [dateFormatter setDateFormat:@"yyyy/MM/dd"];
+    [dateFormatter setDateFormat:@"yyyy/MMM/dd"];
     NSString *str_date = [dateFormatter stringFromDate:datePicker.date];
     tx_chooseDate.text = str_date;
     

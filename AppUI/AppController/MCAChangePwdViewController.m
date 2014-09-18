@@ -62,9 +62,9 @@
     
     tx_oldPwd.text = [tx_oldPwd.text stringByTrimmingCharactersInSet:
                           [NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    tx_newPwd.text = [tx_oldPwd.text stringByTrimmingCharactersInSet:
+    tx_newPwd.text = [tx_newPwd.text stringByTrimmingCharactersInSet:
                       [NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    tx_confirmPwd.text = [tx_oldPwd.text stringByTrimmingCharactersInSet:
+    tx_confirmPwd.text = [tx_confirmPwd.text stringByTrimmingCharactersInSet:
                       [NSCharacterSet whitespaceAndNewlineCharacterSet]];
  
     if (![tx_oldPwd.text isEqualToString:@""]) {

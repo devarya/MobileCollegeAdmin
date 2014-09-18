@@ -63,7 +63,6 @@
         loginDHolder.str_userType = [responseDict valueForKey:@"user_type"];
         loginDHolder.str_userToken = [responseDict valueForKey:@"user_token"];
         loginDHolder.str_userIsApproved = [responseDict valueForKey:@"user_is_approved"];
-        loginDHolder.arr_StudentData = [responseDict valueForKey:@"student"];
         loginDHolder.str_userName = [responseDict valueForKey:@"user_name"];
         loginDHolder.str_zipCode = [responseDict valueForKey:@"zipcode"];
         loginDHolder.str_notifyByPush = [responseDict valueForKey:@"notify_by_push"];
@@ -71,6 +70,9 @@
         loginDHolder.str_priorityRegular = [responseDict valueForKey:@"priority_regular"];
         loginDHolder.str_priorityHigh = [responseDict valueForKey:@"priority_high"];
         loginDHolder.str_family = [responseDict valueForKey:@"family"];
+      
+        loginDHolder.arr_StudentData = [responseDict valueForKey:@"student"];
+        loginDHolder.arr_parentData = [responseDict valueForKey:@"parent"];
         
         for (int i = 0; i < loginDHolder.arr_StudentData.count; i++)
         {
@@ -92,6 +94,28 @@
             [arr_studList addObject:studDHolder];
         
         }
+        
+        for (int i = 0; i < loginDHolder.arr_parentData.count; i++)
+        {
+            MCASignUpDHolder *studDHolder = [MCASignUpDHolder new];
+            studDHolder.str_userId = [[loginDHolder.arr_parentData valueForKey:@"user_id"]objectAtIndex:i];
+            studDHolder.str_userType = [[loginDHolder.arr_parentData valueForKey:@"user_type"]objectAtIndex:i];
+            studDHolder.str_userName = [[loginDHolder.arr_parentData valueForKey:@"user_name"]objectAtIndex:i];
+            studDHolder.str_signinId = [[loginDHolder.arr_parentData valueForKey:@"signin_id"]objectAtIndex:i];
+            studDHolder.str_lang = [[loginDHolder.arr_parentData valueForKey:@"language"]objectAtIndex:i];
+            studDHolder.str_zipCode = [[loginDHolder.arr_parentData valueForKey:@"zipcode"]objectAtIndex:i];
+            studDHolder.str_grade = [[loginDHolder.arr_parentData valueForKey:@"grade"]objectAtIndex:i];
+            studDHolder.str_family = [[loginDHolder.arr_parentData valueForKey:@"family"]objectAtIndex:i];
+            studDHolder.str_notifyByPush = [[loginDHolder.arr_parentData valueForKey:@"notify_by_push"]objectAtIndex:i];
+            studDHolder.str_notifyByMail = [[loginDHolder.arr_parentData valueForKey:@"notify_by_email"]objectAtIndex:i];
+            
+            [[NSUserDefaults standardUserDefaults]setValue:studDHolder.str_lang forKey:KEY_LANGUAGE_CODE];
+            [[NSUserDefaults standardUserDefaults]synchronize];
+            
+            [arr_studList addObject:studDHolder];
+            
+        }
+
     
         [[MCADBIntraction databaseInteractionManager]insertStudList:arr_studList];
         
@@ -161,9 +185,9 @@
 }
 
 
-#pragma mark - ADD_STUDENT
+#pragma mark - USER_EXIST
 
--(void)requestForAddStudent:(NSString *)info{
+-(void)requestForUserExist:(NSString *)info{
     
     NSURL *url = [NSURL URLWithString:URL_MAIN];
     ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
@@ -171,19 +195,19 @@
     [request setPostValue:info forKey:@"data"];
     
     [request setDelegate:self];
-    [request setDidFailSelector:@selector(requestAddStudentFail:)];
-    [request setDidFinishSelector:@selector(requestAddStudentSuccess:)];
+    [request setDidFailSelector:@selector(requestUserExistFail:)];
+    [request setDidFinishSelector:@selector(requestUserExistSuccess:)];
     [request startAsynchronous];
     
 }
--(void)requestAddStudentFail:(ASIFormDataRequest*)request{
+-(void)requestUserExistFail:(ASIFormDataRequest*)request{
     
     dispatch_async(dispatch_get_main_queue(), ^
                    {
-                       [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_ADD_STUDENT_FAILED object:@"Unable to add student at this movement."];
+                       [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_USER_EXIST_FAILED object:@"Unable to add student at this movement."];
                    });
 }
--(void)requestAddStudentSuccess:(ASIFormDataRequest*)request{
+-(void)requestUserExistSuccess:(ASIFormDataRequest*)request{
     
     NSString *responseString = [request responseString];
     responseString = [[responseString componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@""];
@@ -199,7 +223,7 @@
         NSString *errMsg = [results objectForKey:@"msg"];
         dispatch_async(dispatch_get_main_queue(), ^
                        {
-                           [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_ADD_STUDENT_FAILED object:errMsg];
+                           [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_USER_EXIST_FAILED object:errMsg];
                        });
         
        
@@ -207,7 +231,7 @@
         
         dispatch_async(dispatch_get_main_queue(), ^
                        {
-                           [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_ADD_STUDENT_SUCCESS object:nil];
+                           [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_USER_EXIST_SUCCESS object:nil];
                        });
       
       }
@@ -264,6 +288,8 @@
         signUpDHolder.str_userType = [responseDict valueForKey:@"user_type"];
         signUpDHolder.str_userName = [responseDict valueForKey:@"user_name"];
         signUpDHolder.str_zipCode = [responseDict valueForKey:@"zipcode"];
+        signUpDHolder.str_priorityRegular = [responseDict valueForKey:@"priority_regular"];
+        signUpDHolder.str_priorityHigh = [responseDict valueForKey:@"priority_high"];
         
         for (int i = 0; i < signUpDHolder.arr_StudentData.count; i++)
         {
@@ -346,6 +372,8 @@
         signUpDHolder.str_userType = [responseDict valueForKey:@"user_type"];
         signUpDHolder.str_userName = [responseDict valueForKey:@"user_name"];
         signUpDHolder.str_zipCode = [responseDict valueForKey:@"zipcode"];
+        signUpDHolder.str_priorityRegular = [responseDict valueForKey:@"priority_regular"];
+        signUpDHolder.str_priorityHigh = [responseDict valueForKey:@"priority_high"];
         
         dispatch_async(dispatch_get_main_queue(), ^
                        {
@@ -926,5 +954,190 @@
                        });
     }
 }
+
+#pragma mark - ADD_STUDENT
+
+-(void)requestForAddStudent:(NSString *)info{
+    
+    NSURL *url = [NSURL URLWithString:URL_MAIN];
+    ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
+    
+    [request setPostValue:info forKey:@"data"];
+    
+    [request setDelegate:self];
+    [request setDidFailSelector:@selector(requestAddStudentFail:)];
+    [request setDidFinishSelector:@selector(requestAddStudentSuccess:)];
+    [request startAsynchronous];
+    
+}
+-(void)requestAddStudentFail:(ASIFormDataRequest*)request{
+    
+    dispatch_async(dispatch_get_main_queue(), ^
+                   {
+                       [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_ADD_STUDENT_FAILED object:@"Unable to perform task at this movement."];
+                   });
+}
+-(void)requestAddStudentSuccess:(ASIFormDataRequest*)request{
+    
+    NSString *responseString = [request responseString];
+    responseString = [[responseString componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@""];
+    responseString = [responseString stringByReplacingOccurrencesOfString:@"\t" withString:@""];
+    SBJSON *parser=[[SBJSON alloc]init];
+    
+    NSDictionary *results = [parser objectWithString:responseString error:nil];
+    NSMutableDictionary *responseDict = ((NSMutableDictionary *)[results objectForKey:@"data"]);
+    NSString *status_code = [results valueForKey:@"status_code"];
+    NSMutableArray *arr_studList = [NSMutableArray new];
+    
+    if ([status_code isEqualToString:@"S1030"]){
+        
+        MCALoginDHolder *loginDHolder = [MCALoginDHolder new];
+        loginDHolder.str_userId = [responseDict valueForKey:@"user_id"];
+        loginDHolder.str_signinId = [responseDict valueForKey:@"signin_id"];
+        loginDHolder.str_grade = [responseDict valueForKey:@"grade"];
+        loginDHolder.str_userType = [responseDict valueForKey:@"user_type"];
+        loginDHolder.str_userToken = [responseDict valueForKey:@"user_token"];
+        loginDHolder.str_userIsApproved = [responseDict valueForKey:@"user_is_approved"];
+        loginDHolder.arr_StudentData = [responseDict valueForKey:@"student"];
+        loginDHolder.str_userName = [responseDict valueForKey:@"user_name"];
+        loginDHolder.str_zipCode = [responseDict valueForKey:@"zipcode"];
+        loginDHolder.str_notifyByPush = [responseDict valueForKey:@"notify_by_push"];
+        loginDHolder.str_notifyByMail = [responseDict valueForKey:@"notify_by_email"];
+        loginDHolder.str_priorityRegular = [responseDict valueForKey:@"priority_regular"];
+        loginDHolder.str_priorityHigh = [responseDict valueForKey:@"priority_high"];
+        loginDHolder.str_family = [responseDict valueForKey:@"family"];
+        
+        for (int i = 0; i < loginDHolder.arr_StudentData.count; i++)
+        {
+            MCASignUpDHolder *studDHolder = [MCASignUpDHolder new];
+            studDHolder.str_userId = [[loginDHolder.arr_StudentData valueForKey:@"user_id"]objectAtIndex:i];
+            studDHolder.str_userType = [[loginDHolder.arr_StudentData valueForKey:@"user_type"]objectAtIndex:i];
+            studDHolder.str_userName = [[loginDHolder.arr_StudentData valueForKey:@"user_name"]objectAtIndex:i];
+            studDHolder.str_signinId = [[loginDHolder.arr_StudentData valueForKey:@"signin_id"]objectAtIndex:i];
+            studDHolder.str_lang = [[loginDHolder.arr_StudentData valueForKey:@"language"]objectAtIndex:i];
+            studDHolder.str_zipCode = [[loginDHolder.arr_StudentData valueForKey:@"zipcode"]objectAtIndex:i];
+            studDHolder.str_grade = [[loginDHolder.arr_StudentData valueForKey:@"grade"]objectAtIndex:i];
+            studDHolder.str_family = [[loginDHolder.arr_StudentData valueForKey:@"family"]objectAtIndex:i];
+            studDHolder.str_notifyByPush = [[loginDHolder.arr_StudentData valueForKey:@"notify_by_push"]objectAtIndex:i];
+            studDHolder.str_notifyByMail = [[loginDHolder.arr_StudentData valueForKey:@"notify_by_email"]objectAtIndex:i];
+            studDHolder.str_priorityHigh = [loginDHolder.arr_StudentData valueForKey:@"priority_high"];
+            studDHolder.str_priorityRegular = [loginDHolder.arr_StudentData valueForKey:@"priority_regular"];
+            
+            [[NSUserDefaults standardUserDefaults]setValue:studDHolder.str_lang forKey:KEY_LANGUAGE_CODE];
+            [[NSUserDefaults standardUserDefaults]synchronize];
+            
+            [arr_studList addObject:studDHolder];
+            
+        }
+        
+        [[MCADBIntraction databaseInteractionManager]insertStudList:arr_studList];
+        
+        dispatch_async(dispatch_get_main_queue(), ^
+                       {
+                           [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_ADD_STUDENT_SUCCESS object:loginDHolder];
+                       });
+    }else{
+        NSString *errMsg = [results valueForKey:@"msg"];
+        dispatch_async(dispatch_get_main_queue(), ^
+                       {
+                           [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_ADD_STUDENT_FAILED object:errMsg];
+                       });
+    }
+}
+
+
+#pragma mark - ADD_PARENT
+
+-(void)requestForAddParent:(NSString *)info{
+    
+    NSURL *url = [NSURL URLWithString:URL_MAIN];
+    ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
+    
+    [request setPostValue:info forKey:@"data"];
+    
+    [request setDelegate:self];
+    [request setDidFailSelector:@selector(requestAddParentFail:)];
+    [request setDidFinishSelector:@selector(requestAddParentSuccess:)];
+    [request startAsynchronous];
+    
+}
+-(void)requestAddParentFail:(ASIFormDataRequest*)request{
+    
+    dispatch_async(dispatch_get_main_queue(), ^
+                   {
+                       [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_ADD_PARENT_FAILED object:@"Unable to perform task at this movement."];
+                   });
+}
+-(void)requestAddParentSuccess:(ASIFormDataRequest*)request{
+    
+    NSString *responseString = [request responseString];
+    responseString = [[responseString componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@""];
+    responseString = [responseString stringByReplacingOccurrencesOfString:@"\t" withString:@""];
+    SBJSON *parser=[[SBJSON alloc]init];
+    
+    NSDictionary *results = [parser objectWithString:responseString error:nil];
+    NSMutableDictionary *responseDict = ((NSMutableDictionary *)[results objectForKey:@"data"]);
+    NSString *status_code = [results valueForKey:@"status_code"];
+    NSMutableArray *arr_parentList = [NSMutableArray new];
+    
+    if ([status_code isEqualToString:@"S1029"]) {
+        
+        MCALoginDHolder *loginDHolder = [MCALoginDHolder new];
+        loginDHolder.str_userId = [responseDict valueForKey:@"user_id"];
+        loginDHolder.str_signinId = [responseDict valueForKey:@"signin_id"];
+        loginDHolder.str_grade = [responseDict valueForKey:@"grade"];
+        loginDHolder.str_userType = [responseDict valueForKey:@"user_type"];
+        loginDHolder.str_userToken = [responseDict valueForKey:@"user_token"];
+        loginDHolder.str_userIsApproved = [responseDict valueForKey:@"user_is_approved"];
+        loginDHolder.arr_StudentData = [responseDict valueForKey:@"parent"];
+        loginDHolder.str_userName = [responseDict valueForKey:@"user_name"];
+        loginDHolder.str_zipCode = [responseDict valueForKey:@"zipcode"];
+        loginDHolder.str_notifyByPush = [responseDict valueForKey:@"notify_by_push"];
+        loginDHolder.str_notifyByMail = [responseDict valueForKey:@"notify_by_email"];
+        loginDHolder.str_priorityRegular = [responseDict valueForKey:@"priority_regular"];
+        loginDHolder.str_priorityHigh = [responseDict valueForKey:@"priority_high"];
+        loginDHolder.str_family = [responseDict valueForKey:@"family"];
+        
+        for (int i = 0; i < loginDHolder.arr_StudentData.count; i++)
+        {
+            MCASignUpDHolder *studDHolder = [MCASignUpDHolder new];
+            studDHolder.str_userId = [[loginDHolder.arr_StudentData valueForKey:@"user_id"]objectAtIndex:i];
+            studDHolder.str_userType = [[loginDHolder.arr_StudentData valueForKey:@"user_type"]objectAtIndex:i];
+            studDHolder.str_userName = [[loginDHolder.arr_StudentData valueForKey:@"user_name"]objectAtIndex:i];
+            studDHolder.str_signinId = [[loginDHolder.arr_StudentData valueForKey:@"signin_id"]objectAtIndex:i];
+            studDHolder.str_lang = [[loginDHolder.arr_StudentData valueForKey:@"language"]objectAtIndex:i];
+            studDHolder.str_zipCode = [[loginDHolder.arr_StudentData valueForKey:@"zipcode"]objectAtIndex:i];
+            studDHolder.str_grade = [[loginDHolder.arr_StudentData valueForKey:@"grade"]objectAtIndex:i];
+            studDHolder.str_family = [[loginDHolder.arr_StudentData valueForKey:@"family"]objectAtIndex:i];
+            studDHolder.str_notifyByPush = [[loginDHolder.arr_StudentData valueForKey:@"notify_by_push"]objectAtIndex:i];
+            studDHolder.str_notifyByMail = [[loginDHolder.arr_StudentData valueForKey:@"notify_by_email"]objectAtIndex:i];
+            studDHolder.str_priorityHigh = [loginDHolder.arr_StudentData valueForKey:@"priority_high"];
+            studDHolder.str_priorityRegular = [loginDHolder.arr_StudentData valueForKey:@"priority_regular"];
+            
+            [[NSUserDefaults standardUserDefaults]setValue:studDHolder.str_lang forKey:KEY_LANGUAGE_CODE];
+            [[NSUserDefaults standardUserDefaults]synchronize];
+            
+            [arr_parentList addObject:studDHolder];
+            
+        }
+        
+        [[MCADBIntraction databaseInteractionManager]insertStudList:arr_parentList];
+
+        
+        NSString *errMsg = [results valueForKey:@"msg"];
+        dispatch_async(dispatch_get_main_queue(), ^
+                       {
+                           [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_ADD_PARENT_SUCCESS object:loginDHolder];
+                       });
+    }else{
+        NSString *errMsg = [results valueForKey:@"msg"];
+        dispatch_async(dispatch_get_main_queue(), ^
+                       {
+                           [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_ADD_PARENT_FAILED object:errMsg];
+                       });
+     }
+}
+
+
 
 @end

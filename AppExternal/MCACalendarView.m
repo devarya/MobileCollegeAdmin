@@ -359,7 +359,7 @@
    // CGContextSetFillColorWithColor(context,
     //                               [UIColor colorWithHexString:@"0x383838"].CGColor);
     
-    /////////////////////////////////////////////days colors//////////////////////////////////////////
+    /////////////////////////////////////////////WeekDays colors//////////////////////////////////////////
     CGContextSetFillColorWithColor(context,
                                    [UIColor grayColor].CGColor);
 
@@ -525,7 +525,7 @@
             targetDate = (i-firstWeekDay)+1;
             NSString *hex = (isSelectedDatePreviousMonth || isSelectedDateNextMonth) ? @"0xaaaaaa" : @"0x383838";
             CGContextSetFillColorWithColor(context, 
-                                           [UIColor colorWithHexString:hex].CGColor);
+                                           [UIColor grayColor].CGColor);
         }
         
         NSString *date = [NSString stringWithFormat:@"%i",targetDate];
@@ -547,15 +547,15 @@
         
         else if (todayBlock==i)
         {
-            CGRect rectangleGrid = CGRectMake(targetX,targetY,kMCACalendarViewDayWidth+2,kMCACalendarViewDayHeight+2);
-            CGContextAddRect(context, rectangleGrid);
-            
-            ///////////////////////////////////////current date color///////////////////////////////////////////
-            CGContextSetFillColorWithColor(context, [UIColor colorWithRed:32.0/255.0 green:36.0/255.0 blue:48.0/255.0 alpha:0.8].CGColor);
-            CGContextFillPath(context);
+//            CGRect rectangleGrid = CGRectMake(targetX,targetY,kMCACalendarViewDayWidth+2,kMCACalendarViewDayHeight+2);
+//            CGContextAddRect(context, rectangleGrid);
+//            
+//            ///////////////////////////////////////current date color///////////////////////////////////////////
+//            CGContextSetFillColorWithColor(context, [UIColor colorWithRed:32.0/255.0 green:36.0/255.0 blue:48.0/255.0 alpha:0.8].CGColor);
+//            CGContextFillPath(context);
             
             CGContextSetFillColorWithColor(context,
-                                           [UIColor whiteColor].CGColor);
+                                           [UIColor grayColor].CGColor);
         }
         
         NSString *str_priorityR=[[[NSString stringWithFormat:@"%@%d",@",",i]stringByAppendingString:@"r"]stringByAppendingString:@","];
@@ -587,9 +587,17 @@
                                            [UIColor colorWithRed:39.0/255.0 green:166.0/255.0 blue:213.0/255.0 alpha:1.0].CGColor);
         }
         
-        [date drawInRect:CGRectMake(targetX+2, targetY+10, kMCACalendarViewDayWidth, kMCACalendarViewDayHeight)
-                withFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:14]
-           lineBreakMode:NSLineBreakByClipping alignment:NSTextAlignmentCenter];
+        if(todayBlock==i){
+            
+            [date drawInRect:CGRectMake(targetX+2, targetY+10, kMCACalendarViewDayWidth, kMCACalendarViewDayHeight)
+                    withFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:14]
+               lineBreakMode:NSLineBreakByClipping alignment:NSTextAlignmentCenter];
+        }else{
+            
+            [date drawInRect:CGRectMake(targetX+2, targetY+10, kMCACalendarViewDayWidth, kMCACalendarViewDayHeight)
+                    withFont:[UIFont fontWithName:@"HelveticaNeue" size:14]
+               lineBreakMode:NSLineBreakByClipping alignment:NSTextAlignmentCenter];
+        }
     }
     
     //    CGContextClosePath(context);

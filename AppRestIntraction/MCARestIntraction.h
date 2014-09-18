@@ -27,7 +27,7 @@ MCARestIntraction *restIntraction;
 +(id)sharedManager;
 -(void)requestForLogin:(NSString*)info;
 -(void)requestForForgotPwd:(NSString*)info;
--(void)requestForAddStudent:(NSString*)info;
+-(void)requestForUserExist:(NSString*)info;
 -(void)requestForParentSignUp:(NSString*)info;
 -(void)requestForStudentSignUp:(NSString*)info;
 -(void)requestForTaskList:(NSString *)info;
@@ -39,5 +39,8 @@ MCARestIntraction *restIntraction;
 -(void)requestForUserProfileEdit:(NSString *)info;
 -(void)requestForChangePwd:(NSString *)info;
 -(void)requestForNotificationSetting:(NSString *)info;
+-(void)requestForAddStudent:(NSString*)info;
+-(void)requestForAddParent:(NSString*)info;
+
 
 @end

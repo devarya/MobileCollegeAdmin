@@ -18,13 +18,12 @@
 		CE207FB919A8580F00F329FC /* NSString+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = CE207FB819A8580F00F329FC /* NSString+Util.m */; };
 		CE24C6011994B2A70048B85D /* MCATaskDetailDHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = CE24C6001994B2A70048B85D /* MCATaskDetailDHolder.m */; };
 		CE27456119C01FD000DDA5A8 /* MCATermUseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE27456019C01FD000DDA5A8 /* MCATermUseViewController.m */; };
-		CE27456319C0255F00DDA5A8 /* terms.html in Resources */ = {isa = PBXBuildFile; fileRef = CE27456219C0255F00DDA5A8 /* terms.html */; };
 		CE27456619C02C0900DDA5A8 /* MCAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE27456519C02C0900DDA5A8 /* MCAAppDelegate.m */; };
 		CE27456919C031E400DDA5A8 /* MCATutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE27456819C031E400DDA5A8 /* MCATutorialViewController.m */; };
 		CE27456F19C0333C00DDA5A8 /* tutorial1.png in Resources */ = {isa = PBXBuildFile; fileRef = CE27456A19C0333C00DDA5A8 /* tutorial1.png */; };
-		CE27457019C0333C00DDA5A8 /* tutorial2.png in Resources */ = {isa = PBXBuildFile; fileRef = CE27456B19C0333C00DDA5A8 /* tutorial2.png */; };
-		CE27457119C0333C00DDA5A8 /* tutorial3.png in Resources */ = {isa = PBXBuildFile; fileRef = CE27456C19C0333C00DDA5A8 /* tutorial3.png */; };
-		CE27457219C0333C00DDA5A8 /* tutorial4.png in Resources */ = {isa = PBXBuildFile; fileRef = CE27456D19C0333C00DDA5A8 /* tutorial4.png */; };
+		CE27457019C0333C00DDA5A8 /* tutorial3.png in Resources */ = {isa = PBXBuildFile; fileRef = CE27456B19C0333C00DDA5A8 /* tutorial3.png */; };
+		CE27457119C0333C00DDA5A8 /* tutorial4.png in Resources */ = {isa = PBXBuildFile; fileRef = CE27456C19C0333C00DDA5A8 /* tutorial4.png */; };
+		CE27457219C0333C00DDA5A8 /* tutorial2.png in Resources */ = {isa = PBXBuildFile; fileRef = CE27456D19C0333C00DDA5A8 /* tutorial2.png */; };
 		CE27457319C0333C00DDA5A8 /* tutorial0.png in Resources */ = {isa = PBXBuildFile; fileRef = CE27456E19C0333C00DDA5A8 /* tutorial0.png */; };
 		CE278A1919920D6700783592 /* NSMutableArray+SWUtilityButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = CE278A0E19920D6700783592 /* NSMutableArray+SWUtilityButtons.m */; };
 		CE278A1A19920D6700783592 /* SWCellScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE278A1019920D6700783592 /* SWCellScrollView.m */; };
@@ -61,6 +60,8 @@
 		CE394C3619938D300080B5B8 /* MCACustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CE394C3519938D300080B5B8 /* MCACustomButton.m */; };
 		CE3B4FE619C18359001B07D4 /* MCASettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3B4FE519C18359001B07D4 /* MCASettingViewController.m */; };
 		CE3B4FE919C19966001B07D4 /* MCAUserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3B4FE819C19966001B07D4 /* MCAUserProfileViewController.m */; };
+		CE3E7E3119CAC02200016A10 /* terms_en.html in Resources */ = {isa = PBXBuildFile; fileRef = CE3E7E2F19CAC02200016A10 /* terms_en.html */; };
+		CE3E7E3219CAC02200016A10 /* terms_es.html in Resources */ = {isa = PBXBuildFile; fileRef = CE3E7E3019CAC02200016A10 /* terms_es.html */; };
 		CE49490619B7416A00320D8C /* MobileCollegeAdmin.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = CE49490519B7416A00320D8C /* MobileCollegeAdmin.sqlite */; };
 		CE49490719B7416A00320D8C /* MobileCollegeAdmin.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = CE49490519B7416A00320D8C /* MobileCollegeAdmin.sqlite */; };
 		CE52ED4319C806D1005B1A92 /* MCAAddStudParentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE52ED4219C806D1005B1A92 /* MCAAddStudParentViewController.m */; };
@@ -155,15 +156,14 @@
 		CE24C6001994B2A70048B85D /* MCATaskDetailDHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCATaskDetailDHolder.m; sourceTree = "<group>"; };
 		CE27455F19C01FD000DDA5A8 /* MCATermUseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCATermUseViewController.h; sourceTree = "<group>"; };
 		CE27456019C01FD000DDA5A8 /* MCATermUseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCATermUseViewController.m; sourceTree = "<group>"; };
-		CE27456219C0255F00DDA5A8 /* terms.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = terms.html; sourceTree = "<group>"; };
 		CE27456419C02C0900DDA5A8 /* MCAAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCAAppDelegate.h; sourceTree = "<group>"; };
 		CE27456519C02C0900DDA5A8 /* MCAAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCAAppDelegate.m; sourceTree = "<group>"; };
 		CE27456719C031E400DDA5A8 /* MCATutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCATutorialViewController.h; sourceTree = "<group>"; };
 		CE27456819C031E400DDA5A8 /* MCATutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCATutorialViewController.m; sourceTree = "<group>"; };
 		CE27456A19C0333C00DDA5A8 /* tutorial1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutorial1.png; sourceTree = "<group>"; };
-		CE27456B19C0333C00DDA5A8 /* tutorial2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutorial2.png; sourceTree = "<group>"; };
-		CE27456C19C0333C00DDA5A8 /* tutorial3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutorial3.png; sourceTree = "<group>"; };
-		CE27456D19C0333C00DDA5A8 /* tutorial4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutorial4.png; sourceTree = "<group>"; };
+		CE27456B19C0333C00DDA5A8 /* tutorial3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutorial3.png; sourceTree = "<group>"; };
+		CE27456C19C0333C00DDA5A8 /* tutorial4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutorial4.png; sourceTree = "<group>"; };
+		CE27456D19C0333C00DDA5A8 /* tutorial2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutorial2.png; sourceTree = "<group>"; };
 		CE27456E19C0333C00DDA5A8 /* tutorial0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutorial0.png; sourceTree = "<group>"; };
 		CE278A0D19920D6700783592 /* NSMutableArray+SWUtilityButtons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+SWUtilityButtons.h"; sourceTree = "<group>"; };
 		CE278A0E19920D6700783592 /* NSMutableArray+SWUtilityButtons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+SWUtilityButtons.m"; sourceTree = "<group>"; };
@@ -232,6 +232,8 @@
 		CE3B4FE519C18359001B07D4 /* MCASettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCASettingViewController.m; sourceTree = "<group>"; };
 		CE3B4FE719C19966001B07D4 /* MCAUserProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCAUserProfileViewController.h; sourceTree = "<group>"; };
 		CE3B4FE819C19966001B07D4 /* MCAUserProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCAUserProfileViewController.m; sourceTree = "<group>"; };
+		CE3E7E2F19CAC02200016A10 /* terms_en.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = terms_en.html; sourceTree = "<group>"; };
+		CE3E7E3019CAC02200016A10 /* terms_es.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = terms_es.html; sourceTree = "<group>"; };
 		CE49490519B7416A00320D8C /* MobileCollegeAdmin.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = MobileCollegeAdmin.sqlite; sourceTree = "<group>"; };
 		CE52ED4119C806D1005B1A92 /* MCAAddStudParentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCAAddStudParentViewController.h; sourceTree = "<group>"; };
 		CE52ED4219C806D1005B1A92 /* MCAAddStudParentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCAAddStudParentViewController.m; sourceTree = "<group>"; };
@@ -546,16 +548,17 @@
 		CE7E431A19A22B3200A8652F /* AppResources */ = {
 			isa = PBXGroup;
 			children = (
-				CE27456219C0255F00DDA5A8 /* terms.html */,
+				CE3E7E2F19CAC02200016A10 /* terms_en.html */,
+				CE3E7E3019CAC02200016A10 /* terms_es.html */,
 				CE7E431B19A22B4C00A8652F /* ducksmall.mp4 */,
 				CE7E431C19A22B4C00A8652F /* mousesmall.mp4 */,
 				CE7E431D19A22B4C00A8652F /* pigsmall.mp4 */,
 				CE7E431E19A22B4C00A8652F /* rabbitsmall.mp4 */,
 				CE17F55F199C75F90027251A /* Images.xcassets */,
 				CE27456A19C0333C00DDA5A8 /* tutorial1.png */,
-				CE27456B19C0333C00DDA5A8 /* tutorial2.png */,
-				CE27456C19C0333C00DDA5A8 /* tutorial3.png */,
-				CE27456D19C0333C00DDA5A8 /* tutorial4.png */,
+				CE27456B19C0333C00DDA5A8 /* tutorial3.png */,
+				CE27456C19C0333C00DDA5A8 /* tutorial4.png */,
+				CE27456D19C0333C00DDA5A8 /* tutorial2.png */,
 				CE27456E19C0333C00DDA5A8 /* tutorial0.png */,
 			);
 			path = AppResources;
@@ -950,17 +953,18 @@
 				CE27456F19C0333C00DDA5A8 /* tutorial1.png in Resources */,
 				CE2DFC3B19AEEC03000D59EB /* noimage1.png in Resources */,
 				CE30FB8A19B18B9E00E036B2 /* 120*120@2x.png in Resources */,
-				CE27457019C0333C00DDA5A8 /* tutorial2.png in Resources */,
+				CE27457019C0333C00DDA5A8 /* tutorial3.png in Resources */,
 				CE49490619B7416A00320D8C /* MobileCollegeAdmin.sqlite in Resources */,
 				CE30FB8919B18B9E00E036B2 /* 80*80@2x.png in Resources */,
-				CE27457219C0333C00DDA5A8 /* tutorial4.png in Resources */,
+				CE27457219C0333C00DDA5A8 /* tutorial2.png in Resources */,
 				CE7E432119A22B4C00A8652F /* pigsmall.mp4 in Resources */,
 				CE7E431F19A22B4C00A8652F /* ducksmall.mp4 in Resources */,
-				CE27457119C0333C00DDA5A8 /* tutorial3.png in Resources */,
+				CE3E7E3119CAC02200016A10 /* terms_en.html in Resources */,
+				CE27457119C0333C00DDA5A8 /* tutorial4.png in Resources */,
 				CE7E432219A22B4C00A8652F /* rabbitsmall.mp4 in Resources */,
-				CE27456319C0255F00DDA5A8 /* terms.html in Resources */,
 				CE7E432019A22B4C00A8652F /* mousesmall.mp4 in Resources */,
 				CE30FB8819B18B9E00E036B2 /* 58*58@2x.png in Resources */,
+				CE3E7E3219CAC02200016A10 /* terms_es.html in Resources */,
 				CE84C2241962D88700A351FF /* Main_Iphone.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

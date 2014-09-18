@@ -28,5 +28,5 @@
 @property(nonatomic,strong)NSString *str_deviceId;
 @property(nonatomic,strong)NSString *str_userIsApproved;
 @property(nonatomic,strong)NSMutableArray *arr_StudentData;
-
+@property(nonatomic,strong)NSMutableArray *arr_parentData;
 @end

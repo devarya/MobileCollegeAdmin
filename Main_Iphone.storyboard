@@ -582,10 +582,10 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" id="bb2-VQ-Zvx">
-                                <rect key="frame" x="9" y="-121" width="302" height="217"/>
+                                <rect key="frame" x="9" y="-120" width="302" height="217"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Enter Student Details" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OXx-h9-YUd">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Enter Student Details" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OXx-h9-YUd">
                                         <rect key="frame" x="0.0" y="0.0" width="302" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -744,7 +744,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username or email" textAlignment="center" minimumFontSize="17" id="rA1-AU-8UH">
-                                <rect key="frame" x="30" y="232" width="260" height="30"/>
+                                <rect key="frame" x="30" y="213" width="260" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -755,7 +755,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" id="zuv-dV-xjV">
-                                <rect key="frame" x="30" y="268" width="260" height="30"/>
+                                <rect key="frame" x="30" y="249" width="260" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.12549019610000001" green="0.14117647059999999" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -766,7 +766,7 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="WWx-qd-fbm">
-                                <rect key="frame" x="30" y="312" width="261" height="36"/>
+                                <rect key="frame" x="30" y="292" width="261" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="LOGIN" backgroundImage="btnLogin">
@@ -778,21 +778,20 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginLogo" id="Anq-YM-gAH">
-                                <rect key="frame" x="92" y="44" width="136" height="136"/>
+                                <rect key="frame" x="92" y="35" width="136" height="136"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobile College Admin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="chM-vF-x1W">
-                                <rect key="frame" x="30" y="184" width="260" height="21"/>
+                                <rect key="frame" x="30" y="175" width="260" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="v4Q-hG-Bj1">
-                                <rect key="frame" x="30" y="356" width="260" height="26"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="v4Q-hG-Bj1">
+                                <rect key="frame" x="30" y="370" width="260" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <state key="normal" title="NEW USER? SIGN UP">
+                                <state key="normal" title="NEW USER? SIGN UP" backgroundImage="btngray">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -801,7 +800,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="TYV-yz-QJJ">
-                                <rect key="frame" x="39" y="525" width="134" height="26"/>
+                                <rect key="frame" x="39" y="530" width="134" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" title="Learn more about">
@@ -810,7 +809,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4cl-ax-h13">
-                                <rect key="frame" x="158" y="525" width="134" height="26"/>
+                                <rect key="frame" x="158" y="530" width="134" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" title="Mobile College Admin">
@@ -822,7 +821,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="uZU-aD-gEb">
-                                <rect key="frame" x="30" y="381" width="260" height="26"/>
+                                <rect key="frame" x="30" y="336" width="260" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="Forgot Password?">
@@ -832,6 +831,13 @@
                                 <connections>
                                     <segue destination="aZr-Td-BP7" kind="modal" id="XqP-YX-Y6R"/>
                                 </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nB7-Nu-jQB">
+                                <rect key="frame" x="74" y="413" width="173" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Español">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1604,7 +1610,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h8X-B3-Ffx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1807" y="-275"/>
+            <point key="canvasLocation" x="-1967" y="-275"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="c3o-Ly-ve4">
@@ -1626,7 +1632,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2IK-wv-nVl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1335" y="-741"/>
+            <point key="canvasLocation" x="-1343" y="-693"/>
         </scene>
         <!--Navigation Controller - Tasks-->
         <scene sceneID="iDo-ZS-gky">
@@ -1890,13 +1896,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Images" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7js-3k-JZR">
-                                <rect key="frame" x="7" y="158" width="303" height="30"/>
+                                <rect key="frame" x="8" y="213" width="303" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="nc6-LM-c0d">
-                                <rect key="frame" x="6" y="110" width="304" height="40"/>
+                                <rect key="frame" x="8" y="110" width="302" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
@@ -1922,15 +1928,10 @@
                             <view contentMode="scaleToFill" id="oWr-By-qIl">
                                 <rect key="frame" x="10" y="70" width="300" height="1"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" id="fiB-FT-fHi">
-                                <rect key="frame" x="10" y="149" width="300" height="1"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="GyF-gY-AOF">
-                                <rect key="frame" x="8" y="187" width="302" height="211"/>
+                                <rect key="frame" x="8" y="242" width="302" height="160"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="pOQ-Qq-v6f" id="Cov-Zg-f2g"/>
@@ -1977,7 +1978,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="ydW-vx-fmU">
-                                <rect key="frame" x="6" y="38" width="308" height="100"/>
+                                <rect key="frame" x="6" y="38" width="308" height="156"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1987,7 +1988,7 @@
                                 </connections>
                             </textView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="4kh-VK-KR9">
-                                <rect key="frame" x="10" y="144" width="304" height="304"/>
+                                <rect key="frame" x="6" y="200" width="308" height="248"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="zOS-L9-VtG" id="QC2-Yz-kTy"/>
@@ -2216,12 +2217,15 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="btnAddParentDidClicked:" destination="Khs-LM-gZd" eventType="touchUpInside" id="fjj-IC-yKX"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" id="qSj-vw-P2f">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="454"/>
+                                <rect key="frame" x="0.0" y="500" width="320" height="454"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Student Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="88e-EN-Bea">
@@ -2307,6 +2311,9 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="btnAddStudentDidClicked:" destination="Khs-LM-gZd" eventType="touchUpInside" id="JKa-uw-5Bq"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="I2i-vg-1zA">
                                         <rect key="frame" x="124" y="106" width="188" height="36"/>
@@ -2444,13 +2451,13 @@
                                 <color key="backgroundColor" red="0.1215686275" green="0.1450980392" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" id="kUi-jp-ceL">
-                                <rect key="frame" x="115" y="72" width="90" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="115" y="527" width="90" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <color key="pageIndicatorTintColor" red="0.1529411765" green="0.65098039220000004" blue="0.83529411760000005" alpha="1" colorSpace="deviceRGB"/>
                                 <color key="currentPageIndicatorTintColor" red="0.1215686275" green="0.1450980392" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
                             </pageControl>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="iGY-5O-5Xz">
-                                <rect key="frame" x="0.0" y="110" width="320" height="410"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="460"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                                 <inset key="insetFor6xAndEarlier" minX="0.0" minY="0.0" maxX="0.0" maxY="50"/>
                                 <connections>
@@ -2466,7 +2473,7 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem id="5fN-rY-xPy">
+                                    <navigationItem title="Tutorial" id="5fN-rY-xPy">
                                         <barButtonItem key="leftBarButtonItem" image="back" id="qTD-7Y-agz">
                                             <connections>
                                                 <action selector="btnBackDidClicked:" destination="LeI-Yt-2FK" id="0kC-ZD-gGS"/>
@@ -2486,7 +2493,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ygf-eO-1sy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1787" y="1153"/>
+            <point key="canvasLocation" x="-1967" y="489"/>
         </scene>
         <!--Setting View Controller-->
         <scene sceneID="AEd-VK-NOp">
@@ -2657,6 +2664,9 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnViewStudParentDidClicked:" destination="7vy-gg-FTf" eventType="touchUpInside" id="Vzm-mQ-W9V"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" id="G0R-Uv-lnk">
                                 <rect key="frame" x="10" y="316" width="300" height="1"/>
@@ -2739,6 +2749,15 @@
                                     <action selector="btnPriorityAlertRegularDidClicked:" destination="7vy-gg-FTf" eventType="touchUpInside" id="how-6m-91U"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="DCc-U4-kGJ">
+                                <rect key="frame" x="10" y="324" width="300" height="172"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="7vy-gg-FTf" id="f6J-WV-oeD"/>
+                                    <outlet property="delegate" destination="7vy-gg-FTf" id="tBW-sz-cqg"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -2746,12 +2765,14 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="NI4-So-zhA"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="btn_ViewStudParent" destination="TcU-zO-SA5" id="Z0d-C7-4rC"/>
                         <outlet property="btn_add" destination="7VF-Rc-xTY" id="NIe-tK-LCo"/>
                         <outlet property="btn_priorityAlertHigh" destination="N6S-XB-9Up" id="WKq-Px-7Pl"/>
                         <outlet property="btn_priorityAlertRegular" destination="4Zc-jz-DoE" id="16c-Jc-XGg"/>
                         <outlet property="btn_taskAlertEmail" destination="cq3-LC-UEF" id="3Bn-Xp-zOg"/>
                         <outlet property="btn_taskAlertPush" destination="Rjk-P5-fgu" id="S9z-oT-f2Y"/>
+                        <outlet property="btn_viewStudParent" destination="TcU-zO-SA5" id="4Pg-XS-AOO"/>
+                        <outlet property="lbl_parStud" destination="dcG-Y7-jkx" id="WzQ-PR-MhY"/>
+                        <outlet property="tbl_studParList" destination="DCc-U4-kGJ" id="ndn-6G-L3W"/>
                         <segue destination="5Zy-SR-sf3" kind="push" identifier="segue_userProfile" id="5fb-xf-Pls"/>
                         <segue destination="Mjl-AR-Kbj" kind="push" identifier="segue_changePwd" id="Vau-or-b5r"/>
                         <segue destination="Khs-LM-gZd" kind="push" identifier="segue_add" id="99S-FD-eXN"/>
@@ -3222,6 +3243,7 @@
         <image name="blue_checkMark" width="22" height="22"/>
         <image name="blue_uncheckMark" width="22" height="22"/>
         <image name="btnLogin" width="205" height="26"/>
+        <image name="btngray" width="205" height="26"/>
         <image name="calendar" width="32" height="26"/>
         <image name="camera" width="22" height="22"/>
         <image name="checkMark" width="22" height="22"/>
@@ -3248,7 +3270,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="b9N-e4-lCM"/>
+        <segue reference="5WI-ge-vzp"/>
         <segue reference="hmk-5L-6kX"/>
         <segue reference="of0-yc-Peq"/>
         <segue reference="dTV-EB-axu"/>

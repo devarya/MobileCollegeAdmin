@@ -59,7 +59,7 @@
     [[NSUserDefaults standardUserDefaults]setInteger:0 forKey:KEY_ANIMATION_FILE_RAND_NO];
     [[NSUserDefaults standardUserDefaults]synchronize];
     
-     self.navigationItem.title = @"Tasks";
+     self.navigationItem.title = @"Manage Tasks";
     
     if ([[NSUserDefaults standardUserDefaults]integerForKey:KEY_STUDENT_COUNT] > 0) {
       
@@ -108,7 +108,7 @@
             [btn_add setShowsTouchWhenHighlighted:YES];
 
             
-            UIImage* img_grade = [UIImage imageNamed:@"grade.png"];
+            UIImage* img_grade = [UIImage imageNamed:@"grade1.png"];
             CGRect img_gradeFrame = CGRectMake(0, 0, img_grade.size.width, img_grade.size.height);
             UIButton *btn_grade = [[UIButton alloc] initWithFrame:img_gradeFrame];
             [btn_grade setBackgroundImage:img_grade forState:UIControlStateNormal];
@@ -173,8 +173,14 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(taskListSuccess:) name:NOTIFICATION_TASK_LIST_SUCCESS object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(taskListFailed:) name:NOTIFICATION_TASK_LIST_FAILED object:nil];
     
-     [self getTaskList:nil];
-    
+    [self getTaskList:nil];
+
+    [view_transBg removeFromSuperview];
+    [tbl_gradeList removeFromSuperview];
+    [tbl_studentList removeFromSuperview];
+    self.navigationController.navigationBar.userInteractionEnabled = YES;
+    tabBarMCACtr.tabBar.userInteractionEnabled = YES;
+
 }
 -(void)viewWillDisappear:(BOOL)animated{
     
@@ -341,6 +347,8 @@
 }
 -(void)btnBar_studentDidClicked:(id)sender{
     
+    arr_studentList = [[MCADBIntraction databaseInteractionManager]retrieveStudList:nil];
+    
     if (IS_IPHONE_5) {
         view_transBg = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 568)];
     }else{
@@ -351,7 +359,16 @@
     view_transBg.layer.opacity = 0.6f;
     [self.view addSubview:view_transBg];
     
-    tbl_studentList = [[UITableView alloc]initWithFrame:CGRectMake(20, 160, 282, arr_studentList.count * 32 + 64)];
+    if (arr_studentList.count > 4) {
+        
+         tbl_studentList = [[UITableView alloc]initWithFrame:CGRectMake(20, 140, 282, 160)];
+        
+    }else{
+        
+        tbl_studentList = [[UITableView alloc]initWithFrame:CGRectMake(20, 140, 282, arr_studentList.count * 32 + 64)];
+    }
+    
+    tbl_studentList.layer.borderWidth = 0.5f;
     tbl_studentList.dataSource = self;
     tbl_studentList.delegate = self;
     [tbl_studentList reloadData];
@@ -392,8 +409,11 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     
     if (tableView == tbl_gradeList || tableView == tbl_studentList) {
+        
         return 32;
+        
     }else{
+        
         return 0;
     }
 }
@@ -515,7 +535,7 @@
         
         NSString *cellIdentifier =@"cell";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-        if (cell == nil)
+//        if (cell == nil)
             cell = [[UITableViewCell alloc]
                     initWithStyle:UITableViewCellStyleDefault
                     reuseIdentifier:cellIdentifier];
@@ -617,7 +637,7 @@
         NSDateFormatter *dateFormatter1 = [[NSDateFormatter alloc]init];
         
        [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-       [dateFormatter1 setDateFormat:@"yyyy/MM/dd"];
+       [dateFormatter1 setDateFormat:@"yyyy/MMM/dd"];
         NSDate *dateTemp =[dateFormatter dateFromString:taskDHolder.str_taskStartDate];
         NSString *strDate = [dateFormatter1 stringFromDate:dateTemp];
         cell.lbl_taskStartDate.text = strDate;

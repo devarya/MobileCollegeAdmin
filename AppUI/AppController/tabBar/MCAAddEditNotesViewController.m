@@ -34,6 +34,10 @@
     btn_camera.layer.cornerRadius = 12.0f;
     btn_camera.layer.masksToBounds = YES;
     
+    tv_description.layer.borderWidth = 0.5f;
+    tv_description.layer.cornerRadius = 3.0f;
+    tv_description.layer.masksToBounds = YES;
+    
     tv_description.text = @"Enter Note Description";
     tv_description.textColor = [UIColor lightGrayColor];
     

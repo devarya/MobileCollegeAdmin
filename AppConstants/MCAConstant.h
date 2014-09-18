@@ -61,8 +61,8 @@
 #define NOTIFICATION_LOGIN_SUCCESS @"notificationLoginSuccess"
 #define NOTIFICATION_LOGIN_FAILED @"notificationLoginFailed"
 
-#define NOTIFICATION_ADD_STUDENT_SUCCESS @"notificationAddStudentSuccess"
-#define NOTIFICATION_ADD_STUDENT_FAILED @"notificationAddStudentFailed"
+#define NOTIFICATION_USER_EXIST_SUCCESS @"notificationUserExistSuccess"
+#define NOTIFICATION_USER_EXIST_FAILED @"notificationUserExistFailed"
 
 #define NOTIFICATION_PARENT_SIGNUP_SUCCESS @"notificationParentSignUpSuccess"
 #define NOTIFICATION_PARENT_SIGNUP_FAILED @"notificationParentSignUpFailed"
@@ -101,5 +101,13 @@
 
 #define NOTIFICATION_SETTING_SUCCESS @"notificationSettingSuccess"
 #define NOTIFICATION_SETTING_FAILED @"notificationSettingFailed"
+
+#define NOTIFICATION_ADD_STUDENT_SUCCESS @"notificationAddStudentSuccess"
+#define NOTIFICATION_ADD_STUDENT_FAILED @"notificationAddStudentFailed"
+
+#define NOTIFICATION_ADD_PARENT_SUCCESS @"notificationAddParentSuccess"
+#define NOTIFICATION_ADD_PARENT_FAILED @"notificationAddParentFailed"
+
+#define NOTIFICATION_DROPBOX_LOGIN_SUCCESS @"notificationDropboxLoginSuccess"
 
 

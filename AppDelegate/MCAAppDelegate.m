@@ -21,7 +21,7 @@
     txtField = nil;
     
     UIImageView *launchView = [[UIImageView alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    launchView.image = [UIImage imageNamed:@"Default.png"];
+    launchView.image = [UIImage imageNamed:@"Default2.png"];
     UIViewController *rootViewCtr = [[UIViewController alloc]init];
     rootViewCtr.view.frame = [UIScreen mainScreen].bounds;
     [rootViewCtr.view addSubview:launchView];
@@ -114,6 +114,8 @@
         if ([[DBSession sharedSession] isLinked]) {
             NSLog(@"App linked successfully!");
             // At this point you can start making API calls
+            
+            [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_DROPBOX_LOGIN_SUCCESS object:nil];
         }
         return YES;
     }

@@ -38,8 +38,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(addStudentSuccess:) name:NOTIFICATION_ADD_STUDENT_SUCCESS object:nil];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(addStudentFailed:) name:NOTIFICATION_ADD_STUDENT_FAILED object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(addStudentSuccess:) name:NOTIFICATION_USER_EXIST_SUCCESS object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(addStudentFailed:) name:NOTIFICATION_USER_EXIST_FAILED object:nil];
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(parentSignUpSuccess:) name:NOTIFICATION_PARENT_SIGNUP_SUCCESS object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(parentSignUpFailed:) name:NOTIFICATION_PARENT_SIGNUP_FAILED object:nil];
@@ -745,7 +745,7 @@ if (![tx_addStudEmail.text isEqualToString:@""]&&![tx_addStudGrade.text isEqualT
         
         // 3. Add an image
         UILabel* headerLabel = [[UILabel alloc] init];
-        headerLabel.frame = CGRectMake(12,2,298,22);
+        headerLabel.frame = CGRectMake(0, 0,tableView.frame.size.width,22);
         headerLabel.textColor = [UIColor whiteColor];
         headerLabel.font = [UIFont boldSystemFontOfSize:14];
         headerLabel.text = @"Select Grade";
@@ -928,7 +928,7 @@ if (![tx_addStudEmail.text isEqualToString:@""]&&![tx_addStudGrade.text isEqualT
 -(void)requestAddStudent:(NSString*)info{
     
     if ([MCAGlobalFunction isConnectedToInternet]) {
-        [[MCARestIntraction sharedManager]requestForAddStudent:info];
+        [[MCARestIntraction sharedManager]requestForUserExist:info];
     }else{
         [HUD hide];
         [MCAGlobalFunction showAlert:NET_NOT_AVAIALABLE];
@@ -958,8 +958,8 @@ if (![tx_addStudEmail.text isEqualToString:@""]&&![tx_addStudGrade.text isEqualT
 -(void)addStudentSuccess:(NSNotification*)notification{
     
     [HUD hide];
-    NSMutableDictionary *dict_Student =[NSMutableDictionary new];
     
+    NSMutableDictionary *dict_Student =[NSMutableDictionary new];
     [dict_Student setValue:tx_addStudEmail.text forKey:@"signin_id"];
     tx_addStudGrade.text = [tx_addStudGrade.text stringByReplacingOccurrencesOfString:@"th" withString:@""];
     [dict_Student setValue:tx_addStudGrade.text forKey:@"grade"];

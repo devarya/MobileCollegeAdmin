@@ -61,7 +61,6 @@
     
     
     //Priority Alert
-    
     if ([[[NSUserDefaults standardUserDefaults]valueForKey:KEY_PRIORITY_HIGH] isEqualToString:@"1"]) {
         [btn_priorityAlertHigh setImage:[UIImage imageNamed:@"blue_checkMark.png"] forState:UIControlStateNormal];
         isPriorityHigh = YES;
@@ -84,19 +83,35 @@
     btn_add.layer.borderColor=[UIColor colorWithRed:32.0/255.0 green:36.0/255.0 blue:48.0/255.0 alpha:1].CGColor;
     btn_add.layer.cornerRadius = 3.0f;
     
-    btn_ViewStudParent.layer.borderWidth = 0.5f;
-    btn_ViewStudParent.layer.borderColor=[UIColor colorWithRed:32.0/255.0 green:36.0/255.0 blue:48.0/255.0 alpha:1].CGColor;
-    btn_ViewStudParent.layer.cornerRadius = 3.0f;
+    btn_viewStudParent.layer.borderWidth = 0.5f;
+    btn_viewStudParent.layer.borderColor=[UIColor colorWithRed:32.0/255.0 green:36.0/255.0 blue:48.0/255.0 alpha:1].CGColor;
+    btn_viewStudParent.layer.cornerRadius = 3.0f;
     
     if ([[[NSUserDefaults standardUserDefaults]valueForKey:KEY_USER_TYPE] isEqualToString:@"p"]) {
         
-         [btn_ViewStudParent setTitle:@"View My Student" forState:UIControlStateNormal];
+         [btn_viewStudParent setTitle:@"View My Student" forState:UIControlStateNormal];
+         lbl_parStud.text = @"Add Student";
         
     }else{
-         [btn_ViewStudParent setTitle:@"View My Parent" forState:UIControlStateNormal];
+        
+         [btn_viewStudParent setTitle:@"View My Parent" forState:UIControlStateNormal];
+         lbl_parStud.text = @"Add Parent";
+          arr_studentList = [[MCADBIntraction databaseInteractionManager]retrieveStudList:nil];
+        
+        if (arr_studentList.count >0) {
+            btn_viewStudParent.frame = CGRectMake(114, 281, 194, 30);
+            btn_add.hidden = YES;
+        }
+        
     }
+    
+    tbl_studParList.hidden = YES;
 }
-
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [view_Bg removeFromSuperview];
+    tbl_studParList.hidden = YES;
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -274,6 +289,98 @@
     [self requestNotificationSetting:str_jsonNotificationSetting];
     
 }
+-(IBAction)btnViewStudParentDidClicked:(id)sender{
+    
+    arr_studentList = [[MCADBIntraction databaseInteractionManager]retrieveStudList:nil];
+    
+    if (arr_studentList.count > 0) {
+        
+        if (IS_IPHONE_5) {
+            view_Bg = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 568)];
+        }else{
+            view_Bg = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 480)];
+        }
+        
+        view_Bg.backgroundColor = [UIColor blackColor];
+        view_Bg.layer.opacity = 0.6f;
+        [self.view addSubview:view_Bg];
+  
+        tbl_studParList.layer.borderWidth = 0.5f;
+        tbl_studParList.layer.cornerRadius = 1.0f;
+        
+        if (arr_studentList.count > 4) {
+            
+            tbl_studParList.frame = CGRectMake(10, 100, 300,220);
+        }else{
+            tbl_studParList.frame = CGRectMake(10, 100, 300, arr_studentList.count*46+38);
+        }
+        
+        tbl_studParList.hidden = NO;
+        
+        [tbl_studParList reloadData];
+        [self.view bringSubviewToFront:tbl_studParList];
+        
+    }
+}
+
+#pragma mark - UITABLEVIEW DELEGATE AND DATASOURCE METHODS
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    
+    return 38;
+    
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    return 46;
+    
+}
+-(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    // 1. The view for the header
+    UIView* headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width,40)];
+    
+    // 2. Set a custom background color and a border
+    headerView.backgroundColor = [UIColor colorWithRed:39.0/255 green:166.0/255 blue:213.0/255 alpha:1];
+    
+    // 3. Add an image
+    UILabel* headerLabel = [[UILabel alloc] init];
+    headerLabel.frame = CGRectMake(0,0,300,40);
+    headerLabel.textColor = [UIColor whiteColor];
+    headerLabel.font = [UIFont boldSystemFontOfSize:16];
+    headerLabel.text = @"Connected Student List";
+    headerLabel.textAlignment = NSTextAlignmentCenter;
+    
+    [headerView addSubview:headerLabel];
+    
+    // 5. Finally return
+    return headerView;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return arr_studentList.count;
+    
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *cellIdentifier =@"cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if (cell == nil)
+        cell = [[UITableViewCell alloc]
+                initWithStyle:UITableViewCellStyleSubtitle
+                reuseIdentifier:cellIdentifier];
+    
+    MCASignUpDHolder *studParentDHolder = (MCASignUpDHolder*)[arr_studentList objectAtIndex:indexPath.row];
+    cell.textLabel.font = [UIFont systemFontOfSize:14.0f];
+    cell.textLabel.text = studParentDHolder.str_userName;
+    cell.detailTextLabel.font = [UIFont systemFontOfSize:12.0f];
+    cell.detailTextLabel.text = studParentDHolder.str_signinId;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    tbl_studParList.separatorInset=UIEdgeInsetsMake(0.0, 0 + 1.0, 0.0, 0.0);
+    return cell;
+}
+
 #pragma mark - API CALLING
 
 -(void)requestNotificationSetting:(NSString*)info{
@@ -290,7 +397,6 @@
 -(void)requestSettingSuccess:(NSNotification*)notification{
     
     [HUD hide];
-    
     [[NSUserDefaults standardUserDefaults]setValue:[notification.object valueForKey:@"notify_by_email"] forKey:KEY_NOTIFY_BY_EMAIL];
      [[NSUserDefaults standardUserDefaults]setValue:[notification.object valueForKey:@"notify_by_push"] forKey:KEY_NOTIFY_BY_PUSH];
      [[NSUserDefaults standardUserDefaults]setValue:[notification.object valueForKey:@"priority_high"] forKey:KEY_PRIORITY_HIGH];

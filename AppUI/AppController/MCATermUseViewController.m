@@ -31,7 +31,7 @@
     [self setNeedsStatusBarAppearanceUpdate];
   
     web_view.delegate = self;
-    [web_view loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"terms" ofType:@"html"]isDirectory:NO]]];
+    [web_view loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"terms_en" ofType:@"html"]isDirectory:NO]]];
 }
 -(UIStatusBarStyle)preferredStatusBarStyle{
     

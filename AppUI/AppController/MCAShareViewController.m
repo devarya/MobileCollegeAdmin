@@ -204,15 +204,13 @@
     // Present mail view controller on screen
     [self presentViewController:mc animated:YES completion:NULL];
     
-    
 }
 - (void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
 {
     NSString *output;
     UIAlertView *alert;
     switch (result)
-    {
-            
+    {            
         case MFMailComposeResultCancelled:
             output=@"Mail cancelled";
             alert=[[UIAlertView alloc]initWithTitle:@"Mail Message" message:output delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
@@ -230,7 +228,6 @@
             break;
         case MFMailComposeResultFailed:
             NSLog(@"Mail sent failure: %@", [error localizedDescription]);
-            
             break;
         default:
             break;

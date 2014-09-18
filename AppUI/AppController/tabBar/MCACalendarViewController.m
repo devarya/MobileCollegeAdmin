@@ -78,9 +78,16 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(taskListSuccess:) name:NOTIFICATION_TASK_LIST_SUCCESS object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(taskListFailed:) name:NOTIFICATION_TASK_LIST_FAILED object:nil];
     
-    lbl_noEvent.hidden = YES;
+    [view_transBg removeFromSuperview];
+    [tbl_gradeList removeFromSuperview];
+    [tbl_studentList removeFromSuperview];
+    self.navigationController.navigationBar.userInteractionEnabled = YES;
+    tabBarMCACtr.tabBar.userInteractionEnabled = YES;
     
+    lbl_noEvent.hidden = YES;
     [self getTaskList:nil];
+
+    
     
 }
 -(void)viewWillDisappear:(BOOL)animated{
@@ -162,7 +169,15 @@
     view_transBg.layer.opacity = 0.6f;
     [self.view addSubview:view_transBg];
     
-    tbl_studentList = [[UITableView alloc]initWithFrame:CGRectMake(20, 160, 282, arr_studentList.count * 32 + 64)];
+    if (arr_studentList.count > 4) {
+        
+        tbl_studentList = [[UITableView alloc]initWithFrame:CGRectMake(20, 160, 282, 160)];
+        
+    }else{
+        
+        tbl_studentList = [[UITableView alloc]initWithFrame:CGRectMake(20, 160, 282, arr_studentList.count * 32 + 64)];
+    }
+
     tbl_studentList.delegate = self;
     tbl_studentList.dataSource = self;
     [tbl_studentList reloadData];
@@ -448,7 +463,7 @@
     
         NSString *cellIdentifier =@"cell";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-        if (cell == nil)
+//        if (cell == nil)
             cell = [[UITableViewCell alloc]
                     initWithStyle:UITableViewCellStyleDefault
                     reuseIdentifier:cellIdentifier];
@@ -513,7 +528,7 @@
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
         NSDateFormatter *dateFormatter1 = [[NSDateFormatter alloc]init];
         [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-        [dateFormatter1 setDateFormat:@"yyyy/MM/dd"];
+        [dateFormatter1 setDateFormat:@"yyyy/MMM/dd"];
         NSDate *date_Temp =[dateFormatter dateFromString:taskDetailDHolder.str_taskStartDate];
         NSString *str_date = [dateFormatter1 stringFromDate:date_Temp];
         cell.lbl_taskStartDate.text = str_date;
@@ -628,7 +643,20 @@
 
 -(void)createTaskList:(id)sender{
     
-    arr_taskList = [[MCADBIntraction databaseInteractionManager]retrieveTaskList:nil];
+    if ([[[NSUserDefaults standardUserDefaults]valueForKey:KEY_PRIORITY_REGULAR] isEqualToString:@"1"] && [[[NSUserDefaults standardUserDefaults]valueForKey:KEY_PRIORITY_HIGH] isEqualToString:@"1"] ) {
+        
+        arr_taskList = [[MCADBIntraction databaseInteractionManager]retrieveTaskList:nil];
+        
+    }else if ([[[NSUserDefaults standardUserDefaults]valueForKey:KEY_PRIORITY_HIGH] isEqualToString:@"1"]){
+        
+        arr_taskList = [[MCADBIntraction databaseInteractionManager]retrieveHighPriorityTaskList:nil];
+        
+    }else if([[[NSUserDefaults standardUserDefaults]valueForKey:KEY_PRIORITY_REGULAR] isEqualToString:@"1"]){
+        
+        arr_taskList = [[MCADBIntraction databaseInteractionManager]retrieveRegularPriorityTaskList:nil];
+    }
+    
+//    arr_taskList = [[MCADBIntraction databaseInteractionManager]retrieveTaskList:nil];
     arr_currentTaskList = [NSMutableArray new];
     
     for (int i=0; i<arr_taskList.count; i++)

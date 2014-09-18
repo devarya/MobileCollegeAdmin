@@ -54,6 +54,14 @@
   
     [self.queue addObserver:self forKeyPath:@"operations" options:0 context:NULL];
 }
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(dropboxLoginSuccess:) name:NOTIFICATION_DROPBOX_LOGIN_SUCCESS object:nil];
+}
+-(void)viewWillDisappear:(BOOL)animated{
+    
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:NOTIFICATION_DROPBOX_LOGIN_SUCCESS object:nil];
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -355,5 +363,10 @@
         noteViewCtr.str_catName = sender;
         
     }
+}
+-(void)dropboxLoginSuccess:(NSNotification*)notification{
+    
+     [btn_dropBox setTitle:@"Export" forState:UIControlStateNormal];
+    
 }
 @end

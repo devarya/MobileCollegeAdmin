@@ -57,6 +57,8 @@
         tx_szipcode.text = [[NSUserDefaults standardUserDefaults]valueForKey:KEY_USER_ZIPCODE];
         tx_sfirstPerson.text = [[NSUserDefaults standardUserDefaults]valueForKey:KEY_USER_FAMILY];
         tx_sgrade.text = [[NSUserDefaults standardUserDefaults]valueForKey:KEY_USER_GRADE];
+        tx_sgrade.text = [tx_sgrade.text stringByAppendingString:@"th"];
+        
     }
 }
 
