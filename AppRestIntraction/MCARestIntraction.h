@@ -14,6 +14,9 @@
 #import "MCANotesCatDHolder.h"
 #import "ASIFormDataRequest.h"
 #import "MCATaskDetailDHolder.h"
+#import "MCAResourcesDHolder.h"
+#import "MCAResourcesCatDHolder.h"
+#import "MCAResourcesBookDHolder.h"
 
 
 @class MCARestIntraction;
@@ -36,6 +39,9 @@ MCARestIntraction *restIntraction;
 -(void)requestForAddTask:(NSString*)info;
 -(void)requestForNotesCategory:(NSString*)info;
 -(void)requestForNotes:(NSString*)info;
+-(void)requestForResourcesCategory:(NSString*)info;
+-(void)requestForResources:(NSString*)info;
+-(void)requestForResourcesBook:(NSString*)info;
 -(void)requestForUserProfileEdit:(NSString *)info;
 -(void)requestForChangePwd:(NSString *)info;
 -(void)requestForNotificationSetting:(NSString *)info;

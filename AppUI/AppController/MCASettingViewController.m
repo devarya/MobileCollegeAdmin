@@ -38,6 +38,9 @@
     HUD = [AryaHUD new];
     [self.view addSubview:HUD];
     
+    arr_studParList = [NSMutableArray new];
+    arr_langList = [NSMutableArray arrayWithObjects:@"English",@"Spanish", nil];
+    
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(requestSettingSuccess:) name:NOTIFICATION_SETTING_SUCCESS object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(requestSettingFailed:) name:NOTIFICATION_SETTING_FAILED object:nil];
     
@@ -96,9 +99,9 @@
         
          [btn_viewStudParent setTitle:@"View My Parent" forState:UIControlStateNormal];
          lbl_parStud.text = @"Add Parent";
-          arr_studentList = [[MCADBIntraction databaseInteractionManager]retrieveStudList:nil];
+          arr_studParList = [[MCADBIntraction databaseInteractionManager]retrieveStudList:nil];
         
-        if (arr_studentList.count >0) {
+        if (arr_studParList.count >0) {
             btn_viewStudParent.frame = CGRectMake(114, 281, 194, 30);
             btn_add.hidden = YES;
         }
@@ -110,6 +113,7 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [view_Bg removeFromSuperview];
+    [tbl_langList removeFromSuperview];
     tbl_studParList.hidden = YES;
 }
 - (void)didReceiveMemoryWarning
@@ -119,6 +123,28 @@
 }
 
 #pragma mark - IB_ACTION
+-(IBAction)btnSelectLangDidClicked:(id)sender{
+    
+    if (IS_IPHONE_5) {
+        view_Bg = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 568)];
+    }else{
+        view_Bg = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 480)];
+    }
+    
+    view_Bg.backgroundColor = [UIColor blackColor];
+    view_Bg.layer.opacity = 0.6f;
+    [self.view addSubview:view_Bg];
+    
+    tbl_langList = [UITableView new];
+    tbl_langList.delegate = self;
+    tbl_langList.dataSource = self;
+    tbl_langList.layer.borderWidth = 0.5f;
+    tbl_langList.scrollEnabled = NO;
+    tbl_langList.frame = CGRectMake(10, 100, 300,118);
+    [tbl_langList reloadData];
+    [self.view addSubview:tbl_langList];
+    [self.view bringSubviewToFront:tbl_langList];
+}
 
 -(IBAction)btnChangePwdDidClicked:(id)sender{
     
@@ -242,6 +268,43 @@
     
      [self setNotificationSetting:nil];
 }
+
+-(IBAction)btnViewStudParentDidClicked:(id)sender{
+    
+    arr_studParList = [[MCADBIntraction databaseInteractionManager]retrieveStudList:nil];
+    
+    if (arr_studParList.count > 0) {
+           
+        if (IS_IPHONE_5) {
+            view_Bg = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 568)];
+        }else{
+            view_Bg = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 480)];
+        }
+        
+        view_Bg.backgroundColor = [UIColor blackColor];
+        view_Bg.layer.opacity = 0.6f;
+        [self.view addSubview:view_Bg];
+  
+        tbl_studParList.layer.borderWidth = 0.5f;
+        tbl_studParList.layer.cornerRadius = 1.0f;
+        
+        if (arr_studParList.count > 4) {
+            
+            tbl_studParList.frame = CGRectMake(10, 100, 300,198);
+        }else{
+            tbl_studParList.frame = CGRectMake(10, 100, 300, arr_studParList.count*40+38);
+        }
+        
+        tbl_studParList.hidden = NO;
+        
+        [tbl_studParList reloadData];
+        [self.view bringSubviewToFront:tbl_studParList];
+        
+    }else{
+        
+        [MCAGlobalFunction showAlert:@"No Student or Parent Connected."];
+    }
+}
 -(void)setNotificationSetting:(id)sender{
     
     NSMutableDictionary *info = [NSMutableDictionary new];
@@ -268,7 +331,7 @@
         }
         
     }else if (btn_priorityAlertHigh.tag == 1){
-     
+        
         if (isPriorityHigh) {
             [info setValue:@"1" forKey:@"priority_high"];
         }else{
@@ -283,46 +346,12 @@
             [info setValue:@"0" forKey:@"priority_regular"];
         }
     }
- 
+    
     [info setValue:@"notification_setting" forKey:@"cmd"];
     NSString *str_jsonNotificationSetting = [NSString getJsonObject:info];
     [self requestNotificationSetting:str_jsonNotificationSetting];
     
 }
--(IBAction)btnViewStudParentDidClicked:(id)sender{
-    
-    arr_studentList = [[MCADBIntraction databaseInteractionManager]retrieveStudList:nil];
-    
-    if (arr_studentList.count > 0) {
-        
-        if (IS_IPHONE_5) {
-            view_Bg = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 568)];
-        }else{
-            view_Bg = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 480)];
-        }
-        
-        view_Bg.backgroundColor = [UIColor blackColor];
-        view_Bg.layer.opacity = 0.6f;
-        [self.view addSubview:view_Bg];
-  
-        tbl_studParList.layer.borderWidth = 0.5f;
-        tbl_studParList.layer.cornerRadius = 1.0f;
-        
-        if (arr_studentList.count > 4) {
-            
-            tbl_studParList.frame = CGRectMake(10, 100, 300,220);
-        }else{
-            tbl_studParList.frame = CGRectMake(10, 100, 300, arr_studentList.count*46+38);
-        }
-        
-        tbl_studParList.hidden = NO;
-        
-        [tbl_studParList reloadData];
-        [self.view bringSubviewToFront:tbl_studParList];
-        
-    }
-}
-
 #pragma mark - UITABLEVIEW DELEGATE AND DATASOURCE METHODS
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -332,12 +361,12 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    return 46;
+    return 40;
     
 }
 -(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    // 1. The view for the header
+     // 1. The view for the header
     UIView* headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width,40)];
     
     // 2. Set a custom background color and a border
@@ -348,7 +377,23 @@
     headerLabel.frame = CGRectMake(0,0,300,40);
     headerLabel.textColor = [UIColor whiteColor];
     headerLabel.font = [UIFont boldSystemFontOfSize:16];
-    headerLabel.text = @"Connected Student List";
+    
+    if (tableView == tbl_studParList) {
+        
+        if ([[[NSUserDefaults standardUserDefaults]valueForKey:KEY_USER_TYPE] isEqualToString:@"p"]){
+            
+             headerLabel.text = @"Student";
+            
+        }else{
+            
+             headerLabel.text = @"Parent";
+        }
+        
+    }else{
+        
+         headerLabel.text = @"Select Language";
+    }
+   
     headerLabel.textAlignment = NSTextAlignmentCenter;
     
     [headerView addSubview:headerLabel];
@@ -359,26 +404,77 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return arr_studentList.count;
-    
+    if (tableView == tbl_studParList) {
+         return arr_studParList.count;
+    }else{
+        return arr_langList.count;
+    }
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *cellIdentifier =@"cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if (cell == nil)
-        cell = [[UITableViewCell alloc]
-                initWithStyle:UITableViewCellStyleSubtitle
-                reuseIdentifier:cellIdentifier];
+    if (tableView == tbl_studParList) {
+        
+        NSString *cellIdentifier =@"studParCell";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        if (cell == nil)
+            cell = [[UITableViewCell alloc]
+                    initWithStyle:UITableViewCellStyleSubtitle
+                    reuseIdentifier:cellIdentifier];
+        
+        
+        MCASignUpDHolder *studParentDHolder = (MCASignUpDHolder*)[arr_studParList objectAtIndex:indexPath.row];
+        
+        UILabel *lbl_name = (UILabel*)[cell.contentView viewWithTag:1];
+        UILabel *lbl_email = (UILabel*)[cell.contentView viewWithTag:2];
+        
+        lbl_name.text = studParentDHolder.str_userName;
+        lbl_email.text = studParentDHolder.str_signinId;
+        lbl_email.font = [UIFont systemFontOfSize:14.0f];
+        lbl_name.font = [UIFont systemFontOfSize:14.0f];
+        
+        lbl_email.textAlignment = NSTextAlignmentRight;
+        //
+        //    cell.textLabel.font = [UIFont systemFontOfSize:14.0f];
+        //    cell.textLabel.text = studParentDHolder.str_userName;
+        //    cell.detailTextLabel.font = [UIFont systemFontOfSize:12.0f];
+        //    cell.detailTextLabel.text = studParentDHolder.str_signinId;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        tbl_studParList.separatorInset=UIEdgeInsetsMake(0.0, 0 + 1.0, 0.0, 0.0);
+        
+        return cell;
+
+    }else{
+        
+        NSString *cellIdentifier =@"cell";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        if (cell == nil)
+            cell = [[UITableViewCell alloc]
+                    initWithStyle:UITableViewCellStyleSubtitle
+                    reuseIdentifier:cellIdentifier];
     
-    MCASignUpDHolder *studParentDHolder = (MCASignUpDHolder*)[arr_studentList objectAtIndex:indexPath.row];
-    cell.textLabel.font = [UIFont systemFontOfSize:14.0f];
-    cell.textLabel.text = studParentDHolder.str_userName;
-    cell.detailTextLabel.font = [UIFont systemFontOfSize:12.0f];
-    cell.detailTextLabel.text = studParentDHolder.str_signinId;
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    tbl_studParList.separatorInset=UIEdgeInsetsMake(0.0, 0 + 1.0, 0.0, 0.0);
-    return cell;
+        cell.textLabel.text = [arr_langList objectAtIndex:indexPath.row];
+        cell.textLabel.font = [UIFont systemFontOfSize:14.0f];
+        tbl_langList.separatorInset=UIEdgeInsetsMake(0.0, 0 + 1.0, 0.0, 0.0);
+        
+        MCACustomButton *btn_selectLang= [MCACustomButton buttonWithType:UIButtonTypeCustom];
+        btn_selectLang.frame = CGRectMake( 252, 4, 30, 30);
+        btn_selectLang.index = indexPath.row;
+        [btn_selectLang setBackgroundImage:[UIImage imageNamed:@"blue_uncheckMark.png"]
+                                  forState:UIControlStateNormal];
+
+        [cell.contentView addSubview:btn_selectLang];
+        return cell;        
+    }
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (tableView == tbl_langList) {
+        
+        [view_Bg removeFromSuperview];
+        [tbl_langList removeFromSuperview];
+        
+        
+    }
 }
 
 #pragma mark - API CALLING

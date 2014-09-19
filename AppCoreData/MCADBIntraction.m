@@ -511,5 +511,61 @@ MCADBIntraction *databaseManager = nil;
     }
     return arr_dbNotesCatList;
 }
+#pragma mark - RESOURCE_CATEGORY QUERY
+-(void)insertResourceCatList:(NSMutableArray*)arr_resourceList{
+    
+    for (int i=0; i<arr_resourceList.count;i++)
+    {
+        MCAResourcesCatDHolder *reDHolder=[arr_resourceList objectAtIndex:i];
+        
+        NSString *query=[NSString stringWithFormat:@"insert into tbl_resource(reCatId,reCatImage,reCatName) values(\"%@\",\"%@\",\"%@\")",reDHolder.str_resourcesCatId, reDHolder.str_resourcesCatImage, reDHolder.str_resourcesCatName];
+        
+        @try
+        {
+            [dBCollgeAdmin open];
+            if ([dBCollgeAdmin executeUpdate:query])
+            {
+                NSLog(@"successfully inserted");
+            }
+        }
+        @catch (NSException *e)
+        {
+            NSLog(@"%@",e);
+        }
+        @finally
+        {
+            [dBCollgeAdmin close];
+        }
+    }
+}
+-(NSMutableArray*)retrieveResourceCatList:(id)sender{
+    
+    NSMutableArray *arr_dbResourceCatList=[[NSMutableArray alloc]init];
+    NSString *query = @"Select * from tbl_resource";
+    
+    @try
+    {
+        [dBCollgeAdmin open];
+        FMResultSet *resultSet=[dBCollgeAdmin executeQuery:query];
+        while ([resultSet next])
+        {
+            MCAResourcesCatDHolder *reDHolder = [MCAResourcesCatDHolder new];
+            reDHolder.str_resourcesCatId = [resultSet stringForColumn:@"reCatId"];
+            reDHolder.str_resourcesCatImage = [resultSet stringForColumn:@"reCatImage"];
+            reDHolder.str_resourcesCatName = [resultSet stringForColumn:@"reCatName"];
+            [arr_dbResourceCatList addObject:reDHolder];
+        }
+        [resultSet close];
+    }
+    @catch (NSException *exception)
+    {
+        NSLog(@"%@",exception);
+    }
+    @finally
+    {
+        [dBCollgeAdmin close];
+    }
+    return arr_dbResourceCatList;
+}
 
 @end

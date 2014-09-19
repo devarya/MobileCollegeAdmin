@@ -11,6 +11,7 @@
 
 //Main URL
 #define URL_MAIN @"http://122.176.45.15:8080/careerdefine/api/"
+#define URL_APPLESTORE @"https://itunes.apple.com/"
 
 //Message
 #define INVALID_PWD @"Please enter valid password."
@@ -92,6 +93,15 @@
 
 #define NOTIFICATION_NOTES_SUCCESS @"notificationNotesSuccess"
 #define NOTIFICATION_NOTES_FAILED @"notificationNotesFailed"
+
+#define NOTIFICATION_RESOURCE_CATEGORY_SUCCESS @"notificationResourceCategorySuccess"
+#define NOTIFICATION_RESOURCE_CATEGORY_FAILED @"notificationResourceCategoryFailed"
+
+#define NOTIFICATION_RESOURCE_SUCCESS @"notificationResourcesSuccess"
+#define NOTIFICATION_RESOURCE_FAILED @"notificationResourcesFailed"
+
+#define NOTIFICATION_RESOURCE_BOOK_SUCCESS @"notificationResourcesBookSuccess"
+#define NOTIFICATION_RESOURCE_BOOK_FAILED @"notificationResourcesBookFailed"
 
 #define NOTIFICATION_USER_PROFILE_EDIT_SUCCESS @"notificationUserProfileEditSuccess"
 #define NOTIFICATION_USER_PROFILE_EDIT_FAILED @"notificationUserProfileEditFailed"

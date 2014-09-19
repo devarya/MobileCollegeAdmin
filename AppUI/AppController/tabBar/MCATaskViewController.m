@@ -106,7 +106,6 @@
                         action:@selector(btnBar_addDidClicked:)
               forControlEvents:UIControlEventTouchUpInside];
             [btn_add setShowsTouchWhenHighlighted:YES];
-
             
             UIImage* img_grade = [UIImage imageNamed:@"grade1.png"];
             CGRect img_gradeFrame = CGRectMake(0, 0, img_grade.size.width, img_grade.size.height);
@@ -195,7 +194,7 @@
     
     NSMutableDictionary *info=[NSMutableDictionary new];
     [info setValue:[[NSUserDefaults standardUserDefaults]valueForKey:KEY_USER_TYPE] forKey:@"user_type"];
-    [info setValue:[[NSUserDefaults standardUserDefaults]valueForKey:KEY_LANGUAGE_CODE] forKey:@"language_code"];
+    [info setValue:@"en_us" forKey:@"language_code"];
     
     if ([[NSUserDefaults standardUserDefaults]valueForKey:KEY_NOW_DATE]) {
         [info setValue:[[NSUserDefaults standardUserDefaults]valueForKey:KEY_NOW_DATE] forKey:@"now_date"];

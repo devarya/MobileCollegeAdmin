@@ -443,11 +443,16 @@
             taskDHolder.str_taskId = [[arr_taskDetail valueForKey:@"task_id"]objectAtIndex:i];
             taskDHolder.str_taskDetailEng = [[arr_taskDetail valueForKey:@"task_detail_eng"]objectAtIndex:i];
             taskDHolder.str_taskNameEng = [[arr_taskDetail valueForKey:@"task_name_eng"]objectAtIndex:i];
+            
+            taskDHolder.str_taskDetailSp= [[arr_taskDetail valueForKey:@"task_detail_spanish"]objectAtIndex:i];
+            taskDHolder.str_taskNameSp = [[arr_taskDetail valueForKey:@"task_name_spanish"]objectAtIndex:i];
+            
             taskDHolder.str_taskPriority = [[arr_taskDetail valueForKey:@"task_priority"]objectAtIndex:i];
             taskDHolder.str_taskStartDate = [[arr_taskDetail valueForKey:@"task_start_date"]objectAtIndex:i];
             taskDHolder.str_taskStatus = [[arr_taskDetail valueForKey:@"task_status"]objectAtIndex:i];
             taskDHolder.str_updatedAt = [[arr_taskDetail valueForKey:@"updated_at"]objectAtIndex:i];
             taskDHolder.str_userId = [[arr_taskDetail valueForKey:@"user_id"]objectAtIndex:i];
+        
 //            taskDHolder.str_nowDate = [responseDict valueForKey:@"now_date"];
             taskDHolder.str_network = @"1";
                         
@@ -803,6 +808,196 @@
                        });
     }
 }
+#pragma mark - RESOURCES_CATEGORY
+
+-(void)requestForResourcesCategory:(NSString*)info{
+    NSURL *url = [NSURL URLWithString:URL_MAIN];
+    ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
+    
+    [request setPostValue:info forKey:@"data"];
+    
+    [request setDelegate:self];
+    [request setDidFailSelector:@selector(requestResourceCategoryFail:)];
+    [request setDidFinishSelector:@selector(requestResourceCategorySuccess:)];
+    [request startAsynchronous];
+    
+}
+
+-(void)requestResourceCategoryFail:(ASIFormDataRequest*)request{
+    
+    dispatch_async(dispatch_get_main_queue(), ^
+                   {
+                       [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_RESOURCE_CATEGORY_FAILED object:@"Unable to get category at this movement."];
+                   });
+}
+-(void)requestResourceCategorySuccess:(ASIFormDataRequest*)request{
+    
+    NSString *responseString = [request responseString];
+    responseString = [[responseString componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@""];
+    responseString = [responseString stringByReplacingOccurrencesOfString:@"\t" withString:@""];
+    SBJSON *parser=[[SBJSON alloc]init];
+    
+    NSDictionary *results = [parser objectWithString:responseString error:nil];
+    //    NSMutableDictionary *responseDict = ((NSMutableDictionary *)[results objectForKey:@"data"]);
+    NSMutableArray *arr_resourceCategory = (NSMutableArray*)[results objectForKey:@"data"];
+    NSString *status_code = [results valueForKey:@"status_code"];
+    
+    if ([status_code isEqualToString:@"S1001"])
+    {
+        NSMutableArray *arr_resourcesCategoryList = [NSMutableArray new];
+        
+        for (int i = 0; i < arr_resourceCategory.count; i++) {
+            
+            MCAResourcesCatDHolder *resourceDHolder = [MCAResourcesCatDHolder new];
+            resourceDHolder.str_resourcesCatId = [[arr_resourceCategory valueForKey:@"resource_id"] objectAtIndex:i];
+            resourceDHolder.str_resourcesCatName = [[arr_resourceCategory valueForKey:@"resource_name"] objectAtIndex:i];
+            resourceDHolder.str_resourcesCatImage = [[arr_resourceCategory valueForKey:@"resource_cat_image"] objectAtIndex:i];
+            [arr_resourcesCategoryList addObject:resourceDHolder];
+        }
+        if (![[[NSUserDefaults standardUserDefaults]valueForKey:KEY_USER_TYPE] isEqualToString:@"p"])
+        {
+            [arr_resourcesCategoryList removeObjectAtIndex:0];
+        }
+        dispatch_async(dispatch_get_main_queue(), ^
+                       {
+                           [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_RESOURCE_CATEGORY_SUCCESS object:arr_resourcesCategoryList];
+                       });
+    }
+    else{
+        
+        NSString *errMsg = [results valueForKey:@"msg"];
+        dispatch_async(dispatch_get_main_queue(), ^
+                       {
+                           [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_RESOURCE_CATEGORY_FAILED object:errMsg];
+                       });
+    }
+}
+
+#pragma mark - RESOURCES_DETAIL
+
+-(void)requestForResources:(NSString *)info{
+    
+    NSURL *url = [NSURL URLWithString:URL_MAIN];
+    ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
+    
+    [request setPostValue:info forKey:@"data"];
+    
+    [request setDelegate:self];
+    [request setDidFailSelector:@selector(requestResourcesFail:)];
+    [request setDidFinishSelector:@selector(requestResourcesSuccess:)];
+    [request startAsynchronous];
+}
+-(void)requestResourcesFail:(ASIFormDataRequest*)request{
+    
+    dispatch_async(dispatch_get_main_queue(), ^
+                   {
+                       [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_RESOURCE_FAILED object:@"Unable to get resource at this movement."];
+                   });
+}
+-(void)requestResourcesSuccess:(ASIFormDataRequest*)request{
+    
+    NSString *responseString = [request responseString];
+    responseString = [[responseString componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@""];
+    responseString = [responseString stringByReplacingOccurrencesOfString:@"\t" withString:@""];
+    SBJSON *parser=[[SBJSON alloc]init];
+    
+    NSDictionary *results = [parser objectWithString:responseString error:nil];
+    //NSMutableDictionary *responseDict = ((NSMutableDictionary *)[results objectForKey:@"data"]);
+    
+    NSMutableArray *arr_resources = (NSMutableArray*)[results objectForKey:@"data"];
+    NSString *status_code = [results valueForKey:@"status_code"];
+    
+    if ([status_code isEqualToString:@"S1001"])
+    {
+        NSMutableArray *arr_resourcesList = [NSMutableArray new];
+        
+        for (int i = 0; i < arr_resources.count; i++)
+        {
+            MCAResourcesDHolder *reDHolder = [MCAResourcesDHolder new];
+            
+            reDHolder.str_resourcesDataId = [[arr_resources valueForKey:@"resource_data_id"] objectAtIndex:i];
+            reDHolder.str_url = [[arr_resources valueForKey:@"resource_url"] objectAtIndex:i];
+            reDHolder.str_book_name = [[arr_resources valueForKey:@"book_name"] objectAtIndex:i];
+            [arr_resourcesList addObject:reDHolder];
+        }
+        
+        dispatch_async(dispatch_get_main_queue(), ^
+                       {
+                           [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_RESOURCE_SUCCESS object:arr_resourcesList];
+                       });
+    }
+    else{
+        
+        NSString *errMsg = [results valueForKey:@"msg"];
+        dispatch_async(dispatch_get_main_queue(), ^
+                       {
+                           [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_RESOURCE_FAILED object:errMsg];
+                       });
+    }
+}
+
+#pragma mark - RESOURCES_BOOK
+
+-(void)requestForResourcesBook:(NSString *)info{
+    
+    NSURL *url = [NSURL URLWithString:URL_MAIN];
+    ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:url];
+    
+    [request setPostValue:info forKey:@"data"];
+    
+    [request setDelegate:self];
+    [request setDidFailSelector:@selector(requestResourcesBookFail:)];
+    [request setDidFinishSelector:@selector(requestResourcesBookSuccess:)];
+    [request startAsynchronous];
+}
+-(void)requestResourcesBookFail:(ASIFormDataRequest*)request{
+    
+    dispatch_async(dispatch_get_main_queue(), ^
+                   {
+                       [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_RESOURCE_FAILED object:@"Unable to get resource Book at this movement."];
+                   });
+}
+-(void)requestResourcesBookSuccess:(ASIFormDataRequest*)request{
+    
+    NSString *responseString = [request responseString];
+    responseString = [[responseString componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@""];
+    responseString = [responseString stringByReplacingOccurrencesOfString:@"\t" withString:@""];
+    SBJSON *parser=[[SBJSON alloc]init];
+    
+    NSDictionary *results = [parser objectWithString:responseString error:nil];
+    //NSMutableDictionary *responseDict = ((NSMutableDictionary *)[results objectForKey:@"data"]);
+    
+    NSMutableArray *arr_resourcesBook = (NSMutableArray*)[results objectForKey:@"data"];
+    NSString *status_code = [results valueForKey:@"status_code"];
+    
+    if ([status_code isEqualToString:@"S1001"])
+    {
+        NSMutableArray *arr_resourcesBookList = [NSMutableArray new];
+        
+        for (int i = 0; i < arr_resourcesBook.count; i++)
+        {
+            MCAResourcesBookDHolder *reDHolder = [MCAResourcesBookDHolder new];
+            
+            reDHolder.str_url = [[arr_resourcesBook valueForKey:@"book_url"] objectAtIndex:i];
+            reDHolder.str_book_name = [[arr_resourcesBook valueForKey:@"book_name"] objectAtIndex:i];
+            [arr_resourcesBookList addObject:reDHolder];
+        }
+        
+        dispatch_async(dispatch_get_main_queue(), ^
+                       {
+                           [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_RESOURCE_BOOK_SUCCESS object:arr_resourcesBookList];
+                       });
+    }
+    else{
+        
+        NSString *errMsg = [results valueForKey:@"msg"];
+        dispatch_async(dispatch_get_main_queue(), ^
+                       {
+                           [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_RESOURCE_BOOK_FAILED object:errMsg];
+                       });
+    }
+}
+
 
 
 #pragma mark - USER_PROFILE_EDIT

@@ -142,12 +142,9 @@
     view_Bg.backgroundColor = [UIColor blackColor];
     view_Bg.layer.opacity = 0.6f;
     [self.view addSubview:view_Bg];
-    tbl_SelectPerson = [[UITableView alloc]initWithFrame:CGRectMake(8, 84, 302, 164)];
+    tbl_SelectPerson = [[UITableView alloc]initWithFrame:CGRectMake(8, 84, 302, 210)];
     tbl_SelectPerson.layer.borderWidth = 0.5f;
-    tbl_SelectPerson.layer.cornerRadius = 3.0f;
     [self.view addSubview:tbl_SelectPerson];
-    
-    
     tbl_SelectPerson.delegate = self;
     tbl_SelectPerson.dataSource = self;
     [tbl_SelectPerson reloadData];
@@ -230,25 +227,25 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     
-    return 26;
+    return 34;
     
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    return 28;
+    return 36;
 }
 -(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UIView* headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tbl_SelectPerson.frame.size.width,30)];
+    UIView* headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tbl_SelectPerson.frame.size.width,38)];
     
     // 2. Set a custom background color and a border
     headerView.backgroundColor = [UIColor colorWithRed:39.0/255 green:166.0/255 blue:213.0/255 alpha:1];
     
     // 3. Add an image
     UILabel* headerLabel = [[UILabel alloc] init];
-    headerLabel.frame = CGRectMake(12,2,298,22);
+    headerLabel.frame = CGRectMake(0, 0, tbl_SelectPerson.frame.size.width, 38);
     headerLabel.textColor = [UIColor whiteColor];
-    headerLabel.font = [UIFont boldSystemFontOfSize:14];
+    headerLabel.font = [UIFont boldSystemFontOfSize:16];
     headerLabel.text = @"Select Person";
     headerLabel.textAlignment = NSTextAlignmentCenter;
     
@@ -271,7 +268,7 @@
                 initWithStyle:UITableViewCellStyleDefault
                 reuseIdentifier:cellIdentifier];
     
-    cell.textLabel.font = [UIFont systemFontOfSize:12.0f];
+    cell.textLabel.font = [UIFont systemFontOfSize:14.0f];
     cell.textLabel.text = [arr_SelectPersonList objectAtIndex:indexPath.row];
     tbl_SelectPerson.separatorInset=UIEdgeInsetsMake(0.0, 0 + 1.0, 0.0, 0.0);
     return cell;

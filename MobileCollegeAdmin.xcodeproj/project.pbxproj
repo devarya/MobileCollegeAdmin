@@ -60,10 +60,18 @@
 		CE394C3619938D300080B5B8 /* MCACustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CE394C3519938D300080B5B8 /* MCACustomButton.m */; };
 		CE3B4FE619C18359001B07D4 /* MCASettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3B4FE519C18359001B07D4 /* MCASettingViewController.m */; };
 		CE3B4FE919C19966001B07D4 /* MCAUserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3B4FE819C19966001B07D4 /* MCAUserProfileViewController.m */; };
+		CE3BDDB619CBF53C00F1625C /* MCAResourceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3BDDAD19CBF53C00F1625C /* MCAResourceCell.m */; };
+		CE3BDDB719CBF53C00F1625C /* MCAResourcesBookController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3BDDAF19CBF53C00F1625C /* MCAResourcesBookController.m */; };
+		CE3BDDB819CBF53C00F1625C /* MCAResourcesCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3BDDB119CBF53C00F1625C /* MCAResourcesCategoryViewController.m */; };
+		CE3BDDB919CBF53C00F1625C /* MCAResourcesDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3BDDB319CBF53C00F1625C /* MCAResourcesDetailViewController.m */; };
+		CE3BDDBA19CBF53C00F1625C /* MCAResourcesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3BDDB519CBF53C00F1625C /* MCAResourcesViewController.m */; };
+		CE3BDDC119CBF69C00F1625C /* MCAResourcesBookDHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3BDDBC19CBF69C00F1625C /* MCAResourcesBookDHolder.m */; };
+		CE3BDDC219CBF69C00F1625C /* MCAResourcesCatDHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3BDDBE19CBF69C00F1625C /* MCAResourcesCatDHolder.m */; };
+		CE3BDDC319CBF69C00F1625C /* MCAResourcesDHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3BDDC019CBF69C00F1625C /* MCAResourcesDHolder.m */; };
+		CE3BDFD719CC412A00F1625C /* MobileCollegeAdmin.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = CE3BDFD619CC412A00F1625C /* MobileCollegeAdmin.sqlite */; };
+		CE3BDFD819CC412A00F1625C /* MobileCollegeAdmin.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = CE3BDFD619CC412A00F1625C /* MobileCollegeAdmin.sqlite */; };
 		CE3E7E3119CAC02200016A10 /* terms_en.html in Resources */ = {isa = PBXBuildFile; fileRef = CE3E7E2F19CAC02200016A10 /* terms_en.html */; };
 		CE3E7E3219CAC02200016A10 /* terms_es.html in Resources */ = {isa = PBXBuildFile; fileRef = CE3E7E3019CAC02200016A10 /* terms_es.html */; };
-		CE49490619B7416A00320D8C /* MobileCollegeAdmin.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = CE49490519B7416A00320D8C /* MobileCollegeAdmin.sqlite */; };
-		CE49490719B7416A00320D8C /* MobileCollegeAdmin.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = CE49490519B7416A00320D8C /* MobileCollegeAdmin.sqlite */; };
 		CE52ED4319C806D1005B1A92 /* MCAAddStudParentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE52ED4219C806D1005B1A92 /* MCAAddStudParentViewController.m */; };
 		CE69728719C3057000DDE7F5 /* MCAChangePwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE69728619C3057000DDE7F5 /* MCAChangePwdViewController.m */; };
 		CE6E7D1E1990A963005470BC /* MCATaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6E7D1D1990A963005470BC /* MCATaskViewController.m */; };
@@ -232,9 +240,25 @@
 		CE3B4FE519C18359001B07D4 /* MCASettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCASettingViewController.m; sourceTree = "<group>"; };
 		CE3B4FE719C19966001B07D4 /* MCAUserProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCAUserProfileViewController.h; sourceTree = "<group>"; };
 		CE3B4FE819C19966001B07D4 /* MCAUserProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCAUserProfileViewController.m; sourceTree = "<group>"; };
+		CE3BDDAC19CBF53C00F1625C /* MCAResourceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCAResourceCell.h; sourceTree = "<group>"; };
+		CE3BDDAD19CBF53C00F1625C /* MCAResourceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCAResourceCell.m; sourceTree = "<group>"; };
+		CE3BDDAE19CBF53C00F1625C /* MCAResourcesBookController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCAResourcesBookController.h; sourceTree = "<group>"; };
+		CE3BDDAF19CBF53C00F1625C /* MCAResourcesBookController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCAResourcesBookController.m; sourceTree = "<group>"; };
+		CE3BDDB019CBF53C00F1625C /* MCAResourcesCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCAResourcesCategoryViewController.h; sourceTree = "<group>"; };
+		CE3BDDB119CBF53C00F1625C /* MCAResourcesCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCAResourcesCategoryViewController.m; sourceTree = "<group>"; };
+		CE3BDDB219CBF53C00F1625C /* MCAResourcesDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCAResourcesDetailViewController.h; sourceTree = "<group>"; };
+		CE3BDDB319CBF53C00F1625C /* MCAResourcesDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCAResourcesDetailViewController.m; sourceTree = "<group>"; };
+		CE3BDDB419CBF53C00F1625C /* MCAResourcesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCAResourcesViewController.h; sourceTree = "<group>"; };
+		CE3BDDB519CBF53C00F1625C /* MCAResourcesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCAResourcesViewController.m; sourceTree = "<group>"; };
+		CE3BDDBB19CBF69C00F1625C /* MCAResourcesBookDHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCAResourcesBookDHolder.h; sourceTree = "<group>"; };
+		CE3BDDBC19CBF69C00F1625C /* MCAResourcesBookDHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCAResourcesBookDHolder.m; sourceTree = "<group>"; };
+		CE3BDDBD19CBF69C00F1625C /* MCAResourcesCatDHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCAResourcesCatDHolder.h; sourceTree = "<group>"; };
+		CE3BDDBE19CBF69C00F1625C /* MCAResourcesCatDHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCAResourcesCatDHolder.m; sourceTree = "<group>"; };
+		CE3BDDBF19CBF69C00F1625C /* MCAResourcesDHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCAResourcesDHolder.h; sourceTree = "<group>"; };
+		CE3BDDC019CBF69C00F1625C /* MCAResourcesDHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCAResourcesDHolder.m; sourceTree = "<group>"; };
+		CE3BDFD619CC412A00F1625C /* MobileCollegeAdmin.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = MobileCollegeAdmin.sqlite; sourceTree = "<group>"; };
 		CE3E7E2F19CAC02200016A10 /* terms_en.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = terms_en.html; sourceTree = "<group>"; };
 		CE3E7E3019CAC02200016A10 /* terms_es.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = terms_es.html; sourceTree = "<group>"; };
-		CE49490519B7416A00320D8C /* MobileCollegeAdmin.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = MobileCollegeAdmin.sqlite; sourceTree = "<group>"; };
 		CE52ED4119C806D1005B1A92 /* MCAAddStudParentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCAAddStudParentViewController.h; sourceTree = "<group>"; };
 		CE52ED4219C806D1005B1A92 /* MCAAddStudParentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCAAddStudParentViewController.m; sourceTree = "<group>"; };
 		CE69728519C3057000DDE7F5 /* MCAChangePwdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCAChangePwdViewController.h; sourceTree = "<group>"; };
@@ -521,12 +545,30 @@
 			name = MCACustomController;
 			sourceTree = "<group>";
 		};
+		CE3BDDAB19CBF4A200F1625C /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				CE3BDDAC19CBF53C00F1625C /* MCAResourceCell.h */,
+				CE3BDDAD19CBF53C00F1625C /* MCAResourceCell.m */,
+				CE3BDDAE19CBF53C00F1625C /* MCAResourcesBookController.h */,
+				CE3BDDAF19CBF53C00F1625C /* MCAResourcesBookController.m */,
+				CE3BDDB019CBF53C00F1625C /* MCAResourcesCategoryViewController.h */,
+				CE3BDDB119CBF53C00F1625C /* MCAResourcesCategoryViewController.m */,
+				CE3BDDB219CBF53C00F1625C /* MCAResourcesDetailViewController.h */,
+				CE3BDDB319CBF53C00F1625C /* MCAResourcesDetailViewController.m */,
+				CE3BDDB419CBF53C00F1625C /* MCAResourcesViewController.h */,
+				CE3BDDB519CBF53C00F1625C /* MCAResourcesViewController.m */,
+			);
+			name = resources;
+			sourceTree = "<group>";
+		};
 		CE6E7D1A1990A8F6005470BC /* tabBar */ = {
 			isa = PBXGroup;
 			children = (
 				CE2DFC2619AEE11A000D59EB /* notes */,
 				CE6E7D1B1990A90E005470BC /* tasks */,
 				CEF5375B19A70F9B00B72CD2 /* calendar */,
+				CE3BDDAB19CBF4A200F1625C /* resources */,
 				CE84C2341962DDDD00A351FF /* more */,
 			);
 			path = tabBar;
@@ -688,7 +730,7 @@
 		CE84C2291962D97E00A351FF /* AppDB */ = {
 			isa = PBXGroup;
 			children = (
-				CE49490519B7416A00320D8C /* MobileCollegeAdmin.sqlite */,
+				CE3BDFD619CC412A00F1625C /* MobileCollegeAdmin.sqlite */,
 				CE0D694D1995DC5C009C0DBE /* MCADBIntraction.h */,
 				CE0D694E1995DC5C009C0DBE /* MCADBIntraction.m */,
 			);
@@ -711,6 +753,12 @@
 				CE2DFC2B19AEE7C6000D59EB /* MCANotesCatDHolder.m */,
 				CEBD96E219B0513800A63CC5 /* MCANotesDHolder.h */,
 				CEBD96E319B0513800A63CC5 /* MCANotesDHolder.m */,
+				CE3BDDBB19CBF69C00F1625C /* MCAResourcesBookDHolder.h */,
+				CE3BDDBC19CBF69C00F1625C /* MCAResourcesBookDHolder.m */,
+				CE3BDDBD19CBF69C00F1625C /* MCAResourcesCatDHolder.h */,
+				CE3BDDBE19CBF69C00F1625C /* MCAResourcesCatDHolder.m */,
+				CE3BDDBF19CBF69C00F1625C /* MCAResourcesDHolder.h */,
+				CE3BDDC019CBF69C00F1625C /* MCAResourcesDHolder.m */,
 			);
 			path = AppModel;
 			sourceTree = "<group>";
@@ -954,8 +1002,8 @@
 				CE2DFC3B19AEEC03000D59EB /* noimage1.png in Resources */,
 				CE30FB8A19B18B9E00E036B2 /* 120*120@2x.png in Resources */,
 				CE27457019C0333C00DDA5A8 /* tutorial3.png in Resources */,
-				CE49490619B7416A00320D8C /* MobileCollegeAdmin.sqlite in Resources */,
 				CE30FB8919B18B9E00E036B2 /* 80*80@2x.png in Resources */,
+				CE3BDFD719CC412A00F1625C /* MobileCollegeAdmin.sqlite in Resources */,
 				CE27457219C0333C00DDA5A8 /* tutorial2.png in Resources */,
 				CE7E432119A22B4C00A8652F /* pigsmall.mp4 in Resources */,
 				CE7E431F19A22B4C00A8652F /* ducksmall.mp4 in Resources */,
@@ -974,7 +1022,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE84C2181962D83800A351FF /* InfoPlist.strings in Resources */,
-				CE49490719B7416A00320D8C /* MobileCollegeAdmin.sqlite in Resources */,
+				CE3BDFD819CC412A00F1625C /* MobileCollegeAdmin.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -996,11 +1044,13 @@
 				CE0F16D419C8687F00029413 /* MCAShareViewController.m in Sources */,
 				CEAB93E419BAD21C00D4EC9E /* MCADropBoxViewController.m in Sources */,
 				CE84C2411962E46800A351FF /* MCAGlobalFunction.m in Sources */,
+				CE3BDDB919CBF53C00F1625C /* MCAResourcesDetailViewController.m in Sources */,
 				CE2AE62E1998881100B23FFF /* FMDatabaseAdditions.m in Sources */,
 				CEEDCABE197F8BE20088511D /* ASIDownloadCache.m in Sources */,
 				CE32DA7919AAF14A0037C555 /* NSDate+convenience.m in Sources */,
 				CE24C6011994B2A70048B85D /* MCATaskDetailDHolder.m in Sources */,
 				CE2AE62F1998881100B23FFF /* FMDatabasePool.m in Sources */,
+				CE3BDDB619CBF53C00F1625C /* MCAResourceCell.m in Sources */,
 				CEEDCABC197F8BE20088511D /* ASIDataCompressor.m in Sources */,
 				CE2DFC2919AEE193000D59EB /* MCANotesViewController.m in Sources */,
 				CE2DFC2C19AEE7C6000D59EB /* MCANotesCatDHolder.m in Sources */,
@@ -1009,6 +1059,8 @@
 				CE174993198D19C200F61135 /* AryaHUD.m in Sources */,
 				CE278A2219920DEF00783592 /* CustomTableViewCell.m in Sources */,
 				CE84C23A1962DE2E00A351FF /* MCARegistrationViewController.m in Sources */,
+				CE3BDDBA19CBF53C00F1625C /* MCAResourcesViewController.m in Sources */,
+				CE3BDDB819CBF53C00F1625C /* MCAResourcesCategoryViewController.m in Sources */,
 				CEEDCAC0197F8BE20088511D /* ASIHTTPRequest.m in Sources */,
 				CE3B4FE619C18359001B07D4 /* MCASettingViewController.m in Sources */,
 				CEEDCAD4197F8BF30088511D /* SBJsonParser.m in Sources */,
@@ -1026,8 +1078,10 @@
 				CE2AE6311998881100B23FFF /* FMResultSet.m in Sources */,
 				CE32DA7619AAF14A0037C555 /* MCACalendarView.m in Sources */,
 				CE278A1B19920D6700783592 /* SWLongPressGestureRecognizer.m in Sources */,
+				CE3BDDC119CBF69C00F1625C /* MCAResourcesBookDHolder.m in Sources */,
 				CEEDCAC2197F8BE20088511D /* ASINetworkQueue.m in Sources */,
 				CE278A1D19920D6700783592 /* SWUtilityButtonTapGestureRecognizer.m in Sources */,
+				CE3BDDC319CBF69C00F1625C /* MCAResourcesDHolder.m in Sources */,
 				CEBD96E719B0790800A63CC5 /* MCANotesDetailViewController.m in Sources */,
 				CE0D69521995FE9C009C0DBE /* MCAAddTaskViewController.m in Sources */,
 				CEEDCAD2197F8BF30088511D /* SBJSON.m in Sources */,
@@ -1042,6 +1096,7 @@
 				CEEDCABB197F8BE20088511D /* ASIAuthenticationDialog.m in Sources */,
 				CE394C3619938D300080B5B8 /* MCACustomButton.m in Sources */,
 				CE207FB919A8580F00F329FC /* NSString+Util.m in Sources */,
+				CE3BDDB719CBF53C00F1625C /* MCAResourcesBookController.m in Sources */,
 				CEEDCAE0197F8F520088511D /* MCARestIntraction.m in Sources */,
 				CE278A1C19920D6700783592 /* SWTableViewCell.m in Sources */,
 				CEBDA79D19B96F43001294DD /* MCACustomImageV.m in Sources */,
@@ -1055,6 +1110,7 @@
 				CE278A1919920D6700783592 /* NSMutableArray+SWUtilityButtons.m in Sources */,
 				CE303986199F230D00D17A2B /* MCAMoreViewController.m in Sources */,
 				CE2AE6301998881100B23FFF /* FMDatabaseQueue.m in Sources */,
+				CE3BDDC219CBF69C00F1625C /* MCAResourcesCatDHolder.m in Sources */,
 				CE7E430719A1F6D400A8652F /* MCAAlertView.m in Sources */,
 				CEBA2DCB19B6EBFF00C6941F /* MCAAddEditNotesViewController.m in Sources */,
 				CE2AE62D1998881100B23FFF /* FMDatabase.m in Sources */,

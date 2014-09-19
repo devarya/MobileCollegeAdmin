@@ -10,6 +10,12 @@
 
 @interface MCASettingViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>{
     
+   IBOutlet UITableView *tbl_studParList;
+            UITableView *tbl_langList;
+   NSMutableArray *arr_studParList;
+   NSMutableArray *arr_langList;
+   UIView *view_Bg;
+    
    IBOutlet UILabel *lbl_parStud;
     
    IBOutlet UIButton *btn_add;
@@ -18,10 +24,7 @@
    IBOutlet UIButton *btn_taskAlertEmail;
    IBOutlet UIButton *btn_priorityAlertHigh;
    IBOutlet UIButton *btn_priorityAlertRegular;
-    
-    NSMutableArray *arr_studentList;
-   IBOutlet UITableView *tbl_studParList;
-    UIView *view_Bg;
+ 
     AryaHUD *HUD;
     
 }
