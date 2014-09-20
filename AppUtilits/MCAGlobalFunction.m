@@ -13,7 +13,7 @@
 
 +(void)showAlert:(NSString*)msg{
     
-    [[[UIAlertView alloc]initWithTitle:@"Message"
+    [[[UIAlertView alloc]initWithTitle:[NSString languageSelectedStringForKey:@"msg"]
                                message:msg
                               delegate:self
                      cancelButtonTitle:@"Ok"
@@ -21,7 +21,7 @@
 }
 +(void)showCustomizeAlert:(NSString *)msg{
     
-    [[[UIAlertView alloc]initWithTitle:@"Message"
+    [[[UIAlertView alloc]initWithTitle:[NSString languageSelectedStringForKey:@"msg"]
                                message:msg
                               delegate:self
                      cancelButtonTitle:nil

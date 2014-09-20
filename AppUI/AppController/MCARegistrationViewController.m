@@ -101,6 +101,7 @@
 }
 -(void)viewWillAppear:(BOOL)animated
 {
+    [self getLanguageStrings:nil];
     [super viewWillAppear:animated];
     
     NSNotificationCenter *notification = [NSNotificationCenter defaultCenter];
@@ -140,6 +141,34 @@
         
         [view_Bg removeFromSuperview];
     }
+}
+
+#pragma mark - LANGUAGE_SUPPORT
+
+-(void)getLanguageStrings:(id)sender{
+    
+    self.navigationItem.title = [NSString languageSelectedStringForKey:@"fpassword"];
+    
+    lbl_parentName.text = [NSString languageSelectedStringForKey:@"pname"];
+    lbl_parentEmail.text = [NSString languageSelectedStringForKey:@"pemail"];
+    lbl_myStud.text = [NSString languageSelectedStringForKey:@"viewStudent"];
+    
+    lbl_push.text = [NSString languageSelectedStringForKey:@"chk_push"];
+    lbl_email.text = [NSString languageSelectedStringForKey:@"chk_email"];
+    lbl_TOU.text = [NSString languageSelectedStringForKey:@"terms"];
+    lbl_zipCode.text = [NSString languageSelectedStringForKey:@"zip"];
+    lbl_pwd.text = [NSString languageSelectedStringForKey:@"password"];
+    lbl_taskAlert.text = [NSString languageSelectedStringForKey:@"notification"];
+    
+    tx_parentName.placeholder = [NSString languageSelectedStringForKey:@"et_name"];
+    tx_parentEmail.placeholder = [NSString languageSelectedStringForKey:@"et_email"];
+    tx_parentZipCode.placeholder = [NSString languageSelectedStringForKey:@"et_zipCode"];
+    tx_parentPwd.placeholder = [NSString languageSelectedStringForKey:@"et_password"];
+    
+    [btn_signUp setTitle:[NSString languageSelectedStringForKey:@"btn_signup"] forState:UIControlStateNormal];
+    [btn_addStudent setTitle:[NSString languageSelectedStringForKey:@"addStudent"] forState:UIControlStateNormal];
+    [btn_studentList setTitle:[NSString languageSelectedStringForKey:@"viewST"] forState:UIControlStateNormal];
+    
 }
 
 #pragma mark - KEYBOARD_METHOD
@@ -931,7 +960,7 @@ if (![tx_addStudEmail.text isEqualToString:@""]&&![tx_addStudGrade.text isEqualT
         [[MCARestIntraction sharedManager]requestForUserExist:info];
     }else{
         [HUD hide];
-        [MCAGlobalFunction showAlert:NET_NOT_AVAIALABLE];
+        [MCAGlobalFunction showAlert:[NSString languageSelectedStringForKey:@"noInternetMsg"]];
     }
 }
 -(void)requestParentSignUp:(NSString*)info{
@@ -940,7 +969,7 @@ if (![tx_addStudEmail.text isEqualToString:@""]&&![tx_addStudGrade.text isEqualT
         [[MCARestIntraction sharedManager]requestForParentSignUp:info];
     }else{
         [HUD hide];
-        [MCAGlobalFunction showAlert:NET_NOT_AVAIALABLE];
+        [MCAGlobalFunction showAlert:[NSString languageSelectedStringForKey:@"noInternetMsg"]];
     }
 }
 -(void)requestStudentSignUp:(NSString*)info{
@@ -949,7 +978,7 @@ if (![tx_addStudEmail.text isEqualToString:@""]&&![tx_addStudGrade.text isEqualT
         [[MCARestIntraction sharedManager]requestForStudentSignUp:info];
     }else{
         [HUD hide];
-        [MCAGlobalFunction showAlert:NET_NOT_AVAIALABLE];
+        [MCAGlobalFunction showAlert:[NSString languageSelectedStringForKey:@"noInternetMsg"]];
     }
 }
 

@@ -34,6 +34,8 @@
     HUD=[AryaHUD new];
     [self.view addSubview:HUD];
     
+    [self btnSelectLangDidClicked:nil];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -76,7 +78,8 @@
     [UIView beginAnimations:@"animate" context:nil];
     [UIView setAnimationDuration:0.2f];
     [UIView setAnimationBeginsFromCurrentState: NO];
-    if ([[UIScreen mainScreen] bounds].size.height==568)
+    
+    if (IS_IPHONE_5)
     {
         self.view.frame =CGRectMake(0,0,  self.view.frame.size.width, self.view.frame.size.height);
        //this is iphone 5
@@ -85,6 +88,7 @@
         self.view.frame =CGRectMake(0,0,  self.view.frame.size.width, self.view.frame.size.height);
         // this is iphone 4
     }
+    
     [UIView commitAnimations];
 }
 
@@ -97,15 +101,13 @@
 }
 -(IBAction)btnLoginDidClicked:(id)sender{
     
-    if (![tx_email.text isEqualToString:@""]&&[MCAValidation isValidEmailId:tx_email.text])
+    if (![tx_email.text isEqualToString:@""] && ![tx_pwd.text isEqualToString:@""])
     {
-        if ([tx_pwd.text isEqualToString:@""]) {
+        if (![MCAValidation isValidEmailId:tx_email.text]) {
             
-            [MCAGlobalFunction showAlert:INVALID_PWD];
+            [MCAGlobalFunction showAlert:[NSString languageSelectedStringForKey:@"emailValidate_msg"]];
             
         }else{
-            
-            [self keyboardDisappeared];
          
             NSMutableDictionary *info=[NSMutableDictionary new];
             [info setValue:tx_email.text forKey:@"signin_id"];
@@ -119,8 +121,44 @@
         }
     }else{
         
-        [MCAGlobalFunction showAlert:EMAIL_MESSAGE];
+        [MCAGlobalFunction showAlert:[NSString languageSelectedStringForKey:@"userNameAndpass"]];
     }
+}
+-(IBAction)btnSelectLangDidClicked:(id)sender{
+    
+    if (isSpLang) {
+        
+        [[NSUserDefaults standardUserDefaults]setValue:SPANISH_LANG forKey:KEY_LANGUAGE_CODE];
+        [btn_selectLang setTitle:[NSString languageSelectedStringForKey:@"languagevalueLogin"] forState:UIControlStateNormal];
+        isSpLang = NO;
+        
+        
+    }else{
+        
+        [[NSUserDefaults standardUserDefaults]setValue:ENGLISH_LANG forKey:KEY_LANGUAGE_CODE];
+        [btn_selectLang setTitle:[NSString languageSelectedStringForKey:@"languagevalueLogin"] forState:UIControlStateNormal];
+        isSpLang = YES;
+        
+    }
+    [[NSUserDefaults standardUserDefaults]synchronize];
+    [self getLanguageStrings:nil];
+    
+}
+
+#pragma mark - LANGUAGE_SUPPORT
+-(void)getLanguageStrings:(id)sender{
+    
+    lbl_logoText.text = [NSString languageSelectedStringForKey:@"logoText"];
+    lbl_learnMore.text = [NSString languageSelectedStringForKey:@"learnMore"];
+    
+    tx_email.placeholder = [NSString languageSelectedStringForKey:@"userName"];
+    tx_pwd.placeholder = [NSString languageSelectedStringForKey:@"password"];
+    
+    [btn_login setTitle:[NSString languageSelectedStringForKey:@"login"] forState:UIControlStateNormal];
+    [btn_forgotPwd setTitle:[NSString languageSelectedStringForKey:@"fpassword"] forState:UIControlStateNormal];
+    [btn_signUp setTitle:[NSString languageSelectedStringForKey:@"newUser"] forState:UIControlStateNormal];
+    [btn_tutorial setTitle:[NSString languageSelectedStringForKey:@"tutorial"] forState:UIControlStateNormal];
+    
 }
 
 #pragma mark - API CALLING
@@ -128,10 +166,14 @@
 -(void)requestLogin:(NSString*)info{
     
     if ([MCAGlobalFunction isConnectedToInternet]) {
+       
+        [self keyboardDisappeared];
         [[MCARestIntraction sharedManager]requestForLogin:info];
+        
     }else{
+        
         [HUD hide];
-        [MCAGlobalFunction showAlert:NET_NOT_AVAIALABLE];
+        [MCAGlobalFunction showAlert:[NSString languageSelectedStringForKey:@"noInternetMsg"]];
     }
 }
 

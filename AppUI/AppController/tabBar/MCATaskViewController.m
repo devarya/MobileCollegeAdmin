@@ -143,7 +143,7 @@
 }
 -(void)apiCalling:(id)sender{
     
-     arr_taskList = [[MCADBIntraction databaseInteractionManager]retrieveTaskList:nil];
+    arr_taskList = [[MCADBIntraction databaseInteractionManager]retrieveTaskList:nil];
     //Api calling
     if (!arr_taskList.count > 0)
     {
@@ -179,6 +179,8 @@
     [tbl_studentList removeFromSuperview];
     self.navigationController.navigationBar.userInteractionEnabled = YES;
     tabBarMCACtr.tabBar.userInteractionEnabled = YES;
+    
+    [self getLanguageStrings:nil];
 
 }
 -(void)viewWillDisappear:(BOOL)animated{
@@ -188,13 +190,20 @@
 
 }
 
+#pragma mark - LANGUAGE_SUPPORT
+
+-(void)getLanguageStrings:(id)sender{
+    
+    self.navigationItem.title = [NSString languageSelectedStringForKey:@"tab_task"]; 
+}
+
 #pragma mark - API CALL
 
 -(void)getTaskList:(id)sender{
     
     NSMutableDictionary *info=[NSMutableDictionary new];
     [info setValue:[[NSUserDefaults standardUserDefaults]valueForKey:KEY_USER_TYPE] forKey:@"user_type"];
-    [info setValue:@"en_us" forKey:@"language_code"];
+    [info setValue:[[NSUserDefaults standardUserDefaults]valueForKey:KEY_LANGUAGE_CODE] forKey:@"language_code"];
     
     if ([[NSUserDefaults standardUserDefaults]valueForKey:KEY_NOW_DATE]) {
         [info setValue:[[NSUserDefaults standardUserDefaults]valueForKey:KEY_NOW_DATE] forKey:@"now_date"];
@@ -753,7 +762,7 @@
         [HUD hide];
 //        arr_taskList = [[MCADBIntraction databaseInteractionManager]retrieveTaskList:nil];
         [self taskListSuccess:nil];
-//        [MCAGlobalFunction showAlert:NET_NOT_AVAIALABLE];
+//        [MCAGlobalFunction showAlert:[NSString languageSelectedStringForKey:@"noInternetMsg"]];
     }
 }
 -(void)requestConfirmation:(NSString*)info{
@@ -762,7 +771,7 @@
         [[MCARestIntraction sharedManager]requestForConfirmationApi:info];
     }else{
         [HUD hide];
-//        [MCAGlobalFunction showAlert:NET_NOT_AVAIALABLE];
+//        [MCAGlobalFunction showAlert:[NSString languageSelectedStringForKey:@"noInternetMsg"]];
     }
 }
 -(void)requestDeleteOrCompleteTask:(NSString*)info{
@@ -771,7 +780,7 @@
         [[MCARestIntraction sharedManager]requestForDeleteOrCompleteTask:info :@"task"];
     }else{
         [HUD hide];
-         [MCAGlobalFunction showAlert:NET_NOT_AVAIALABLE];
+         [MCAGlobalFunction showAlert:[NSString languageSelectedStringForKey:@"noInternetMsg"]];
     }
 }
 #pragma mark - NSNOTIFICATION SELECTOR

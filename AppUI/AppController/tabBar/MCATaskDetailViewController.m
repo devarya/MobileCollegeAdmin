@@ -230,7 +230,7 @@
         [[MCARestIntraction sharedManager]requestForDeleteOrCompleteTask:info :@"taskDetail"];
     }else{
         [HUD hide];
-        [MCAGlobalFunction showAlert:NET_NOT_AVAIALABLE];
+        [MCAGlobalFunction showAlert:[NSString languageSelectedStringForKey:@"noInternetMsg"]];
     }
 }
 # pragma mark - NS_NOTIFICATION SELECTOR

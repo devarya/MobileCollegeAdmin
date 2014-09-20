@@ -97,7 +97,7 @@
                 [self readToFile:nil];
             }else{
                 [HUD hide];
-                [MCAGlobalFunction showAlert:NET_NOT_AVAIALABLE];
+                [MCAGlobalFunction showAlert:[NSString languageSelectedStringForKey:@"noInternetMsg"]];
             }
         }else{
             

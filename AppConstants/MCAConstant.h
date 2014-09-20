@@ -17,7 +17,6 @@
 #define INVALID_PWD @"Please enter valid password."
 #define EMAIL_MESSAGE @"Please enter valid email address."
 #define INVALID_USERNAME @"Please enter valid username."
-#define NET_NOT_AVAIALABLE @"Internet not available Cross check your internet connectivity and try again"
 #define MANDATORY_MESSAGE @"All fields are mandatory"
 #define ACCEPT_TERM_MESSAGE @"Please accept Terms of Use."
 #define INVALID_USERNAME_PWD @"Please enter valid username and password."
@@ -53,6 +52,9 @@
 #define KEY_CAL_CURRENT_MONTH @"current_month"
 #define KEY_CAL_CURRENT_YEAR @"current_year"
 #define KEY_CAL_HEIGHT @"cal_height"
+
+#define ENGLISH_LANG @"en_us"
+#define SPANISH_LANG @"es_us"
 
 
 //local folders

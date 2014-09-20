@@ -56,7 +56,20 @@
     
     IBOutlet UIButton *btn_parentAccept;
     IBOutlet UIButton *btn_studAccept;
+    IBOutlet UIButton *btn_signUp;
              UIButton *btn_keyboardDone;
+    
+    IBOutlet UILabel *lbl_parentName;
+    IBOutlet UILabel *lbl_parentEmail;
+    IBOutlet UILabel *lbl_myStud;
+    
+    IBOutlet UILabel *lbl_push;
+    IBOutlet UILabel *lbl_email;
+    IBOutlet UILabel *lbl_TOU;
+    IBOutlet UILabel *lbl_title;
+    IBOutlet UILabel *lbl_zipCode;
+    IBOutlet UILabel *lbl_taskAlert;
+    IBOutlet UILabel *lbl_pwd;
     
     NSMutableArray *arr_StudentList;
            NSArray *arr_GradeList;

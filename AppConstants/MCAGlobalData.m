@@ -66,7 +66,6 @@
         
         
     }
-
 }
 //- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
 //    
@@ -88,4 +87,14 @@
 //    }
 //    
 //}
+
+-(void)getTabBarTitle:(id)sender{
+    
+ [[tabBarMCACtr.tabBar.items objectAtIndex:0]setTitle:[NSString languageSelectedStringForKey:@"tab_task"]];
+ [[tabBarMCACtr.tabBar.items objectAtIndex:1]setTitle:[NSString languageSelectedStringForKey:@"tab_calendar"]];
+ [[tabBarMCACtr.tabBar.items objectAtIndex:2]setTitle:[NSString languageSelectedStringForKey:@"tab_notes"]];
+ [[tabBarMCACtr.tabBar.items objectAtIndex:3]setTitle:[NSString languageSelectedStringForKey:@"tab_resources"]];
+ [[tabBarMCACtr.tabBar.items objectAtIndex:4]setTitle:[NSString languageSelectedStringForKey:@"tab_more"]];
+    
+}
 @end

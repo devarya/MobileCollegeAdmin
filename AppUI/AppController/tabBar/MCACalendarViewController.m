@@ -112,6 +112,12 @@
     tabBarMCACtr.tabBar.userInteractionEnabled = YES;
     
 }
+#pragma mark - LANGUAGE_SUPPORT
+
+-(void)getLanguageStrings:(id)sender{
+    
+    self.navigationItem.title = [NSString languageSelectedStringForKey:@"tab_calendar"];
+}
 #pragma mark - IB_ACTION
 
 -(void)btnBar_gradeDidClicked:(id)sender{

@@ -290,7 +290,7 @@
         [[MCARestIntraction sharedManager]requestForUserProfileEdit:info];
     }else{
         [HUD hide];
-        [MCAGlobalFunction showAlert:NET_NOT_AVAIALABLE];
+        [MCAGlobalFunction showAlert:[NSString languageSelectedStringForKey:@"noInternetMsg"]];
     }
 }
 

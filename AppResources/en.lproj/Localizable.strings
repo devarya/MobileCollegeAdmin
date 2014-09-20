@@ -1,0 +1,93 @@
+/* 
+  Localizable.strings
+  MobileCollegeAdmin
+
+  Created by aditi on 20/09/14.
+  Copyright (c) 2014 arya. All rights reserved.
+*/
+
+/*-- tab name string value--*/
+
+"tab_task" = "Tasks";
+"tab_calendar" = "Calendar";
+"tab_notes" = "Notes";
+"tab_resources" = "Resources";
+"tab_more" = "More";
+
+/*-- Commonly Used String --*/
+
+"app_name" = "Mobile College Admin";
+"description" = "Description:";
+"ok" = "OK";
+"complete_small" = "Complete";
+"Yes" = "Yes";
+"No" = "No";
+
+"userNameAndpass" = "Username/Password cannot be blank";
+"enterName" = "Please enter name";
+"enterPass" = "Please enter password";
+"msg"= "Message";
+"selectGradeMsg" = "Select grade field is empty.";
+"selectPersonMsg" = "Select a person field is empty.";
+"emailValidate_msg" = "Enter a valid Email.";
+"thisAppIsNot_msg" = "This app wasn\'t authenticated properly.";
+"zipCodeMsg" = "The postal code should be only 5 digits.";
+"allFieldMsg" = "All fields are mandatory.";
+"emailShouldNot" = "Email should not be same as parent\'s email.";
+"emailAllreadyExistMsg" = "email ID already exists.";
+"doYouMsg" = " if you wish to Complete or Delete : ";
+"alertMsg" = "Alert";
+"noInternetMsg" = "Internet not available \nCross check your internet connectivity and try again";
+"passwordMsg" = "password and confirm password do not match";
+"user_login_successful" = "User login successful.";
+"you_are_not_authorized" = "You are not authorized user.";
+"select_grade" = "Select Grade";
+"no_student_connected" = "No Student Connected to this account.";
+"no_parent_connected" = "No Parent Connected to this account.";
+
+/*-- Login page English --*/
+
+"languagevalueLogin" =" Español";
+"logoText" = "Mobile College Admin";
+"userName" = "Username or email";
+"login" = "LOGIN";
+"newUser" = "NEW USER? SIGN UP";
+"learnMore" ="Learn more about";
+"tutorial" = "Mobile College Admin";
+"signup" = "Sign Up";
+"parent" = "Parent";
+"student" = "Student";
+"remember" = "Remember Me";
+"fpassword" = "Forgot Password?";
+"submit" = "Submit";
+"tomorrow" = "Remind Tomorrow";
+"languagevalue" = "English";
+"password" = "Password";
+
+/*-- Parent Sign Up String --*/
+
+"Please_enter_the_following" = " Please enter the following details: ";
+"pname" = "Parent Name";
+"et_name" = "Name";
+"pemail" = "Parent Email";
+"et_email" = "Enter email address";
+"viewStudent" = "My Student";
+"addStudent" = "+ Add";
+"add" = "Add";
+"zip" = "Zip Code";
+"et_zipCode" = "Enter zip code";
+"notification" = "Task Alerts";
+"chk_push" = "Push";
+"chk_email" = "Email";
+"et_password" = "Enter Password";
+"cpassword" = "Confirm Password";
+"terms" = "I accept the terms of use.";
+"btn_signup" = "SIGN UP";
+"enter_student_detail" = "Enter Student Details:";
+"viewST" = "View My Student";
+"student_list" = "Students List";
+"parent_email_msg" = "Parent email ID is used as student email ID.";
+"user_signup_msg_new" = "User signup was successful.";
+"wait" = "Wait...";
+"loading" = "Loading...";
+

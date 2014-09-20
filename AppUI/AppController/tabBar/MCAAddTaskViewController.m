@@ -425,7 +425,7 @@
     }else{
         
         [HUD hide];
-        [MCAGlobalFunction showAlert:NET_NOT_AVAIALABLE];
+        [MCAGlobalFunction showAlert:[NSString languageSelectedStringForKey:@"noInternetMsg"]];
 //        MCATaskDetailDHolder *taskAddDHolder = [MCATaskDetailDHolder new];
 //        
 //        taskAddDHolder.str_userId = [[NSUserDefaults standardUserDefaults]valueForKey:KEY_USER_ID];

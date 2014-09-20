@@ -36,6 +36,10 @@
     
     [self setNeedsStatusBarAppearanceUpdate];
 }
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [self getLanguageStrings:nil];
+}
 -(UIStatusBarStyle)preferredStatusBarStyle{
     
     return UIStatusBarStyleLightContent;
@@ -55,6 +59,16 @@
     [tx_forgotPwd resignFirstResponder];
         
 }
+#pragma mark - LANGUAGE_SUPPORT
+
+-(void)getLanguageStrings:(id)sender{
+    
+    navBar.topItem.title = [NSString languageSelectedStringForKey:@"fpassword"];
+    tx_forgotPwd.placeholder = @"Email";
+    [btn_submit setTitle:[NSString languageSelectedStringForKey:@"submit"] forState:UIControlStateNormal];
+    
+}
+
 #pragma mark - IB_ACTION
 
 -(IBAction)btnBackDidClicked:(id)sender{
@@ -64,7 +78,7 @@
 
 -(IBAction)btnSubmitDidClicked:(id)sender{
     
-     if (![tx_forgotPwd.text isEqualToString:@""]&&[MCAValidation isValidEmailId:tx_forgotPwd.text]) {
+     if (![tx_forgotPwd.text isEqualToString:@""] && [MCAValidation isValidEmailId:tx_forgotPwd.text]) {
         
          NSMutableDictionary *info=[NSMutableDictionary new];
          [info setValue:tx_forgotPwd.text forKey:@"signin_id"];
@@ -79,7 +93,7 @@
 
      }else{
          
-         [MCAGlobalFunction showAlert:EMAIL_MESSAGE];
+         [MCAGlobalFunction showAlert:[NSString languageSelectedStringForKey:@"emailValidate_msg"]];
      }
 }
 #pragma mark - API CALLING
@@ -90,7 +104,7 @@
         [[MCARestIntraction sharedManager]requestForForgotPwd:info];
     }else{
         [HUD hide];
-        [MCAGlobalFunction showAlert:NET_NOT_AVAIALABLE];
+        [MCAGlobalFunction showAlert:[NSString languageSelectedStringForKey:@"noInternetMsg"]];
     }
 }
 

@@ -1,0 +1,93 @@
+/* 
+  Localizable.strings
+  MobileCollegeAdmin
+
+  Created by aditi on 20/09/14.
+  Copyright (c) 2014 arya. All rights reserved.
+*/
+
+ /*-- tab name string valueis --*/
+
+"tab_task" = "Tareas";
+"tab_calendar" = "Calendario";
+"tab_notes" = "Apuntes";
+"tab_resources" = "Recursos";
+"tab_more" = "Más";
+
+/*-- Commonly Used String -- */
+
+"app_name" = "Mobile College Admin";
+"description" = "Descripción: ";
+"ok" = " OK ";
+"complete_small" = "Completar";
+"Yes" = "Sí";
+"No" = " No";
+"taskDeleteD_msg" = "Tarea ha sidoborrada con éxito.";
+"taskCompleted_msg" = "Tarea ha sidocompletada con éxito.";
+"userNameAndpass" = "Usario / Contraseña no puedeestar en blanco";
+"enterName" = "Favor de escribirsunombre";
+"enterPass" = "Favor de escribirsucontraseña";
+"msg" = "Información Requerida";
+"selectGradeMsg" = "Hay queescoger un año escolar";
+"selectPersonMsg" = "Tienequeescoger a una persona.";
+"emailValidate_msg" = "Favor de escribir un correoelectrónicoválido.";
+"thisAppIsNot_msg" = "Error: El app no fueauenticado.";
+"zipCodeMsg" = "El código postal debe de ser 5 dígitos.";
+"allFieldMsg" = "All fields are mandatory";
+"emailShouldNot" = "Los correoselectrónicos no deben de seriguales.";
+"emailAllreadyExistMsg" = "Yaexisteestacuenta de usario.";
+"doYouMsg" = "DeseaCompletar o Borrar la tarea: ";
+"alertMsg" = "Alerta";
+"noInternetMsg" = "La internet no estádisponible, favor de verificarsuconexión.";
+"passwordMsg" = " Las contraseñas no coinciden. ";
+"user_login_successful" = "Accesoaprobado.";
+"you_are_not_authorized" = " Este correoelectrónico no estainscrito.";
+"select_grade" = "SeleccioneNivel";
+"no_student_connected" = "No hay conección con estudiante. ";
+"no_parent_connected" = "No hay conección con Padre/Madre.";
+"user_signup_msg_new" = "Usario inscrito con éxito.";
+
+/*-- Login page English -- */
+
+"languagevalueLogin" = "English";
+"logoText" = "Mobile College Admin";
+"userName" = "Email";
+"login" = "INICIAR SESION ";
+"newUser" = "¿Usario Nuevo? ¡Inscrábse!";
+"learnMore" = "Aprenda más de";
+"tutorial" = "Mobile College Admin";
+"signup" = "Inscripción";
+"parent" = "Padre/Madre";
+"student" = "Estudiante";
+"remember" = "Recordarme";
+"fpassword" = "¿Contraseña Olvidada?";
+"submit" = "Enviar";
+"tomorrow" = "RecuerdameMañana";
+"languagevalue" = "Español";
+"password" = "Contraseña";
+
+/*-- Parent Sign Up String --*/
+
+"Please_enter_the_following" = "Favor de proveer lo siguiente:";
+"pname" = "Nombre de Padre/Madre";
+"et_name" = "Nombre";
+"pemail" = "Email de Padre/Madre";
+"et_email" = "Escriba su Email";
+"viewStudent" = "Mi Estudiante";
+"addStudent" = "+ Añadir";
+"add" = "Añadir";
+"zip" = "Código Postal";
+"et_zipCode" = "Escriba Código Postal";
+"notification" = "Alertas de Tareas";
+"chk_push" = "Notificación";
+"chk_email" = "Email";
+"et_password" = "Escriba Contraseña";
+"cpassword" = "ConfirmeContraseña";
+"terms" = "Acepto los términos y condiciones de uso.";
+"btn_signup" = "INSCRIBIRME";
+"enter_student_detail" = "Escriba los datos de su(s) estudiante(s) ";
+"viewST" = " Ver Mi Estudiante ";
+"student_list" = "Lista de Estudiantes";
+"parent_email_msg" = "Email de Padre/Madrees";
+"wait" = "Espere un momento… ";
+"loading" = "Cargando...";

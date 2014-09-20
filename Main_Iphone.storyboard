@@ -70,11 +70,11 @@
                                 <color key="backgroundColor" red="0.1215686275" green="0.1450980392" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" id="pRh-Sd-Ftp">
-                                <rect key="frame" x="0.0" y="600" width="320" height="472"/>
+                                <rect key="frame" x="0.0" y="96" width="320" height="472"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Parent Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mMp-GB-GXO">
-                                        <rect key="frame" x="10" y="44" width="90" height="30"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Parent Name" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" id="mMp-GB-GXO">
+                                        <rect key="frame" x="8" y="44" width="92" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
@@ -94,8 +94,8 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Parent Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WX3-zx-0SO">
-                                        <rect key="frame" x="10" y="90" width="90" height="30"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Parent Email" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" id="WX3-zx-0SO">
+                                        <rect key="frame" x="8" y="90" width="92" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
@@ -116,24 +116,24 @@
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Student" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GdS-hS-4Sc">
-                                        <rect key="frame" x="10" y="138" width="90" height="30"/>
+                                        <rect key="frame" x="8" y="138" width="92" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" id="4mm-9U-qur">
-                                        <rect key="frame" x="10" y="82" width="302" height="1"/>
+                                        <rect key="frame" x="8" y="82" width="304" height="1"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="MyN-HP-Luk">
-                                        <rect key="frame" x="10" y="128" width="302" height="1"/>
+                                        <rect key="frame" x="8" y="128" width="304" height="1"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zip Code" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5Ft-4l-evA">
-                                        <rect key="frame" x="10" y="186" width="90" height="30"/>
+                                        <rect key="frame" x="8" y="186" width="92" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
@@ -154,12 +154,12 @@
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="ZxB-Ts-u8y">
-                                        <rect key="frame" x="10" y="176" width="302" height="1"/>
+                                        <rect key="frame" x="8" y="176" width="304" height="1"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task Alerts" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Mtc-co-rvd">
-                                        <rect key="frame" x="9" y="233" width="91" height="30"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task Alerts" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" id="Mtc-co-rvd">
+                                        <rect key="frame" x="8" y="233" width="92" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
@@ -171,12 +171,12 @@
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="DPn-dF-vYM">
-                                        <rect key="frame" x="9" y="223" width="302" height="1"/>
+                                        <rect key="frame" x="8" y="223" width="304" height="1"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eX2-ao-z8Y">
-                                        <rect key="frame" x="9" y="280" width="91" height="30"/>
+                                        <rect key="frame" x="8" y="280" width="92" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
@@ -197,7 +197,7 @@
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="k6Q-Os-ee6">
-                                        <rect key="frame" x="9" y="271" width="302" height="1"/>
+                                        <rect key="frame" x="8" y="271" width="304" height="1"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
@@ -209,7 +209,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="L5K-DM-jQ4">
-                                        <rect key="frame" x="115" y="138" width="146" height="30"/>
+                                        <rect key="frame" x="115" y="138" width="136" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <state key="normal" title="View My Student">
@@ -253,8 +253,8 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dqL-wE-www">
-                                        <rect key="frame" x="268" y="138" width="44" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" id="dqL-wE-www">
+                                        <rect key="frame" x="256" y="138" width="56" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <state key="normal" title="+ ADD">
@@ -295,7 +295,7 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" id="kiO-0R-eKh">
-                                        <rect key="frame" x="9" y="318" width="302" height="1"/>
+                                        <rect key="frame" x="8" y="318" width="304" height="1"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
@@ -313,7 +313,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" id="dFy-9J-6Q8">
-                                <rect key="frame" x="0.0" y="96" width="320" height="472"/>
+                                <rect key="frame" x="0.0" y="550" width="320" height="472"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Student Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cUn-cS-HhB">
@@ -582,7 +582,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" id="bb2-VQ-Zvx">
-                                <rect key="frame" x="9" y="5" width="302" height="217"/>
+                                <rect key="frame" x="9" y="-200" width="302" height="217"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Enter Student Details" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OXx-h9-YUd">
@@ -707,10 +707,21 @@
                         <outlet property="btn_parentAccept" destination="faN-dB-uIY" id="Wbs-Ig-s8o"/>
                         <outlet property="btn_parentNotifyEmail" destination="eWf-3h-As4" id="91e-d5-Z3R"/>
                         <outlet property="btn_parentNotifyPush" destination="elP-pL-Uod" id="CHx-Re-ab7"/>
+                        <outlet property="btn_signUp" destination="iBt-Cb-aNd" id="W12-GZ-kEM"/>
                         <outlet property="btn_studAccept" destination="iyJ-eb-UET" id="YiW-VM-pQA"/>
                         <outlet property="btn_studNotifyEmail" destination="zTZ-29-TRr" id="EsW-3M-HjD"/>
                         <outlet property="btn_studNotifyPush" destination="fQw-lf-Vop" id="Cei-rk-pdj"/>
                         <outlet property="btn_studentList" destination="L5K-DM-jQ4" id="69H-ee-ykb"/>
+                        <outlet property="lbl_TOU" destination="swq-Je-YEv" id="psg-iy-2bc"/>
+                        <outlet property="lbl_email" destination="PHF-qa-h6e" id="GLb-Fq-r3R"/>
+                        <outlet property="lbl_myStud" destination="GdS-hS-4Sc" id="7r3-Bb-aye"/>
+                        <outlet property="lbl_parentEmail" destination="WX3-zx-0SO" id="8TJ-xx-fUD"/>
+                        <outlet property="lbl_parentName" destination="mMp-GB-GXO" id="vrn-ZS-ziu"/>
+                        <outlet property="lbl_push" destination="3WP-fu-4XS" id="8DX-ie-orY"/>
+                        <outlet property="lbl_pwd" destination="eX2-ao-z8Y" id="9tJ-Bq-kEG"/>
+                        <outlet property="lbl_taskAlert" destination="Mtc-co-rvd" id="s30-Tp-D81"/>
+                        <outlet property="lbl_title" destination="24X-g2-3Ie" id="uf4-F5-3eO"/>
+                        <outlet property="lbl_zipCode" destination="5Ft-4l-evA" id="dVC-Kk-BDW"/>
                         <outlet property="segControl_UserType" destination="sBu-Md-Ix5" id="6Dy-Zs-7rp"/>
                         <outlet property="tx_addStudEmail" destination="tJK-H1-RnK" id="RmC-03-xqu"/>
                         <outlet property="tx_addStudGrade" destination="Oen-MK-PKw" id="LOk-R5-Nj6"/>
@@ -769,6 +780,7 @@
                                 <rect key="frame" x="30" y="292" width="261" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <state key="normal" title="LOGIN" backgroundImage="btnLogin">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -791,6 +803,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="v4Q-hG-Bj1">
                                 <rect key="frame" x="30" y="370" width="260" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <state key="normal" title="NEW USER? SIGN UP" backgroundImage="btngray">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -799,21 +812,12 @@
                                     <segue destination="2xv-sM-IHM" kind="modal" id="vQD-P5-cPZ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="TYV-yz-QJJ">
-                                <rect key="frame" x="39" y="530" width="134" height="26"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="Learn more about">
-                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4cl-ax-h13">
                                 <rect key="frame" x="158" y="530" width="134" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" title="Mobile College Admin">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -835,15 +839,33 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nB7-Nu-jQB">
                                 <rect key="frame" x="74" y="413" width="173" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="Español">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnSelectLangDidClicked:" destination="Nji-Od-qKl" eventType="touchUpInside" id="fZV-ty-sT6"/>
+                                </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Learn more about" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3ci-ms-LEC">
+                                <rect key="frame" x="38" y="529" width="121" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="njG-wt-rzl"/>
                     <connections>
+                        <outlet property="btn_forgotPwd" destination="uZU-aD-gEb" id="Hcq-lg-l7C"/>
+                        <outlet property="btn_login" destination="WWx-qd-fbm" id="KA1-83-U1v"/>
+                        <outlet property="btn_selectLang" destination="nB7-Nu-jQB" id="C40-5g-N7p"/>
+                        <outlet property="btn_signUp" destination="v4Q-hG-Bj1" id="nZh-5C-Ifj"/>
+                        <outlet property="btn_tutorial" destination="4cl-ax-h13" id="3ef-xC-Tbt"/>
+                        <outlet property="lbl_learnMore" destination="3ci-ms-LEC" id="qSj-go-tAH"/>
+                        <outlet property="lbl_logoText" destination="chM-vF-x1W" id="wY2-BI-Trf"/>
                         <outlet property="tx_email" destination="rA1-AU-8UH" id="Vvm-PE-6K6"/>
                         <outlet property="tx_pwd" destination="zuv-dV-xjV" id="jNz-JZ-PRI"/>
                         <segue destination="DV0-V6-0NY" kind="modal" identifier="tabBarSeque" id="b9N-e4-lCM"/>
@@ -902,7 +924,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bQp-fm-W6E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1325" y="-1786"/>
+            <point key="canvasLocation" x="-1541" y="-1786"/>
         </scene>
         <!--Task View Controller-->
         <scene sceneID="nIF-1o-ESg">
@@ -1567,7 +1589,7 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem title="Forgot Password ?" id="ScG-wi-ZDj">
+                                    <navigationItem id="ScG-wi-ZDj">
                                         <barButtonItem key="leftBarButtonItem" image="back" id="oDq-8J-SIb">
                                             <connections>
                                                 <action selector="btnBackDidClicked:" destination="aZr-Td-BP7" id="BP8-yr-6iX"/>
@@ -1581,7 +1603,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.1215686275" green="0.1450980392" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address" textAlignment="center" minimumFontSize="17" id="h7q-bU-qZy">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" id="h7q-bU-qZy">
                                 <rect key="frame" x="30" y="180" width="260" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -1594,7 +1616,7 @@
                                 <rect key="frame" x="30" y="222" width="260" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="SUBMIT" backgroundImage="btnLogin">
+                                <state key="normal" backgroundImage="btnLogin">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -1605,6 +1627,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="btn_submit" destination="L7b-Xx-0Dv" id="nls-tv-cjn"/>
+                        <outlet property="navBar" destination="tlk-8S-a1e" id="rsx-sD-EgA"/>
                         <outlet property="tx_forgotPwd" destination="h7q-bU-qZy" id="oGS-DP-hZc"/>
                     </connections>
                 </viewController>
@@ -1656,7 +1680,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Usf-rD-kBI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-615" y="-2302"/>
+            <point key="canvasLocation" x="-563" y="-2294"/>
         </scene>
         <!--Calendar View Controller - Calendar-->
         <scene sceneID="uv7-CO-nb1">
@@ -1762,7 +1786,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eY9-SG-jGU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-627" y="-1226"/>
+            <point key="canvasLocation" x="-579" y="-1290"/>
         </scene>
         <!--Notes Category View Controller - Notes-->
         <scene sceneID="N2M-bp-xJ7">
@@ -2030,7 +2054,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HWc-0Q-rhx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-635" y="-362"/>
+            <point key="canvasLocation" x="-579" y="-330"/>
         </scene>
         <!--View Controller - Feedback-->
         <scene sceneID="yTO-Wu-N3L">
@@ -2356,7 +2380,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bLU-bA-NGL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-551" y="1206"/>
+            <point key="canvasLocation" x="-579" y="1198"/>
         </scene>
         <!--More View Controller - More-->
         <scene sceneID="g97-R4-gct">
@@ -3503,8 +3527,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="5WI-ge-vzp"/>
         <segue reference="hmk-5L-6kX"/>
+        <segue reference="5WI-ge-vzp"/>
         <segue reference="of0-yc-Peq"/>
         <segue reference="dTV-EB-axu"/>
         <segue reference="izs-bf-NdR"/>

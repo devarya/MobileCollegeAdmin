@@ -457,11 +457,30 @@
         tbl_langList.separatorInset=UIEdgeInsetsMake(0.0, 0 + 1.0, 0.0, 0.0);
         
         MCACustomButton *btn_selectLang= [MCACustomButton buttonWithType:UIButtonTypeCustom];
-        btn_selectLang.frame = CGRectMake( 252, 4, 30, 30);
+        btn_selectLang.frame = CGRectMake( 252, 0, 40, 40);
         btn_selectLang.index = indexPath.row;
-        [btn_selectLang setBackgroundImage:[UIImage imageNamed:@"blue_uncheckMark.png"]
-                                  forState:UIControlStateNormal];
-
+        
+        if ([[[NSUserDefaults standardUserDefaults]valueForKey:KEY_LANGUAGE_CODE] isEqualToString:ENGLISH_LANG]) {
+            
+            if (indexPath.row == 0) {
+             
+                [btn_selectLang setImage:[UIImage imageNamed:@"blue_checkMark.png"]
+                                          forState:UIControlStateNormal];
+            }else{
+                [btn_selectLang setImage:[UIImage imageNamed:@"blue_uncheckMark.png"]
+                                          forState:UIControlStateNormal];
+            }
+         }else{
+              if (indexPath.row == 0) {
+                  
+                  [btn_selectLang setImage:[UIImage imageNamed:@"blue_uncheckMark.png"]
+                                            forState:UIControlStateNormal];
+              }else{
+                  [btn_selectLang setImage:[UIImage imageNamed:@"blue_checkMark.png"]
+                                            forState:UIControlStateNormal];
+              }
+        }
+   
         [cell.contentView addSubview:btn_selectLang];
         return cell;        
     }
@@ -473,7 +492,15 @@
         [view_Bg removeFromSuperview];
         [tbl_langList removeFromSuperview];
         
+        if (indexPath.row == 0) {
+            [[NSUserDefaults standardUserDefaults]setValue:ENGLISH_LANG forKey:KEY_LANGUAGE_CODE];
+            
+        }else{
+            [[NSUserDefaults standardUserDefaults]setValue:SPANISH_LANG forKey:KEY_LANGUAGE_CODE];
+        }
         
+        [[NSUserDefaults standardUserDefaults]synchronize];
+        [[MCAGlobalData sharedManager]getTabBarTitle:nil];
     }
 }
 
@@ -485,7 +512,7 @@
         [[MCARestIntraction sharedManager]requestForNotificationSetting:info];
     }else{
         [HUD hide];
-        [MCAGlobalFunction showAlert:NET_NOT_AVAIALABLE];
+        [MCAGlobalFunction showAlert:[NSString languageSelectedStringForKey:@"noInternetMsg"]];
     }
 }
 #pragma mark - NSNOTIFICATION SELECTOR

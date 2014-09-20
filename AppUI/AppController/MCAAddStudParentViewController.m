@@ -278,7 +278,7 @@
         [[MCARestIntraction sharedManager]requestForAddStudent:info];
     }else{
         [HUD hide];
-        [MCAGlobalFunction showAlert:NET_NOT_AVAIALABLE];
+        [MCAGlobalFunction showAlert:[NSString languageSelectedStringForKey:@"noInternetMsg"]];
     }
 }
 -(void)requestAddParent:(NSString*)info{
@@ -287,7 +287,7 @@
         [[MCARestIntraction sharedManager]requestForAddParent:info];
     }else{
         [HUD hide];
-        [MCAGlobalFunction showAlert:NET_NOT_AVAIALABLE];
+        [MCAGlobalFunction showAlert:[NSString languageSelectedStringForKey:@"noInternetMsg"]];
     }
 }
 #pragma mark - NSNOTIFICATION SELECTOR

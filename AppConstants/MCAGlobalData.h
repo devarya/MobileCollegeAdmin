@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NSString+NSLocalizableLang.h"
 #import "UIImageView+LazyImage.h"
 #import "MCALocalStoredFolder.h"
 #import "NSString+Util.h"
@@ -27,5 +28,5 @@ Reachability *hostReachable;
 
 + (MCAGlobalData *)sharedManager;
 -(void)goToTabbarView:(id)sender;
-
+-(void)getTabBarTitle:(id)sender;
 @end

@@ -10,7 +10,9 @@
 
 @interface MCAForgotPwdViewController : UIViewController{
     
+    IBOutlet UIButton *btn_submit;
     IBOutlet UITextField *tx_forgotPwd;
+    IBOutlet UINavigationBar *navBar;
     AryaHUD *HUD;
 }
 -(IBAction)btnBackDidClicked:(id)sender;
