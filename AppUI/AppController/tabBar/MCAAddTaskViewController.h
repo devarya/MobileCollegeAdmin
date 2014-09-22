@@ -20,10 +20,16 @@
     IBOutlet UITextField *tx_priority;
     IBOutlet UITextView  *tv_description;
     
+    IBOutlet UILabel *lbl_taskName;
+    IBOutlet UILabel *lbl_startDate;
+    IBOutlet UILabel *lbl_priority;
+    IBOutlet UILabel *lbl_description;
+    
     UIActionSheet *sheet_datePicker;
     UITableView   *tbl_priority;
     UIDatePicker  *datePicker;
     NSString      *str_dateSelected;
+    NSString      *className;
     UIView        *view_transBg;
     
     UIBarButtonItem *btnBar_done;

@@ -85,9 +85,8 @@
     tabBarMCACtr.tabBar.userInteractionEnabled = YES;
     
     lbl_noEvent.hidden = YES;
+    [self getLanguageStrings:nil];
     [self getTaskList:nil];
-
-    
     
 }
 -(void)viewWillDisappear:(BOOL)animated{
@@ -519,18 +518,23 @@
      
         if ([taskDetailDHolder.str_taskPriority isEqualToString:@"h"]) {
             
-            cell.lbl_taskPriority.text = @"High";
+            cell.lbl_taskPriority.text = [NSString languageSelectedStringForKey:@"higher"];
             cell.lbl_taskPriority.textColor = [UIColor colorWithRed:252.0/255.0 green:109.0/255.0 blue:36.0/255.0 alpha:1.0];
             cell.lbl_taskColor.backgroundColor = [UIColor colorWithRed:252.0/255.0 green:109.0/255.0 blue:36.0/255.0  alpha:1.0];
             
         }else{
             
-            cell.lbl_taskPriority.text = @"Regular";
+            cell.lbl_taskPriority.text = [NSString languageSelectedStringForKey:@"regular"];
             cell.lbl_taskPriority.textColor = [UIColor colorWithRed:39.0/255.0 green:166.0/255.0 blue:213.0/255.0 alpha:1.0];
             cell.lbl_taskColor.backgroundColor = [UIColor colorWithRed:39.0/255.0 green:166.0/255.0 blue:213.0/255.0 alpha:1.0];
         }
         
-        cell.lbl_taskName.text =  taskDetailDHolder.str_taskNameEng;
+        if ([[[NSUserDefaults standardUserDefaults]valueForKey:KEY_LANGUAGE_CODE] isEqualToString:ENGLISH_LANG]) {
+            cell.lbl_taskName.text =  taskDetailDHolder.str_taskNameEng;
+        }else{
+            cell.lbl_taskName.text =  taskDetailDHolder.str_taskNameSp;
+        }
+
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
         NSDateFormatter *dateFormatter1 = [[NSDateFormatter alloc]init];
         [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
@@ -566,7 +570,6 @@
     NSMutableDictionary *info=[NSMutableDictionary new];
     [info setValue:[[NSUserDefaults standardUserDefaults]valueForKey:KEY_USER_TYPE] forKey:@"user_type"];
     [info setValue:[[NSUserDefaults standardUserDefaults]valueForKey:KEY_LANGUAGE_CODE] forKey:@"language_code"];
-   
     
     if ([[NSUserDefaults standardUserDefaults]valueForKey:KEY_NOW_DATE]) {
         [info setValue:[[NSUserDefaults standardUserDefaults]valueForKey:KEY_NOW_DATE] forKey:@"now_date"];

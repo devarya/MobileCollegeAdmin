@@ -16,11 +16,15 @@
 
 @interface MCAAddEditNotesViewController : UIViewController<UITextFieldDelegate,UITextViewDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIScrollViewDelegate>{
     
+    IBOutlet UIScrollView *scrollV_noteImages;
+    
+    IBOutlet UILabel *lbl_title;
+    IBOutlet UILabel *lbl_description;
+    IBOutlet UILabel *lbl_images;
+    
     IBOutlet UITextField *tx_noteTitle;
     IBOutlet UITextView *tv_description;
     IBOutlet UIButton *btn_camera;
-    IBOutlet UIScrollView *scrollV_noteImages;
-    
 
     NSMutableArray *arr_scrollImages;
     NSString *className;

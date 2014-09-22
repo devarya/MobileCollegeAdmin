@@ -46,12 +46,22 @@
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(studSignUpSuccess:) name:NOTIFICATION_STUD_SIGNUP_SUCCESS object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(studSignUpFailed:) name:NOTIFICATION_STUD_SIGNUP_FAILED object:nil];
+  
+    [self setNeedsStatusBarAppearanceUpdate];
     
     arr_StudentList = [NSMutableArray new];
-    arr_GradeList = [[NSArray alloc]initWithObjects:@"12th",@"11th",@"10th", nil];
-    arr_SelectPersonList = [[NSArray alloc]initWithObjects:@"Me",@"My Parents",@"My Brother/Sister",@"My Grandparents",@"No idea", nil];
     
-    [self setNeedsStatusBarAppearanceUpdate];
+    arr_GradeList = [[NSArray alloc]initWithObjects:[NSString languageSelectedStringForKey:@"twelve"],
+                            [NSString languageSelectedStringForKey:@"eleven"],
+                            [NSString languageSelectedStringForKey:@"ten"], nil];
+    
+    arr_SelectPersonList = [[NSArray alloc]initWithObjects:[NSString languageSelectedStringForKey:@"me"],
+                            [NSString languageSelectedStringForKey:@"My_Parents"],
+                            [NSString languageSelectedStringForKey:@"My_Brother_Sister"],
+                            [NSString languageSelectedStringForKey:@"My_Grandparents"],
+                            [NSString languageSelectedStringForKey:@"No_idea"], nil];
+    
+   
     segControl_UserType.tintColor=[UIColor whiteColor];
     
     view_ParentSignup.frame = CGRectMake(0, 96, 320, 568);
@@ -86,7 +96,6 @@
     
     HUD=[AryaHUD new];
     [self.view addSubview:HUD];
-//    [HUD show];
     
 }
 -(UIStatusBarStyle)preferredStatusBarStyle{
@@ -147,28 +156,68 @@
 
 -(void)getLanguageStrings:(id)sender{
     
-    self.navigationItem.title = [NSString languageSelectedStringForKey:@"fpassword"];
+    navBar.topItem.title = [NSString languageSelectedStringForKey:@"btn_signup"];
+    [segControl_UserType setTitle:[NSString languageSelectedStringForKey:@"parent"] forSegmentAtIndex:0];
+    [segControl_UserType setTitle:[NSString languageSelectedStringForKey:@"student"] forSegmentAtIndex:1];
+    
+#pragma mark PARENT_VIEW
     
     lbl_parentName.text = [NSString languageSelectedStringForKey:@"pname"];
     lbl_parentEmail.text = [NSString languageSelectedStringForKey:@"pemail"];
     lbl_myStud.text = [NSString languageSelectedStringForKey:@"viewStudent"];
     
-    lbl_push.text = [NSString languageSelectedStringForKey:@"chk_push"];
-    lbl_email.text = [NSString languageSelectedStringForKey:@"chk_email"];
-    lbl_TOU.text = [NSString languageSelectedStringForKey:@"terms"];
-    lbl_zipCode.text = [NSString languageSelectedStringForKey:@"zip"];
-    lbl_pwd.text = [NSString languageSelectedStringForKey:@"password"];
-    lbl_taskAlert.text = [NSString languageSelectedStringForKey:@"notification"];
+    lbl_pPush.text = [NSString languageSelectedStringForKey:@"chk_push"];
+    lbl_pEmail.text = [NSString languageSelectedStringForKey:@"chk_email"];
+    lbl_pTOU.text = [NSString languageSelectedStringForKey:@"terms"];
+    lbl_pZipCode.text = [NSString languageSelectedStringForKey:@"zip"];
+    lbl_pPwd.text = [NSString languageSelectedStringForKey:@"password"];
+    lbl_pTaskAlert.text = [NSString languageSelectedStringForKey:@"notification"];
     
     tx_parentName.placeholder = [NSString languageSelectedStringForKey:@"et_name"];
     tx_parentEmail.placeholder = [NSString languageSelectedStringForKey:@"et_email"];
     tx_parentZipCode.placeholder = [NSString languageSelectedStringForKey:@"et_zipCode"];
     tx_parentPwd.placeholder = [NSString languageSelectedStringForKey:@"et_password"];
     
-    [btn_signUp setTitle:[NSString languageSelectedStringForKey:@"btn_signup"] forState:UIControlStateNormal];
+    [btn_pSignUp setTitle:[NSString languageSelectedStringForKey:@"btn_signup"] forState:UIControlStateNormal];
     [btn_addStudent setTitle:[NSString languageSelectedStringForKey:@"addStudent"] forState:UIControlStateNormal];
     [btn_studentList setTitle:[NSString languageSelectedStringForKey:@"viewST"] forState:UIControlStateNormal];
     
+    /* add student */
+    lbl_addSName.text = [NSString languageSelectedStringForKey:@"sname"];
+    lbl_addSEmail.text = [NSString languageSelectedStringForKey:@"semail"];
+    lbl_addSGrade.text = [NSString languageSelectedStringForKey:@"sgrade"];
+    lbl_etStudDetail.text = [NSString languageSelectedStringForKey:@"enter_student_detail"];
+    
+    tx_addStudEmail.placeholder = [NSString languageSelectedStringForKey:@"et_name"];
+    tx_addStudName.placeholder = [NSString languageSelectedStringForKey:@"et_email"];
+    tx_addStudGrade.placeholder = [NSString languageSelectedStringForKey:@"et_sgrade"];
+    
+    [btn_addS setTitle:[NSString languageSelectedStringForKey:@"add"] forState:UIControlStateNormal];
+    [btn_cancelS setTitle:[NSString languageSelectedStringForKey:@"cancel"] forState:UIControlStateNormal];
+    
+    
+#pragma mark STUDENT_VIEW
+    
+    lbl_studName.text = [NSString languageSelectedStringForKey:@"sname"];
+    lbl_studEmail.text = [NSString languageSelectedStringForKey:@"semail"];
+    lbl_studGrade.text = [NSString languageSelectedStringForKey:@"sgrade"];
+    lbl_studFPerson.text = [NSString languageSelectedStringForKey:@"txt_person"];
+    
+    lbl_sPush.text = [NSString languageSelectedStringForKey:@"chk_push"];
+    lbl_sEmail.text = [NSString languageSelectedStringForKey:@"chk_email"];
+    lbl_sTOU.text = [NSString languageSelectedStringForKey:@"terms"];
+    lbl_sZipCode.text = [NSString languageSelectedStringForKey:@"zip"];
+    lbl_sPwd.text = [NSString languageSelectedStringForKey:@"password"];
+    lbl_sTaskAlert.text = [NSString languageSelectedStringForKey:@"notification"];
+    
+    tx_studName.placeholder = [NSString languageSelectedStringForKey:@"et_name"];
+    tx_studEmail.placeholder = [NSString languageSelectedStringForKey:@"et_email"];
+    tx_studGrade.placeholder = [NSString languageSelectedStringForKey:@"et_sgrade"];
+    tx_studSelectPerson.placeholder = [NSString languageSelectedStringForKey:@"txt_sperson"];
+    tx_studZipCode.placeholder = [NSString languageSelectedStringForKey:@"et_zipCode"];
+    tx_studPwd.placeholder = [NSString languageSelectedStringForKey:@"et_password"];
+    [btn_sSignUp setTitle:[NSString languageSelectedStringForKey:@"btn_signup"] forState:UIControlStateNormal];
+
 }
 
 #pragma mark - KEYBOARD_METHOD
@@ -362,7 +411,7 @@
                            
                        }else{
                            
-                           [MCAGlobalFunction showAlert:ZIP_CODE_MSG];
+                           [MCAGlobalFunction showAlert:[NSString languageSelectedStringForKey:@"zipCodeMsg"]];
                            return;
                        }
                      }else{
@@ -416,16 +465,16 @@
                    [self requestParentSignUp:str_jsonParent];
             
               }else{
-                [MCAGlobalFunction showAlert:ACCEPT_TERM_MESSAGE];
+                [MCAGlobalFunction showAlert:[NSString languageSelectedStringForKey:@"checkTermMsg"]];
              }
         }else{
-            [MCAGlobalFunction showAlert:INVALID_PWD];
+            [MCAGlobalFunction showAlert:[NSString languageSelectedStringForKey:@"enterPass"]];
         }
       }else{
-         [MCAGlobalFunction showAlert:EMAIL_MESSAGE];
+         [MCAGlobalFunction showAlert:[NSString languageSelectedStringForKey:@"emailValidate_msg"]];
        }
     }else{
-       [MCAGlobalFunction showAlert:INVALID_USERNAME];
+       [MCAGlobalFunction showAlert:[NSString languageSelectedStringForKey:@"enterName"]];
     }
 }
 -(IBAction)btnStudSignUpDidClicked:(id)sender{
@@ -447,10 +496,12 @@
        {
         if (![tx_studPwd.text isEqualToString:@""])
           {
-           if (![tx_studGrade.text isEqualToString:@""] && ![tx_studSelectPerson.text isEqualToString:@""])
+           if (![tx_studGrade.text isEqualToString:@""])
             {
-              if (isStudAcceptTerms)
-               {
+              if (![tx_studSelectPerson.text isEqualToString:@""])
+              {
+                if (isStudAcceptTerms)
+                {
                    NSMutableDictionary *info=[NSMutableDictionary new];
                    if (tx_studZipCode.text.length != 0)
                    {
@@ -458,12 +509,12 @@
                       {
                             [info setValue:tx_studZipCode.text forKey:@"zipcode"];
                           
-                       }else{
-                           
-                           [MCAGlobalFunction showAlert:ZIP_CODE_MSG];
-                            return;
-                        }
-                    }else{
+                      }else{
+                           [MCAGlobalFunction showAlert:[NSString languageSelectedStringForKey:@"zipCodeMsg"]];
+                           return;
+                      }
+                    }else
+                    {
                         [info setValue:@"" forKey:@"zipcode"];
                     }
                    
@@ -502,19 +553,22 @@
                     [self requestStudentSignUp:str_jsonStud];
                 
               }else{
-                [MCAGlobalFunction showAlert:ACCEPT_TERM_MESSAGE];
+                [MCAGlobalFunction showAlert:[NSString languageSelectedStringForKey:@"checkTermMsg"]];
             }
           }else{
-              [MCAGlobalFunction showAlert:@"Please select Grade and Person."];
+              [MCAGlobalFunction showAlert:[NSString languageSelectedStringForKey:@"selectPersonMsg"]];
           }
+         }else{
+              [MCAGlobalFunction showAlert:[NSString languageSelectedStringForKey:@"selectGradeMsg"]];
+         }
         }else{
-             [MCAGlobalFunction showAlert:INVALID_PWD];
-        }
+             [MCAGlobalFunction showAlert:[NSString languageSelectedStringForKey:@"enterPass"]];
+      }
     }else{            
-          [MCAGlobalFunction showAlert:EMAIL_MESSAGE];
+          [MCAGlobalFunction showAlert:[NSString languageSelectedStringForKey:@"emailValidate_msg"]];
       }
     }else{
-       [MCAGlobalFunction showAlert:INVALID_USERNAME];
+       [MCAGlobalFunction showAlert:[NSString languageSelectedStringForKey:@"enterName"]];
     }
 }
 -(IBAction)btnCancelStudDetailDidClicked:(id)sender{
@@ -587,7 +641,7 @@
              [tbl_StudList reloadData];
     }else{
        
-        [MCAGlobalFunction showAlert:@"No Student Connected."];
+        [MCAGlobalFunction showAlert:[NSString languageSelectedStringForKey:@"no_student_connected"]];
         
     }
     [self resignTextField];
@@ -631,11 +685,11 @@ if (![tx_addStudEmail.text isEqualToString:@""]&&![tx_addStudGrade.text isEqualT
             [self requestAddStudent:str_jsonUserExist];
     }else{
         
-        [MCAGlobalFunction showAlert:EMAIL_MESSAGE];
+        [MCAGlobalFunction showAlert:[NSString languageSelectedStringForKey:@"emailValidate_msg"]];
     }
   }else{
         
-        [MCAGlobalFunction showAlert:MANDATORY_MESSAGE];
+        [MCAGlobalFunction showAlert:[NSString languageSelectedStringForKey:@"allFieldMsg"]];
     }
 }
 -(IBAction)btnParentNotifyPushDidCliked:(id)sender{
@@ -777,7 +831,7 @@ if (![tx_addStudEmail.text isEqualToString:@""]&&![tx_addStudGrade.text isEqualT
         headerLabel.frame = CGRectMake(0, 0,tableView.frame.size.width,22);
         headerLabel.textColor = [UIColor whiteColor];
         headerLabel.font = [UIFont boldSystemFontOfSize:14];
-        headerLabel.text = @"Select Grade";
+        headerLabel.text = [NSString languageSelectedStringForKey:@"select_grade"];
         headerLabel.textAlignment = NSTextAlignmentCenter;
         
         [headerView addSubview:headerLabel];
@@ -798,7 +852,7 @@ if (![tx_addStudEmail.text isEqualToString:@""]&&![tx_addStudGrade.text isEqualT
         headerLabel.frame = CGRectMake(12,2,298,22);
         headerLabel.textColor = [UIColor whiteColor];
         headerLabel.font = [UIFont boldSystemFontOfSize:14];
-        headerLabel.text = @"Student List";
+        headerLabel.text = [NSString languageSelectedStringForKey:@"student_list"];
         headerLabel.textAlignment = NSTextAlignmentCenter;
         
         [headerView addSubview:headerLabel];
@@ -817,7 +871,7 @@ if (![tx_addStudEmail.text isEqualToString:@""]&&![tx_addStudGrade.text isEqualT
         headerLabel.frame = CGRectMake(12,2,298,22);
         headerLabel.textColor = [UIColor whiteColor];
         headerLabel.font = [UIFont boldSystemFontOfSize:14];
-        headerLabel.text = @"Select Person";
+        headerLabel.text = [NSString languageSelectedStringForKey:@"select_a_person"];
         headerLabel.textAlignment = NSTextAlignmentCenter;
         
         [headerView addSubview:headerLabel];
@@ -1041,9 +1095,10 @@ if (![tx_addStudEmail.text isEqualToString:@""]&&![tx_addStudGrade.text isEqualT
     [[NSUserDefaults standardUserDefaults]setValue:signUpDHolder.str_grade forKey:KEY_USER_GRADE];
     [[NSUserDefaults standardUserDefaults]setValue:signUpDHolder.str_userToken forKey:KEY_USER_TOKEN];
     [[NSUserDefaults standardUserDefaults]setInteger:signUpDHolder.arr_StudentData.count forKey:KEY_STUDENT_COUNT];
-     if (![signUpDHolder.str_lang isKindOfClass:[NSNull class]]) {
-         [[NSUserDefaults standardUserDefaults]setValue:signUpDHolder.str_lang forKey:KEY_LANGUAGE_CODE];
-    }
+    
+//     if (![signUpDHolder.str_lang isKindOfClass:[NSNull class]]) {
+//         [[NSUserDefaults standardUserDefaults]setValue:signUpDHolder.str_lang forKey:KEY_LANGUAGE_CODE];
+//    }
 
     [[NSUserDefaults standardUserDefaults]setValue:signUpDHolder.str_notifyByPush forKey:KEY_NOTIFY_BY_PUSH];
     [[NSUserDefaults standardUserDefaults]setValue:signUpDHolder.str_notifyByMail forKey:KEY_NOTIFY_BY_EMAIL];
@@ -1072,9 +1127,9 @@ if (![tx_addStudEmail.text isEqualToString:@""]&&![tx_addStudGrade.text isEqualT
     [[NSUserDefaults standardUserDefaults]setValue:signUpDHolder.str_grade forKey:KEY_USER_GRADE];
     [[NSUserDefaults standardUserDefaults]setValue:signUpDHolder.str_userToken forKey:KEY_USER_TOKEN];
     [[NSUserDefaults standardUserDefaults]setInteger:signUpDHolder.arr_StudentData.count forKey:KEY_STUDENT_COUNT];
-    if (![signUpDHolder.str_lang isKindOfClass:[NSNull class]]) {
-        [[NSUserDefaults standardUserDefaults]setValue:signUpDHolder.str_lang forKey:KEY_LANGUAGE_CODE];
-    }
+//    if (![signUpDHolder.str_lang isKindOfClass:[NSNull class]]) {
+//        [[NSUserDefaults standardUserDefaults]setValue:signUpDHolder.str_lang forKey:KEY_LANGUAGE_CODE];
+//    }
     
     [[NSUserDefaults standardUserDefaults]setValue:signUpDHolder.str_notifyByPush forKey:KEY_NOTIFY_BY_PUSH];
     [[NSUserDefaults standardUserDefaults]setValue:signUpDHolder.str_notifyByMail forKey:KEY_NOTIFY_BY_EMAIL];

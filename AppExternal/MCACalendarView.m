@@ -353,7 +353,17 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
 //    dateFormatter.dateFormat=@"EEE";
     //always assume gregorian with monday first
+    
     NSMutableArray *weekdays = [[NSMutableArray alloc] initWithArray:[dateFormatter veryShortWeekdaySymbols]];
+        
+    weekdays = [[NSMutableArray alloc]initWithObjects:[NSString languageSelectedStringForKey:@"sun"],
+                            [NSString languageSelectedStringForKey:@"mon"],
+                            [NSString languageSelectedStringForKey:@"tues"],
+                            [NSString languageSelectedStringForKey:@"wed"],
+                            [NSString languageSelectedStringForKey:@"thurs"],
+                            [NSString languageSelectedStringForKey:@"fri"],
+                            [NSString languageSelectedStringForKey:@"sat"],nil];
+    
     [weekdays moveObjectFromIndex:0 toIndex:6];
     
    // CGContextSetFillColorWithColor(context,

@@ -47,27 +47,40 @@
     className = NSStringFromClass(parentVCClass);
     
     if ([className isEqualToString:@"MCANotesViewController"]) {
-         self.navigationItem.title = @"New Note";
+         self.navigationItem.title = [NSString languageSelectedStringForKey:@"note"];
          notesDHolder = [MCANotesDHolder new];
          notesDHolder.arr_notesImage = [NSMutableArray new];
         
     }else{
         
-        self.navigationItem.title = @"Edit Note";
+        self.navigationItem.title = [NSString languageSelectedStringForKey:@"note"];
         tx_noteTitle.text = notesDHolder.str_notesName;
         tv_description.text = notesDHolder.str_notesDesc;
         tv_description.textColor = [UIColor grayColor];
         [self getImageScrollView:nil];
         
     }
-
 }
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     
     [tx_noteTitle resignFirstResponder];
     
 }
-#pragma mark - UITEXT_FIELD/UITEXT_VIEW DELEGATE
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [self getLanguageStrings:nil];
+}
+#pragma mark - LANGUAGE_SUPPORT
+
+-(void)getLanguageStrings:(id)sender{
+    
+    lbl_title.text = [NSString languageSelectedStringForKey:@"title"];
+    lbl_description.text = [NSString languageSelectedStringForKey:@"image"];
+    lbl_images.text = [NSString languageSelectedStringForKey:@"description"];
+    
+    tx_noteTitle.placeholder = [NSString languageSelectedStringForKey:@"etTText"];
+}
+#pragma mark - UI_TEXTFIELD/UI_TEXTVIEW DELEGATE
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     

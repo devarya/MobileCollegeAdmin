@@ -56,18 +56,17 @@
     [MCALocalStoredFolder createSubRootDir:@"Notes"];
     
 }
-
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [self getLanguageStrings:nil];
+    
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-#pragma mark - LANGUAGE_SUPPORT
 
--(void)getLanguageStrings:(id)sender{
-    
-    self.navigationItem.title = [NSString languageSelectedStringForKey:@"tab_notes"];
-}
 -(void)getNotesCategory:(id)sender{
     
     NSMutableDictionary * info = [NSMutableDictionary new];
@@ -80,6 +79,12 @@
     [self.view bringSubviewToFront:HUD];
     [self requestNotesCategory:str_jsonCategory];
     
+}
+#pragma mark - LANGUAGE_SUPPORT
+
+-(void)getLanguageStrings:(id)sender{
+    
+    self.navigationItem.title = [NSString languageSelectedStringForKey:@"tab_notes"];
 }
 #pragma mark - IB_ACTION
 

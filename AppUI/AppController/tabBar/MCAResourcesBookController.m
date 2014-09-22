@@ -32,8 +32,6 @@
     arr_book = [NSMutableArray new];
     
     self.navigationItem.title = @"Resources";
-    
-    
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(resourceBookFailed:) name:NOTIFICATION_RESOURCE_BOOK_FAILED object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(resourceBookSuccess:) name:NOTIFICATION_RESOURCE_BOOK_SUCCESS object:nil];
     

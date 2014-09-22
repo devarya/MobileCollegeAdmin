@@ -87,8 +87,16 @@ MCADBIntraction *databaseManager = nil;
 -(NSMutableArray*)retrieveTaskList:(id)sender{
     
     NSMutableArray *arr_dbTaskList=[[NSMutableArray alloc]init];
+    NSString *query;
     
-    NSString *query=@"Select * from tbl_tasklist order by taskStartDate";
+    if ([[[NSUserDefaults standardUserDefaults]valueForKey:KEY_LANGUAGE_CODE] isEqualToString:ENGLISH_LANG]) {
+        
+      query  = [NSString stringWithFormat:@"Select * from tbl_tasklist where taskNameEng != \'%@\' order by taskStartDate",@""];
+    }else{
+        
+       query = [NSString stringWithFormat:@"Select * from tbl_tasklist where taskNameSp != \'%@\' order by taskStartDate",@""];
+    }
+   
     @try
     {
         [dBCollgeAdmin open];
@@ -142,6 +150,8 @@ MCADBIntraction *databaseManager = nil;
             taskDHolder.str_userId = [resultSet stringForColumn:@"userId"];
             taskDHolder.str_taskNameEng = [resultSet stringForColumn:@"taskNameEng"];
             taskDHolder.str_taskDetailEng = [resultSet stringForColumn:@"taskDetailEng"];
+            taskDHolder.str_taskNameSp = [resultSet stringForColumn:@"taskNameSp"];
+            taskDHolder.str_taskDetailSp = [resultSet stringForColumn:@"taskDetailSp"];
             taskDHolder.str_taskPriority = [resultSet stringForColumn:@"taskPriority"];
             taskDHolder.str_taskStartDate = [resultSet stringForColumn:@"taskStartDate"];
             taskDHolder.str_taskStatus = [resultSet stringForColumn:@"taskStatus"];
@@ -183,6 +193,8 @@ MCADBIntraction *databaseManager = nil;
             taskDHolder.str_userId = [resultSet stringForColumn:@"userId"];
             taskDHolder.str_taskNameEng = [resultSet stringForColumn:@"taskNameEng"];
             taskDHolder.str_taskDetailEng = [resultSet stringForColumn:@"taskDetailEng"];
+            taskDHolder.str_taskNameSp = [resultSet stringForColumn:@"taskNameSp"];
+            taskDHolder.str_taskDetailSp = [resultSet stringForColumn:@"taskDetailSp"];
             taskDHolder.str_taskPriority = [resultSet stringForColumn:@"taskPriority"];
             taskDHolder.str_taskStartDate = [resultSet stringForColumn:@"taskStartDate"];
             taskDHolder.str_taskStatus = [resultSet stringForColumn:@"taskStatus"];

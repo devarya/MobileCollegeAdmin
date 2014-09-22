@@ -10,12 +10,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AppUI/AppController/MCALoginViewController.m"
-            timestampString = "432894775.574374"
+            timestampString = "433082488.412007"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "152"
-            endingLineNumber = "152"
-            landmarkName = "-getLanguageStrings:"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
+            landmarkName = "-btnLoginDidClicked:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AppUI/AppController/MCALoginViewController.m"
+            timestampString = "433082499.147642"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
+            landmarkName = "-requestLogin:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -88,8 +88,8 @@
             studDHolder.str_notifyByPush = [[loginDHolder.arr_StudentData valueForKey:@"notify_by_push"]objectAtIndex:i];
             studDHolder.str_notifyByMail = [[loginDHolder.arr_StudentData valueForKey:@"notify_by_email"]objectAtIndex:i];
             
-            [[NSUserDefaults standardUserDefaults]setValue:studDHolder.str_lang forKey:KEY_LANGUAGE_CODE];
-            [[NSUserDefaults standardUserDefaults]synchronize];
+//            [[NSUserDefaults standardUserDefaults]setValue:studDHolder.str_lang forKey:KEY_LANGUAGE_CODE];
+//            [[NSUserDefaults standardUserDefaults]synchronize];
             
             [arr_studList addObject:studDHolder];
         
@@ -109,8 +109,8 @@
             studDHolder.str_notifyByPush = [[loginDHolder.arr_parentData valueForKey:@"notify_by_push"]objectAtIndex:i];
             studDHolder.str_notifyByMail = [[loginDHolder.arr_parentData valueForKey:@"notify_by_email"]objectAtIndex:i];
             
-            [[NSUserDefaults standardUserDefaults]setValue:studDHolder.str_lang forKey:KEY_LANGUAGE_CODE];
-            [[NSUserDefaults standardUserDefaults]synchronize];
+//            [[NSUserDefaults standardUserDefaults]setValue:studDHolder.str_lang forKey:KEY_LANGUAGE_CODE];
+//            [[NSUserDefaults standardUserDefaults]synchronize];
             
             [arr_studList addObject:studDHolder];
             
@@ -1218,8 +1218,8 @@
             studDHolder.str_priorityHigh = [loginDHolder.arr_StudentData valueForKey:@"priority_high"];
             studDHolder.str_priorityRegular = [loginDHolder.arr_StudentData valueForKey:@"priority_regular"];
             
-            [[NSUserDefaults standardUserDefaults]setValue:studDHolder.str_lang forKey:KEY_LANGUAGE_CODE];
-            [[NSUserDefaults standardUserDefaults]synchronize];
+//            [[NSUserDefaults standardUserDefaults]setValue:studDHolder.str_lang forKey:KEY_LANGUAGE_CODE];
+//            [[NSUserDefaults standardUserDefaults]synchronize];
             
             [arr_studList addObject:studDHolder];
             
@@ -1309,15 +1309,14 @@
             studDHolder.str_priorityHigh = [loginDHolder.arr_StudentData valueForKey:@"priority_high"];
             studDHolder.str_priorityRegular = [loginDHolder.arr_StudentData valueForKey:@"priority_regular"];
             
-            [[NSUserDefaults standardUserDefaults]setValue:studDHolder.str_lang forKey:KEY_LANGUAGE_CODE];
-            [[NSUserDefaults standardUserDefaults]synchronize];
+//            [[NSUserDefaults standardUserDefaults]setValue:studDHolder.str_lang forKey:KEY_LANGUAGE_CODE];
+//            [[NSUserDefaults standardUserDefaults]synchronize];
             
             [arr_parentList addObject:studDHolder];
             
         }
         
         [[MCADBIntraction databaseInteractionManager]insertStudList:arr_parentList];
-
         
         NSString *errMsg = [results valueForKey:@"msg"];
         dispatch_async(dispatch_get_main_queue(), ^

@@ -86,11 +86,7 @@
                                                   delegate:self
                                                      btnOk:@"Confirm Action"
                                                  btnCancel:@"Cancel" ];
-                               
-    
      alertView.tag = 1;
-   
-    
 }
 -(void)btnBar_editDidClicked:(id)sender{
     
@@ -151,8 +147,8 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-     static NSString *cellIdentifier = @"Cell";
-     CustomTableViewCell *cell  = (CustomTableViewCell *)[tableView dequeueReusableCellWithIdentifier:                                                 cellIdentifier forIndexPath:indexPath];
+    static NSString *cellIdentifier = @"Cell";
+    CustomTableViewCell *cell  = (CustomTableViewCell *)[tableView dequeueReusableCellWithIdentifier:                                                 cellIdentifier forIndexPath:indexPath];
     NSMutableArray *leftUtilityButtons;
   
     if([taskDetailDHolder.str_taskStatus isEqualToString:@"o"] && ![[NSUserDefaults standardUserDefaults]integerForKey:KEY_STUDENT_COUNT] > 0){
@@ -163,21 +159,27 @@
         if ([taskDetailDHolder.str_taskPriority isEqualToString:@"h"]) {
             
             [leftUtilityButtons sw_addUtilityButtonWithColor:[UIColor colorWithRed:252.0/255.0 green:109.0/255.0 blue:36.0/255.0  alpha:1.0]icon:[UIImage imageNamed:@"taskSelect.png"]];
-            cell.lbl_taskPriority.text = @"High";
+            cell.lbl_taskPriority.text = [NSString languageSelectedStringForKey:@"higher"];
             cell.lbl_taskPriority.textColor = [UIColor colorWithRed:252.0/255.0 green:109.0/255.0 blue:36.0/255.0 alpha:1.0];
             cell.lbl_taskColor.backgroundColor = [UIColor colorWithRed:252.0/255.0 green:109.0/255.0 blue:36.0/255.0  alpha:1.0];
             
         }else{
             
             [leftUtilityButtons sw_addUtilityButtonWithColor:[UIColor colorWithRed:39.0/255.0 green:166.0/255.0 blue:213.0/255.0 alpha:1.0]icon:[UIImage imageNamed:@"taskSelect.png"]];
-            cell.lbl_taskPriority.text = @"Regular";
+            cell.lbl_taskPriority.text = [NSString languageSelectedStringForKey:@"regular"];
             cell.lbl_taskPriority.textColor = [UIColor colorWithRed:39.0/255.0 green:166.0/255.0 blue:213.0/255.0 alpha:1.0];
             cell.lbl_taskColor.backgroundColor = [UIColor colorWithRed:39.0/255.0 green:166.0/255.0 blue:213.0/255.0 alpha:1.0];
         }
     
     cell.leftUtilityButtons = leftUtilityButtons;
     
-    cell.lbl_taskName.text =  taskDetailDHolder.str_taskNameEng;
+    
+    if ([[[NSUserDefaults standardUserDefaults]valueForKey:KEY_LANGUAGE_CODE] isEqualToString:ENGLISH_LANG]) {
+         cell.lbl_taskName.text =  taskDetailDHolder.str_taskNameEng;
+    }else{
+         cell.lbl_taskName.text =  taskDetailDHolder.str_taskNameSp;
+    }
+    
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
     NSDateFormatter *dateFormatter1 = [[NSDateFormatter alloc]init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
@@ -185,6 +187,7 @@
     NSDate *date_Temp =[dateFormatter dateFromString:taskDetailDHolder.str_taskStartDate];
     NSString *str_date = [dateFormatter1 stringFromDate:date_Temp];
     cell.lbl_taskStartDate.text = str_date;
+    
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.delegate = self;
     return cell;
@@ -297,7 +300,6 @@
         tabBarMCACtr.tabBar.hidden = YES;
         self.navigationController.navigationBarHidden = YES;
     });
-   
 }
 - (void)playerItemDidReachEnd:(NSNotification *)notification {
     

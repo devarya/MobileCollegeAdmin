@@ -59,7 +59,7 @@
     [[NSUserDefaults standardUserDefaults]setInteger:0 forKey:KEY_ANIMATION_FILE_RAND_NO];
     [[NSUserDefaults standardUserDefaults]synchronize];
     
-     self.navigationItem.title = @"Manage Tasks";
+//     self.navigationItem.title = @"Manage Tasks";
     
     if ([[NSUserDefaults standardUserDefaults]integerForKey:KEY_STUDENT_COUNT] > 0) {
       
@@ -74,30 +74,17 @@
         
         UIBarButtonItem *btnBar_student =[[UIBarButtonItem alloc] initWithCustomView:btn_student];
         [self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects:btnBar_student,nil]];
-        //            [nav_TaskBar setItems:[NSArray arrayWithObject:self.navigationItem]];
         
-//         [nav_TaskBar setItems:[NSArray arrayWithObject:self.navigationItem]];
+//        [nav_TaskBar setItems:[NSArray arrayWithObject:self.navigationItem]];
+//        [nav_TaskBar setItems:[NSArray arrayWithObject:self.navigationItem]];
     }else{
-        
-        arr_gradeList = [[NSArray alloc]initWithObjects:@"12th",@"11th",@"10th", nil];
+
+//        arr_gradeList = [[NSArray alloc]initWithObjects:@"12th",@"11th",@"10th", nil];
         [[NSUserDefaults standardUserDefaults]setInteger:0 forKey:KEY_TASK_GRADE_INDEX];
         [[NSUserDefaults standardUserDefaults]synchronize];
         
         if ([[[NSUserDefaults standardUserDefaults]valueForKey:KEY_USER_TYPE] isEqualToString:@"p"])
         {
-//            UIButton*  btn_add = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-//            btn_add.frame = CGRectMake(0, 0, 34, 22);
-//            btn_add.layer.cornerRadius = 4.0f;
-//            btn_add.layer.borderWidth = 0.5f;
-//            btn_add.tintColor = [UIColor colorWithRed:39.0/255.0 green:166.0/255.0 blue:213.0/255.0 alpha:1.0];
-//            btn_add.backgroundColor = [UIColor whiteColor];
-//            [btn_add setTitle:@" Add " forState:UIControlStateNormal];
-//            btn_add.titleLabel.font = [UIFont systemFontOfSize:14.0f];
-//            [btn_add addTarget:self
-//                         action:@selector(btnBar_addDidClicked:)
-//                     forControlEvents:UIControlEventTouchUpInside];
-//            [btn_add setShowsTouchWhenHighlighted:YES];
-            
             UIImage* img_add = [UIImage imageNamed:@"add.png"];
             CGRect img_addFrame = CGRectMake(0, 0, img_add.size.width, img_add.size.height);
             UIButton *btn_add = [[UIButton alloc] initWithFrame:img_addFrame];
@@ -118,8 +105,6 @@
             
             UIBarButtonItem *btnBar_add =[[UIBarButtonItem alloc] initWithCustomView:btn_add];
             UIBarButtonItem *btnBar_grade =[[UIBarButtonItem alloc] initWithCustomView:btn_grade];
-            
-         
             [self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects:btnBar_add,btnBar_grade, nil]];
             
         }else{
@@ -135,7 +120,6 @@
             
             UIBarButtonItem *btnBar_add =[[UIBarButtonItem alloc] initWithCustomView:btn_add];
             [self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects:btnBar_add,nil]];
-
         }
     }
     
@@ -194,7 +178,15 @@
 
 -(void)getLanguageStrings:(id)sender{
     
-    self.navigationItem.title = [NSString languageSelectedStringForKey:@"tab_task"]; 
+    arr_gradeList = [[NSArray alloc]initWithObjects:[NSString languageSelectedStringForKey:@"twelve"],
+                     [NSString languageSelectedStringForKey:@"eleven"],
+                     [NSString languageSelectedStringForKey:@"ten"], nil];
+    
+    [[MCAGlobalData sharedManager]getTabBarTitle:nil];
+    self.navigationItem.title = [NSString languageSelectedStringForKey:@"task_manage"];
+    [segControl_task setTitle:[NSString languageSelectedStringForKey:@"current"] forSegmentAtIndex:0];
+    [segControl_task setTitle:[NSString languageSelectedStringForKey:@"completed"] forSegmentAtIndex:1];
+    [segControl_task setTitle:[NSString languageSelectedStringForKey:@"deleted"] forSegmentAtIndex:2];
 }
 
 #pragma mark - API CALL
@@ -636,8 +628,15 @@
            }
         
         // Configure the cell
-        cell.lbl_taskName.text = taskDHolder.str_taskNameEng;
-        [cell.lbl_taskName setFont:[UIFont systemFontOfSize:16]];
+        
+        if([[[NSUserDefaults standardUserDefaults]valueForKey:KEY_LANGUAGE_CODE] isEqualToString:ENGLISH_LANG]){
+            
+            cell.lbl_taskName.text = taskDHolder.str_taskNameEng;
+        }else{
+            cell.lbl_taskName.text = taskDHolder.str_taskNameSp;
+        }
+        
+        cell.lbl_taskName.font = [UIFont systemFontOfSize:16];
         cell.lbl_taskName.adjustsFontSizeToFitWidth = YES;
         cell.lbl_taskName.minimumScaleFactor = 0.8;
         
@@ -652,13 +651,13 @@
         
         if ([taskDHolder.str_taskPriority isEqualToString:@"h"]) {
             
-            cell.lbl_taskPriority.text = @"High";
+            cell.lbl_taskPriority.text = [NSString languageSelectedStringForKey:@"higher"];
             cell.lbl_taskPriority.textColor = [UIColor colorWithRed:252.0/255.0 green:109.0/255.0 blue:36.0/255.0 alpha:1.0];
             cell.lbl_taskColor.backgroundColor = [UIColor colorWithRed:252.0/255.0 green:109.0/255.0 blue:36.0/255.0  alpha:1.0];
             
         }else{
             
-            cell.lbl_taskPriority.text = @"Regular";
+            cell.lbl_taskPriority.text = [NSString languageSelectedStringForKey:@"regular"];
             cell.lbl_taskPriority.textColor = [UIColor colorWithRed:39.0/255.0 green:166.0/255.0 blue:213.0/255.0 alpha:1.0];
             cell.lbl_taskColor.backgroundColor = [UIColor colorWithRed:39.0/255.0 green:166.0/255.0 blue:213.0/255.0 alpha:1.0];
             
@@ -666,8 +665,10 @@
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.delegate = self;
+        
         return cell;
-    }
+            
+      }
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -737,11 +738,12 @@
       {
            NSIndexPath *cellIndexPath = [tbl_taskCurrent indexPathForCell:cell];
           
-           MCAAlertView *alertView = [MCAGlobalFunction showAlert:@"Do you want to delete this task?"
-                                                       title:@"Delete"
-                                                    delegate:self
-                                                btnOk:@"Confirm Action"
-                                            btnCancel:@"Cancel"];
+           MCAAlertView *alertView = [MCAGlobalFunction
+                                       showAlert:[NSString languageSelectedStringForKey:@"delete_msg"]
+                                       title:[NSString languageSelectedStringForKey:@"delete"]
+                                       delegate:self
+                                       btnOk:[NSString languageSelectedStringForKey:@"conform"]
+                                       btnCancel:[NSString languageSelectedStringForKey:@"cancel"]];
           
           alertView.index = cellIndexPath.row;
           [cell hideUtilityButtonsAnimated:YES];
@@ -860,7 +862,8 @@
     [self createTaskList:str_selectedGrade];
     
     UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Message"
-                                                   message:notification.object delegate:nil
+                                               message:[NSString languageSelectedStringForKey:@"taskCompleted_msg"]
+                                               delegate:nil
                                          cancelButtonTitle:nil
                                          otherButtonTitles:nil, nil];
     

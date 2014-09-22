@@ -21,6 +21,7 @@
     
     UIWindow    *tempWindow;
 
+    IBOutlet UINavigationBar *navBar;
     IBOutlet UISegmentedControl *segControl_UserType;
     IBOutlet UIView *view_ParentSignup;
     IBOutlet UIView *view_StudentSignup;
@@ -48,6 +49,8 @@
     
     IBOutlet UIButton *btn_studentList;
     IBOutlet UIButton *btn_addStudent;
+    IBOutlet UIButton *btn_addS;
+    IBOutlet UIButton *btn_cancelS;
     
     IBOutlet UIButton *btn_parentNotifyEmail;
     IBOutlet UIButton *btn_parentNotifyPush;
@@ -56,20 +59,36 @@
     
     IBOutlet UIButton *btn_parentAccept;
     IBOutlet UIButton *btn_studAccept;
-    IBOutlet UIButton *btn_signUp;
+    IBOutlet UIButton *btn_pSignUp;
+    IBOutlet UIButton *btn_sSignUp;
              UIButton *btn_keyboardDone;
     
     IBOutlet UILabel *lbl_parentName;
     IBOutlet UILabel *lbl_parentEmail;
     IBOutlet UILabel *lbl_myStud;
-    
-    IBOutlet UILabel *lbl_push;
-    IBOutlet UILabel *lbl_email;
-    IBOutlet UILabel *lbl_TOU;
+    IBOutlet UILabel *lbl_pPush;
+    IBOutlet UILabel *lbl_pEmail;
+    IBOutlet UILabel *lbl_pTOU;
     IBOutlet UILabel *lbl_title;
-    IBOutlet UILabel *lbl_zipCode;
-    IBOutlet UILabel *lbl_taskAlert;
-    IBOutlet UILabel *lbl_pwd;
+    IBOutlet UILabel *lbl_pZipCode;
+    IBOutlet UILabel *lbl_pTaskAlert;
+    IBOutlet UILabel *lbl_pPwd;
+    
+    IBOutlet UILabel *lbl_studName;
+    IBOutlet UILabel *lbl_studEmail;
+    IBOutlet UILabel *lbl_studGrade;
+    IBOutlet UILabel *lbl_studFPerson;
+    IBOutlet UILabel *lbl_sPush;
+    IBOutlet UILabel *lbl_sEmail;
+    IBOutlet UILabel *lbl_sTOU;
+    IBOutlet UILabel *lbl_sZipCode;
+    IBOutlet UILabel *lbl_sTaskAlert;
+    IBOutlet UILabel *lbl_sPwd;
+    
+    IBOutlet UILabel *lbl_addSName;
+    IBOutlet UILabel *lbl_addSEmail;
+    IBOutlet UILabel *lbl_addSGrade;
+    IBOutlet UILabel *lbl_etStudDetail;
     
     NSMutableArray *arr_StudentList;
            NSArray *arr_GradeList;

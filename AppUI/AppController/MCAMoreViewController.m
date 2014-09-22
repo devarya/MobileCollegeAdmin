@@ -30,8 +30,15 @@
     [[NSUserDefaults standardUserDefaults]setInteger:2 forKey:KEY_ANIMATION_FILE_RAND_NO];
     [[NSUserDefaults standardUserDefaults]synchronize];
     
-    arr_moreOptionList = [[NSMutableArray alloc]initWithObjects:@"Settings",@"Share",@"Feedback",@"Logout", nil];
-    arr_moreImageList = [[NSMutableArray alloc]initWithObjects:@"setting.png",@"share.png",@"feedback.png",@"logout.png", nil];
+    arr_moreOptionList = [[NSMutableArray alloc]initWithObjects:[NSString languageSelectedStringForKey:@"setting"],
+                          [NSString languageSelectedStringForKey:@"share"],
+                          [NSString languageSelectedStringForKey:@"feedback"],
+                          [NSString languageSelectedStringForKey:@"logout"], nil];
+  
+    arr_moreImageList = [[NSMutableArray alloc]initWithObjects:@"setting.png",
+                         @"share.png",
+                         @"feedback.png",
+                         @"logout.png", nil];
     
    tbl_moreOption.tableFooterView = [[UIView alloc] init];
 }
@@ -40,6 +47,17 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [self getLanguageStrings:nil];
+}
+#pragma mark - LANGUAGE_SUPPORT
+
+-(void)getLanguageStrings:(id)sender{
+    
+    self.navigationItem.title = [NSString languageSelectedStringForKey:@"more"];
+  
 }
 #pragma mark - IB_ACTION
 
@@ -53,7 +71,7 @@
     
 }
 
-#pragma mark UITABLEVIEW DELEGATE AND DATASOURCE METHODS
+#pragma mark - UITABLEVIEW DELEGATE AND DATASOURCE METHODS
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {

@@ -21,7 +21,7 @@
         NSBundle* languageBundle = [NSBundle bundleWithPath:path];
         string_temp =[languageBundle localizedStringForKey:key value:@"" table:nil];
         
-    }else{
+    }else if([[[NSUserDefaults standardUserDefaults]valueForKey:KEY_LANGUAGE_CODE] isEqualToString:SPANISH_LANG]){
         
         path = [[NSBundle mainBundle] pathForResource:@"es" ofType:@"lproj"];
         NSBundle* languageBundle = [NSBundle bundleWithPath:path];

@@ -76,6 +76,7 @@
 "viewStudent" = "Mi Estudiante";
 "addStudent" = "+ Añadir";
 "add" = "Añadir";
+"cancel" = "Cancelar";
 "zip" = "Código Postal";
 "et_zipCode" = "Escriba Código Postal";
 "notification" = "Alertas de Tareas";
@@ -91,3 +92,197 @@
 "parent_email_msg" = "Email de Padre/Madrees";
 "wait" = "Espere un momento… ";
 "loading" = "Cargando...";
+
+/*-- Student Sign Up String --*/
+
+"sname" = "Nombre de Estudiante";
+"semail" = "Email de Estudiante";
+"sgrade" = "Año Esoclar de Estudiante";
+"et_sgrade" = "Seleccione Grado";
+"txt_sperson" = "Seleccione Persona";
+"checkTermMsg" = "Indiquesiacepta los términos de uso.";
+"txt_person" = "¿Primer familiar en ir a la universidad?";
+"select_a_person" = "Seleccione Persona";
+
+/*-- family and grade String Array -- */
+
+"me" = "Yo";
+"My_Parents" = "Mi(s) Papa(s)";
+"My_Brother_Sister" = "MiHermano/a";
+"My_Grandparents" = "Mi(s) Abuelo(s)";
+"No_idea" = "Ni idea";
+
+"all" = "Todos";
+"twelve" = "Último Año (12mo)";
+"eleven" = "Penúltimo Año (11mo)";
+"ten" = "Décimo (10mo)";
+
+/*-- priority String and Array -- */
+
+"higher" = "Alto";
+"regular" = "Regular";
+
+/*-- Task Strings --*/
+
+"task_manage" = " Gestionar Tareas";
+"t_header" = "Tarea Nueva";
+"t_name" = "Nombre de Tarea";
+"ett_name" = "Escribanombre de la tarea";
+"t_date" = "Fecha de Inicio";
+"etc_date" = "EscojaFecha";
+"priority" = "Prioridad:";
+"txt_priority" = "Seleccionenivel de prioridad";
+"task" = "Tareas";
+"task_add" = "Tarea";
+"current" = "Actual";
+"completed" = "Completadas";
+"deleted" = "Borradas";
+"conform" = "ConfirmeAcción";
+"edit_headr" = "Editar la Tarea";
+"please_select_date" = "Favor de EscogerFecha: ";
+"addTask" = "Añadir";
+"select_priority" = "SeleccionePrioridad";
+"set_date_is_not_msg" = "Fechaseleccionada no esposible. ";
+"task_added_msg" = "Tarea ha sidoañadida con éxito.";
+"delete_msg" = "“¿Quiereborrarestatarea?";
+"complete_msg" = "¿Quierecompletarestatarea?";
+"edit_msg" = "Tarea ha sidomodificada con éxito.";
+"you_cant_delete" = "No se puedeborrar o completarestatarea. ";
+"no_record" = "No record found";
+"no_event" = "Ningún evento encotrado.";
+
+/*-- Notes Strings -- */
+
+"capture" = "Captura";
+"From_Gallery" = "Desde Galería";
+"cannot_create_dir" = " No se puede crear dir ";
+"note_already_present" = " nota ya presente con el mismo nombre ";
+"title_description_blank" = " Título y descripción no puede estar en blanco ";
+"sd_card_not_attached" = " La tarjeta SD no se adjunta , por favor adjunta y vuelva a intentar ";
+"error" = " Error! ";
+"nheader" = "Apuntenuevo";
+"title" = "Título";
+"etTText" = "El Título del Apunte";
+"etDescText" = "Descripción del Apunte";
+"image" = "Imágenes";
+"camera" = " CAMERA ";
+"complete" = " COMPLETAR";
+"exported_txt" = "exportación";
+"export" = " Use sucuenta de Dropboxparaexportarsusapuntes.";
+"note" = "Apuntes";
+"ndetail" = "Detalle del Apunte";
+"delete" = "Borrar";
+"uploading" = "Cargando";
+"loading_img_msg" = "Cargandoimágen de su camera.......";
+"note_added_msg" = "Apunte ha sidoañadida con éxito.";
+"note_allready_exist" = "Yaexiste un apunte con estenombre.";
+"do_you_want_to_remove_new" = "¿Quiereborrar?";
+"no_file_found" = "No file found for selected dir.";
+"please_select_atleast_msg" = "Please select atleast one file.";
+"could_not_msg" = "No se pudoautenticar con DropBox. ";
+"do_you_want_delete_msg" = "¿Quiereborrar?";
+"deleted_successfully_msg" = "Borrado con éxito";
+"unable_to_delet_msg" = " No se pudoborrar.";
+"the_path_is_empty" = "The path is empty";
+"the_directory_path_is_not_msg" = "The directory path is not valid!";
+"do_you_want_sync" = "¿Deseasincronizar?";
+
+/*-- Resource Strings -- */
+
+"resource" = "Recursos";
+"invalid_url" = "Invalid URL";
+
+/*-- More, Setting, Share Strings -- */
+
+"setting_updated" = " Configuracione con éxito. ";
+"priorityMessage" = "Atleas one priority should be selected.";
+"more" = "Más";
+"change_pass" = "Cambiar Contraseña";
+"setting" = "Configuraciones";
+"share" = "Compartir";
+"feedback" = "Comentarios";
+"logout" = "Log Out";
+"email_id_fornot" = "Email queusóparainscribirse";
+"priority_alert" = "Seleccionenivel de prioridad.";
+"high" = "Alto";
+"priority_descr" = "Alto: Solo tareas mas importantes. \n \n Regular: Todas las recomendaciones. ";
+"upgrade" = "Versión Pagada";
+"support" = "Ayuda Técnica";
+"rate" = "Evaluar";
+"addParent" = "Añade Padre/Madre";
+"textmessage" = "Mensaje de Texto";
+"language" = "Idioma";
+"et_language" = "SeleccioneI dioma";
+"p_connection" = "Conexiónde Padre/Madre";
+"my_students" = "MisEstudiantes";
+"my_parent" = "Ver Mi Padre/Madre";
+"profile" = "Perfil de Usario";
+"profile_txt" = " Perfil ";
+"facebook" = " Facebook ";
+"twitter" = " Twitter ";
+"email" = "Email";
+"message_txt" = "Mensaje de Texto";
+"p_name" = "Nombre";
+"etp_email" = "Escriba su Email";
+"pgrade" = "Grado";
+"p_cpassword" = "Cambiar Contraseña";
+"et_oldPass" = "Contraseña Antigua";
+"et_newPass" = "Contraseña Nueva";
+"et_cPass" = "ConfireContraseña Nueva";
+"select_language" = "SeleccioneIdioma";
+"pass_change_msg" = "Contraseña ha sidocambiado con éxito.";
+"syncing_msg" = "El app estasincronizando …......";
+"connected_st_list" = "Lista de EstudiantesConectados";
+"profile_updated_msg" = "Cambiosguardados con éxito.";
+
+/*-- Twitter Strings -- */
+
+"Tweet" = "Tweet";
+"Tweet_hint" = "Tweet something about this..";
+"english" = "Inglés";
+"spanish" = "Español";
+"Select_a_student" = "Seleccioneestudiante";
+
+/*-- Calendar Strings -- */
+
+"sync_txt" = "Sincronizando con el calendario de Google";
+"email_id" = "Email";
+"btn_synching" = "Sincronizar";
+"calendar" = " Calendar ";
+"please_wait" = "Espere…";
+"add_student" = "Añadir Estudiante";
+"sun" = "D";
+"mon" = "L";
+"tues" = "M";
+"wed" = "M";
+"thurs" = "J";
+"fri" = "V";
+"sat" = "S";
+
+
+"purchase_msg" = "Favor de comprar la versión de padre/madreparavermásrecursos.";
+"facebook_share_msg" = "for updates on College Application info! https://www.facebook.com/MobileCollegeAdmin";
+"twitter_share_msg" = " Siguenos Mobile CollegeAdmin en Twitter@CareerDef";
+"invite_msg_1" = "Mobile CollegeAdmin me ayuda a estar organizado, conectarme con la familia, y estar tranquilo sabiendo que voy bien en mis solicitudes. Tu lo puedes bajar por Google Play (";
+"invite_msg_2" = " ) and iTunes ( ";
+"invite_msg_3" = " )  y crear tus propias alertas.";
+"app_link_for_playStore" = "https://play.google.com/store/apps/details?id=arya.college.admin";
+"app_link_for_iTunes" = "https://www.facebook.com/MobileCollegeAdmin";
+"file_successfully_msg" = "Archivo upload con éxito.";
+"task_name_not_valid" = "Nombre de la tarea no es válido.";
+"syncing_comp_msg" = " Sincronización con éxito.";
+"sync_alert_msg" = "¿Desea sincronizar con el calendario de Google?";
+"posted_success" = "Posted Successfully.";
+"facebook_link_share" = "https://www.facebook.com/MobileCollegeAdmin";
+"cannot_purchase" = "No puede comprar con este aparto.";
+
+/*-- new added Strings 08/09/14 -- */
+
+"msg_perchaging" = "You tener a compra para este versión.\n Do you want to purchase ?";
+"twitter_link" = "https://twitter.com/CareerDef";
+"reminder" = "Reminder set successfully.";
+"do_you_want_refresh" = "Do you want to refresh?";
+"export_ex" = " Export ";
+"server_not" = "Server not responding.";
+
+

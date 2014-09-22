@@ -11,9 +11,7 @@
 @interface MCANotesCategoryViewController :UIViewController<UITableViewDelegate,UITableViewDataSource>{
     
     IBOutlet UITableView *tbl_notesCategory;
-    
     NSMutableArray *arr_notesCategory;
-    
     AryaHUD *HUD;
 }
 @end

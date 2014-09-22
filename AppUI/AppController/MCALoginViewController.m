@@ -116,7 +116,7 @@
 
             NSString *str_jsonLogin = [NSString getJsonObject:info];
             
-            [HUD show];
+//            [HUD show];
             [self requestLogin:str_jsonLogin];
         }
     }else{
@@ -146,6 +146,7 @@
 }
 
 #pragma mark - LANGUAGE_SUPPORT
+
 -(void)getLanguageStrings:(id)sender{
     
     lbl_logoText.text = [NSString languageSelectedStringForKey:@"logoText"];
@@ -168,6 +169,7 @@
     if ([MCAGlobalFunction isConnectedToInternet]) {
        
         [self keyboardDisappeared];
+        [HUD show];
         [[MCARestIntraction sharedManager]requestForLogin:info];
         
     }else{

@@ -70,7 +70,7 @@
                                 <color key="backgroundColor" red="0.1215686275" green="0.1450980392" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" id="pRh-Sd-Ftp">
-                                <rect key="frame" x="0.0" y="96" width="320" height="472"/>
+                                <rect key="frame" x="0.0" y="550" width="320" height="472"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Parent Name" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" id="mMp-GB-GXO">
@@ -220,19 +220,19 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Push" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3WP-fu-4XS">
-                                        <rect key="frame" x="152" y="233" width="55" height="30"/>
+                                        <rect key="frame" x="144" y="233" width="84" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PHF-qa-h6e">
-                                        <rect key="frame" x="250" y="233" width="61" height="30"/>
+                                        <rect key="frame" x="262" y="233" width="50" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I accept the Terms of Use" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="swq-Je-YEv">
-                                        <rect key="frame" x="42" y="343" width="269" height="26"/>
+                                        <rect key="frame" x="36" y="343" width="276" height="26"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="highlightedColor"/>
@@ -275,7 +275,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="eWf-3h-As4">
-                                        <rect key="frame" x="217" y="237" width="22" height="22"/>
+                                        <rect key="frame" x="234" y="237" width="22" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="unCheckmark">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -285,7 +285,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="faN-dB-uIY">
-                                        <rect key="frame" x="11" y="345" width="22" height="22"/>
+                                        <rect key="frame" x="9" y="345" width="22" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="unCheckmark">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -300,7 +300,7 @@
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="HSD-mF-O49">
-                                        <rect key="frame" x="42" y="343" width="269" height="26"/>
+                                        <rect key="frame" x="36" y="343" width="276" height="26"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -316,8 +316,8 @@
                                 <rect key="frame" x="0.0" y="550" width="320" height="472"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Student Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cUn-cS-HhB">
-                                        <rect key="frame" x="10" y="44" width="90" height="30"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Student Name" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" id="cUn-cS-HhB">
+                                        <rect key="frame" x="8" y="44" width="92" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
@@ -326,7 +326,7 @@
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" minimumFontSize="17" id="E8C-ZG-w49">
                                         <rect key="frame" x="115" y="44" width="197" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
                                             <outlet property="delegate" destination="2xv-sM-IHM" id="t40-9g-NeI"/>
@@ -338,12 +338,12 @@
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="HE5-g6-add">
-                                        <rect key="frame" x="10" y="82" width="302" height="1"/>
+                                        <rect key="frame" x="8" y="82" width="304" height="1"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Student Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YLm-Qr-Chb">
-                                        <rect key="frame" x="10" y="90" width="90" height="30"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Student Email" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" id="YLm-Qr-Chb">
+                                        <rect key="frame" x="8" y="90" width="92" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
@@ -352,7 +352,7 @@
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter email address" minimumFontSize="17" id="XGb-rk-g09">
                                         <rect key="frame" x="115" y="90" width="197" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                         <connections>
                                             <outlet property="delegate" destination="2xv-sM-IHM" id="o1o-IP-Kqi"/>
@@ -364,12 +364,12 @@
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="g5F-i0-822">
-                                        <rect key="frame" x="10" y="128" width="302" height="1"/>
+                                        <rect key="frame" x="8" y="128" width="304" height="1"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Student Grade" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="U5a-a0-Jnb">
-                                        <rect key="frame" x="10" y="138" width="90" height="30"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Student Grade" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" id="U5a-a0-Jnb">
+                                        <rect key="frame" x="8" y="138" width="92" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
@@ -378,14 +378,14 @@
                                     <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Select Grade" minimumFontSize="17" id="Smh-Dy-S6C">
                                         <rect key="frame" x="115" y="138" width="197" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
                                             <outlet property="delegate" destination="2xv-sM-IHM" id="JAR-Sa-f0P"/>
                                         </connections>
                                     </textField>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zip Code" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8Cz-wt-C13">
-                                        <rect key="frame" x="10" y="257" width="90" height="30"/>
+                                        <rect key="frame" x="8" y="257" width="92" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
@@ -394,7 +394,7 @@
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter zip code" minimumFontSize="17" id="z9g-E5-dvM">
                                         <rect key="frame" x="115" y="257" width="197" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                         <connections>
                                             <outlet property="delegate" destination="2xv-sM-IHM" id="77k-Ye-Gie"/>
@@ -406,12 +406,12 @@
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="9yV-qK-y2L">
-                                        <rect key="frame" x="10" y="176" width="302" height="1"/>
+                                        <rect key="frame" x="8" y="176" width="304" height="1"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task Alerts" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="T95-kd-ACa">
-                                        <rect key="frame" x="9" y="304" width="91" height="30"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task Alerts" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" id="T95-kd-ACa">
+                                        <rect key="frame" x="8" y="304" width="92" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
@@ -423,12 +423,12 @@
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="xIK-nF-ufc">
-                                        <rect key="frame" x="9" y="294" width="302" height="1"/>
+                                        <rect key="frame" x="8" y="294" width="304" height="1"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4Ka-FY-Xdk">
-                                        <rect key="frame" x="9" y="351" width="91" height="30"/>
+                                        <rect key="frame" x="8" y="351" width="92" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
@@ -437,19 +437,19 @@
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Password" minimumFontSize="17" id="seI-lZ-Zmq">
                                         <rect key="frame" x="115" y="352" width="196" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                         <connections>
                                             <outlet property="delegate" destination="2xv-sM-IHM" id="NMB-EP-YYb"/>
                                         </connections>
                                     </textField>
                                     <view contentMode="scaleToFill" id="zS1-hA-nfh">
-                                        <rect key="frame" x="107" y="351" width="1" height="30"/>
+                                        <rect key="frame" x="107" y="352" width="1" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="xOZ-dJ-Jgq">
-                                        <rect key="frame" x="9" y="390" width="302" height="1"/>
+                                        <rect key="frame" x="8" y="390" width="304" height="1"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
@@ -461,13 +461,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Push" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GAI-rh-pzR">
-                                        <rect key="frame" x="152" y="304" width="55" height="30"/>
+                                        <rect key="frame" x="144" y="304" width="84" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PNR-2o-Cf0">
-                                        <rect key="frame" x="250" y="304" width="61" height="30"/>
+                                        <rect key="frame" x="262" y="304" width="50" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="highlightedColor"/>
@@ -478,7 +478,7 @@
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I accept the Terms of Use" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qC9-so-Cms">
-                                        <rect key="frame" x="42" y="422" width="269" height="26"/>
+                                        <rect key="frame" x="36" y="422" width="276" height="26"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="highlightedColor"/>
@@ -500,7 +500,7 @@
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="fQw-lf-Vop">
-                                        <rect key="frame" x="117" y="308" width="22" height="22"/>
+                                        <rect key="frame" x="115" y="308" width="22" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="checkMark">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -510,7 +510,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zTZ-29-TRr">
-                                        <rect key="frame" x="217" y="308" width="22" height="22"/>
+                                        <rect key="frame" x="234" y="308" width="22" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="unCheckmark">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -520,7 +520,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="iyJ-eb-UET">
-                                        <rect key="frame" x="11" y="424" width="22" height="22"/>
+                                        <rect key="frame" x="9" y="424" width="22" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="unCheckmark">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -530,14 +530,14 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First person in your family to go to college ?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OK5-it-8ks">
-                                        <rect key="frame" x="9" y="186" width="303" height="21"/>
+                                        <rect key="frame" x="8" y="186" width="304" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="68M-Il-iOM">
-                                        <rect key="frame" x="10" y="212" width="302" height="30"/>
+                                        <rect key="frame" x="8" y="212" width="304" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="      ">
                                             <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -548,7 +548,7 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" id="5rd-6K-0Qc">
-                                        <rect key="frame" x="9" y="249" width="302" height="1"/>
+                                        <rect key="frame" x="8" y="249" width="304" height="1"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
@@ -563,13 +563,13 @@
                                         </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Select a person" minimumFontSize="17" id="0w0-aG-fr8">
-                                        <rect key="frame" x="10" y="212" width="302" height="30"/>
+                                        <rect key="frame" x="8" y="212" width="304" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nsp-Cf-EMJ">
-                                        <rect key="frame" x="41" y="422" width="271" height="26"/>
+                                        <rect key="frame" x="36" y="422" width="276" height="26"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -582,7 +582,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" id="bb2-VQ-Zvx">
-                                <rect key="frame" x="9" y="-200" width="302" height="217"/>
+                                <rect key="frame" x="9" y="96" width="302" height="217"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Enter Student Details" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OXx-h9-YUd">
@@ -602,14 +602,14 @@
                                             <outlet property="delegate" destination="2xv-sM-IHM" id="YxT-RD-m0v"/>
                                         </connections>
                                     </textField>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Student Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WwE-zR-o1i">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Student Name" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" id="WwE-zR-o1i">
                                         <rect key="frame" x="5" y="38" width="90" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Student Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lHs-az-2E5">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Student Email" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" id="lHs-az-2E5">
                                         <rect key="frame" x="5" y="84" width="90" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -635,8 +635,8 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Student Grade" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HBT-2K-BQi">
-                                        <rect key="frame" x="8" y="132" width="90" height="30"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Student Grade" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" id="HBT-2K-BQi">
+                                        <rect key="frame" x="5" y="132" width="90" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
@@ -660,6 +660,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="epw-pi-E40">
                                         <rect key="frame" x="20" y="179" width="72" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <state key="normal" title="Add" backgroundImage="btnLogin">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -671,6 +672,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="X7K-Tc-WaO">
                                         <rect key="frame" x="207" y="179" width="72" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <state key="normal" title="Cancel" backgroundImage="btnLogin">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -703,25 +705,43 @@
                     </view>
                     <navigationItem key="navigationItem" id="raJ-qr-tED"/>
                     <connections>
+                        <outlet property="btn_addS" destination="epw-pi-E40" id="f8Z-we-nzB"/>
                         <outlet property="btn_addStudent" destination="dqL-wE-www" id="aJf-l1-18f"/>
+                        <outlet property="btn_cancelS" destination="X7K-Tc-WaO" id="d3b-U5-doe"/>
+                        <outlet property="btn_pSignUp" destination="iBt-Cb-aNd" id="EbL-eR-Yob"/>
                         <outlet property="btn_parentAccept" destination="faN-dB-uIY" id="Wbs-Ig-s8o"/>
                         <outlet property="btn_parentNotifyEmail" destination="eWf-3h-As4" id="91e-d5-Z3R"/>
                         <outlet property="btn_parentNotifyPush" destination="elP-pL-Uod" id="CHx-Re-ab7"/>
-                        <outlet property="btn_signUp" destination="iBt-Cb-aNd" id="W12-GZ-kEM"/>
+                        <outlet property="btn_sSignUp" destination="boX-49-XAO" id="if9-TY-lPC"/>
                         <outlet property="btn_studAccept" destination="iyJ-eb-UET" id="YiW-VM-pQA"/>
                         <outlet property="btn_studNotifyEmail" destination="zTZ-29-TRr" id="EsW-3M-HjD"/>
                         <outlet property="btn_studNotifyPush" destination="fQw-lf-Vop" id="Cei-rk-pdj"/>
                         <outlet property="btn_studentList" destination="L5K-DM-jQ4" id="69H-ee-ykb"/>
-                        <outlet property="lbl_TOU" destination="swq-Je-YEv" id="psg-iy-2bc"/>
-                        <outlet property="lbl_email" destination="PHF-qa-h6e" id="GLb-Fq-r3R"/>
+                        <outlet property="lbl_addSEmail" destination="lHs-az-2E5" id="7Er-x9-j5H"/>
+                        <outlet property="lbl_addSGrade" destination="HBT-2K-BQi" id="N5m-Ve-ViD"/>
+                        <outlet property="lbl_addSName" destination="WwE-zR-o1i" id="4PW-dI-xin"/>
+                        <outlet property="lbl_etStudDetail" destination="OXx-h9-YUd" id="foR-Xm-l8F"/>
                         <outlet property="lbl_myStud" destination="GdS-hS-4Sc" id="7r3-Bb-aye"/>
+                        <outlet property="lbl_pEmail" destination="PHF-qa-h6e" id="u8G-nv-qSi"/>
+                        <outlet property="lbl_pPush" destination="3WP-fu-4XS" id="RYM-SJ-5Kg"/>
+                        <outlet property="lbl_pPwd" destination="eX2-ao-z8Y" id="7kb-W7-sdn"/>
+                        <outlet property="lbl_pTOU" destination="swq-Je-YEv" id="RBG-1a-UrG"/>
+                        <outlet property="lbl_pTaskAlert" destination="Mtc-co-rvd" id="BKe-dW-uvC"/>
+                        <outlet property="lbl_pZipCode" destination="5Ft-4l-evA" id="Zgo-Zn-mcu"/>
                         <outlet property="lbl_parentEmail" destination="WX3-zx-0SO" id="8TJ-xx-fUD"/>
                         <outlet property="lbl_parentName" destination="mMp-GB-GXO" id="vrn-ZS-ziu"/>
-                        <outlet property="lbl_push" destination="3WP-fu-4XS" id="8DX-ie-orY"/>
-                        <outlet property="lbl_pwd" destination="eX2-ao-z8Y" id="9tJ-Bq-kEG"/>
-                        <outlet property="lbl_taskAlert" destination="Mtc-co-rvd" id="s30-Tp-D81"/>
+                        <outlet property="lbl_sEmail" destination="PNR-2o-Cf0" id="8Jx-oB-upl"/>
+                        <outlet property="lbl_sPush" destination="GAI-rh-pzR" id="jSu-17-sRU"/>
+                        <outlet property="lbl_sPwd" destination="4Ka-FY-Xdk" id="AfV-q0-M8D"/>
+                        <outlet property="lbl_sTOU" destination="qC9-so-Cms" id="RUX-SG-vxg"/>
+                        <outlet property="lbl_sTaskAlert" destination="T95-kd-ACa" id="Wz2-fe-ZkX"/>
+                        <outlet property="lbl_sZipCode" destination="8Cz-wt-C13" id="53k-Ga-VrO"/>
+                        <outlet property="lbl_studEmail" destination="YLm-Qr-Chb" id="wvw-ab-DEa"/>
+                        <outlet property="lbl_studFPerson" destination="OK5-it-8ks" id="Fu5-Ro-2eR"/>
+                        <outlet property="lbl_studGrade" destination="U5a-a0-Jnb" id="2yI-bY-WPZ"/>
+                        <outlet property="lbl_studName" destination="cUn-cS-HhB" id="M4Q-Cp-2Nm"/>
                         <outlet property="lbl_title" destination="24X-g2-3Ie" id="uf4-F5-3eO"/>
-                        <outlet property="lbl_zipCode" destination="5Ft-4l-evA" id="dVC-Kk-BDW"/>
+                        <outlet property="navBar" destination="vQN-h4-vK8" id="eQd-1n-G5O"/>
                         <outlet property="segControl_UserType" destination="sBu-Md-Ix5" id="6Dy-Zs-7rp"/>
                         <outlet property="tx_addStudEmail" destination="tJK-H1-RnK" id="RmC-03-xqu"/>
                         <outlet property="tx_addStudGrade" destination="Oen-MK-PKw" id="LOk-R5-Nj6"/>
@@ -744,7 +764,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wia-BD-JSn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2115" y="-1357"/>
+            <point key="canvasLocation" x="-2107" y="-1085"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="HWe-oN-SNq">
@@ -924,7 +944,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bQp-fm-W6E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1541" y="-1786"/>
+            <point key="canvasLocation" x="-1487" y="-1506"/>
         </scene>
         <!--Task View Controller-->
         <scene sceneID="nIF-1o-ESg">
@@ -1145,7 +1165,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Select Priority" minimumFontSize="17" id="vwK-10-dnq">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="vwK-10-dnq">
                                 <rect key="frame" x="114" y="110" width="197" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
@@ -1181,13 +1201,13 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rWm-hj-WWY">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Date" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" id="rWm-hj-WWY">
                                 <rect key="frame" x="9" y="60" width="90" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Task Name" minimumFontSize="17" id="ORU-xO-csg">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="ORU-xO-csg">
                                 <rect key="frame" x="114" y="12" width="197" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1201,7 +1221,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VYg-fX-hTL">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task Name" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" id="VYg-fX-hTL">
                                 <rect key="frame" x="9" y="12" width="90" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1212,7 +1232,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Choose date" minimumFontSize="17" id="1Oe-Jy-z1Z">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="1Oe-Jy-z1Z">
                                 <rect key="frame" x="114" y="60" width="197" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
@@ -1263,6 +1283,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="lbl_description" destination="UqR-Al-Ndq" id="3AG-cE-7Gb"/>
+                        <outlet property="lbl_priority" destination="6Mh-9y-Jer" id="XHy-Yx-vud"/>
+                        <outlet property="lbl_startDate" destination="rWm-hj-WWY" id="CqK-4i-124"/>
+                        <outlet property="lbl_taskName" destination="VYg-fX-hTL" id="wWd-Xz-b3P"/>
                         <outlet property="tv_description" destination="cV1-pF-fEM" id="kUl-0b-o8m"/>
                         <outlet property="tx_chooseDate" destination="1Oe-Jy-z1Z" id="huC-qi-ZCW"/>
                         <outlet property="tx_priority" destination="vwK-10-dnq" id="te1-xT-HcU"/>
@@ -1348,7 +1372,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="hNz-9e-hiL"/>
+                    <navigationItem key="navigationItem" id="hNz-9e-hiL">
+                        <barButtonItem key="backBarButtonItem" title=" " id="8cw-sb-6VK"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="tbl_taskDetail" destination="yTZ-Jo-1j1" id="bfq-lV-T2x"/>
                         <outlet property="tv_taskDetail" destination="Zau-ao-lgG" id="7jp-TO-8td"/>
@@ -1765,7 +1791,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hPg-cN-zkU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-9" y="-1258"/>
+            <point key="canvasLocation" x="-1" y="-1306"/>
         </scene>
         <!--Navigation Controller - Calendar-->
         <scene sceneID="cra-rt-plR">
@@ -1843,7 +1869,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wnw-cI-55g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-45" y="-346"/>
+            <point key="canvasLocation" x="-1" y="-330"/>
         </scene>
         <!--Notes View Controller-->
         <scene sceneID="ARh-1x-s3R">
@@ -1977,6 +2003,9 @@
                     </navigationItem>
                     <connections>
                         <outlet property="btn_camera" destination="Ink-Jg-e0E" id="KNY-oc-V2N"/>
+                        <outlet property="lbl_description" destination="JEf-tR-Bt4" id="e4t-ww-jNb"/>
+                        <outlet property="lbl_images" destination="7js-3k-JZR" id="mU7-gf-SSD"/>
+                        <outlet property="lbl_title" destination="2mr-6G-MKC" id="AaI-in-KfJ"/>
                         <outlet property="scrollV_noteImages" destination="GyF-gY-AOF" id="Tld-ca-KKH"/>
                         <outlet property="tv_description" destination="nc6-LM-c0d" id="Smj-qA-s9s"/>
                         <outlet property="tx_noteTitle" destination="JC4-TN-kfn" id="3sG-uH-nyK"/>
@@ -3527,10 +3556,10 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="hmk-5L-6kX"/>
+        <segue reference="BAV-Zh-z7g"/>
         <segue reference="5WI-ge-vzp"/>
+        <segue reference="hmk-5L-6kX"/>
         <segue reference="of0-yc-Peq"/>
-        <segue reference="dTV-EB-axu"/>
         <segue reference="izs-bf-NdR"/>
     </inferredMetricsTieBreakers>
 </document>

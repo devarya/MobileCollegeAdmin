@@ -42,31 +42,39 @@
     tv_description.layer.cornerRadius = 3.0f;
     tv_description.layer.masksToBounds = YES;
     
-    arr_priority = [[NSMutableArray alloc]initWithObjects:@"High",@"Regular", nil];
-    
     NSUInteger numberOfViewControllersOnStack = [self.navigationController.viewControllers count];
     UIViewController *parentViewController = self.navigationController.viewControllers[numberOfViewControllersOnStack - 2];
     Class parentVCClass = [parentViewController class];
-    NSString *className = NSStringFromClass(parentVCClass);
+    className = NSStringFromClass(parentVCClass);
     
+       //check for reachability change
+//    [[NSNotificationCenter defaultCenter]addObserver:self
+//                                            selector:@selector(reachabilityStatusChange:)
+//                                                name:kReachabilityChangedNotification
+//                                              object:nil];
+    
+    
+
+}
+-(void)viewWillAppear:(BOOL)animated{
+        
     if ([className isEqualToString:@"MCATaskViewController"]){
         
-        self.navigationItem.title = @"New Task";
+        self.navigationItem.title = [NSString languageSelectedStringForKey:@"t_header"];
         
-        tv_description.text = @"Description:";
+        tv_description.text = [NSString languageSelectedStringForKey:@"description"];
         tv_description.textColor = [UIColor lightGrayColor];
         
     }else{
         
-        self.navigationItem.title = @"Edit Task";
-        tx_taskName.text = taskEditDHolder.str_taskNameEng;
+        self.navigationItem.title = [NSString languageSelectedStringForKey:@"edit_headr"];
         
-          if ([taskEditDHolder.str_taskPriority isEqualToString:@"h"]) {
-              tx_priority.text = @"High";
-              
-          }else{
-              tx_priority.text = @"Regular";
-          }
+        tx_taskName.text = taskEditDHolder.str_taskNameEng;
+        if ([taskEditDHolder.str_taskPriority isEqualToString:@"h"]) {
+            tx_priority.text = [NSString languageSelectedStringForKey:@"higher"];
+        }else{
+            tx_priority.text = [NSString languageSelectedStringForKey:@"regular"];
+        }
         
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
         NSDateFormatter *dateFormatter1 = [[NSDateFormatter alloc]init];
@@ -78,13 +86,8 @@
         tx_chooseDate.text = str_date;
         tv_description.text = taskEditDHolder.str_taskDetailEng;
     }
-    
-    //check for reachability change
-//    [[NSNotificationCenter defaultCenter]addObserver:self
-//                                            selector:@selector(reachabilityStatusChange:)
-//                                                name:kReachabilityChangedNotification
-//                                              object:nil];
-
+        
+    [self getLanguageStrings:nil];
 }
 -(void)reachabilityStatusChange:(NSNotification*)notification{
     
@@ -131,11 +134,6 @@
     }
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     
     [tx_priority resignFirstResponder];
@@ -147,6 +145,9 @@
     
     self.navigationController.navigationBar.userInteractionEnabled = YES;
 }
+
+#pragma mark - UI_TEXTFIELD / UI_TEXTVIEW METHOD
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     
     [textField resignFirstResponder];
@@ -155,7 +156,7 @@
 }
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView
 {
-    if ([[textView text] isEqualToString:@"Description:"]) {
+    if ([[textView text] isEqualToString:[NSString languageSelectedStringForKey:@"description"]]) {
         textView.text = @"";
         textView.textColor = [UIColor blackColor];
     }
@@ -166,7 +167,7 @@
 -(BOOL)textViewShouldEndEditing:(UITextView *)textView
 {
     if ([[textView text] length] == 0) {
-        textView.text = @"Description:";
+        textView.text = [NSString languageSelectedStringForKey:@"description"];
         textView.textColor = [UIColor lightGrayColor];
     }
     return YES;
@@ -198,6 +199,23 @@
     self.view.frame=CGRectMake(self.view.frame.origin.x,64,self.view.frame.size.width,self.view.frame.size.height);
    
     [UIView commitAnimations];
+}
+#pragma mark - LANGUAGE_SUPPORT
+
+-(void)getLanguageStrings:(id)sender{
+    
+    arr_priority = [[NSMutableArray alloc]initWithObjects:[NSString languageSelectedStringForKey:@"higher"],
+                    [NSString languageSelectedStringForKey:@"regular"], nil];
+    
+    lbl_taskName.text = [NSString languageSelectedStringForKey:@"t_name"];
+    lbl_startDate.text = [NSString languageSelectedStringForKey:@"t_date"];
+    lbl_priority.text = [NSString languageSelectedStringForKey:@"priority"];
+    lbl_description.text = [NSString languageSelectedStringForKey:@"description"];
+    
+    tx_taskName.placeholder = [NSString languageSelectedStringForKey:@"ett_name"];
+    tx_chooseDate.placeholder = [NSString languageSelectedStringForKey:@"etc_date"];
+    tx_priority.placeholder = [NSString languageSelectedStringForKey:@"txt_priority"];
+    
 }
 #pragma mark - IB_ACTION
 
@@ -246,7 +264,7 @@
                                                 target:self
                                                action:@selector(btnBar_doneDidClicked:)];
     
-    btnBar_cancel=[[UIBarButtonItem alloc]initWithTitle:@"Cancel"
+    btnBar_cancel=[[UIBarButtonItem alloc]initWithTitle:[NSString languageSelectedStringForKey:@"cancel"]
                                                   style:UIBarButtonItemStylePlain
                                                   target:self
                                                  action:@selector(btnBar_cancelDidClicked:)];
@@ -280,7 +298,7 @@
 }
 -(IBAction)btnBarDoneDidClicked:(id)sender{
     
-    if (![tx_taskName.text isEqualToString:@""] && ![tx_priority.text isEqualToString:@""] && ![tx_chooseDate.text isEqualToString:@""] && ![tv_description.text isEqualToString:@""] && ![tv_description.text isEqualToString:@"Description:"])
+    if (![tx_taskName.text isEqualToString:@""] && ![tx_priority.text isEqualToString:@""] && ![tx_chooseDate.text isEqualToString:@""] && ![tv_description.text isEqualToString:@""] && ![tv_description.text isEqualToString:[NSString languageSelectedStringForKey:@"description"]])
     {
         [self keyboardDisappeared];
         NSMutableDictionary *dict_addTask =[NSMutableDictionary new];
@@ -303,7 +321,7 @@
             [dict_addTask setValue:@"" forKey:@"task_id"];
         }
         
-        if ([tx_priority.text isEqualToString:@"High"]) {
+        if ([tx_priority.text isEqualToString:[NSString languageSelectedStringForKey:@"higher"]]) {
              [dict_addTask setValue:@"h" forKey:@"task_priority"];
         }else{
              [dict_addTask setValue:@"r" forKey:@"task_priority"];
@@ -327,7 +345,7 @@
         
     }else{
         
-        [MCAGlobalFunction showAlert:MANDATORY_MESSAGE];
+        [MCAGlobalFunction showAlert:[NSString languageSelectedStringForKey:@"allFieldMsg"]];
     }
 }
 -(void)addOrEditTask:(id)sender{
@@ -371,7 +389,7 @@
         headerLabel.frame = CGRectMake(0, 0, tableView.frame.size.width, 34);
         headerLabel.textColor = [UIColor whiteColor];
         headerLabel.font = [UIFont boldSystemFontOfSize:16];
-        headerLabel.text = @"Select Priority";
+        headerLabel.text = [NSString languageSelectedStringForKey:@"txt_priority"];
         headerLabel.textAlignment = NSTextAlignmentCenter;
         
         [headerView addSubview:headerLabel];
@@ -458,7 +476,6 @@
 -(void)addTaskSuccess:(NSNotification*)notification{
     
     [HUD hide];
-  
     if (taskEditDHolder) {
         
         taskEditDHolder.str_taskDetailEng = tv_description.text;
@@ -511,5 +528,9 @@
     [sheet_datePicker dismissWithClickedButtonIndex:0 animated:YES];
     
 }
-
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
 @end

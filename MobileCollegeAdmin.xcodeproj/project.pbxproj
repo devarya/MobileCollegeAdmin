@@ -770,7 +770,6 @@
 		CE84C2311962DB6200A351FF /* AppExternal */ = {
 			isa = PBXGroup;
 			children = (
-				CEAB94E219BB189A00D4EC9E /* Objective-Zip */,
 				CE394C3319938D0C0080B5B8 /* MCACustomController */,
 				CE2DFC4419AF1B0A000D59EB /* LocalStoredFolder */,
 				CE2DFC2D19AEEBEF000D59EB /* Lazy Loading */,
@@ -819,13 +818,6 @@
 			);
 			name = more;
 			path = ..;
-			sourceTree = "<group>";
-		};
-		CEAB94E219BB189A00D4EC9E /* Objective-Zip */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Objective-Zip";
 			sourceTree = "<group>";
 		};
 		CEBDA79A19B96F10001294DD /* customImageView */ = {
