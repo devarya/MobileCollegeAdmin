@@ -72,7 +72,7 @@
     NSMutableDictionary * info = [NSMutableDictionary new];
     
     [info setValue:@"get_note_category" forKey:@"cmd"];
-    [info setValue:@"en_us" forKey:@"language_code"];
+    [info setValue:[[NSUserDefaults standardUserDefaults]valueForKey:KEY_LANGUAGE_CODE] forKey:@"language_code"];
     
     NSString *str_jsonCategory = [NSString getJsonObject:info];
     [HUD showForTabBar];
@@ -167,6 +167,7 @@
     [HUD hide];
     arr_notesCategory = notification.object;
     
+    [[MCADBIntraction databaseInteractionManager]deleteNotesCatList:nil];
     [[MCADBIntraction databaseInteractionManager]insertNotesCatList:arr_notesCategory];
     [tbl_notesCategory reloadData];
 }

@@ -40,19 +40,21 @@
     view_parent.hidden = YES;
     view_stud.hidden = YES;
     
-    arr_GradeList = [[NSArray alloc]initWithObjects:@"12th",@"11th",@"10th", nil];
+    arr_GradeList = [[NSArray alloc]initWithObjects:[NSString languageSelectedStringForKey:@"twelve"],
+                     [NSString languageSelectedStringForKey:@"eleven"],
+                     [NSString languageSelectedStringForKey:@"ten"], nil];
     
     if ([[[NSUserDefaults standardUserDefaults]valueForKey:KEY_USER_TYPE] isEqualToString:@"p"]) {
         
         view_stud.hidden = NO;
         view_stud.frame = CGRectMake(view_stud.frame.origin.x, 0, view_stud.frame.size.width, view_stud.frame.size.height);
-        self.navigationItem.title = @"Add Student";
+        self.navigationItem.title = [NSString languageSelectedStringForKey:@"add_student"];
             
     }else{
         
         view_parent.hidden = NO;
         view_parent.frame = CGRectMake(view_parent.frame.origin.x, 0, view_parent.frame.size.width, view_parent.frame.size.height);
-        self.navigationItem.title = @"Add Parent";
+        self.navigationItem.title = [NSString languageSelectedStringForKey:@"addParent"];
     }
     
     btn_addParent.layer.cornerRadius = 5.0f;
@@ -87,6 +89,31 @@
     
     [textField resignFirstResponder];
     return YES;
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [self getLanguageStrings:nil];
+}
+#pragma mark - LANGUAGE_SUPPORT
+
+-(void)getLanguageStrings:(id)sender{
+    
+    lbl_parEmail.text = [NSString languageSelectedStringForKey:@"pemail"];
+    lbl_parName.text = [NSString languageSelectedStringForKey:@"pname"];
+    lbl_studEmail.text = [NSString languageSelectedStringForKey:@"semail"];
+    lbl_studGrade.text = [NSString languageSelectedStringForKey:@"sgrade"];
+    lbl_studName.text = [NSString languageSelectedStringForKey:@"sname"];
+    
+    tx_parName.placeholder = [NSString languageSelectedStringForKey:@"p_name"];
+    tx_parEmail.placeholder = [NSString languageSelectedStringForKey:@"et_email"];
+    tx_studName.placeholder = [NSString languageSelectedStringForKey:@"p_name"];
+    tx_studEmail.placeholder = [NSString languageSelectedStringForKey:@"et_email"];
+    tx_studGrade.placeholder = [NSString languageSelectedStringForKey:@"et_sgrade"];
+    
+    [btn_addParent setTitle:[NSString languageSelectedStringForKey:@"add"] forState:UIControlStateNormal];
+    [btn_addStudent setTitle:[NSString languageSelectedStringForKey:@"add"] forState:UIControlStateNormal];
+    
 }
 
 #pragma mark - IB_ACTION
@@ -234,7 +261,7 @@
     headerLabel.frame = CGRectMake(0,0,tableView.frame.size.width,34);
     headerLabel.textColor = [UIColor whiteColor];
     headerLabel.font = [UIFont boldSystemFontOfSize:16];
-    headerLabel.text = @"Select Grade";
+    headerLabel.text = [NSString languageSelectedStringForKey:@"et_sgrade"];
     headerLabel.textAlignment = NSTextAlignmentCenter;
     
     [headerView addSubview:headerLabel];

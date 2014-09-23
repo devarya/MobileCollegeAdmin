@@ -50,7 +50,7 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(resourcesCategoryFailed:) name:NOTIFICATION_RESOURCE_CATEGORY_FAILED object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(resourcesCategorySuccess:) name:NOTIFICATION_RESOURCE_CATEGORY_SUCCESS object:nil];
     
-    [self getResourcesCategory:nil];
+   
     // Do any additional setup after loading the view.
 }
 
@@ -62,6 +62,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     
     self.navigationItem.title = [NSString languageSelectedStringForKey:@"resource"];
+    [self getResourcesCategory:nil];
 }
 #pragma mark -  UITABLEVIEW DELEGATE AND DATASOURCE METHODS
 
@@ -109,7 +110,12 @@
     MCAResourcesCatDHolder *reDHolder = (MCAResourcesCatDHolder*)[arr_resourcesCategory objectAtIndex:indexPath.row];\
     if ([reDHolder.str_resourcesCatId isEqualToString:@"10"]) {
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Mobile College Admin" message:@"You have to purchase for this version. Do you want to purchase?" delegate:self cancelButtonTitle:@"NO" otherButtonTitles:@"Yes", nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Mobile College Admin"
+                                                        message:@"You have to purchase for this version. Do you want to purchase?"
+                                                       delegate:self
+                                              cancelButtonTitle:@"NO"
+                                              otherButtonTitles:@"Yes", nil];
+        
         alert.backgroundColor = [UIColor blueColor];
         [alert show];
     }
@@ -131,7 +137,7 @@
     NSMutableDictionary * info = [NSMutableDictionary new];
     
     [info setValue:@"get_resource_category" forKey:@"cmd"];
-    [info setValue:@"en_us" forKey:@"language_code"];
+    [info setValue:[[NSUserDefaults standardUserDefaults]valueForKey:KEY_LANGUAGE_CODE] forKey:@"language_code"];
     
     NSString *str_jsonCategory = [NSString getJsonObject:info];
     [HUD showForTabBar];
@@ -139,6 +145,8 @@
     [self requestResourcesCategory:str_jsonCategory];
     
 }
+
+#pragma mark - API CALLING
 
 -(void)requestResourcesCategory:(NSString*)info{
     

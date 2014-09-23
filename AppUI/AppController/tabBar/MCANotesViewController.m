@@ -69,7 +69,7 @@
         
     }else{
         
-          [self getNotes:notesCatDHolder.str_notesCatId];
+        [self getNotes:notesCatDHolder.str_notesCatId];
     }
     
     [MCALocalStoredFolder createCategoryDir:notesCatDHolder.str_notesCatName];
@@ -86,7 +86,7 @@
     NSMutableDictionary * info = [NSMutableDictionary new];
     
     [info setValue:@"get_notes" forKey:@"cmd"];
-    [info setValue:@"en_us" forKey:@"language_code"];
+    [info setValue:[[NSUserDefaults standardUserDefaults]valueForKey:KEY_LANGUAGE_CODE] forKey:@"language_code"];
     [info setValue:sender forKey:@"notes_cat_id"];
     
     NSString *str_jsonNotes = [NSString getJsonObject:info];

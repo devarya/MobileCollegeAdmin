@@ -39,10 +39,11 @@
     [self.view addSubview:HUD];
     
     arr_studParList = [NSMutableArray new];
-    arr_langList = [NSMutableArray arrayWithObjects:@"English",@"Spanish", nil];
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(requestSettingSuccess:) name:NOTIFICATION_SETTING_SUCCESS object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(requestSettingFailed:) name:NOTIFICATION_SETTING_FAILED object:nil];
+    
+    /*Task Alert */
     
     if ([[[NSUserDefaults standardUserDefaults]valueForKey:KEY_NOTIFY_BY_PUSH] isEqualToString:@"1"]) {
        [btn_taskAlertPush setImage:[UIImage imageNamed:@"blue_checkMark.png"] forState:UIControlStateNormal];
@@ -63,7 +64,8 @@
     }
     
     
-    //Priority Alert
+    /*Priority Alert*/
+    
     if ([[[NSUserDefaults standardUserDefaults]valueForKey:KEY_PRIORITY_HIGH] isEqualToString:@"1"]) {
         [btn_priorityAlertHigh setImage:[UIImage imageNamed:@"blue_checkMark.png"] forState:UIControlStateNormal];
         isPriorityHigh = YES;
@@ -90,24 +92,6 @@
     btn_viewStudParent.layer.borderColor=[UIColor colorWithRed:32.0/255.0 green:36.0/255.0 blue:48.0/255.0 alpha:1].CGColor;
     btn_viewStudParent.layer.cornerRadius = 3.0f;
     
-    if ([[[NSUserDefaults standardUserDefaults]valueForKey:KEY_USER_TYPE] isEqualToString:@"p"]) {
-        
-         [btn_viewStudParent setTitle:@"View My Student" forState:UIControlStateNormal];
-         lbl_parStud.text = @"Add Student";
-        
-    }else{
-        
-         [btn_viewStudParent setTitle:@"View My Parent" forState:UIControlStateNormal];
-         lbl_parStud.text = @"Add Parent";
-          arr_studParList = [[MCADBIntraction databaseInteractionManager]retrieveStudList:nil];
-        
-        if (arr_studParList.count >0) {
-            btn_viewStudParent.frame = CGRectMake(114, 281, 194, 30);
-            btn_add.hidden = YES;
-        }
-        
-    }
-    
     tbl_studParList.hidden = YES;
 }
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -121,8 +105,54 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [self getLanguageStrings:nil];
+}
 
+#pragma mark - LANGUAGE_SUPPORT
+
+-(void)getLanguageStrings:(id)sender{
+    
+    self.navigationItem.title = [NSString languageSelectedStringForKey:@"setting"];
+    lbl_lang.text =[NSString languageSelectedStringForKey:@"tx_language"];
+    lbl_profile.text =[NSString languageSelectedStringForKey:@"profile"];
+    lbl_taskAlert.text =[NSString languageSelectedStringForKey:@"notification"];
+    lbl_priorityAlert.text =[NSString languageSelectedStringForKey:@"priority_alert"];
+    lbl_changePwd.text =[NSString languageSelectedStringForKey:@"change_pass"];
+ 
+    lbl_priorityDesc.text = [NSString languageSelectedStringForKey:@"priority_descr"];
+    push.text = [NSString languageSelectedStringForKey:@"chk_push"];
+    email.text =[NSString languageSelectedStringForKey:@"chk_email"];
+    high.text =[NSString languageSelectedStringForKey:@"high"];
+    regular.text =[NSString languageSelectedStringForKey:@"regular"];
+    
+    [btn_add setTitle:[NSString languageSelectedStringForKey:@"add"] forState:UIControlStateNormal];
+    
+    arr_langList = [NSMutableArray arrayWithObjects:[NSString languageSelectedStringForKey:@"english"],
+                    [NSString languageSelectedStringForKey:@"spanish"], nil];
+    
+    if ([[[NSUserDefaults standardUserDefaults]valueForKey:KEY_USER_TYPE] isEqualToString:@"p"]) {
+        
+        [btn_viewStudParent setTitle:[NSString languageSelectedStringForKey:@"viewST"]
+                            forState:UIControlStateNormal];
+        lbl_parStud.text =[NSString languageSelectedStringForKey:@"add_student"];
+        
+    }else{
+        
+        [btn_viewStudParent setTitle:[NSString languageSelectedStringForKey:@"my_parent"]
+                            forState:UIControlStateNormal];
+        lbl_parStud.text = [NSString languageSelectedStringForKey:@"addParent"];
+        arr_studParList = [[MCADBIntraction databaseInteractionManager]retrieveStudList:nil];
+        
+        if (arr_studParList.count >0) {
+            btn_viewStudParent.frame = CGRectMake(114, 281, 194, 30);
+            btn_add.hidden = YES;
+        }
+    }
+}
 #pragma mark - IB_ACTION
+
 -(IBAction)btnSelectLangDidClicked:(id)sender{
     
     if (IS_IPHONE_5) {
@@ -302,7 +332,14 @@
         
     }else{
         
-        [MCAGlobalFunction showAlert:@"No Student or Parent Connected."];
+        if ([[[NSUserDefaults standardUserDefaults]valueForKey:KEY_USER_TYPE] isEqualToString:@"p"]){
+            
+            [MCAGlobalFunction showAlert:[NSString languageSelectedStringForKey:@"no_student_connected"]];
+            
+        }else{
+            
+            [MCAGlobalFunction showAlert:[NSString languageSelectedStringForKey:@"no_parent_connected"]];
+        }
     }
 }
 -(void)setNotificationSetting:(id)sender{
@@ -349,6 +386,7 @@
     
     [info setValue:@"notification_setting" forKey:@"cmd"];
     NSString *str_jsonNotificationSetting = [NSString getJsonObject:info];
+    [HUD showForTabBar];
     [self requestNotificationSetting:str_jsonNotificationSetting];
     
 }
@@ -382,7 +420,7 @@
         
         if ([[[NSUserDefaults standardUserDefaults]valueForKey:KEY_USER_TYPE] isEqualToString:@"p"]){
             
-             headerLabel.text = @"Student";
+             headerLabel.text = [NSString languageSelectedStringForKey:@"connected_st_list"];
             
         }else{
             
@@ -391,7 +429,7 @@
         
     }else{
         
-         headerLabel.text = @"Select Language";
+         headerLabel.text = [NSString languageSelectedStringForKey:@"select_language"];
     }
    
     headerLabel.textAlignment = NSTextAlignmentCenter;
@@ -433,11 +471,6 @@
         lbl_name.font = [UIFont systemFontOfSize:14.0f];
         
         lbl_email.textAlignment = NSTextAlignmentRight;
-        //
-        //    cell.textLabel.font = [UIFont systemFontOfSize:14.0f];
-        //    cell.textLabel.text = studParentDHolder.str_userName;
-        //    cell.detailTextLabel.font = [UIFont systemFontOfSize:12.0f];
-        //    cell.detailTextLabel.text = studParentDHolder.str_signinId;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         tbl_studParList.separatorInset=UIEdgeInsetsMake(0.0, 0 + 1.0, 0.0, 0.0);
         
@@ -499,9 +532,13 @@
             [[NSUserDefaults standardUserDefaults]setValue:SPANISH_LANG forKey:KEY_LANGUAGE_CODE];
         }
         
+        tx_lang.text = [arr_langList objectAtIndex:indexPath.row];
+        
         [[NSUserDefaults standardUserDefaults]synchronize];
         [[MCAGlobalData sharedManager]getTabBarTitle:nil];
     }
+    
+    [self getLanguageStrings:nil];
 }
 
 #pragma mark - API CALLING
@@ -521,15 +558,14 @@
     
     [HUD hide];
     [[NSUserDefaults standardUserDefaults]setValue:[notification.object valueForKey:@"notify_by_email"] forKey:KEY_NOTIFY_BY_EMAIL];
-     [[NSUserDefaults standardUserDefaults]setValue:[notification.object valueForKey:@"notify_by_push"] forKey:KEY_NOTIFY_BY_PUSH];
-     [[NSUserDefaults standardUserDefaults]setValue:[notification.object valueForKey:@"priority_high"] forKey:KEY_PRIORITY_HIGH];
-     [[NSUserDefaults standardUserDefaults]setValue:[notification.object valueForKey:@"priority_regular"] forKey:KEY_PRIORITY_REGULAR];
-    
+    [[NSUserDefaults standardUserDefaults]setValue:[notification.object valueForKey:@"notify_by_push"] forKey:KEY_NOTIFY_BY_PUSH];
+    [[NSUserDefaults standardUserDefaults]setValue:[notification.object valueForKey:@"priority_high"] forKey:KEY_PRIORITY_HIGH];
+    [[NSUserDefaults standardUserDefaults]setValue:[notification.object valueForKey:@"priority_regular"] forKey:KEY_PRIORITY_REGULAR];
     [[NSUserDefaults standardUserDefaults]synchronize];
     
-    UIAlertView *alert   = [[UIAlertView alloc]initWithTitle:@"Message"
-                                                     message:@"Settings Updated Successfully."
-                                                    delegate:nil
+    UIAlertView *alert   = [[UIAlertView alloc]initWithTitle:[NSString languageSelectedStringForKey:@"msg"]
+                                                 message:[NSString languageSelectedStringForKey:@"setting_updated"]
+                                                 delegate:nil
                                            cancelButtonTitle:nil
                                            otherButtonTitles:nil, nil];
     [alert show];
@@ -541,7 +577,6 @@
         [alert dismissWithClickedButtonIndex:0 animated:YES];
       
     });
-    
 }
 -(void)requestSettingFailed:(NSNotification*)notification{
     

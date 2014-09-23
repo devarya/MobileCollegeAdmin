@@ -26,6 +26,13 @@
     
     IBOutlet UIButton *btn_addParent;
     IBOutlet UIButton *btn_addStudent;
+    
+    IBOutlet UILabel *lbl_parName;
+    IBOutlet UILabel *lbl_parEmail;
+    
+    IBOutlet UILabel *lbl_studName;
+    IBOutlet UILabel *lbl_studEmail;
+    IBOutlet UILabel *lbl_studGrade;
    
     AryaHUD *HUD;
     

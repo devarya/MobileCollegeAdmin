@@ -50,7 +50,11 @@
         view_stud.hidden = NO;
         view_stud.frame = CGRectMake(view_stud.frame.origin.x, 0, view_stud.frame.size.width, view_stud.frame.size.height);
         
-        arr_SelectPersonList = [[NSArray alloc]initWithObjects:@"Me",@"My Parents",@"My Brother/Sister",@"My Grandparents",@"No idea", nil];
+        arr_SelectPersonList = [[NSArray alloc]initWithObjects:[NSString languageSelectedStringForKey:@"me"],
+                                [NSString languageSelectedStringForKey:@"My_Parents"],
+                                [NSString languageSelectedStringForKey:@"My_Brother_Sister"],
+                                [NSString languageSelectedStringForKey:@"My_Grandparents"],
+                                [NSString languageSelectedStringForKey:@"No_idea"], nil];
 
         tx_sname.text = [[NSUserDefaults standardUserDefaults]valueForKey:KEY_USER_NAME];
         tx_semail.text = [[NSUserDefaults standardUserDefaults]valueForKey:KEY_SIGNIN_ID];
@@ -129,6 +133,26 @@
     [UIView commitAnimations];
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [self getLanguageStrings:nil];
+}
+#pragma mark - LANGUAGE_SUPPORT
+
+-(void)getLanguageStrings:(id)sender{
+    
+    self.navigationItem.title = [NSString languageSelectedStringForKey:@"profile"];
+    lbl_pname.text = [NSString languageSelectedStringForKey:@"p_name"];
+    lbl_pemail.text = [NSString languageSelectedStringForKey:@"email"];
+    lbl_pzipcode.text = [NSString languageSelectedStringForKey:@"zip"];
+    
+    lbl_sname.text = [NSString languageSelectedStringForKey:@"p_name"];
+    lbl_semail.text = [NSString languageSelectedStringForKey:@"email"];
+    lbl_sgrade.text = [NSString languageSelectedStringForKey:@"pgrade"];
+    lbl_sfirstPerson.text = [NSString languageSelectedStringForKey:@"txt_person"];
+    lbl_szipcode.text = [NSString languageSelectedStringForKey:@"zip"];
+}
+
 #pragma mark - IB_ACTION
 
 -(IBAction)btnSelectPersonDidCliked:(id)sender{
@@ -165,7 +189,7 @@
                     [info setValue:tx_pzipcode.text forKey:@"zipcode"];
                     
                 }else{
-                    [MCAGlobalFunction showAlert:ZIP_CODE_MSG];
+                    [MCAGlobalFunction showAlert:[NSString languageSelectedStringForKey:@"zipCodeMsg"]];
                     return;
                 }
             }else{
@@ -185,7 +209,7 @@
             
         }else{
             
-            [MCAGlobalFunction showAlert:INVALID_USERNAME];
+            [MCAGlobalFunction showAlert:[NSString languageSelectedStringForKey:@"enterName"]];
         }
     }else
     {
@@ -199,7 +223,7 @@
                     [info setValue:tx_szipcode.text forKey:@"zipcode"];
                     
                 }else{
-                    [MCAGlobalFunction showAlert:ZIP_CODE_MSG];
+                    [MCAGlobalFunction showAlert:[NSString languageSelectedStringForKey:@"zipCodeMsg"]];
                     return;
                 }
             }else{
@@ -219,7 +243,7 @@
             
         }else{
             
-            [MCAGlobalFunction showAlert:INVALID_USERNAME];
+            [MCAGlobalFunction showAlert:[NSString languageSelectedStringForKey:@"enterName"]];
         }
     }
 }
@@ -246,7 +270,7 @@
     headerLabel.frame = CGRectMake(0, 0, tbl_SelectPerson.frame.size.width, 38);
     headerLabel.textColor = [UIColor whiteColor];
     headerLabel.font = [UIFont boldSystemFontOfSize:16];
-    headerLabel.text = @"Select Person";
+    headerLabel.text = [NSString languageSelectedStringForKey:@"select_a_person"];
     headerLabel.textAlignment = NSTextAlignmentCenter;
     
     [headerView addSubview:headerLabel];
@@ -310,8 +334,8 @@
     [[NSUserDefaults standardUserDefaults]setValue:loginDHolder.str_family forKey:KEY_USER_FAMILY];
     [[NSUserDefaults standardUserDefaults]synchronize];
     
-     UIAlertView *alert   = [[UIAlertView alloc]initWithTitle:@"Message"
-                                            message:@"Profile updated successfully."
+     UIAlertView *alert   = [[UIAlertView alloc]initWithTitle:[NSString languageSelectedStringForKey:@"msg"]
+                                            message:[NSString languageSelectedStringForKey:@"profile_updated_msg"]
                                            delegate:nil
                                   cancelButtonTitle:nil
                                   otherButtonTitles:nil, nil];

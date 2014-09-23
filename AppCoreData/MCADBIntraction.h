@@ -34,6 +34,7 @@
 
 -(void)insertNotesCatList:(NSMutableArray*)arr_notesCatList;
 -(NSMutableArray*)retrieveNotesCatList:(id)sender;
+-(void)deleteNotesCatList:(id)sender;
 
 #pragma mark - RESOURCE_QUERY
 -(void)insertResourceCatList:(NSMutableArray*)arr_resourceList;

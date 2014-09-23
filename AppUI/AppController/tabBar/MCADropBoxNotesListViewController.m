@@ -38,12 +38,12 @@
     self.restClient = [[DBRestClient alloc] initWithSession:[DBSession sharedSession]];
     self.restClient.delegate = self;
     
-    if (![[DBSession sharedSession] isLinked]) {
-        
-        [btn_dropBox setTitle:@"Log in to DropBox to export" forState:UIControlStateNormal];
-    }else{
-        [btn_dropBox setTitle:@"Export" forState:UIControlStateNormal];
-    }
+//    if (![[DBSession sharedSession] isLinked]) {
+//        
+//        [btn_dropBox setTitle:@"Log in to DropBox to export" forState:UIControlStateNormal];
+//    }else{
+//        [btn_dropBox setTitle:@"Export" forState:UIControlStateNormal];
+//    }
     
     btn_dropBox.layer.cornerRadius = 5.0f;
     btn_dropBox.layer.masksToBounds = YES;
@@ -54,6 +54,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(dropboxLoginSuccess:) name:NOTIFICATION_DROPBOX_LOGIN_SUCCESS object:nil];
+    [self getLanguageStrings:nil];
 }
 -(void)viewWillDisappear:(BOOL)animated{
     
@@ -65,7 +66,17 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+#pragma mark - LANGUAGE_SUPPORT
 
+-(void)getLanguageStrings:(id)sender{
+    
+    if (![[DBSession sharedSession] isLinked]) {
+        
+        [btn_dropBox setTitle:[NSString languageSelectedStringForKey:@"export"] forState:UIControlStateNormal];
+    }else{
+        [btn_dropBox setTitle:[NSString languageSelectedStringForKey:@"exported_txt"] forState:UIControlStateNormal];
+    }
+}
 #pragma mark - IB_ACTION
 
 -(void)btnSelectDidClicked:(id)sender{
@@ -108,7 +119,7 @@
         }else{
             
             [HUD hide];
-            [MCAGlobalFunction showAlert:@"Please select at least one file."];
+            [MCAGlobalFunction showAlert:[NSString languageSelectedStringForKey:@"please_select_atleast_msg"]];
         }
     }
 }
@@ -171,8 +182,8 @@
         [tbl_notesfile reloadData];
         arr_selectedNotesfile = [NSMutableArray new];
         k = 0;
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Message"
-                                                       message:@"File uploaded to dropbox successfully." delegate:nil
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:[NSString languageSelectedStringForKey:@"msg"]
+                                           message:[NSString languageSelectedStringForKey:@"file_successfully_msg"] delegate:nil
                                              cancelButtonTitle:nil
                                              otherButtonTitles:nil, nil];
         
@@ -199,7 +210,7 @@
         [tbl_notesfile reloadData];
         arr_selectedNotesfile = [NSMutableArray new];
         k = 0;
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Message"
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:[NSString languageSelectedStringForKey:@"msg"]
                                                        message:@"Unable to upload some of the files." delegate:nil
                                              cancelButtonTitle:nil
                                              otherButtonTitles:nil, nil];
@@ -253,8 +264,7 @@
 
 -(void)dropboxLoginSuccess:(NSNotification*)notification{
     
-    [btn_dropBox setTitle:@"Export" forState:UIControlStateNormal];
-    
+  [btn_dropBox setTitle:[NSString languageSelectedStringForKey:@"exported_txt"] forState:UIControlStateNormal];    
 }
 
 @end

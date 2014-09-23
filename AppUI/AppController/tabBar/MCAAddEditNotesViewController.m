@@ -56,7 +56,7 @@
         self.navigationItem.title = [NSString languageSelectedStringForKey:@"note"];
         tx_noteTitle.text = notesDHolder.str_notesName;
         tv_description.text = notesDHolder.str_notesDesc;
-        tv_description.textColor = [UIColor grayColor];
+        tv_description.textColor = [UIColor blackColor];
         [self getImageScrollView:nil];
         
     }
@@ -75,10 +75,12 @@
 -(void)getLanguageStrings:(id)sender{
     
     lbl_title.text = [NSString languageSelectedStringForKey:@"title"];
-    lbl_description.text = [NSString languageSelectedStringForKey:@"image"];
-    lbl_images.text = [NSString languageSelectedStringForKey:@"description"];
+    lbl_description.text = [NSString languageSelectedStringForKey:@"description"];
+    lbl_images.text = [NSString languageSelectedStringForKey:@"image"];
     
     tx_noteTitle.placeholder = [NSString languageSelectedStringForKey:@"etTText"];
+    
+    [btn_camera setTitle:[NSString languageSelectedStringForKey:@"camera"] forState:UIControlStateNormal];
 }
 #pragma mark - UI_TEXTFIELD/UI_TEXTVIEW DELEGATE
 
@@ -91,7 +93,7 @@
 {
     if ([[textView text] isEqualToString:@"Enter Note Description"]) {
         textView.text = @"";
-        textView.textColor = [UIColor grayColor];
+        textView.textColor = [UIColor blackColor];
     }
    return  YES;
 }
@@ -119,10 +121,11 @@
 -(IBAction)btnCameraDidClicked:(id)sender{
     
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Options"
-                                                             delegate:self
-                                                    cancelButtonTitle:@"Cancel"
+                                                       delegate:self
+                                               cancelButtonTitle:[NSString languageSelectedStringForKey:@"cancel"]
                                                destructiveButtonTitle:nil
-                                                    otherButtonTitles:@"Use Camera", @"Use Existing Photos", nil];
+                                              otherButtonTitles:[NSString languageSelectedStringForKey:@"capture"],
+                                  [NSString languageSelectedStringForKey:@"From_Gallery"], nil];
     
     [actionSheet showInView:self.view];
 }
@@ -131,11 +134,9 @@
 //    [self.view addSubview:HUD];
     [hud showForTabBar];
     [self.view bringSubviewToFront:hud];
-    
-    if (!tx_noteTitle.text.length == 0)
+
+    if (!tx_noteTitle.text.length == 0 && !tv_description.text.length == 0 && ![tv_description.text isEqualToString:@"Enter Note Description"])
     {
-        if (!tv_description.text.length == 0 && ![tv_description.text isEqualToString:@"Enter Note Description"])
-        {
             [tv_description resignFirstResponder];
             [tx_noteTitle resignFirstResponder];
             
@@ -148,14 +149,10 @@
                     [self processCompleted:nil];
                 });
             });
-     
-        }else{
-            [hud hide];
-            [MCAGlobalFunction showAlert:@"Please enter Note Description."];
-        }
-    }else{
+      }else{
+       
         [hud hide];
-        [MCAGlobalFunction showAlert:@"Please enter Note Title."];
+        [MCAGlobalFunction showAlert:[NSString languageSelectedStringForKey:@"title_description_blank"]];
     }
 }
 -(void)addEditNote:(id)sender{
@@ -209,15 +206,15 @@
     
     if ([className isEqualToString:@"MCANotesViewController"]) {
         
-        alert   = [[UIAlertView alloc]initWithTitle:@"Message"
-                                            message:@"Note added successfully."
+        alert   = [[UIAlertView alloc]initWithTitle:[NSString languageSelectedStringForKey:@"msg"]
+                                            message:[NSString languageSelectedStringForKey:@"note_added_msg"]
                                            delegate:nil
                                   cancelButtonTitle:nil
                                   otherButtonTitles:nil, nil];
         
     }else{
         
-        alert  = [[UIAlertView alloc]initWithTitle:@"Message"
+        alert  = [[UIAlertView alloc]initWithTitle:[NSString languageSelectedStringForKey:@"msg"]
                                            message:@"Note edited successfully."
                                           delegate:nil
                                  cancelButtonTitle:nil

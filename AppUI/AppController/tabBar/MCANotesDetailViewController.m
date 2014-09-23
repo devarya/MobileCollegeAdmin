@@ -72,7 +72,17 @@
 //    [MCALocalStoredFolder createSubCategoryDir:notesDHolder.str_notesName];
     
 }
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [self getLanguageStrings:nil];
+}
+#pragma mark - LANGUAGE_SUPPORT
 
+-(void)getLanguageStrings:(id)sender{
+    
+    self.navigationItem.title = [NSString languageSelectedStringForKey:@"ndetail"];
+    
+}
 #pragma mark - IB_ACTION
 
 -(void)btnBar_editDidClicked:(id)sender{
@@ -81,11 +91,12 @@
 }
 -(void)btnBar_deleteDidClicked:(id)sender{
     
-    MCAAlertView *alertView = [MCAGlobalFunction showAlert:@"Do you wish to delete?"
-                                                     title:@"Delete"
-                                                  delegate:self
-                                                     btnOk:@"Confirm Action"
-                                                 btnCancel:@"Cancel"];
+    MCAAlertView *alertView = [MCAGlobalFunction
+                               showAlert:[NSString languageSelectedStringForKey:@"do_you_want_delete_msg"]
+                                   title:[NSString languageSelectedStringForKey:@"delete"]
+                                   delegate:self
+                                   btnOk:[NSString languageSelectedStringForKey:@"conform"]
+                                   btnCancel:[NSString languageSelectedStringForKey:@"cancel"]];
     
     alertView.tag = 1;
 }

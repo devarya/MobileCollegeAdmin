@@ -692,7 +692,6 @@
     SBJSON *parser=[[SBJSON alloc]init];
     
     NSDictionary *results = [parser objectWithString:responseString error:nil];
-    NSMutableDictionary *responseDict = ((NSMutableDictionary *)[results objectForKey:@"data"]);
     NSMutableArray *arr_notesCategory = (NSMutableArray*)[results objectForKey:@"data"];
     NSString *status_code = [results valueForKey:@"status_code"];
     

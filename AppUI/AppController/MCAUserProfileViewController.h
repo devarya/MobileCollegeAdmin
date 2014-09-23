@@ -23,6 +23,16 @@
    IBOutlet UITextField *tx_szipcode;
    IBOutlet UITextField *tx_sgrade;
    IBOutlet UITextField *tx_sfirstPerson;
+  
+   IBOutlet UILabel *lbl_pname;
+   IBOutlet UILabel *lbl_pemail;
+   IBOutlet UILabel *lbl_pzipcode;
+    
+   IBOutlet UILabel *lbl_sname;
+   IBOutlet UILabel *lbl_semail;
+   IBOutlet UILabel *lbl_sgrade;
+   IBOutlet UILabel *lbl_sfirstPerson;
+   IBOutlet UILabel *lbl_szipcode;
     
    UITableView *tbl_SelectPerson;
    NSArray *arr_SelectPersonList;

@@ -138,7 +138,17 @@ MCADBIntraction *databaseManager = nil;
 -(NSMutableArray*)retrieveHighPriorityTaskList:(id)sender{
     
     NSMutableArray *arr_dbTaskList=[[NSMutableArray alloc]init];
-    NSString *query= [NSString stringWithFormat:@"Select * from tbl_tasklist where taskPriority = \'%@\' order by taskStartDate ",@"h"];
+    NSString *query;
+    
+    if ([[[NSUserDefaults standardUserDefaults]valueForKey:KEY_LANGUAGE_CODE] isEqualToString:ENGLISH_LANG]) {
+        
+        query = [NSString stringWithFormat:@"Select * from tbl_tasklist where taskPriority = \'%@\' and taskNameEng != \'%@\' order by taskStartDate ",@"h",@""];
+    }else{
+        
+        query = [NSString stringWithFormat:@"Select * from tbl_tasklist where taskPriority = \'%@\' and taskNameSp != \'%@\' order by taskStartDate ",@"h",@""];
+
+    }
+    
     @try
     {
         [dBCollgeAdmin open];
@@ -180,8 +190,17 @@ MCADBIntraction *databaseManager = nil;
 -(NSMutableArray*)retrieveRegularPriorityTaskList:(id)sender{
     
     NSMutableArray *arr_dbTaskList=[[NSMutableArray alloc]init];
+    NSString *query;
     
-    NSString *query = [NSString stringWithFormat:@"Select * from tbl_tasklist where taskPriority = \'%@\' order by taskStartDate",@"r"];
+    if ([[[NSUserDefaults standardUserDefaults]valueForKey:KEY_LANGUAGE_CODE] isEqualToString:ENGLISH_LANG]) {
+        
+        query = [NSString stringWithFormat:@"Select * from tbl_tasklist where taskPriority = \'%@\' and taskNameEng != \'%@\' order by taskStartDate ",@"r",@""];
+    }else{
+        
+        query = [NSString stringWithFormat:@"Select * from tbl_tasklist where taskPriority = \'%@\' and taskNameSp != \'%@\' order by taskStartDate ",@"r",@""];
+        
+    }
+
     @try
     {
         [dBCollgeAdmin open];
@@ -236,6 +255,8 @@ MCADBIntraction *databaseManager = nil;
             taskDHolder.str_userId = [resultSet stringForColumn:@"userId"];
             taskDHolder.str_taskNameEng = [resultSet stringForColumn:@"taskNameEng"];
             taskDHolder.str_taskDetailEng = [resultSet stringForColumn:@"taskDetailEng"];
+            taskDHolder.str_taskNameSp = [resultSet stringForColumn:@"taskNameSp"];
+            taskDHolder.str_taskDetailSp = [resultSet stringForColumn:@"taskDetailSp"];
             taskDHolder.str_taskPriority = [resultSet stringForColumn:@"taskPriority"];
             taskDHolder.str_taskStartDate = [resultSet stringForColumn:@"taskStartDate"];
             taskDHolder.str_taskStatus = [resultSet stringForColumn:@"taskStatus"];
@@ -277,6 +298,8 @@ MCADBIntraction *databaseManager = nil;
             taskDHolder.str_userId = [resultSet stringForColumn:@"userId"];
             taskDHolder.str_taskNameEng = [resultSet stringForColumn:@"taskNameEng"];
             taskDHolder.str_taskDetailEng = [resultSet stringForColumn:@"taskDetailEng"];
+            taskDHolder.str_taskNameSp = [resultSet stringForColumn:@"taskNameSp"];
+            taskDHolder.str_taskDetailSp = [resultSet stringForColumn:@"taskDetailSp"];
             taskDHolder.str_taskPriority = [resultSet stringForColumn:@"taskPriority"];
             taskDHolder.str_taskStartDate = [resultSet stringForColumn:@"taskStartDate"];
             taskDHolder.str_taskStatus = [resultSet stringForColumn:@"taskStatus"];
@@ -309,7 +332,7 @@ MCADBIntraction *databaseManager = nil;
     {
         MCATaskDetailDHolder *taskDHoler=[arr_taskList objectAtIndex:i];
         
-        NSString *query=[NSString stringWithFormat:@"UPDATE tbl_tasklist SET taskId=\'%@\',userId =\'%@\',taskNameEng=\'%@\',taskDetailEng=\'%@\',taskPriority=\'%@\',taskStartDate=\'%@\',taskStatus=\'%@\',createdAt=\'%@\',createdBy=\'%@\',updatedAt=\'%@\',grade=\'%@\',status=\'%@\',network=\'%@\',nowDate=\'%@\' where userId=\'%@\' and taskId=\'%@\'",taskDHoler.str_taskId,taskDHoler.str_userId,taskDHoler.str_taskNameEng,taskDHoler.str_taskDetailEng,taskDHoler.str_taskPriority,taskDHoler.str_taskStartDate,taskDHoler.str_taskStatus,taskDHoler.str_createdAt,taskDHoler.str_createdBy,taskDHoler.str_updatedAt,taskDHoler.str_grade,taskDHoler.str_status,taskDHoler.str_network,taskDHoler.str_nowDate,taskDHoler.str_userId,taskDHoler.str_taskId];
+        NSString *query=[NSString stringWithFormat:@"UPDATE tbl_tasklist SET taskId=\'%@\',userId =\'%@\',taskNameEng=\'%@\',taskDetailEng=\'%@\',taskNameSp=\'%@\',taskDetailSp=\'%@\',taskPriority=\'%@\',taskStartDate=\'%@\',taskStatus=\'%@\',createdAt=\'%@\',createdBy=\'%@\',updatedAt=\'%@\',grade=\'%@\',status=\'%@\',network=\'%@\',nowDate=\'%@\' where userId=\'%@\' and taskId=\'%@\'",taskDHoler.str_taskId,taskDHoler.str_userId,taskDHoler.str_taskNameEng,taskDHoler.str_taskDetailEng,taskDHoler.str_taskNameSp,taskDHoler.str_taskDetailSp,taskDHoler.str_taskPriority,taskDHoler.str_taskStartDate,taskDHoler.str_taskStatus,taskDHoler.str_createdAt,taskDHoler.str_createdBy,taskDHoler.str_updatedAt,taskDHoler.str_grade,taskDHoler.str_status,taskDHoler.str_network,taskDHoler.str_nowDate,taskDHoler.str_userId,taskDHoler.str_taskId];
         
         @try
         {
@@ -525,6 +548,29 @@ MCADBIntraction *databaseManager = nil;
     }
     return arr_dbNotesCatList;
 }
+-(void)deleteNotesCatList:(id)sender{
+    
+    NSString *query=[NSString stringWithFormat:@"delete from tbl_notesCatList"];
+    
+    @try
+    {
+        [dBCollgeAdmin open];
+        if ([dBCollgeAdmin executeUpdate:query])
+        {
+            NSLog(@"succesfully deleted");
+            
+        }else
+        {
+            NSLog(@"error in deletion");
+        }
+        [dBCollgeAdmin close];
+    }
+    @catch (NSException *e)
+    {
+        NSLog(@"%@",e);
+    }
+}
+
 #pragma mark - RESOURCE_CATEGORY QUERY
 -(void)insertResourceCatList:(NSMutableArray*)arr_resourceList{
     

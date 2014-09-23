@@ -50,7 +50,7 @@
     NSMutableDictionary * info = [NSMutableDictionary new];
     
     [info setValue:@"get_book_for_parent" forKey:@"cmd"];
-    [info setValue:@"en_us" forKey:@"language_code"];
+    [info setValue:[[NSUserDefaults standardUserDefaults]valueForKey:KEY_LANGUAGE_CODE] forKey:@"language_code"];
     
     NSString *str_jsonNotes = [NSString getJsonObject:info];
     [HUD showForTabBar];

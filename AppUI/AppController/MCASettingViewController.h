@@ -16,7 +16,20 @@
    NSMutableArray *arr_langList;
    UIView *view_Bg;
     
+   IBOutlet UITextField *tx_lang;
+    
    IBOutlet UILabel *lbl_parStud;
+   IBOutlet UILabel *lbl_lang;
+   IBOutlet UILabel *lbl_profile;
+   IBOutlet UILabel *lbl_taskAlert;
+   IBOutlet UILabel *lbl_priorityAlert;
+   IBOutlet UILabel *lbl_changePwd;
+   IBOutlet UILabel *lbl_priorityDesc;
+   IBOutlet UILabel *push;
+   IBOutlet UILabel *email;
+   IBOutlet UILabel *high;
+   IBOutlet UILabel *regular;
+    
     
    IBOutlet UIButton *btn_add;
    IBOutlet UIButton *btn_viewStudParent;

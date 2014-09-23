@@ -57,7 +57,7 @@
     {    
         if ([[[NSUserDefaults standardUserDefaults]valueForKey:KEY_USER_TYPE] isEqualToString:@"p"])
         {
-            UIImage* img_grade = [UIImage imageNamed:@"grade.png"];
+            UIImage* img_grade = [UIImage imageNamed:@"grade1.png"];
             CGRect img_gradeFrame = CGRectMake(0, 0, img_grade.size.width, img_grade.size.height);
             UIButton *btn_grade = [[UIButton alloc] initWithFrame:img_gradeFrame];
             [btn_grade setBackgroundImage:img_grade forState:UIControlStateNormal];
@@ -70,8 +70,6 @@
            [self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects:btnBar_grade, nil]];
         }
     }
-    
-   
 }
 -(void)viewWillAppear:(BOOL)animated{
     
@@ -131,7 +129,8 @@
     view_transBg.layer.opacity = 0.6f;
     [self.view addSubview:view_transBg];
     
-    tbl_gradeList = [[UITableView alloc]initWithFrame:CGRectMake(20, 160, 282, 128)];
+    tbl_gradeList.layer.borderWidth = 0.5f;
+    tbl_gradeList = [[UITableView alloc]initWithFrame:CGRectMake(20, 140, 282, 150)];
     tbl_gradeList.dataSource = self;
     tbl_gradeList.delegate = self;
     [tbl_gradeList reloadData];
@@ -164,6 +163,8 @@
 }
 -(void)btnBar_studentDidClicked:(id)sender{
     
+    arr_studentList = [[MCADBIntraction databaseInteractionManager]retrieveStudList:nil];
+    
     if (IS_IPHONE_5) {
         view_transBg = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 568)];
     }else{
@@ -174,15 +175,15 @@
     view_transBg.layer.opacity = 0.6f;
     [self.view addSubview:view_transBg];
     
-    if (arr_studentList.count > 4) {
+    if (arr_studentList.count > 3) {
         
-        tbl_studentList = [[UITableView alloc]initWithFrame:CGRectMake(20, 160, 282, 160)];
+        tbl_studentList = [[UITableView alloc]initWithFrame:CGRectMake(20, 140, 282, 150)];
         
     }else{
         
-        tbl_studentList = [[UITableView alloc]initWithFrame:CGRectMake(20, 160, 282, arr_studentList.count * 32 + 64)];
+        tbl_studentList = [[UITableView alloc]initWithFrame:CGRectMake(20, 140, 282, arr_studentList.count * 38 + 74)];
     }
-
+    tbl_studentList.layer.borderWidth = 0.5f;
     tbl_studentList.delegate = self;
     tbl_studentList.dataSource = self;
     [tbl_studentList reloadData];
@@ -277,7 +278,7 @@
     
     NSLog(@"Selected date = %@",date);
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd 00:00:00"];
     NSString * str_selectedDate  = [dateFormatter stringFromDate:date];
    
     arr_monthTask = [NSMutableArray new];
@@ -342,7 +343,7 @@
     
     if (arr_monthTask.count == 0) {
     
-        lbl_noEvent.text = KEY_NO_EVENT_FOUND;
+        lbl_noEvent.text = [NSString languageSelectedStringForKey:@"no_event"];
         lbl_noEvent.hidden = NO;
         
     }else{
@@ -358,7 +359,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     
     if (tableView == tbl_gradeList || tableView == tbl_studentList) {
-        return 32;
+        return 36;
     }else{
         return 0;
     }
@@ -367,17 +368,17 @@
 {
     if (tableView == tbl_gradeList) {
         // 1. The view for the header
-        UIView* headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width,30)];
+        UIView* headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width,36)];
         
         // 2. Set a custom background color and a border
         headerView.backgroundColor = [UIColor colorWithRed:39.0/255 green:166.0/255 blue:213.0/255 alpha:1];
         
         // 3. Add an image
         UILabel* headerLabel = [[UILabel alloc] init];
-        headerLabel.frame = CGRectMake(0,2,282,22);
+        headerLabel.frame = CGRectMake(0,0,282,36);
         headerLabel.textColor = [UIColor whiteColor];
-        headerLabel.font = [UIFont boldSystemFontOfSize:14];
-        headerLabel.text = @"Select a grade";
+        headerLabel.font = [UIFont boldSystemFontOfSize:16.0];
+        headerLabel.text = [NSString languageSelectedStringForKey:@"et_sgrade"];
         headerLabel.textAlignment = NSTextAlignmentCenter;
         
         [headerView addSubview:headerLabel];
@@ -387,17 +388,17 @@
     }else if (tableView == tbl_studentList)
     {
         // 1. The view for the header
-        UIView* headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width,30)];
+        UIView* headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width,36)];
         
         // 2. Set a custom background color and a border
         headerView.backgroundColor = [UIColor colorWithRed:39.0/255 green:166.0/255 blue:213.0/255 alpha:1];
         
         // 3. Add an image
         UILabel* headerLabel = [[UILabel alloc] init];
-        headerLabel.frame = CGRectMake(0,2,282,22);
+        headerLabel.frame = CGRectMake(0,0,282,36);
         headerLabel.textColor = [UIColor whiteColor];
-        headerLabel.font = [UIFont boldSystemFontOfSize:14];
-        headerLabel.text = @"Select Student";
+        headerLabel.font = [UIFont boldSystemFontOfSize:16.0];
+        headerLabel.text = [NSString languageSelectedStringForKey:@"Select_a_student"];
         headerLabel.textAlignment = NSTextAlignmentCenter;
         
         [headerView addSubview:headerLabel];
@@ -412,7 +413,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if (tableView == tbl_gradeList || tableView == tbl_studentList) {
-        return 32;
+        return 38;
     }else{
         return 72;
     }
@@ -438,22 +439,26 @@
                     reuseIdentifier:cellIdentifier];
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.textLabel.font = [UIFont systemFontOfSize:12.0f];
+        cell.textLabel.font = [UIFont systemFontOfSize:14.0f];
         cell.textLabel.text = [arr_gradeList objectAtIndex:indexPath.row];
         
         MCACustomButton *btn_selectGrade = [MCACustomButton buttonWithType:UIButtonTypeCustom];
-        btn_selectGrade.frame = CGRectMake(242, 4, 24, 24);
-        btn_selectGrade.layer.cornerRadius = 12.0f;
+        btn_selectGrade.frame = CGRectMake(240, 0, 38, 38);
+//        btn_selectGrade.layer.cornerRadius = 12.0f;
         
         if (indexPath.row == [[NSUserDefaults standardUserDefaults]integerForKey:KEY_TASK_GRADE_INDEX]) {
             
-            [btn_selectGrade setBackgroundImage:[UIImage imageNamed:@"blue_checkMark.png"]
+            [btn_selectGrade setImage:[UIImage imageNamed:@"blue_checkMark.png"]
                                        forState:UIControlStateNormal];
             
+        }else{
+            
+            [btn_selectGrade setImage:[UIImage imageNamed:@"blue_uncheckMark.png"]
+                             forState:UIControlStateNormal];
         }
         
-        btn_selectGrade.layer.borderColor = [UIColor colorWithRed:39.0/255 green:166.0/255 blue:213.0/255 alpha:1].CGColor;
-        btn_selectGrade.layer.borderWidth = 1.0f;
+//        btn_selectGrade.layer.borderColor = [UIColor colorWithRed:39.0/255 green:166.0/255 blue:213.0/255 alpha:1].CGColor;
+//        btn_selectGrade.layer.borderWidth = 1.0f;
         [btn_selectGrade addTarget:self
                             action:@selector(btn_selectGradeDidClicked:)
                   forControlEvents:UIControlEventTouchUpInside];
@@ -474,7 +479,7 @@
                     reuseIdentifier:cellIdentifier];
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.textLabel.font = [UIFont systemFontOfSize:12.0f];
+        cell.textLabel.font = [UIFont systemFontOfSize:14.0f];
         
         if (indexPath.row == 0) {
             
@@ -488,18 +493,22 @@
         }
         
         MCACustomButton *btn_selectStudent = [MCACustomButton buttonWithType:UIButtonTypeCustom];
-        btn_selectStudent.frame = CGRectMake(242, 4, 24, 24);
-        btn_selectStudent.layer.cornerRadius = 12.0f;
+        btn_selectStudent.frame = CGRectMake(240, 0, 38, 38);
+//        btn_selectStudent.layer.cornerRadius = 12.0f;
         
         if (indexPath.row == [[NSUserDefaults standardUserDefaults]integerForKey:KEY_TASK_STUD_INDEX]) {
             
-            [btn_selectStudent setBackgroundImage:[UIImage imageNamed:@"blue_checkMark.png"]
+            [btn_selectStudent setImage:[UIImage imageNamed:@"blue_checkMark.png"]
                                          forState:UIControlStateNormal];
+            
+        }else{
+            [btn_selectStudent setImage:[UIImage imageNamed:@"blue_uncheckMark.png"]
+                               forState:UIControlStateNormal];
             
         }
         
-        btn_selectStudent.layer.borderColor = [UIColor colorWithRed:39.0/255 green:166.0/255 blue:213.0/255 alpha:1].CGColor;
-        btn_selectStudent.layer.borderWidth = 1.0f;
+//        btn_selectStudent.layer.borderColor = [UIColor colorWithRed:39.0/255 green:166.0/255 blue:213.0/255 alpha:1].CGColor;
+//        btn_selectStudent.layer.borderWidth = 1.0f;
         [btn_selectStudent addTarget:self
                               action:@selector(btn_selectStudDidClicked:)
                     forControlEvents:UIControlEventTouchUpInside];
@@ -537,7 +546,7 @@
 
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
         NSDateFormatter *dateFormatter1 = [[NSDateFormatter alloc]init];
-        [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd 00:00:00"];
         [dateFormatter1 setDateFormat:@"yyyy/MMM/dd"];
         NSDate *date_Temp =[dateFormatter dateFromString:taskDetailDHolder.str_taskStartDate];
         NSString *str_date = [dateFormatter1 stringFromDate:date_Temp];

@@ -69,22 +69,32 @@
         
         self.navigationItem.title = [NSString languageSelectedStringForKey:@"edit_headr"];
         
-        tx_taskName.text = taskEditDHolder.str_taskNameEng;
         if ([taskEditDHolder.str_taskPriority isEqualToString:@"h"]) {
+            
             tx_priority.text = [NSString languageSelectedStringForKey:@"higher"];
+            
         }else{
+            
             tx_priority.text = [NSString languageSelectedStringForKey:@"regular"];
         }
         
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
         NSDateFormatter *dateFormatter1 = [[NSDateFormatter alloc]init];
-        [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd 00:00:00"];
         [dateFormatter1 setDateFormat:@"yyyy/MMM/dd"];
         NSDate *date_Temp =[dateFormatter dateFromString:taskEditDHolder.str_taskStartDate];
         NSString *str_date = [dateFormatter1 stringFromDate:date_Temp];
         
         tx_chooseDate.text = str_date;
-        tv_description.text = taskEditDHolder.str_taskDetailEng;
+        
+        if ([[[NSUserDefaults standardUserDefaults]valueForKey:KEY_LANGUAGE_CODE] isEqualToString:ENGLISH_LANG]) {
+           
+            tv_description.text = taskEditDHolder.str_taskDetailEng;
+            tx_taskName.text = taskEditDHolder.str_taskNameEng;
+        }else{
+            tv_description.text = taskEditDHolder.str_taskDetailSp;
+            tx_taskName.text = taskEditDHolder.str_taskNameSp;
+        }
     }
         
     [self getLanguageStrings:nil];
@@ -112,7 +122,7 @@
                 if ([[NSUserDefaults standardUserDefaults]valueForKey:KEY_LANGUAGE_CODE]) {
                     [dict_Task setValue:[[NSUserDefaults standardUserDefaults]valueForKey:KEY_LANGUAGE_CODE] forKey:@"language_code"];
                 }else{
-                    [dict_Task setValue:@"en_us" forKey:@"language_code"];
+                    [dict_Task setValue:[[NSUserDefaults standardUserDefaults]valueForKey:KEY_LANGUAGE_CODE] forKey:@"language_code"];
                 }
                 
                 [arr_taskTemp addObject:dict_Task];
@@ -280,7 +290,7 @@
     
     //picker title
     UILabel *lblPickerTitle=[[UILabel alloc]initWithFrame:CGRectMake(120,6, 200, 25)];
-    lblPickerTitle.text=@"Choose Date";
+    lblPickerTitle.text = [NSString languageSelectedStringForKey:@"please_select_date"];
     lblPickerTitle.backgroundColor=[UIColor clearColor];
     lblPickerTitle.textColor=[UIColor whiteColor];
     lblPickerTitle.font=[UIFont boldSystemFontOfSize:14];
@@ -330,11 +340,7 @@
         [dict_addTask setValue:tx_taskName.text forKey:@"task_name"];
         [dict_addTask setValue:tv_description.text forKey:@"task_detail"];
     
-        if ([[NSUserDefaults standardUserDefaults]valueForKey:KEY_LANGUAGE_CODE]) {
-            [dict_addTask setValue:[[NSUserDefaults standardUserDefaults]valueForKey:KEY_LANGUAGE_CODE] forKey:@"language_code"];
-        }else{
-            [dict_addTask setValue:@"en_us" forKey:@"language_code"];
-        }
+        [dict_addTask setValue:[[NSUserDefaults standardUserDefaults]valueForKey:KEY_LANGUAGE_CODE] forKey:@"language_code"];
         
         NSMutableArray *arr_addTask = [NSMutableArray new];
         [arr_addTask addObject:dict_addTask];
@@ -476,12 +482,14 @@
 -(void)addTaskSuccess:(NSNotification*)notification{
     
     [HUD hide];
+    [self keyboardDisappeared];
+    UIAlertView *alert ;
     if (taskEditDHolder) {
         
         taskEditDHolder.str_taskDetailEng = tv_description.text;
         taskEditDHolder.str_taskNameEng  = tx_taskName.text;
         
-        if ([tx_priority.text isEqualToString:@"High"]) {
+        if ([tx_priority.text isEqualToString:[NSString languageSelectedStringForKey:@"higher"]]) {
             taskEditDHolder.str_taskPriority = @"h";
         }else{
             taskEditDHolder.str_taskPriority = @"r";
@@ -492,9 +500,33 @@
         }
         
         [delegate editTaskDetail:taskEditDHolder];
+        
+        alert = [[UIAlertView alloc]initWithTitle:[NSString languageSelectedStringForKey:@"msg"]
+                                          message:[NSString languageSelectedStringForKey:@"edit_msg"]
+                                         delegate:nil
+                                cancelButtonTitle:nil
+                                otherButtonTitles:nil, nil];
+        
+    }else{
+        
+      alert = [[UIAlertView alloc]initWithTitle:[NSString languageSelectedStringForKey:@"msg"]
+                                                         message:[NSString languageSelectedStringForKey:@"task_added_msg"]
+                                                        delegate:nil
+                                               cancelButtonTitle:nil
+                                               otherButtonTitles:nil, nil];
+
+        
     }
     
-    [self.navigationController popViewControllerAnimated:YES];
+    [alert show];
+    
+    double delayInSeconds = 2.0;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(),^ {
+        
+        [alert dismissWithClickedButtonIndex:0 animated:YES];
+        [self.navigationController popViewControllerAnimated:YES];
+    });
 }
 
 -(void)addTaskFailed:(NSNotification*)notification{
@@ -518,7 +550,7 @@
     tx_chooseDate.text = str_date;
     
     NSDateFormatter *dateFormatter1 = [[NSDateFormatter alloc]init];
-    [dateFormatter1 setDateFormat:@"yyyy/MM/dd hh:mm:ss"];
+    [dateFormatter1 setDateFormat:@"yyyy-MM-dd 00:00:00"];
     str_dateSelected = [dateFormatter1 stringFromDate:datePicker.date];
     [sheet_datePicker dismissWithClickedButtonIndex:0 animated:YES];
     

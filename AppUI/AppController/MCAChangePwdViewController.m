@@ -55,7 +55,20 @@
     return YES;
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [self getLanguageStrings:nil];
+}
+#pragma mark - LANGUAGE_SUPPORT
 
+-(void)getLanguageStrings:(id)sender{
+    
+    self.navigationItem.title = [NSString languageSelectedStringForKey:@"change_pass"];
+    tx_confirmPwd.placeholder = [NSString languageSelectedStringForKey:@"et_cPass"];
+    tx_newPwd.placeholder = [NSString languageSelectedStringForKey:@"et_newPass"];
+    tx_oldPwd.placeholder = [NSString languageSelectedStringForKey:@"et_oldPass"];
+    
+}
 #pragma mark - IB_ACTION
 
 -(IBAction)btnDoneDidClicked:(id)sender{
@@ -81,10 +94,11 @@
             [self requestChangePwd:str_jsonChangePwd];
         }else{
             
-              [MCAGlobalFunction showAlert:@"Confirm password and new password didn't match."];
+              [MCAGlobalFunction showAlert:[NSString languageSelectedStringForKey:@"passwordMsg"]];
         }
     }else{
-        [MCAGlobalFunction showAlert:INVALID_PWD];
+        
+        [MCAGlobalFunction showAlert:[NSString languageSelectedStringForKey:@"enterPass"]];
     }
 }
 #pragma mark - API CALLING
@@ -108,9 +122,9 @@
     [tx_confirmPwd resignFirstResponder];
     [tx_oldPwd resignFirstResponder];
       
-    UIAlertView *alert   = [[UIAlertView alloc]initWithTitle:@"Message"
-                                                     message:notification.object
-                                                    delegate:nil
+    UIAlertView *alert   = [[UIAlertView alloc]initWithTitle:[NSString languageSelectedStringForKey:@"msg"]
+                                                 message:[NSString languageSelectedStringForKey:@"pass_change_msg"]
+                                                 delegate:nil
                                            cancelButtonTitle:nil
                                            otherButtonTitles:nil, nil];
     [alert show];

@@ -49,7 +49,7 @@
     NSMutableDictionary * info = [NSMutableDictionary new];
     
     [info setValue:@"get_resource" forKey:@"cmd"];
-    [info setValue:@"en_us" forKey:@"language_code"];
+    [info setValue:[[NSUserDefaults standardUserDefaults]valueForKey:KEY_LANGUAGE_CODE] forKey:@"language_code"];
     [info setValue:sender forKey:@"resource_id"];
     
     NSString *str_jsonNotes = [NSString getJsonObject:info];
@@ -98,6 +98,7 @@
     
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+  
     return arr_resources.count;
     
 }

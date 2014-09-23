@@ -139,7 +139,7 @@
 "deleted" = "Borradas";
 "conform" = "ConfirmeAcción";
 "edit_headr" = "Editar la Tarea";
-"please_select_date" = "Favor de EscogerFecha: ";
+"please_select_date" = "Seleccione Fecha";
 "addTask" = "Añadir";
 "select_priority" = "SeleccionePrioridad";
 "set_date_is_not_msg" = "Fechaseleccionada no esposible. ";
@@ -205,13 +205,13 @@
 "email_id_fornot" = "Email queusóparainscribirse";
 "priority_alert" = "Seleccionenivel de prioridad.";
 "high" = "Alto";
-"priority_descr" = "Alto: Solo tareas mas importantes. \n \n Regular: Todas las recomendaciones. ";
+"priority_descr" = " Alto: Solo tareas mas importantes. \n Regular: Todas las recomendaciones. ";
 "upgrade" = "Versión Pagada";
 "support" = "Ayuda Técnica";
 "rate" = "Evaluar";
 "addParent" = "Añade Padre/Madre";
 "textmessage" = "Mensaje de Texto";
-"language" = "Idioma";
+"tx_language" = "Idioma";
 "et_language" = "SeleccioneI dioma";
 "p_connection" = "Conexiónde Padre/Madre";
 "my_students" = "MisEstudiantes";

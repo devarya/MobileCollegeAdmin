@@ -35,8 +35,7 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(deleteTaskDetailSuccess:) name:NOTIFICATION_DELETE_TASK_DETAIL_SUCCESS object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(completeTaskDetailSuccess:) name:NOTIFICATION_COMPLETE_TASK_DETAIL_SUCCESS object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(deleteOrCompleteTaskDetailFailed:) name:NOTIFICATION_DELETE_COMPLETE_TASK_DETAIL_FAILED object:nil];
-     
-     tv_taskDetail.text = taskDetailDHolder.str_taskDetailEng;
+   
     
     //code for navigation bar
     if ([taskDetailDHolder.str_taskStatus isEqualToString:@"o"] && ![[NSUserDefaults standardUserDefaults]integerForKey:KEY_STUDENT_COUNT] > 0)
@@ -70,6 +69,23 @@
     tv_taskDetail.editable = NO;
     [tv_taskDetail setContentInset:UIEdgeInsetsMake(-5, 0, 5,0)];
 }
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [self getLanguageStrings:nil];
+}
+#pragma mark - LANGUAGE_SUPPORT
+
+-(void)getLanguageStrings:(id)sender{
+    
+//    self.navigationItem.title = [NSString languageSelectedStringForKey:@"task_detail"];
+    if ([[[NSUserDefaults standardUserDefaults]valueForKey:KEY_LANGUAGE_CODE]isEqualToString:ENGLISH_LANG]) {
+        
+          tv_taskDetail.text = taskDetailDHolder.str_taskDetailEng;
+    }else{
+        
+        tv_taskDetail.text = taskDetailDHolder.str_taskDetailSp;
+    }
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -81,11 +97,11 @@
 
 -(void)btnBar_deleteDidClicked:(id)sender{
     
-    MCAAlertView *alertView = [MCAGlobalFunction showAlert:@"Do you want to delete this task?"
-                                                     title:@"Delete"
+    MCAAlertView *alertView = [MCAGlobalFunction showAlert:[NSString languageSelectedStringForKey:@"delete_msg"]
+                                                     title:[NSString languageSelectedStringForKey:@"delete"]
                                                   delegate:self
-                                                     btnOk:@"Confirm Action"
-                                                 btnCancel:@"Cancel" ];
+                                                     btnOk:[NSString languageSelectedStringForKey:@"conform"]
+                                                 btnCancel:[NSString languageSelectedStringForKey:@"cancel"]];
      alertView.tag = 1;
 }
 -(void)btnBar_editDidClicked:(id)sender{
@@ -95,10 +111,10 @@
 -(IBAction)btnCompleteDidClicked:(id)sender{
     
     MCAAlertView *alertView = [MCAGlobalFunction showAlert:@"Do you want to complete the task?"
-                                                     title:@"Message"
+                                                     title:[NSString languageSelectedStringForKey:@"msg"]
                                                   delegate:self
-                                                     btnOk:@"Confirm Action"
-                                                 btnCancel:@"Cancel"];
+                                                     btnOk:[NSString languageSelectedStringForKey:@"conform"]
+                                                 btnCancel:[NSString languageSelectedStringForKey:@"cancel"]];
     
     alertView.tag = 2;
     
@@ -112,7 +128,7 @@
         if (buttonIndex == 1)
         {          
             NSDateFormatter *dateFormatterTime = [[NSDateFormatter alloc]init];
-            [dateFormatterTime setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
+            [dateFormatterTime setDateFormat:@"yyyy-MM-dd 00:00:00"];
             NSString *str_dateTime = [dateFormatterTime stringFromDate:[NSDate date]];
             
             taskDetailDHolder.str_taskStatus = @"d";
@@ -182,7 +198,7 @@
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
     NSDateFormatter *dateFormatter1 = [[NSDateFormatter alloc]init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd 00:00:00"];
     [dateFormatter1 setDateFormat:@"yyyy/MMM/dd"];
     NSDate *date_Temp =[dateFormatter dateFromString:taskDetailDHolder.str_taskStartDate];
     NSString *str_date = [dateFormatter1 stringFromDate:date_Temp];
@@ -199,7 +215,7 @@
         case 0:
         {            
             NSDateFormatter *dateFormatterTime = [[NSDateFormatter alloc]init];
-            [dateFormatterTime setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
+            [dateFormatterTime setDateFormat:@"yyyy-MM-dd 00:00:00"];
             NSString *str_dateTime = [dateFormatterTime stringFromDate:[NSDate date]];
             
             taskDetailDHolder.str_taskStatus = @"c";
