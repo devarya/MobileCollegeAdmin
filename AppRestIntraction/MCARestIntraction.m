@@ -39,7 +39,7 @@
         
     dispatch_async(dispatch_get_main_queue(), ^
                    {
-                       [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_LOGIN_FAILED object:@"Unable to login at this movement."];
+                       [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_LOGIN_FAILED object:[NSString languageSelectedStringForKey:@"server_not"]];
                    });
 }
 -(void)requestLoginSuccess:(ASIFormDataRequest*)request{
@@ -153,7 +153,7 @@
     
     dispatch_async(dispatch_get_main_queue(), ^
                    {
-                       [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_FORGOT_PWD_FAILED object:@"something went wrong,try again."];
+                       [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_FORGOT_PWD_FAILED object:[NSString languageSelectedStringForKey:@"server_not"]];
                    });
 }
 -(void)requestForgotPwdSuccess:(ASIFormDataRequest*)request{
@@ -204,7 +204,7 @@
     
     dispatch_async(dispatch_get_main_queue(), ^
                    {
-                       [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_USER_EXIST_FAILED object:@"Unable to add student at this movement."];
+                       [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_USER_EXIST_FAILED object:[NSString languageSelectedStringForKey:@"server_not"]];
                    });
 }
 -(void)requestUserExistSuccess:(ASIFormDataRequest*)request{
@@ -254,7 +254,7 @@
     
     dispatch_async(dispatch_get_main_queue(), ^
                    {
-                       [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_PARENT_SIGNUP_FAILED object:@"Unable to register at this movement."];
+                       [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_PARENT_SIGNUP_FAILED object:[NSString languageSelectedStringForKey:@"server_not"]];
                    });
 }
 -(void)requestParentSignUpSuccess:(ASIFormDataRequest*)request{
@@ -342,7 +342,7 @@
     
     dispatch_async(dispatch_get_main_queue(), ^
                    {
-                       [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_STUD_SIGNUP_FAILED object:@"Unable to register at this movement."];
+                       [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_STUD_SIGNUP_FAILED object:[NSString languageSelectedStringForKey:@"server_not"]];
                    });
 }
 -(void)requestStudSignUpSuccess:(ASIFormDataRequest*)request{
@@ -406,7 +406,7 @@
     
     dispatch_async(dispatch_get_main_queue(), ^
                    {
-                       [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_TASK_LIST_FAILED object:@"Unable to register at this movement."];
+                       [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_TASK_LIST_FAILED object:[NSString languageSelectedStringForKey:@"server_not"]];
                    });
 }
 -(void)requestTaskListSuccess:(ASIFormDataRequest*)request{
@@ -511,7 +511,7 @@
     
     dispatch_async(dispatch_get_main_queue(), ^
                {
-                   [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_DELETE_COMPLETE_TASK_FAILED object:@"Unable to perform task at this movement."];
+                   [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_DELETE_COMPLETE_TASK_FAILED object:[NSString languageSelectedStringForKey:@"server_not"]];
                });
 }
 -(void)requestDeleteOrCompleteTaskSuccess:(ASIFormDataRequest*)request{
@@ -595,7 +595,7 @@
     
     dispatch_async(dispatch_get_main_queue(), ^
                    {
-                       [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_ADD_TASK_FAILED object:@"Unable to perform task at this movement."];
+                       [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_ADD_TASK_FAILED object:[NSString languageSelectedStringForKey:@"server_not"]];
                    });
 }
 -(void)requestAddTaskSuccess:(ASIFormDataRequest*)request{
@@ -681,7 +681,7 @@
     
     dispatch_async(dispatch_get_main_queue(), ^
                    {
-                       [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_NOTES_CATEGORY_FAILED object:@"Unable to get category at this movement."];
+                       [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_NOTES_CATEGORY_FAILED object:[NSString languageSelectedStringForKey:@"server_not"]];
                    });
 }
 -(void)requestNotesCategorySuccess:(ASIFormDataRequest*)request{
@@ -742,7 +742,7 @@
     
     dispatch_async(dispatch_get_main_queue(), ^
                    {
-                       [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_NOTES_FAILED object:@"Unable to get notes at this movement."];
+                       [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_NOTES_FAILED object:[NSString languageSelectedStringForKey:@"server_not"]];
                    });
 }
 -(void)requestNotesSuccess:(ASIFormDataRequest*)request{
@@ -826,7 +826,7 @@
     
     dispatch_async(dispatch_get_main_queue(), ^
                    {
-                       [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_RESOURCE_CATEGORY_FAILED object:@"Unable to get category at this movement."];
+                       [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_RESOURCE_CATEGORY_FAILED object:[NSString languageSelectedStringForKey:@"server_not"]];
                    });
 }
 -(void)requestResourceCategorySuccess:(ASIFormDataRequest*)request{
@@ -890,7 +890,7 @@
     
     dispatch_async(dispatch_get_main_queue(), ^
                    {
-                       [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_RESOURCE_FAILED object:@"Unable to get resource at this movement."];
+                       [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_RESOURCE_FAILED object:[NSString languageSelectedStringForKey:@"server_not"]];
                    });
 }
 -(void)requestResourcesSuccess:(ASIFormDataRequest*)request{
@@ -953,7 +953,7 @@
     
     dispatch_async(dispatch_get_main_queue(), ^
                    {
-                       [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_RESOURCE_FAILED object:@"Unable to get resource Book at this movement."];
+                       [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_RESOURCE_FAILED object:[NSString languageSelectedStringForKey:@"server_not"]];
                    });
 }
 -(void)requestResourcesBookSuccess:(ASIFormDataRequest*)request{
@@ -1018,7 +1018,7 @@
     
     dispatch_async(dispatch_get_main_queue(), ^
                    {
-                       [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_USER_PROFILE_EDIT_FAILED object:@"Unable to perform task at this movement."];
+                       [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_USER_PROFILE_EDIT_FAILED object:[NSString languageSelectedStringForKey:@"server_not"]];
                    });
 }
 -(void)requestUserProfileEditSuccess:(ASIFormDataRequest*)request{
@@ -1074,7 +1074,7 @@
     
     dispatch_async(dispatch_get_main_queue(), ^
                    {
-                       [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_CHANGE_PWD_FAILED object:@"Unable to perform task at this movement."];
+                       [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_CHANGE_PWD_FAILED object:[NSString languageSelectedStringForKey:@"server_not"]];
                    });
 }
 -(void)requestChangePwdSuccess:(ASIFormDataRequest*)request{
@@ -1120,7 +1120,7 @@
     
     dispatch_async(dispatch_get_main_queue(), ^
                    {
-                       [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_SETTING_FAILED object:@"Unable to perform task at this movement."];
+                       [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_SETTING_FAILED object:[NSString languageSelectedStringForKey:@"server_not"]];
                    });
 }
 -(void)requestNotificationSettingSuccess:(ASIFormDataRequest*)request{
@@ -1168,7 +1168,7 @@
     
     dispatch_async(dispatch_get_main_queue(), ^
                    {
-                       [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_ADD_STUDENT_FAILED object:@"Unable to perform task at this movement."];
+                       [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_ADD_STUDENT_FAILED object:[NSString languageSelectedStringForKey:@"server_not"]];
                    });
 }
 -(void)requestAddStudentSuccess:(ASIFormDataRequest*)request{
@@ -1259,7 +1259,7 @@
     
     dispatch_async(dispatch_get_main_queue(), ^
                    {
-                       [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_ADD_PARENT_FAILED object:@"Unable to perform task at this movement."];
+                       [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_ADD_PARENT_FAILED object:[NSString languageSelectedStringForKey:@"server_not"]];
                    });
 }
 -(void)requestAddParentSuccess:(ASIFormDataRequest*)request{

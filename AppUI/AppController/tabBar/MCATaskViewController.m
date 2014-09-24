@@ -51,6 +51,9 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(addTaskSuccess:) name:NOTIFICATION_ADD_TASK_SUCCESS object:nil];
 //    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(addTaskFailed:) name:NOTIFICATION_ADD_TASK_FAILED object:nil];
     
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(viewNotificationTable:) name:NOTIFICATION_LOCAL_UINOTIFICATION_SUCCESS object:nil];
+    
     segControl_task.tintColor=[UIColor whiteColor];
     
     [[NSUserDefaults standardUserDefaults]setInteger:0 forKey:KEY_TASK_STUD_INDEX];
@@ -126,6 +129,37 @@
      tbl_taskDeleted.tableFooterView = [[UIView alloc] init];
     
 //    [self performSelector:@selector(apiCalling:) withObject:nil afterDelay:1];
+    
+}
+-(void)viewNotificationTable:(id)sender{
+    
+    MCANotificationTable *notificationV = [[MCANotificationTable alloc]
+                                           initWithFrame:CGRectMake( 15, 20, 290, 328)];
+    
+    notificationV.delegate = self;
+    
+    if (IS_IPHONE_5) {
+        view_transBg = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 568)];
+    }else{
+        view_transBg = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 480)];
+    }
+    
+    [self.view addSubview:view_transBg];
+    
+    view_transBg.backgroundColor = [UIColor blackColor];
+    view_transBg.layer.opacity = 0.6f;
+    [self.view addSubview:notificationV];
+    
+    self.navigationController.navigationBar.userInteractionEnabled = NO;
+    tabBarMCACtr.tabBar.userInteractionEnabled = NO;
+
+}
+-(void)reminderView:(id)sender{
+    
+    [view_transBg  removeFromSuperview];
+    self.navigationController.navigationBar.userInteractionEnabled = YES;
+    tabBarMCACtr.tabBar.userInteractionEnabled = YES;
+
 }
 -(void)apiCalling:(id)sender{
     
@@ -1068,7 +1102,7 @@
     
     [HUD hide];
     [self btnSegControl_taskDidClicked:nil];
-
+   
 }
 - (void)playerItemDidReachEnd:(NSNotification *)notification {
   
@@ -1089,6 +1123,11 @@
         
         taskDetailViewCtr.taskDetailDHolder = (MCATaskDetailDHolder*)sender;
     }
+}
+
+-(IBAction)btnCancelDidClicked:(id)sender{
+    
+    
 }
 
 @end

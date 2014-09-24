@@ -31,7 +31,16 @@
     [self setNeedsStatusBarAppearanceUpdate];
   
     web_view.delegate = self;
-    [web_view loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"terms_en" ofType:@"html"]isDirectory:NO]]];
+    
+  if ([[[NSUserDefaults standardUserDefaults]valueForKey:KEY_LANGUAGE_CODE] isEqualToString:ENGLISH_LANG]){
+      
+      [web_view loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"terms_en" ofType:@"html"]isDirectory:NO]]];
+
+  }else{
+      
+      [web_view loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"terms_es" ofType:@"html"]isDirectory:NO]]];
+
+   }
 }
 -(UIStatusBarStyle)preferredStatusBarStyle{
     

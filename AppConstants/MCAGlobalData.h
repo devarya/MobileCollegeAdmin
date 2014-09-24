@@ -17,6 +17,7 @@
 #import "MCAAlertView.h"
 #import "FMDatabase.h"
 
+
 UITabBarController *tabBarMCACtr;
 FMDatabase *dBCollgeAdmin;
 NSMutableArray *arr_loginData;
@@ -24,9 +25,11 @@ Reachability *hostReachable;
 
 @interface MCAGlobalData : NSObject<UITabBarControllerDelegate>{
     
+    
 }
 
 + (MCAGlobalData *)sharedManager;
 -(void)goToTabbarView:(id)sender;
 -(void)getTabBarTitle:(id)sender;
+-(void)test;
 @end

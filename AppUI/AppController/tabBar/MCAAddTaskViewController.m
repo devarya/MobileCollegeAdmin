@@ -483,6 +483,9 @@
     
     [HUD hide];
     [self keyboardDisappeared];
+    [tx_taskName resignFirstResponder];
+    [tv_description resignFirstResponder];
+   
     UIAlertView *alert ;
     if (taskEditDHolder) {
         

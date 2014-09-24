@@ -12,6 +12,10 @@
 		CE0F16D419C8687F00029413 /* MCAShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0F16D319C8687F00029413 /* MCAShareViewController.m */; };
 		CE0F16D619C8692800029413 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0F16D519C8692800029413 /* Social.framework */; };
 		CE0F16D819C8692F00029413 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0F16D719C8692F00029413 /* MessageUI.framework */; };
+		CE16084019D293A000FC4B1E /* MobileCollegeAdmin.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = CE16083F19D293A000FC4B1E /* MobileCollegeAdmin.sqlite */; };
+		CE16084119D293A000FC4B1E /* MobileCollegeAdmin.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = CE16083F19D293A000FC4B1E /* MobileCollegeAdmin.sqlite */; };
+		CE16084919D2AE4D00FC4B1E /* MCANotificationTable.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE16084819D2AE4D00FC4B1E /* MCANotificationTable.xib */; };
+		CE16084C19D2AE8F00FC4B1E /* MCANotificationTable.m in Sources */ = {isa = PBXBuildFile; fileRef = CE16084B19D2AE8F00FC4B1E /* MCANotificationTable.m */; };
 		CE174993198D19C200F61135 /* AryaHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = CE174992198D19C200F61135 /* AryaHUD.m */; };
 		CE17F560199C75F90027251A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE17F55F199C75F90027251A /* Images.xcassets */; };
 		CE1805A0198656260087CA3D /* MCAStudentDHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = CE18059F198656260087CA3D /* MCAStudentDHolder.m */; };
@@ -65,8 +69,6 @@
 		CE3BDDC119CBF69C00F1625C /* MCAResourcesBookDHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3BDDBC19CBF69C00F1625C /* MCAResourcesBookDHolder.m */; };
 		CE3BDDC219CBF69C00F1625C /* MCAResourcesCatDHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3BDDBE19CBF69C00F1625C /* MCAResourcesCatDHolder.m */; };
 		CE3BDDC319CBF69C00F1625C /* MCAResourcesDHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3BDDC019CBF69C00F1625C /* MCAResourcesDHolder.m */; };
-		CE3BDFD719CC412A00F1625C /* MobileCollegeAdmin.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = CE3BDFD619CC412A00F1625C /* MobileCollegeAdmin.sqlite */; };
-		CE3BDFD819CC412A00F1625C /* MobileCollegeAdmin.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = CE3BDFD619CC412A00F1625C /* MobileCollegeAdmin.sqlite */; };
 		CE3E7E3119CAC02200016A10 /* terms_en.html in Resources */ = {isa = PBXBuildFile; fileRef = CE3E7E2F19CAC02200016A10 /* terms_en.html */; };
 		CE3E7E3219CAC02200016A10 /* terms_es.html in Resources */ = {isa = PBXBuildFile; fileRef = CE3E7E3019CAC02200016A10 /* terms_es.html */; };
 		CE52ED4319C806D1005B1A92 /* MCAAddStudParentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE52ED4219C806D1005B1A92 /* MCAAddStudParentViewController.m */; };
@@ -150,6 +152,10 @@
 		CE0F16D319C8687F00029413 /* MCAShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCAShareViewController.m; sourceTree = "<group>"; };
 		CE0F16D519C8692800029413 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		CE0F16D719C8692F00029413 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		CE16083F19D293A000FC4B1E /* MobileCollegeAdmin.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = MobileCollegeAdmin.sqlite; sourceTree = "<group>"; };
+		CE16084819D2AE4D00FC4B1E /* MCANotificationTable.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCANotificationTable.xib; sourceTree = "<group>"; };
+		CE16084A19D2AE8F00FC4B1E /* MCANotificationTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCANotificationTable.h; sourceTree = "<group>"; };
+		CE16084B19D2AE8F00FC4B1E /* MCANotificationTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCANotificationTable.m; sourceTree = "<group>"; };
 		CE174991198D19C200F61135 /* AryaHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AryaHUD.h; sourceTree = "<group>"; };
 		CE174992198D19C200F61135 /* AryaHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AryaHUD.m; sourceTree = "<group>"; };
 		CE17F55F199C75F90027251A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../Images.xcassets; sourceTree = "<group>"; };
@@ -252,7 +258,6 @@
 		CE3BDDBE19CBF69C00F1625C /* MCAResourcesCatDHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCAResourcesCatDHolder.m; sourceTree = "<group>"; };
 		CE3BDDBF19CBF69C00F1625C /* MCAResourcesDHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCAResourcesDHolder.h; sourceTree = "<group>"; };
 		CE3BDDC019CBF69C00F1625C /* MCAResourcesDHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCAResourcesDHolder.m; sourceTree = "<group>"; };
-		CE3BDFD619CC412A00F1625C /* MobileCollegeAdmin.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = MobileCollegeAdmin.sqlite; sourceTree = "<group>"; };
 		CE3E7E2F19CAC02200016A10 /* terms_en.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = terms_en.html; sourceTree = "<group>"; };
 		CE3E7E3019CAC02200016A10 /* terms_es.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = terms_es.html; sourceTree = "<group>"; };
 		CE52ED4119C806D1005B1A92 /* MCAAddStudParentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCAAddStudParentViewController.h; sourceTree = "<group>"; };
@@ -579,6 +584,9 @@
 				CE2AA3121999DE4900D43008 /* MCATaskDetailViewController.m */,
 				CE0D69501995FE9C009C0DBE /* MCAAddTaskViewController.h */,
 				CE0D69511995FE9C009C0DBE /* MCAAddTaskViewController.m */,
+				CE16084819D2AE4D00FC4B1E /* MCANotificationTable.xib */,
+				CE16084A19D2AE8F00FC4B1E /* MCANotificationTable.h */,
+				CE16084B19D2AE8F00FC4B1E /* MCANotificationTable.m */,
 			);
 			name = tasks;
 			sourceTree = "<group>";
@@ -724,7 +732,7 @@
 		CE84C2291962D97E00A351FF /* AppDB */ = {
 			isa = PBXGroup;
 			children = (
-				CE3BDFD619CC412A00F1625C /* MobileCollegeAdmin.sqlite */,
+				CE16083F19D293A000FC4B1E /* MobileCollegeAdmin.sqlite */,
 				CE0D694D1995DC5C009C0DBE /* MCADBIntraction.h */,
 				CE0D694E1995DC5C009C0DBE /* MCADBIntraction.m */,
 			);
@@ -986,13 +994,14 @@
 				CE84C1F91962D83800A351FF /* InfoPlist.strings in Resources */,
 				CE2DFC3B19AEEC03000D59EB /* noimage1.png in Resources */,
 				CE30FB8A19B18B9E00E036B2 /* 120*120@2x.png in Resources */,
+				CE16084019D293A000FC4B1E /* MobileCollegeAdmin.sqlite in Resources */,
 				CE30FB8919B18B9E00E036B2 /* 80*80@2x.png in Resources */,
-				CE3BDFD719CC412A00F1625C /* MobileCollegeAdmin.sqlite in Resources */,
 				CE7E432119A22B4C00A8652F /* pigsmall.mp4 in Resources */,
 				CE7E431F19A22B4C00A8652F /* ducksmall.mp4 in Resources */,
 				CE3E7E3119CAC02200016A10 /* terms_en.html in Resources */,
 				CE7E432219A22B4C00A8652F /* rabbitsmall.mp4 in Resources */,
 				CE7E432019A22B4C00A8652F /* mousesmall.mp4 in Resources */,
+				CE16084919D2AE4D00FC4B1E /* MCANotificationTable.xib in Resources */,
 				CE30FB8819B18B9E00E036B2 /* 58*58@2x.png in Resources */,
 				CE218E5119CD340D00C22082 /* Localizable.strings in Resources */,
 				CE3E7E3219CAC02200016A10 /* terms_es.html in Resources */,
@@ -1005,7 +1014,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE84C2181962D83800A351FF /* InfoPlist.strings in Resources */,
-				CE3BDFD819CC412A00F1625C /* MobileCollegeAdmin.sqlite in Resources */,
+				CE16084119D293A000FC4B1E /* MobileCollegeAdmin.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1081,6 +1090,7 @@
 				CE207FB919A8580F00F329FC /* NSString+Util.m in Sources */,
 				CE3BDDB719CBF53C00F1625C /* MCAResourcesBookController.m in Sources */,
 				CEEDCAE0197F8F520088511D /* MCARestIntraction.m in Sources */,
+				CE16084C19D2AE8F00FC4B1E /* MCANotificationTable.m in Sources */,
 				CE278A1C19920D6700783592 /* SWTableViewCell.m in Sources */,
 				CEBDA79D19B96F43001294DD /* MCACustomImageV.m in Sources */,
 				CEDB9B49198FAE48006B3C9B /* MCAForgotPwdViewController.m in Sources */,

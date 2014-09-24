@@ -122,4 +122,7 @@
 
 #define NOTIFICATION_DROPBOX_LOGIN_SUCCESS @"notificationDropboxLoginSuccess"
 
+#define NOTIFICATION_LOCAL_UINOTIFICATION_SUCCESS @"notificationLocalNotificationSuccess"
+
+
 

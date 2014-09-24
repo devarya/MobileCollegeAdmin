@@ -38,7 +38,7 @@
     tv_description.layer.cornerRadius = 3.0f;
     tv_description.layer.masksToBounds = YES;
     
-    tv_description.text = @"Enter Note Description";
+    tv_description.text = [NSString languageSelectedStringForKey:@"etDescText"];
     tv_description.textColor = [UIColor lightGrayColor];
     
     NSUInteger numberOfViewControllersOnStack = [self.navigationController.viewControllers count];
@@ -91,7 +91,7 @@
 }
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView
 {
-    if ([[textView text] isEqualToString:@"Enter Note Description"]) {
+    if ([[textView text] isEqualToString:[NSString languageSelectedStringForKey:@"etDescText"]]) {
         textView.text = @"";
         textView.textColor = [UIColor blackColor];
     }
@@ -101,7 +101,7 @@
 -(BOOL)textViewShouldEndEditing:(UITextView *)textView
 {
     if ([[textView text] length] == 0) {
-        textView.text = @"Enter Note Description";
+        textView.text = [NSString languageSelectedStringForKey:@"etDescText"];
         textView.textColor = [UIColor lightGrayColor];
     }
     return YES;
@@ -135,7 +135,7 @@
     [hud showForTabBar];
     [self.view bringSubviewToFront:hud];
 
-    if (!tx_noteTitle.text.length == 0 && !tv_description.text.length == 0 && ![tv_description.text isEqualToString:@"Enter Note Description"])
+    if (!tx_noteTitle.text.length == 0 && !tv_description.text.length == 0 && ![tv_description.text isEqualToString:[NSString languageSelectedStringForKey:@"etDescText"]])
     {
             [tv_description resignFirstResponder];
             [tx_noteTitle resignFirstResponder];
@@ -215,7 +215,7 @@
     }else{
         
         alert  = [[UIAlertView alloc]initWithTitle:[NSString languageSelectedStringForKey:@"msg"]
-                                           message:@"Note edited successfully."
+                                           message:[NSString languageSelectedStringForKey:@"note_edited_msg"]
                                           delegate:nil
                                  cancelButtonTitle:nil
                                  otherButtonTitles:nil, nil];

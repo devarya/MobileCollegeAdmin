@@ -13,7 +13,11 @@
 #import "AVFoundation/AVFoundation.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface MCATaskViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,SWTableViewCellDelegate>{
+#import "MCANotificationTable.h"
+
+
+
+@interface MCATaskViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,SWTableViewCellDelegate,ReminderListDelegate>{
     
     IBOutlet UISegmentedControl *segControl_task;
    
@@ -38,8 +42,13 @@
     NSMutableArray *arr_studentList;
            NSArray *arr_gradeList;
     
+    UIView *view_notification ;
+    UITableView *tbl_notification;
+    
+   
     AryaHUD *HUD;
 }
 -(IBAction)btnSegControl_taskDidClicked:(id)sender;
+
 @property AVPlayer *videoPlayer;
 @end

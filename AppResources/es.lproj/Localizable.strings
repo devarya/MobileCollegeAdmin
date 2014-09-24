@@ -174,7 +174,8 @@
 "delete" = "Borrar";
 "uploading" = "Cargando";
 "loading_img_msg" = "Cargandoimágen de su camera.......";
-"note_added_msg" = "Apunte ha sidoañadida con éxito.";
+"note_added_msg" = "Apunte ha sido añadida con éxito.";
+"note_edited_msg" = "Apunte ha sido editado con éxito";
 "note_allready_exist" = "Yaexiste un apunte con estenombre.";
 "do_you_want_to_remove_new" = "¿Quiereborrar?";
 "no_file_found" = "No file found for selected dir.";

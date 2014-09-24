@@ -22,6 +22,7 @@
 @property(nonatomic,strong)NSString *str_taskNameSp;
 @property(nonatomic,strong)NSString *str_taskPriority;
 @property(nonatomic,strong)NSString *str_taskStartDate;
+@property(nonatomic,strong)NSString *str_taskSnoozeDate;
 @property(nonatomic,strong)NSString *str_taskStatus;
 @property(nonatomic,strong)NSString *str_updatedAt;
 @property(nonatomic,strong)NSString *str_userId;

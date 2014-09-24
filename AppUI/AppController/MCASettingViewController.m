@@ -473,7 +473,6 @@
         lbl_email.textAlignment = NSTextAlignmentRight;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         tbl_studParList.separatorInset=UIEdgeInsetsMake(0.0, 0 + 1.0, 0.0, 0.0);
-        
         return cell;
 
     }else{
@@ -513,7 +512,6 @@
                                             forState:UIControlStateNormal];
               }
         }
-   
         [cell.contentView addSubview:btn_selectLang];
         return cell;        
     }

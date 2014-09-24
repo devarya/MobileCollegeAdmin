@@ -175,11 +175,12 @@
 "delete" = "Delete";
 "uploading" = "Uploading";
 "loading_img_msg" = "Loading image from Sdcard... ";
-"note_added_msg" = "Note added successfully. ";
-"note_allready_exist" = "Note already exist with the same name. ";
+"note_added_msg" = "Note added successfully.";
+"note_edited_msg" = "Note edited successfully.";
+"note_allready_exist" = "Note already exist with the same name.";
 "do_you_want_to_remove_new" = "do you wish to remove? ";
-"no_file_found" = "No file found for selected dir. ";
-"please_select_atleast_msg" = "Please select atleast one file. ";
+"no_file_found" = "No file found for selected dir.";
+"please_select_atleast_msg" = "Please select atleast one file.";
 "could_not_msg" = "Couldn\'t authenticate with Dropbox: ";
 "do_you_want_delete_msg" = "do you wish to delete? ";
 "deleted_successfully_msg" = "Deleted successfully.";

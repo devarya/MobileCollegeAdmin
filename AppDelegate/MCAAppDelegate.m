@@ -7,6 +7,7 @@
 //
 
 #import "MCAAppDelegate.h"
+#import "MCATaskViewController.h"
 #import "MCALoginViewController.h"
 
 @implementation MCAAppDelegate
@@ -93,11 +94,55 @@
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd 00:00:00"];
+    NSString * str_todayDate  = [dateFormatter stringFromDate:[NSDate date]];
+    NSMutableArray *arr_taskPending = [[MCADBIntraction databaseInteractionManager]retrieveTodayTask : str_todayDate];
+    
+    //    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    //    [dateFormat setDateFormat:@"yyyy-MM-dd 00:00:00"];
+    //    NSDate *date = [dateFormat dateFromString:str_todayDate];
+    
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    
+    /* Schedule the notification */
+    
+    NSCalendar *calendar = [NSCalendar autoupdatingCurrentCalendar] ;
+    NSDate *now = [NSDate date];
+    NSDateComponents *components = [calendar components:(NSCalendarUnitYear | NSCalendarUnitMonth |  NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute) fromDate:now];
+    [components setHour:16];
+    [components setMinute:30];
+    
+    if (arr_taskPending.count > 0) {
+        
+        UILocalNotification* localNotification = [[UILocalNotification alloc] init];
+        localNotification.fireDate = [calendar dateFromComponents:components];
+        localNotification.alertBody = [NSString stringWithFormat:@"%lu task pending !",(unsigned long)arr_taskPending.count];
+        localNotification.timeZone = [NSTimeZone defaultTimeZone];
+        localNotification.soundName = UILocalNotificationDefaultSoundName;
+        localNotification.applicationIconBadgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber] + 1;
+        [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+        
+    }
+}
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
+{
+    UIApplicationState state = [application applicationState];
+    
+    if (state == UIApplicationStateActive) {
+        
+        [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_LOCAL_UINOTIFICATION_SUCCESS object:nil];
+        
+    }
+    
+   // Set icon badge number to zero
+    application.applicationIconBadgeNumber = 0;
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
