@@ -100,14 +100,28 @@
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+}
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
+{
+    UIApplicationState state = [application applicationState];
+    
+    if (state == UIApplicationStateActive) {
+        
+        [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_LOCAL_UINOTIFICATION_SUCCESS object:nil];
+        
+    }
+    
+     application.applicationIconBadgeNumber = 0;
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application
+{
+    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd 00:00:00"];
     NSString * str_todayDate  = [dateFormatter stringFromDate:[NSDate date]];
     NSMutableArray *arr_taskPending = [[MCADBIntraction databaseInteractionManager]retrieveTodayTask : str_todayDate];
-    
-    //    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    //    [dateFormat setDateFormat:@"yyyy-MM-dd 00:00:00"];
-    //    NSDate *date = [dateFormat dateFromString:str_todayDate];
     
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
     
@@ -116,8 +130,8 @@
     NSCalendar *calendar = [NSCalendar autoupdatingCurrentCalendar] ;
     NSDate *now = [NSDate date];
     NSDateComponents *components = [calendar components:(NSCalendarUnitYear | NSCalendarUnitMonth |  NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute) fromDate:now];
-    [components setHour:16];
-    [components setMinute:30];
+    [components setHour:10];
+    [components setMinute:35];
     
     if (arr_taskPending.count > 0) {
         
@@ -130,24 +144,6 @@
         [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
         
     }
-}
-- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
-{
-    UIApplicationState state = [application applicationState];
-    
-    if (state == UIApplicationStateActive) {
-        
-        [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_LOCAL_UINOTIFICATION_SUCCESS object:nil];
-        
-    }
-    
-   // Set icon badge number to zero
-    application.applicationIconBadgeNumber = 0;
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

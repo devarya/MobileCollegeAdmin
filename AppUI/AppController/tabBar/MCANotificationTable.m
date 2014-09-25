@@ -48,7 +48,8 @@
 }
 
 
-#pragma mark - Table view data source
+#pragma mark - UITABLEVIEW DELEGATE AND DATA SOURCE
+
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     
      return 36;
@@ -104,7 +105,7 @@
     MCATaskDetailDHolder *taskDHolder = (MCATaskDetailDHolder*)[arr_notifyTaskList objectAtIndex:indexPath.row];
     UILabel *lbl_taskName = [[UILabel alloc]initWithFrame:CGRectMake(8, 0, 240, 38)];
     
-    lbl_taskName.backgroundColor = [UIColor redColor];
+//    lbl_taskName.backgroundColor = [UIColor redColor];
     
     if ([[[NSUserDefaults standardUserDefaults]valueForKey:KEY_LANGUAGE_CODE] isEqualToString:ENGLISH_LANG]) {
          lbl_taskName.text = taskDHolder.str_taskNameEng;
@@ -129,9 +130,31 @@
     btn_selectTask.tag = 1;
     [cell addSubview:btn_selectTask];
     [cell addSubview:lbl_taskName];
+    tbl_notification.separatorInset=UIEdgeInsetsMake(0.0, 0 + 1.0, 0.0, 0.0);
     
     return cell;
 }
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
+//    MCACustomButton *btn_temp = (MCACustomButton*)
+//    
+//    if (btn_temp.tag == 1) {
+//        
+//        [btn_temp setImage:[UIImage imageNamed:@"blue_checkMark.png"] forState:UIControlStateNormal];
+//        [arr_updateNotifyList addObject:[arr_notifyTaskList objectAtIndex:indexPath.row]];
+//        btn_temp.tag = 2;
+//        
+//    }else{
+//        
+//        [btn_temp setImage:[UIImage imageNamed:@"blue_uncheckMark.png"] forState:UIControlStateNormal];
+//        [arr_updateNotifyList removeObject:[arr_notifyTaskList objectAtIndex:indexPath.row]];
+//        btn_temp.tag = 1;
+//    }
+
+}
+#pragma mark - IB_ACTION
+
 -(IBAction)btnCancelDidClicked:(id)sender{
     
     [self removeFromSuperview];
@@ -155,7 +178,6 @@
     }
     
     [[MCADBIntraction databaseInteractionManager]updateTaskSnoozeDate:arr_Temp];
-    
     UIAlertView *alert = [[UIAlertView alloc]initWithTitle:[NSString languageSelectedStringForKey:@"msg"]
                                       message:[NSString languageSelectedStringForKey:@"reminder"]
                                      delegate:nil

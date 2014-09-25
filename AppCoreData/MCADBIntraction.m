@@ -285,8 +285,18 @@ MCADBIntraction *databaseManager = nil;
 -(NSMutableArray*)retrieveSelectedTask:(id)sender{
     
     NSMutableArray *arr_dbTask=[[NSMutableArray alloc]init];
+    NSString *query;
     
-    NSString *query= [NSString stringWithFormat:@"Select * from tbl_tasklist where taskStartDate = \'%@\' and taskStatus = \'%@\'",sender,@"o"];
+    if ([[[NSUserDefaults standardUserDefaults]valueForKey:KEY_LANGUAGE_CODE] isEqualToString:ENGLISH_LANG]) {
+        
+       query = [NSString stringWithFormat:@"Select * from tbl_tasklist where taskStartDate = \'%@\' and taskStatus = \'%@\' and taskNameEng != \'%@\'",sender,@"o",@""];
+    }else{
+        
+       query = [NSString stringWithFormat:@"Select * from tbl_tasklist where taskStartDate = \'%@\' and taskStatus = \'%@\' and taskNameSp != \'%@\'",sender,@"o",@""];;
+        
+    }
+    
+//    NSString *query = [NSString stringWithFormat:@"Select * from tbl_tasklist where taskStartDate = \'%@\' and taskStatus = \'%@\' and taskNameEng != \'%@\'",sender,@"o",@""];
     @try
     {
         [dBCollgeAdmin open];

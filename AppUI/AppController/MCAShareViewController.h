@@ -13,6 +13,12 @@
 @interface MCAShareViewController : UIViewController<MFMessageComposeViewControllerDelegate,MFMailComposeViewControllerDelegate>{
     
     SLComposeViewController *mycomeposersheet;
+    
+    IBOutlet UILabel *lbl_fb;
+    IBOutlet UILabel *lbl_twitter;
+    IBOutlet UILabel *lbl_email;
+    IBOutlet UILabel *lbl_msg;
+    
 }
 -(IBAction)btnMailDidClicked:(id)sender;
 -(IBAction)btnMessageDidClicked:(id)sender;

@@ -137,20 +137,30 @@
                                            initWithFrame:CGRectMake( 15, 20, 290, 328)];
     
     notificationV.delegate = self;
+  
+//    for (UIView* subV in self.view.subviews) {
+//        
+//        if ([subV isKindOfClass:[UIView class]])
+//            
+//            [subV removeFromSuperview];
+//    }
+
+    [view_transBg removeFromSuperview];
     
     if (IS_IPHONE_5) {
         view_transBg = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 568)];
     }else{
         view_transBg = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 480)];
     }
-    
-    [self.view addSubview:view_transBg];
-    
+     
     view_transBg.backgroundColor = [UIColor blackColor];
     view_transBg.layer.opacity = 0.6f;
+    
+    [self.view addSubview:view_transBg];
     [self.view addSubview:notificationV];
     
     self.navigationController.navigationBar.userInteractionEnabled = NO;
+    self.view.userInteractionEnabled = NO;
     tabBarMCACtr.tabBar.userInteractionEnabled = NO;
 
 }
@@ -880,6 +890,7 @@
 -(void)taskListFailed:(NSNotification*)notification{
     
     [HUD hide];
+    [self taskListSuccess:nil];
 }
 -(void)deleteTaskSuccess:(NSNotification*)notification{
 
@@ -1123,11 +1134,6 @@
         
         taskDetailViewCtr.taskDetailDHolder = (MCATaskDetailDHolder*)sender;
     }
-}
-
--(IBAction)btnCancelDidClicked:(id)sender{
-    
-    
 }
 
 @end

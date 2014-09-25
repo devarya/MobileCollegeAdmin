@@ -29,6 +29,22 @@
     // Do any additional setup after loading the view.
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [self getLanguageStrings:nil];
+}
+#pragma mark - LANGUAGE_SUPPORT
+
+-(void)getLanguageStrings:(id)sender{
+    
+    self.navigationItem.title = [NSString languageSelectedStringForKey:@"share"];
+    
+   lbl_fb.text = [NSString languageSelectedStringForKey:@"facebook"];
+   lbl_twitter.text = [NSString languageSelectedStringForKey:@"twitter"];
+   lbl_email.text = [NSString languageSelectedStringForKey:@"email"];
+   lbl_msg.text = [NSString languageSelectedStringForKey:@"message_txt"];
+    
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

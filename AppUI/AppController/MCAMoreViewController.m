@@ -30,11 +30,6 @@
     [[NSUserDefaults standardUserDefaults]setInteger:2 forKey:KEY_ANIMATION_FILE_RAND_NO];
     [[NSUserDefaults standardUserDefaults]synchronize];
     
-    arr_moreOptionList = [[NSMutableArray alloc]initWithObjects:[NSString languageSelectedStringForKey:@"setting"],
-                          [NSString languageSelectedStringForKey:@"share"],
-                          [NSString languageSelectedStringForKey:@"feedback"],
-                          [NSString languageSelectedStringForKey:@"logout"], nil];
-  
     arr_moreImageList = [[NSMutableArray alloc]initWithObjects:@"setting.png",
                          @"share.png",
                          @"feedback.png",
@@ -56,7 +51,12 @@
 
 -(void)getLanguageStrings:(id)sender{
     
-    self.navigationItem.title = [NSString languageSelectedStringForKey:@"more"];
+   self.navigationItem.title = [NSString languageSelectedStringForKey:@"more"];
+   arr_moreOptionList = [[NSMutableArray alloc]initWithObjects:[NSString languageSelectedStringForKey:@"setting"],
+                          [NSString languageSelectedStringForKey:@"share"],
+                          [NSString languageSelectedStringForKey:@"feedback"],
+                          [NSString languageSelectedStringForKey:@"logout"], nil];
+   [tbl_moreOption reloadData];
   
 }
 #pragma mark - IB_ACTION

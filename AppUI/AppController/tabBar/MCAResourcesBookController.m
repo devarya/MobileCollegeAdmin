@@ -31,14 +31,24 @@
     
     arr_book = [NSMutableArray new];
     
-    self.navigationItem.title = @"Resources";
+//    self.navigationItem.title = @"Resources";
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(resourceBookFailed:) name:NOTIFICATION_RESOURCE_BOOK_FAILED object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(resourceBookSuccess:) name:NOTIFICATION_RESOURCE_BOOK_SUCCESS object:nil];
     
     [self getResourcesBook];
     // Do any additional setup after loading the view.
 }
+-(void)viewWillAppear:(BOOL)animated{
+    [self getLanguageStrings:nil];
+}
+#pragma mark - LANGUAGE_SUPPORT
 
+-(void)getLanguageStrings:(id)sender{
+    
+    self.navigationItem.title = [NSString languageSelectedStringForKey:@"resource"];
+  
+    
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

@@ -40,8 +40,8 @@
     self.restClient = [[DBRestClient alloc] initWithSession:[DBSession sharedSession]];
     self.restClient.delegate = self;
    
-    btn_dropBox.layer.cornerRadius = 5.0f;
-    btn_dropBox.layer.masksToBounds = YES;
+//    btn_dropBox.layer.cornerRadius = 5.0f;
+//    btn_dropBox.layer.masksToBounds = YES;
     
     tbl_catList.tableFooterView = [[UIView alloc] init];
     self.queue = [[NSOperationQueue alloc] init];
@@ -88,6 +88,9 @@
     }else{
       [btn_dropBox setTitle:[NSString languageSelectedStringForKey:@"exported_txt"] forState:UIControlStateNormal];
     }
+    
+    btn_dropBox.titleLabel.adjustsFontSizeToFitWidth = YES;
+    btn_dropBox.titleLabel.minimumScaleFactor = 0.8f;
 }
 #pragma mark - IB_ACTION
 

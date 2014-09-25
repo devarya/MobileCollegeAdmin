@@ -55,6 +55,8 @@
     [MCALocalStoredFolder createRootDir];
     [MCALocalStoredFolder createSubRootDir:@"Notes"];
     
+    tbl_notesCategory.tableFooterView = [UIView new];
+    
 }
 -(void)viewWillAppear:(BOOL)animated{
     

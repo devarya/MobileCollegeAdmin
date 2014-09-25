@@ -50,8 +50,8 @@
 //        [btn_dropBox setTitle:@"Export" forState:UIControlStateNormal];
 //    }
     
-   btn_dropBox.layer.cornerRadius = 5.0f;
-   btn_dropBox.layer.masksToBounds = YES;
+//   btn_dropBox.layer.cornerRadius = 5.0f;
+//   btn_dropBox.layer.masksToBounds = YES;
     
    tbl_notesList.tableFooterView = [[UIView alloc] init];
 
@@ -80,6 +80,10 @@
     }else{
         [btn_dropBox setTitle:[NSString languageSelectedStringForKey:@"exported_txt"] forState:UIControlStateNormal];
     }
+    
+    btn_dropBox.titleLabel.adjustsFontSizeToFitWidth = YES;
+    btn_dropBox.titleLabel.minimumScaleFactor = 0.7f;
+
 }
 #pragma mark - IB_ACTION
 

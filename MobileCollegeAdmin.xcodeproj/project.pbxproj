@@ -71,6 +71,7 @@
 		CE3BDDC319CBF69C00F1625C /* MCAResourcesDHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3BDDC019CBF69C00F1625C /* MCAResourcesDHolder.m */; };
 		CE3E7E3119CAC02200016A10 /* terms_en.html in Resources */ = {isa = PBXBuildFile; fileRef = CE3E7E2F19CAC02200016A10 /* terms_en.html */; };
 		CE3E7E3219CAC02200016A10 /* terms_es.html in Resources */ = {isa = PBXBuildFile; fileRef = CE3E7E3019CAC02200016A10 /* terms_es.html */; };
+		CE44F14719D3DA2A00BE4368 /* MCAFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE44F14619D3DA2A00BE4368 /* MCAFeedbackViewController.m */; };
 		CE52ED4319C806D1005B1A92 /* MCAAddStudParentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE52ED4219C806D1005B1A92 /* MCAAddStudParentViewController.m */; };
 		CE69728719C3057000DDE7F5 /* MCAChangePwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE69728619C3057000DDE7F5 /* MCAChangePwdViewController.m */; };
 		CE6E7D1E1990A963005470BC /* MCATaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6E7D1D1990A963005470BC /* MCATaskViewController.m */; };
@@ -260,6 +261,8 @@
 		CE3BDDC019CBF69C00F1625C /* MCAResourcesDHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCAResourcesDHolder.m; sourceTree = "<group>"; };
 		CE3E7E2F19CAC02200016A10 /* terms_en.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = terms_en.html; sourceTree = "<group>"; };
 		CE3E7E3019CAC02200016A10 /* terms_es.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = terms_es.html; sourceTree = "<group>"; };
+		CE44F14519D3DA2A00BE4368 /* MCAFeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCAFeedbackViewController.h; sourceTree = "<group>"; };
+		CE44F14619D3DA2A00BE4368 /* MCAFeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCAFeedbackViewController.m; sourceTree = "<group>"; };
 		CE52ED4119C806D1005B1A92 /* MCAAddStudParentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCAAddStudParentViewController.h; sourceTree = "<group>"; };
 		CE52ED4219C806D1005B1A92 /* MCAAddStudParentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCAAddStudParentViewController.m; sourceTree = "<group>"; };
 		CE69728519C3057000DDE7F5 /* MCAChangePwdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCAChangePwdViewController.h; sourceTree = "<group>"; };
@@ -823,6 +826,8 @@
 				CE52ED4219C806D1005B1A92 /* MCAAddStudParentViewController.m */,
 				CE0F16D219C8687E00029413 /* MCAShareViewController.h */,
 				CE0F16D319C8687F00029413 /* MCAShareViewController.m */,
+				CE44F14519D3DA2A00BE4368 /* MCAFeedbackViewController.h */,
+				CE44F14619D3DA2A00BE4368 /* MCAFeedbackViewController.m */,
 			);
 			name = more;
 			path = ..;
@@ -1026,6 +1031,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE27456919C031E400DDA5A8 /* MCATutorialViewController.m in Sources */,
+				CE44F14719D3DA2A00BE4368 /* MCAFeedbackViewController.m in Sources */,
 				CE32DA7819AAF14A0037C555 /* NSMutableArray+convenience.m in Sources */,
 				CE84C2371962DE1200A351FF /* MCALoginViewController.m in Sources */,
 				CE52ED4319C806D1005B1A92 /* MCAAddStudParentViewController.m in Sources */,
