@@ -145,30 +145,31 @@
 //            [subV removeFromSuperview];
 //    }
 
-    [view_transBg removeFromSuperview];
+    [view removeFromSuperview];
     
     if (IS_IPHONE_5) {
-        view_transBg = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 568)];
+        view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 568)];
     }else{
-        view_transBg = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 480)];
+        view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 480)];
     }
      
-    view_transBg.backgroundColor = [UIColor blackColor];
-    view_transBg.layer.opacity = 0.6f;
+    view.backgroundColor = [UIColor blackColor];
+    view.layer.opacity = 0.6f;
     
-    [self.view addSubview:view_transBg];
+    [self.view addSubview:view];
     [self.view addSubview:notificationV];
     
     self.navigationController.navigationBar.userInteractionEnabled = NO;
-    self.view.userInteractionEnabled = NO;
     tabBarMCACtr.tabBar.userInteractionEnabled = NO;
 
 }
 -(void)reminderView:(id)sender{
     
-    [view_transBg  removeFromSuperview];
+    [view  removeFromSuperview];
     self.navigationController.navigationBar.userInteractionEnabled = YES;
     tabBarMCACtr.tabBar.userInteractionEnabled = YES;
+    
+     [self getTaskList:nil];
 
 }
 -(void)apiCalling:(id)sender{
@@ -193,30 +194,39 @@
     [view_transBg removeFromSuperview];
     [tbl_gradeList removeFromSuperview];
     [tbl_studentList removeFromSuperview];
-    self.navigationController.navigationBar.userInteractionEnabled = YES;
-    tabBarMCACtr.tabBar.userInteractionEnabled = YES;
-    
+   
+    if (!view) {
+        
+        self.navigationController.navigationBar.userInteractionEnabled = YES;
+        tabBarMCACtr.tabBar.userInteractionEnabled = YES;
+    }
 }
 -(void)viewWillAppear:(BOOL)animated{
-   
+    
+//    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(viewNotificationTable:) name:NOTIFICATION_LOCAL_UINOTIFICATION_SUCCESS object:nil];
+    
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(taskListSuccess:) name:NOTIFICATION_TASK_LIST_SUCCESS object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(taskListFailed:) name:NOTIFICATION_TASK_LIST_FAILED object:nil];
-    
-    [self getTaskList:nil];
-
-    [view_transBg removeFromSuperview];
-    [tbl_gradeList removeFromSuperview];
-    [tbl_studentList removeFromSuperview];
-    self.navigationController.navigationBar.userInteractionEnabled = YES;
-    tabBarMCACtr.tabBar.userInteractionEnabled = YES;
-    
     [self getLanguageStrings:nil];
+    
+    if (!view) {
+              
+        [self getTaskList:nil];
+        
+        [view_transBg removeFromSuperview];
+        [tbl_gradeList removeFromSuperview];
+        [tbl_studentList removeFromSuperview];
+        self.navigationController.navigationBar.userInteractionEnabled = YES;
+        tabBarMCACtr.tabBar.userInteractionEnabled = YES;
 
+    }
 }
 -(void)viewWillDisappear:(BOOL)animated{
     
     [[NSNotificationCenter defaultCenter]removeObserver:self name:NOTIFICATION_TASK_LIST_SUCCESS object:nil];
     [[NSNotificationCenter defaultCenter]removeObserver:self name:NOTIFICATION_TASK_LIST_FAILED object:nil];
+//    [[NSNotificationCenter defaultCenter]removeObserver:self name:NOTIFICATION_LOCAL_UINOTIFICATION_SUCCESS object:nil];
+    
 
 }
 

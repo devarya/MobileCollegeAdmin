@@ -11,20 +11,20 @@
 
 //Main URL
 #define URL_MAIN @"http://122.176.45.15:8080/careerdefine/api/"
+//#define URL_MAIN @"http://career-define.com/careerdefine/api/"
 #define URL_APPLESTORE @"https://itunes.apple.com/"
 
 //Message
-#define INVALID_PWD @"Please enter valid password."
-#define EMAIL_MESSAGE @"Please enter valid email address."
-#define INVALID_USERNAME @"Please enter valid username."
-#define MANDATORY_MESSAGE @"All fields are mandatory"
-#define ACCEPT_TERM_MESSAGE @"Please accept Terms of Use."
-#define INVALID_USERNAME_PWD @"Please enter valid username and password."
-#define INVALID_EMAIL_PWD @"Please enter valid email address and password."
+//#define INVALID_PWD @"Please enter valid password."
+//#define EMAIL_MESSAGE @"Please enter valid email address."
+//#define INVALID_USERNAME @"Please enter valid username."
+//#define ACCEPT_TERM_MESSAGE @"Please accept Terms of Use."
+//#define INVALID_USERNAME_PWD @"Please enter valid username and password."
+//#define INVALID_EMAIL_PWD @"Please enter valid email address and password."
 #define PLACEHOLDER_IMAGE @"loadingImage.png"
 #define NO_IMAGE @"noimage1.png"
-#define ZIP_CODE_MSG @"The postal code should be only 5 digits."
-#define KEY_NO_EVENT_FOUND @"No Event Found"
+//#define ZIP_CODE_MSG @"The postal code should be only 5 digits."
+//#define KEY_NO_EVENT_FOUND @"No Event Found"
 
 //keys
 #define KEY_USER_ID @"user_id"

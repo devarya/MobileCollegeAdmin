@@ -243,7 +243,7 @@
             
         }else{
             
-              [MCAGlobalFunction showAlert:@"Atleast one priority should be selected."];
+              [MCAGlobalFunction showAlert:[NSString languageSelectedStringForKey:@"priorityMessage"]];
               return;
         }
         
@@ -256,7 +256,7 @@
             
         }else{
             
-            [MCAGlobalFunction showAlert:@"Atleast one priority should be selected."];
+            [MCAGlobalFunction showAlert:[NSString languageSelectedStringForKey:@"priorityMessage"]];
             return;
         }
     }
@@ -277,7 +277,7 @@
             isPriorityRegular = NO;
 
         }else{
-            [MCAGlobalFunction showAlert:@"Atleast one priority should be selected."];
+            [MCAGlobalFunction showAlert:[NSString languageSelectedStringForKey:@"priorityMessage"]];
             return;
         }
     }else{
@@ -286,7 +286,7 @@
             [btn_priorityAlertRegular setImage:[UIImage imageNamed:@"blue_checkMark.png"] forState:UIControlStateNormal];
             isPriorityRegular = YES;
         }else{
-            [MCAGlobalFunction showAlert:@"Atleast one priority should be selected."];
+            [MCAGlobalFunction showAlert:[NSString languageSelectedStringForKey:@"priorityMessage"]];
             return;
         }
     }
@@ -524,13 +524,15 @@
         [tbl_langList removeFromSuperview];
         
         if (indexPath.row == 0) {
+            
             [[NSUserDefaults standardUserDefaults]setValue:ENGLISH_LANG forKey:KEY_LANGUAGE_CODE];
+            tx_lang.text = [NSString languageSelectedStringForKey:@"english"];
             
         }else{
             [[NSUserDefaults standardUserDefaults]setValue:SPANISH_LANG forKey:KEY_LANGUAGE_CODE];
+            tx_lang.text = [NSString languageSelectedStringForKey:@"spanish"];
         }
         
-        tx_lang.text = [arr_langList objectAtIndex:indexPath.row];
         
         [[NSUserDefaults standardUserDefaults]synchronize];
         [[MCAGlobalData sharedManager]getTabBarTitle:nil];

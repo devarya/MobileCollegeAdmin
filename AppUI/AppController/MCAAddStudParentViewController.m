@@ -170,7 +170,7 @@
             [info setValue:[[NSUserDefaults standardUserDefaults]valueForKey:KEY_USER_NAME] forKey:@"user_name"];
             [info setValue:[[NSUserDefaults standardUserDefaults]valueForKey:KEY_USER_TYPE] forKey:@"user_type"];
             [info setValue:str_jsonStudent forKey:@"student"];
-            
+            [info setValue:@"ios" forKey:@"device_type"];
             
             NSString *str_jsonAddStudent = [NSString getJsonObject:info];
             
@@ -178,7 +178,7 @@
          str_jsonAddStudent = [str_jsonAddStudent stringByReplacingOccurrencesOfString:@": \"\[" withString:@":["];
          str_jsonAddStudent = [str_jsonAddStudent stringByReplacingOccurrencesOfString:@"]\"" withString:@"]"];
             
-            [HUD showForTabBar];
+           [HUD showForTabBar];
            [self requestAddStudent:str_jsonAddStudent];
             
             
@@ -187,7 +187,7 @@
         }
     }else{
         
-        [MCAGlobalFunction showAlert:MANDATORY_MESSAGE];
+        [MCAGlobalFunction showAlert:[NSString languageSelectedStringForKey:@"allFieldMsg"]];
     }
 }
 -(IBAction)btnAddParentDidClicked:(id)sender{
@@ -215,7 +215,7 @@
             [info setValue:[[NSUserDefaults standardUserDefaults]valueForKey:KEY_USER_TYPE] forKey:@"user_type"];
             [info setValue:[[NSUserDefaults standardUserDefaults]valueForKey:KEY_USER_GRADE] forKey:@"grade"];
             [info setValue:str_jsonParent forKey:@"parent"];
-            
+            [info setValue:@"ios" forKey:@"device_type"];
             
             NSString *str_jsonAddParent = [NSString getJsonObject:info];
             
@@ -226,13 +226,12 @@
             [HUD showForTabBar];
             [self requestAddParent:str_jsonAddParent];
             
-            
         }else{
             
         }
     }else{
         
-        [MCAGlobalFunction showAlert:MANDATORY_MESSAGE];
+        [MCAGlobalFunction showAlert:[NSString languageSelectedStringForKey:@"allFieldMsg"]];
     }
 }
 
@@ -332,7 +331,7 @@
     [[NSUserDefaults standardUserDefaults]synchronize];
 
     UIAlertView *alert   = [[UIAlertView alloc]initWithTitle:@"Message"
-                                                     message:@"Parent connected successfully."
+                              message:[NSString languageSelectedStringForKey:@"par_connect_success"]
                                                     delegate:nil
                                            cancelButtonTitle:nil
                                            otherButtonTitles:nil, nil];
@@ -365,7 +364,7 @@
     [[NSUserDefaults standardUserDefaults]synchronize];
     
     UIAlertView *alert   = [[UIAlertView alloc]initWithTitle:@"Message"
-                                                     message:@"Student connected successfully."
+                                    message:[NSString languageSelectedStringForKey:@"stud_connect_success"]
                                                     delegate:nil
                                            cancelButtonTitle:nil
                                            otherButtonTitles:nil, nil];

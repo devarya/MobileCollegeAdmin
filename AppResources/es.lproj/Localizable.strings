@@ -33,7 +33,7 @@
 "emailValidate_msg" = "Favor de escribir un correoelectrónicoválido.";
 "thisAppIsNot_msg" = "Error: El app no fueauenticado.";
 "zipCodeMsg" = "El código postal debe de ser 5 dígitos.";
-"allFieldMsg" = "All fields are mandatory";
+"allFieldMsg" = "Llene todos los areas de información por favor.";
 "emailShouldNot" = "Los correoselectrónicos no deben de seriguales.";
 "emailAllreadyExistMsg" = "Yaexisteestacuenta de usario.";
 "doYouMsg" = "DeseaCompletar o Borrar la tarea: ";
@@ -196,7 +196,7 @@
 /*-- More, Setting, Share Strings -- */
 
 "setting_updated" = " Configuracione con éxito. ";
-"priorityMessage" = "Atleas one priority should be selected.";
+"priorityMessage" = "Favor de escoger una prioridad.";
 "more" = "Más";
 "change_pass" = "Cambiar Contraseña";
 "setting" = "Configuraciones";
@@ -235,6 +235,8 @@
 "syncing_msg" = "El app estasincronizando …......";
 "connected_st_list" = "Lista de EstudiantesConectados";
 "profile_updated_msg" = "Cambiosguardados con éxito.";
+"par_connect_success" = "Padres conectado con éxito.";
+"stud_connect_success" = "Estudiante conectado con éxito.";
 
 /*-- Twitter Strings -- */
 

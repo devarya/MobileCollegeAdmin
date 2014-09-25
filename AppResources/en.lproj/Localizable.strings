@@ -237,8 +237,10 @@
 "select_language" = "Select Language";
 "pass_change_msg" = "Password changed successfully.";
 "syncing_msg" = "Syncing happening ... ";
-"connected_st_list" = "Connected Student List ";
-"profile_updated_msg" = "Profile updated successfully. ";
+"connected_st_list" = "Connected Student List";
+"profile_updated_msg" = "Profile updated successfully.";
+"par_connect_success" = "Parent connected successfully.";
+"stud_connect_success" = "Student connected successfully.";
 
 
 /*-- Twitter Strings --*/

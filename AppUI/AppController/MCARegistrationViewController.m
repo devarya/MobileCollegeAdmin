@@ -446,6 +446,7 @@
                     }
                    
                   [info setValue:@"ios" forKey:@"device_type"];
+                  [info setValue:[[NSUserDefaults standardUserDefaults]valueForKey:KEY_LANGUAGE_CODE] forKey:@"language_code"];
                   [info setValue:@"user_register" forKey:@"cmd"];
                    
                    NSString *str_jsonParent = [NSString getJsonObject:info];

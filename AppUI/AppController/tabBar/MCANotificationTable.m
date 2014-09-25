@@ -131,7 +131,7 @@
     [cell addSubview:btn_selectTask];
     [cell addSubview:lbl_taskName];
     tbl_notification.separatorInset=UIEdgeInsetsMake(0.0, 0 + 1.0, 0.0, 0.0);
-    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -177,23 +177,25 @@
         [arr_Temp addObject:taskDHolder];
     }
     
-    [[MCADBIntraction databaseInteractionManager]updateTaskSnoozeDate:arr_Temp];
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:[NSString languageSelectedStringForKey:@"msg"]
-                                      message:[NSString languageSelectedStringForKey:@"reminder"]
-                                     delegate:nil
-                            cancelButtonTitle:nil
-                            otherButtonTitles:nil, nil];
-
-    [alert show];
-
-    double delayInSeconds = 2.0;
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-    dispatch_after(popTime, dispatch_get_main_queue(),^ {
+    if (arr_Temp.count > 0) {
+        [[MCADBIntraction databaseInteractionManager]updateTaskSnoozeDate:arr_Temp];
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:[NSString languageSelectedStringForKey:@"msg"]
+                                                       message:[NSString languageSelectedStringForKey:@"reminder"]
+                                                      delegate:nil
+                                             cancelButtonTitle:nil
+                                             otherButtonTitles:nil, nil];
         
-        [alert dismissWithClickedButtonIndex:0 animated:YES];
-        [self removeFromSuperview];
-        [self.delegate reminderView:nil];
-    });
+        [alert show];
+        
+        double delayInSeconds = 2.0;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+        dispatch_after(popTime, dispatch_get_main_queue(),^ {
+            
+            [alert dismissWithClickedButtonIndex:0 animated:YES];
+            [self removeFromSuperview];
+            [self.delegate reminderView:nil];
+        });
+    }
 }
 -(IBAction)btn_selectTaskDidClicked:(id)sender{
     

@@ -106,11 +106,11 @@
     UIApplicationState state = [application applicationState];
     
     if (state == UIApplicationStateActive) {
-        
+       
         [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_LOCAL_UINOTIFICATION_SUCCESS object:nil];
-        
+         [tabBarMCACtr setSelectedIndex:0];
+      
     }
-    
      application.applicationIconBadgeNumber = 0;
 }
 
@@ -130,19 +130,21 @@
     NSCalendar *calendar = [NSCalendar autoupdatingCurrentCalendar] ;
     NSDate *now = [NSDate date];
     NSDateComponents *components = [calendar components:(NSCalendarUnitYear | NSCalendarUnitMonth |  NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute) fromDate:now];
-    [components setHour:10];
+    [components setHour:18];
     [components setMinute:35];
     
     if (arr_taskPending.count > 0) {
         
-        UILocalNotification* localNotification = [[UILocalNotification alloc] init];
-        localNotification.fireDate = [calendar dateFromComponents:components];
-        localNotification.alertBody = [NSString stringWithFormat:@"%lu task pending !",(unsigned long)arr_taskPending.count];
-        localNotification.timeZone = [NSTimeZone defaultTimeZone];
-        localNotification.soundName = UILocalNotificationDefaultSoundName;
-        localNotification.applicationIconBadgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber] + 1;
-        [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
-        
+        if ([[[NSUserDefaults standardUserDefaults]valueForKey:KEY_NOTIFY_BY_PUSH] isEqualToString:@"1"]) {
+            
+            UILocalNotification* localNotification = [[UILocalNotification alloc] init];
+            localNotification.fireDate = [calendar dateFromComponents:components];
+            localNotification.alertBody = [NSString stringWithFormat:@"%lu task pending !",(unsigned long)arr_taskPending.count];
+            localNotification.timeZone = [NSTimeZone defaultTimeZone];
+            localNotification.soundName = UILocalNotificationDefaultSoundName;
+//            localNotification.applicationIconBadgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber] + 1;
+            [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+        }
     }
 }
 

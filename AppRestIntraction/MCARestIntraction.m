@@ -119,7 +119,7 @@
     
         [[MCADBIntraction databaseInteractionManager]insertStudList:arr_studList];
         
-         arr_loginData = [NSMutableArray new];
+        arr_loginData = [NSMutableArray new];
         [arr_loginData addObject:loginDHolder];
              
         dispatch_async(dispatch_get_main_queue(), ^
