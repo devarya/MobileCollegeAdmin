@@ -131,7 +131,7 @@
     NSDate *now = [NSDate date];
     NSDateComponents *components = [calendar components:(NSCalendarUnitYear | NSCalendarUnitMonth |  NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute) fromDate:now];
     [components setHour:18];
-    [components setMinute:35];
+    [components setMinute:42];
     
     if (arr_taskPending.count > 0) {
         

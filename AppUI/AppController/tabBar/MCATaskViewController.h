@@ -15,6 +15,7 @@
 
 #import "MCANotificationTable.h"
 
+#import "ViewController.h"
 
 
 @interface MCATaskViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,SWTableViewCellDelegate,ReminderListDelegate>{

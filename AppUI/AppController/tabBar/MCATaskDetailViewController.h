@@ -15,6 +15,7 @@
 #import "AVFoundation/AVFoundation.h"
 #import "MCAAddTaskViewController.h"
 
+
 @interface MCATaskDetailViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,SWTableViewCellDelegate,TaskDetailEditDelegate>{
     
     IBOutlet UITableView *tbl_taskDetail;

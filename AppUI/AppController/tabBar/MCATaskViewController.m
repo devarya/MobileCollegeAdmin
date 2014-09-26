@@ -1,4 +1,4 @@
- //
+       //
 //  MCATaskViewController.m
 //  MobileCollegeAdmin
 //
@@ -8,11 +8,14 @@
 
 #import "MCATaskViewController.h"
 #import "MCATaskDetailViewController.h"
+
+
 @interface MCATaskViewController ()
 
 @end
 
 @implementation MCATaskViewController
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -129,6 +132,11 @@
      tbl_taskDeleted.tableFooterView = [[UIView alloc] init];
     
 //    [self performSelector:@selector(apiCalling:) withObject:nil afterDelay:1];
+    
+//    _googleOAuth = [[GoogleOAuth alloc] initWithFrame:self.view.frame];
+//    // Set self as the delegate.
+//    [_googleOAuth setGOAuthDelegate:self];
+
     
 }
 -(void)viewNotificationTable:(id)sender{
@@ -298,6 +306,15 @@
     
 }
 #pragma mark - IB_ACTION
+
+-(IBAction)btnSync{
+    
+    ViewController *view_temp = [[ViewController alloc]initWithNibName:@"ViewController" bundle:nil];
+    
+    [self.view addSubview:view_temp.view];
+     
+    
+}
 
 -(IBAction)btnSegControl_taskDidClicked:(id)sender{
     

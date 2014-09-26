@@ -1132,6 +1132,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="Bsc-SC-mBo">
                         <barButtonItem key="backBarButtonItem" title=" " id="d28-bM-lux"/>
+                        <barButtonItem key="leftBarButtonItem" title="sync" id="E2X-oe-7z0">
+                            <connections>
+                                <action selector="btnSync" destination="umo-6W-oaU" id="qKc-j6-CLS"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="segControl_task" destination="t6i-Re-bSO" id="vo5-Dn-OVe"/>
@@ -3594,10 +3599,10 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="BAV-Zh-z7g"/>
         <segue reference="5WI-ge-vzp"/>
         <segue reference="hmk-5L-6kX"/>
-        <segue reference="of0-yc-Peq"/>
         <segue reference="izs-bf-NdR"/>
+        <segue reference="BAV-Zh-z7g"/>
+        <segue reference="nf9-ap-ADM"/>
     </inferredMetricsTieBreakers>
 </document>

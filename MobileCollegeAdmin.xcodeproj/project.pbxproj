@@ -22,6 +22,9 @@
 		CE207FB919A8580F00F329FC /* NSString+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = CE207FB819A8580F00F329FC /* NSString+Util.m */; };
 		CE218E5119CD340D00C22082 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE218E5319CD340D00C22082 /* Localizable.strings */; };
 		CE218E5719CD378600C22082 /* NSString+NSLocalizableLang.m in Sources */ = {isa = PBXBuildFile; fileRef = CE218E5619CD378600C22082 /* NSString+NSLocalizableLang.m */; };
+		CE249A8F19D55F01002FAAE9 /* GoogleOAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = CE249A8E19D55F01002FAAE9 /* GoogleOAuth.m */; };
+		CE249A9219D56D96002FAAE9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE249A9119D56D96002FAAE9 /* ViewController.m */; };
+		CE249A9419D5701A002FAAE9 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE249A9319D5701A002FAAE9 /* ViewController.xib */; };
 		CE24C6011994B2A70048B85D /* MCATaskDetailDHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = CE24C6001994B2A70048B85D /* MCATaskDetailDHolder.m */; };
 		CE27456119C01FD000DDA5A8 /* MCATermUseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE27456019C01FD000DDA5A8 /* MCATermUseViewController.m */; };
 		CE27456619C02C0900DDA5A8 /* MCAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE27456519C02C0900DDA5A8 /* MCAAppDelegate.m */; };
@@ -168,6 +171,11 @@
 		CE218E5419CD342200C22082 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		CE218E5519CD378600C22082 /* NSString+NSLocalizableLang.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+NSLocalizableLang.h"; sourceTree = "<group>"; };
 		CE218E5619CD378600C22082 /* NSString+NSLocalizableLang.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+NSLocalizableLang.m"; sourceTree = "<group>"; };
+		CE249A8D19D55F01002FAAE9 /* GoogleOAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleOAuth.h; sourceTree = "<group>"; };
+		CE249A8E19D55F01002FAAE9 /* GoogleOAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleOAuth.m; sourceTree = "<group>"; };
+		CE249A9019D56D96002FAAE9 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		CE249A9119D56D96002FAAE9 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		CE249A9319D5701A002FAAE9 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		CE24C5FF1994B2A70048B85D /* MCATaskDetailDHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCATaskDetailDHolder.h; sourceTree = "<group>"; };
 		CE24C6001994B2A70048B85D /* MCATaskDetailDHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCATaskDetailDHolder.m; sourceTree = "<group>"; };
 		CE27455F19C01FD000DDA5A8 /* MCATermUseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCATermUseViewController.h; sourceTree = "<group>"; };
@@ -424,6 +432,18 @@
 			path = AppDelegate;
 			sourceTree = "<group>";
 		};
+		CE249A8C19D55EF2002FAAE9 /* Google calendar */ = {
+			isa = PBXGroup;
+			children = (
+				CE249A8D19D55F01002FAAE9 /* GoogleOAuth.h */,
+				CE249A8E19D55F01002FAAE9 /* GoogleOAuth.m */,
+				CE249A9319D5701A002FAAE9 /* ViewController.xib */,
+				CE249A9019D56D96002FAAE9 /* ViewController.h */,
+				CE249A9119D56D96002FAAE9 /* ViewController.m */,
+			);
+			name = "Google calendar";
+			sourceTree = "<group>";
+		};
 		CE278A0C19920D4000783592 /* MCATableViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -539,6 +559,7 @@
 		CE394C3319938D0C0080B5B8 /* MCACustomController */ = {
 			isa = PBXGroup;
 			children = (
+				CE249A8C19D55EF2002FAAE9 /* Google calendar */,
 				CEBDA79A19B96F10001294DD /* customImageView */,
 				CE32DA6B19AAF1200037C555 /* customCalendar */,
 				CE394C3419938D300080B5B8 /* MCACustomButton.h */,
@@ -1004,6 +1025,7 @@
 				CE7E432119A22B4C00A8652F /* pigsmall.mp4 in Resources */,
 				CE7E431F19A22B4C00A8652F /* ducksmall.mp4 in Resources */,
 				CE3E7E3119CAC02200016A10 /* terms_en.html in Resources */,
+				CE249A9419D5701A002FAAE9 /* ViewController.xib in Resources */,
 				CE7E432219A22B4C00A8652F /* rabbitsmall.mp4 in Resources */,
 				CE7E432019A22B4C00A8652F /* mousesmall.mp4 in Resources */,
 				CE16084919D2AE4D00FC4B1E /* MCANotificationTable.xib in Resources */,
@@ -1058,7 +1080,9 @@
 				CE278A2219920DEF00783592 /* CustomTableViewCell.m in Sources */,
 				CE84C23A1962DE2E00A351FF /* MCARegistrationViewController.m in Sources */,
 				CE3BDDBA19CBF53C00F1625C /* MCAResourcesViewController.m in Sources */,
+				CE249A8F19D55F01002FAAE9 /* GoogleOAuth.m in Sources */,
 				CE3BDDB819CBF53C00F1625C /* MCAResourcesCategoryViewController.m in Sources */,
+				CE249A9219D56D96002FAAE9 /* ViewController.m in Sources */,
 				CEEDCAC0197F8BE20088511D /* ASIHTTPRequest.m in Sources */,
 				CE3B4FE619C18359001B07D4 /* MCASettingViewController.m in Sources */,
 				CEEDCAD4197F8BF30088511D /* SBJsonParser.m in Sources */,
