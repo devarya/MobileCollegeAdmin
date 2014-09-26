@@ -1132,7 +1132,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Bsc-SC-mBo">
                         <barButtonItem key="backBarButtonItem" title=" " id="d28-bM-lux"/>
-                        <barButtonItem key="leftBarButtonItem" title="sync" id="E2X-oe-7z0">
+                        <barButtonItem key="leftBarButtonItem" image="Sync" id="E2X-oe-7z0">
                             <connections>
                                 <action selector="btnSync" destination="umo-6W-oaU" id="qKc-j6-CLS"/>
                             </connections>
@@ -3566,6 +3566,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Sync" width="22" height="22"/>
         <image name="arrow2" width="22" height="22"/>
         <image name="back" width="22" height="22"/>
         <image name="blue_checkMark" width="22" height="22"/>
