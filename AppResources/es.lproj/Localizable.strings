@@ -218,9 +218,9 @@
 "my_students" = "MisEstudiantes";
 "my_parent" = "Ver Mi Padre/Madre";
 "profile" = "Perfil de Usario";
-"profile_txt" = " Perfil ";
-"facebook" = " Facebook ";
-"twitter" = " Twitter ";
+"profile_txt" = "Perfil";
+"facebook" = "Facebook";
+"twitter" = "Twitter";
 "email" = "Email";
 "message_txt" = "Mensaje de Texto";
 "p_name" = "Nombre";

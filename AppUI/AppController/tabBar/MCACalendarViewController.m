@@ -70,6 +70,8 @@
            [self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects:btnBar_grade, nil]];
         }
     }
+    
+    tbl_monthTask.tableFooterView = [UIView new];
 }
 -(void)viewWillAppear:(BOOL)animated{
     
@@ -128,9 +130,9 @@
     view_transBg.backgroundColor = [UIColor blackColor];
     view_transBg.layer.opacity = 0.6f;
     [self.view addSubview:view_transBg];
-    
-    tbl_gradeList.layer.borderWidth = 0.5f;
+   
     tbl_gradeList = [[UITableView alloc]initWithFrame:CGRectMake(20, 140, 282, 150)];
+    tbl_gradeList.layer.borderWidth = 0.5f;
     tbl_gradeList.dataSource = self;
     tbl_gradeList.delegate = self;
     [tbl_gradeList reloadData];
@@ -183,6 +185,7 @@
         
         tbl_studentList = [[UITableView alloc]initWithFrame:CGRectMake(20, 140, 282, arr_studentList.count * 38 + 74)];
     }
+    
     tbl_studentList.layer.borderWidth = 0.5f;
     tbl_studentList.delegate = self;
     tbl_studentList.dataSource = self;
@@ -426,6 +429,20 @@
         return arr_studentList.count + 1;
     }else{
         return arr_monthTask.count;
+    }
+}
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if ([tableView respondsToSelector:@selector(setSeparatorInset:)]) {
+        [tableView setSeparatorInset:UIEdgeInsetsZero];
+    }
+    
+    if ([tableView respondsToSelector:@selector(setLayoutMargins:)]) {
+        [tableView setLayoutMargins:UIEdgeInsetsZero];
+    }
+    
+    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+        [cell setLayoutMargins:UIEdgeInsetsZero];
     }
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{

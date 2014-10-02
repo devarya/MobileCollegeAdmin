@@ -134,6 +134,7 @@
 //    _googleOAuth = [[GoogleOAuth alloc] initWithFrame:self.view.frame];
 //    // Set self as the delegate.
 //    [_googleOAuth setGOAuthDelegate:self];
+ 
 
     
 }
@@ -327,7 +328,8 @@
         }else{
              tbl_taskCurrent.frame = CGRectMake(0, 36, 320, 332);
         }
-       
+        
+        tbl_taskCurrent.separatorStyle = UITableViewCellSeparatorStyleNone;
         [tbl_taskCurrent reloadData];
         [self.view addSubview:tbl_taskCurrent];
         
@@ -344,6 +346,7 @@
             tbl_taskCompleted.frame = CGRectMake(0, 36, 320, 332);
         }
         
+        tbl_taskCompleted.separatorStyle = UITableViewCellSeparatorStyleNone;
         [tbl_taskCompleted reloadData];
         [self.view addSubview:tbl_taskCompleted];
       
@@ -362,12 +365,13 @@
         }else{
             tbl_taskDeleted.frame = CGRectMake(0, 36, 320, 332);
         }
+      
+        tbl_taskDeleted.separatorStyle = UITableViewCellSeparatorStyleNone;
+        [tbl_taskDeleted reloadData];
+        [self.view addSubview:tbl_taskDeleted];
         
         [[NSUserDefaults standardUserDefaults]setInteger:1 forKey:KEY_ANIMATION_FILE_RAND_NO];
         [[NSUserDefaults standardUserDefaults]synchronize];
-      
-        [tbl_taskDeleted reloadData];
-        [self.view addSubview:tbl_taskDeleted];
     }
 }
 -(void)btnBar_addDidClicked:(id)sender{
@@ -413,7 +417,9 @@
     [HUD showForTabBar];
     [self.view bringSubviewToFront:HUD];
     [self createTaskList:str_selectedGrade];
-     self.navigationController.navigationBar.userInteractionEnabled = YES;
+    
+    self.navigationController.navigationBar.userInteractionEnabled = YES;
+    tabBarMCACtr.tabBar.userInteractionEnabled = YES;
     
 }
 -(void)btnBar_studentDidClicked:(id)sender{
@@ -544,6 +550,7 @@
         return 72;
     }
 }
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
        
     if (tableView == tbl_taskCurrent) {
@@ -567,11 +574,25 @@
          return arr_studentList.count + 1;
      }
 }
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if ([tableView respondsToSelector:@selector(setSeparatorInset:)]) {
+        [tableView setSeparatorInset:UIEdgeInsetsZero];
+    }
+    
+    if ([tableView respondsToSelector:@selector(setLayoutMargins:)]) {
+        [tableView setLayoutMargins:UIEdgeInsetsZero];
+    }
+    
+    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+        [cell setLayoutMargins:UIEdgeInsetsZero];
+    }
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if (tableView == tbl_gradeList)
     {
-     
         NSString *cellIdentifier =@"cell";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
         if (cell == nil)
@@ -601,8 +622,8 @@
            forControlEvents:UIControlEventTouchUpInside];
          btn_selectGrade.index = indexPath.row;
          [cell addSubview:btn_selectGrade];
-        
-        tbl_gradeList.separatorInset=UIEdgeInsetsMake(0.0, 0 + 1.0, 0.0, 0.0);
+      
+//        cell.separatorInset = UIEdgeInsetsZero;
         return cell;
 
     }else if(tableView == tbl_studentList)
@@ -647,6 +668,7 @@
         btn_selectStudent.index = indexPath.row;
         [cell addSubview:btn_selectStudent];
         tbl_studentList.separatorInset=UIEdgeInsetsMake(0.0, 0 + 1.0, 0.0, 0.0);
+        
         return cell;
      
     }else{
@@ -658,7 +680,10 @@
         {
             static NSString *cellIdentifier = @"Cell";
             taskDHolder = (MCATaskDetailDHolder *)[arr_currentTaskList objectAtIndex:indexPath.row];
-            cell  = (CustomTableViewCell *)[tableView dequeueReusableCellWithIdentifier:                                                 cellIdentifier forIndexPath:indexPath];
+            
+            cell  = (CustomTableViewCell *)[tableView
+                                            dequeueReusableCellWithIdentifier:cellIdentifier
+                                            forIndexPath:indexPath];
             
             NSMutableArray *leftUtilityButtons;
             NSMutableArray *rightUtilityButtons;
@@ -701,7 +726,6 @@
            }
         
         // Configure the cell
-        
         if([[[NSUserDefaults standardUserDefaults]valueForKey:KEY_LANGUAGE_CODE] isEqualToString:ENGLISH_LANG]){
             
             cell.lbl_taskName.text = taskDHolder.str_taskNameEng;
@@ -735,6 +759,11 @@
             cell.lbl_taskColor.backgroundColor = [UIColor colorWithRed:39.0/255.0 green:166.0/255.0 blue:213.0/255.0 alpha:1.0];
             
         }
+      
+        UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 71.5, 320, 0.5)];
+//        separatorLineView.backgroundColor = [UIColor colorWithRed:227.0/255.0 green:227.0/255.0  blue:227.0/255.0  alpha:1];
+         separatorLineView.backgroundColor = [UIColor lightGrayColor];
+        [cell.contentView addSubview:separatorLineView];
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.delegate = self;
@@ -811,8 +840,8 @@
            NSIndexPath *cellIndexPath = [tbl_taskCurrent indexPathForCell:cell];
           
            MCAAlertView *alertView = [MCAGlobalFunction
-                                       showAlert:[NSString languageSelectedStringForKey:@"delete_msg"]
-                                       title:[NSString languageSelectedStringForKey:@"delete"]
+                                       showAlert:[NSString languageSelectedStringForKey:@"delete"]
+                                       msg:[NSString languageSelectedStringForKey:@"delete_msg"]
                                        delegate:self
                                        btnOk:[NSString languageSelectedStringForKey:@"conform"]
                                        btnCancel:[NSString languageSelectedStringForKey:@"cancel"]];
@@ -1147,6 +1176,9 @@
         
         self.navigationController.navigationBarHidden = NO;
         tabBarMCACtr.tabBar.hidden = NO;
+//        self.navigationController.navigationBar.userInteractionEnabled = YES;
+//        tabBarMCACtr.tabBar.userInteractionEnabled = YES;
+
         [view removeFromSuperview];
     });
 }

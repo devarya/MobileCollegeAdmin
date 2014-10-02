@@ -302,6 +302,7 @@
     
     [tools addSubview:lblPickerTitle];
     [sheet_datePicker addSubview:tools];
+    
     [sheet_datePicker showInView:self.view];
     [sheet_datePicker setBounds:CGRectMake(0, 0, 320, 360)];
 

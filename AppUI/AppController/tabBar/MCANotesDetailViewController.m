@@ -92,8 +92,8 @@
 -(void)btnBar_deleteDidClicked:(id)sender{
     
     MCAAlertView *alertView = [MCAGlobalFunction
-                               showAlert:[NSString languageSelectedStringForKey:@"do_you_want_delete_msg"]
-                                   title:[NSString languageSelectedStringForKey:@"delete"]
+                               showAlert:[NSString languageSelectedStringForKey:@"delete"]
+                                   msg:[NSString languageSelectedStringForKey:@"do_you_want_delete_msg"]
                                    delegate:self
                                    btnOk:[NSString languageSelectedStringForKey:@"conform"]
                                    btnCancel:[NSString languageSelectedStringForKey:@"cancel"]];

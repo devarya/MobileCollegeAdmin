@@ -97,8 +97,8 @@
 
 -(void)btnBar_deleteDidClicked:(id)sender{
     
-    MCAAlertView *alertView = [MCAGlobalFunction showAlert:[NSString languageSelectedStringForKey:@"delete_msg"]
-                                                     title:[NSString languageSelectedStringForKey:@"delete"]
+    MCAAlertView *alertView = [MCAGlobalFunction showAlert:[NSString languageSelectedStringForKey:@"delete"]
+                                                     msg:[NSString languageSelectedStringForKey:@"delete_msg"]
                                                   delegate:self
                                                      btnOk:[NSString languageSelectedStringForKey:@"conform"]
                                                  btnCancel:[NSString languageSelectedStringForKey:@"cancel"]];
@@ -110,8 +110,8 @@
 }
 -(IBAction)btnCompleteDidClicked:(id)sender{
     
-    MCAAlertView *alertView = [MCAGlobalFunction showAlert:@"Do you want to complete the task?"
-                                                     title:[NSString languageSelectedStringForKey:@"msg"]
+    MCAAlertView *alertView = [MCAGlobalFunction showAlert:[NSString languageSelectedStringForKey:@"msg"]
+                                                     msg:@"Do you want to complete the task?"
                                                   delegate:self
                                                      btnOk:[NSString languageSelectedStringForKey:@"conform"]
                                                  btnCancel:[NSString languageSelectedStringForKey:@"cancel"]];

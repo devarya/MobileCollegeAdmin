@@ -13,11 +13,12 @@
 
 +(void)showAlert:(NSString*)msg{
     
-    [[[UIAlertView alloc]initWithTitle:[NSString languageSelectedStringForKey:@"msg"]
-                               message:msg
+   [[[UIAlertView alloc]initWithTitle:[NSString languageSelectedStringForKey:@"msg"]
+                              message:[NSString stringWithFormat:@"\n%@",msg]
                               delegate:self
                      cancelButtonTitle:@"Ok"
                      otherButtonTitles:nil]show];
+    
 }
 +(void)showCustomizeAlert:(NSString *)msg{
     
@@ -28,7 +29,7 @@
                      otherButtonTitles:nil]show];
     
 }
-+(MCAAlertView*)showAlert:(NSString*)msg title:(NSString*)title delegate:(id)delegate btnOk:(NSString*)btnOk btnCancel:(NSString*)btnCancel{
++(MCAAlertView*)showAlert:(NSString*)title msg:(NSString*)msg delegate:(id)delegate btnOk:(NSString*)btnOk btnCancel:(NSString*)btnCancel{
     
     MCAAlertView *alertView = [[MCAAlertView alloc]initWithTitle:title
                                                          message:msg

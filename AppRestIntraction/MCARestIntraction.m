@@ -1320,7 +1320,7 @@
         
         [[MCADBIntraction databaseInteractionManager]insertStudList:arr_parentList];
         
-        NSString *errMsg = [results valueForKey:@"msg"];
+//        NSString *errMsg = [results valueForKey:@"msg"];
         dispatch_async(dispatch_get_main_queue(), ^
                        {
                            [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_ADD_PARENT_SUCCESS object:loginDHolder];
