@@ -33,6 +33,7 @@
 -(void)responseFromServiceWasReceived:(NSString *)responseJSONAsString andResponseJSONAsData:(NSData *)responseJSONAsData;
 -(void)errorOccuredWithShortDescription:(NSString *)errorShortDescription andErrorDetails:(NSString *)errorDetails;
 -(void)errorInResponseWithBody:(NSString *)errorMessage;
+-(void)btnCancelDidClicked:(id)sender;
 @end
 
 

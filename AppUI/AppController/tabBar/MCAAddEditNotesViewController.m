@@ -120,7 +120,7 @@
 
 -(IBAction)btnCameraDidClicked:(id)sender{
     
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Options"
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
                                                        delegate:self
                                                cancelButtonTitle:[NSString languageSelectedStringForKey:@"cancel"]
                                                destructiveButtonTitle:nil

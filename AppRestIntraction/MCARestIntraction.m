@@ -1110,6 +1110,9 @@
     
     [request setPostValue:info forKey:@"data"];
     
+    
+    
+    
     [request setDelegate:self];
     [request setDidFailSelector:@selector(requestNotificationSettingFail:)];
     [request setDidFinishSelector:@selector(requestNotificationSettingSuccess:)];
@@ -1135,7 +1138,7 @@
     NSString *status_code = [results valueForKey:@"status_code"];
     
     if ([status_code isEqualToString:@"S1033"]) {
-        NSString *successMsg = [results valueForKey:@"msg"];
+//        NSString *successMsg = [results valueForKey:@"msg"];
         dispatch_async(dispatch_get_main_queue(), ^
                        {
                            [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_SETTING_SUCCESS object:responseDict];

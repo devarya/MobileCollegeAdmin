@@ -1132,11 +1132,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="Bsc-SC-mBo">
                         <barButtonItem key="backBarButtonItem" title=" " id="d28-bM-lux"/>
-                        <barButtonItem key="leftBarButtonItem" image="Sync" id="E2X-oe-7z0">
-                            <connections>
-                                <action selector="btnSync" destination="umo-6W-oaU" id="qKc-j6-CLS"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="segControl_task" destination="t6i-Re-bSO" id="vo5-Dn-OVe"/>
@@ -3354,6 +3349,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="resourcesCell" id="AoW-gb-xzj">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
@@ -3410,6 +3406,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="resourcesViewCell" id="SGL-ng-f0f">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
@@ -3467,6 +3464,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="urlCell" id="XAs-sa-4KR" customClass="MCAResourceCell">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
@@ -3522,6 +3520,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="resourcesBookCell" id="mxd-2J-q5H">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
@@ -3566,7 +3565,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Sync" width="22" height="22"/>
         <image name="arrow2" width="22" height="22"/>
         <image name="back" width="22" height="22"/>
         <image name="blue_checkMark" width="22" height="22"/>

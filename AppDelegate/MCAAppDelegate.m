@@ -129,9 +129,9 @@
     
     NSCalendar *calendar = [NSCalendar autoupdatingCurrentCalendar] ;
     NSDate *now = [NSDate date];
-    NSDateComponents *components = [calendar components:(NSCalendarUnitYear | NSCalendarUnitMonth |  NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute) fromDate:now];
-    [components setHour:18];
-    [components setMinute:42];
+    NSDateComponents *components = [calendar components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute) fromDate:now];
+    [components setHour:14];
+    [components setMinute:30];
     
     if (arr_taskPending.count > 0) {
         
@@ -141,6 +141,7 @@
             localNotification.fireDate = [calendar dateFromComponents:components];
             localNotification.alertBody = [NSString stringWithFormat:@"%lu task pending !",(unsigned long)arr_taskPending.count];
             localNotification.timeZone = [NSTimeZone defaultTimeZone];
+            localNotification.repeatInterval = NSDayCalendarUnit;
             localNotification.soundName = UILocalNotificationDefaultSoundName;
 //            localNotification.applicationIconBadgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber] + 1;
             [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
@@ -159,6 +160,8 @@
             // At this point you can start making API calls
             
             [[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_DROPBOX_LOGIN_SUCCESS object:nil];
+            
+            [[UIApplication sharedApplication] cancelAllLocalNotifications];
         }
         return YES;
     }

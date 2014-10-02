@@ -7,8 +7,6 @@
 //
 
 #import "MCATaskViewController.h"
-#import "MCATaskDetailViewController.h"
-
 
 @interface MCATaskViewController ()
 
@@ -32,7 +30,7 @@
     // Do any additional setup after loading the view.
     
     //Arya HUD
-    HUD=[AryaHUD new];
+    HUD = [AryaHUD new];
     [self.view addSubview:HUD];
     
     //Navigation Bar Setting
@@ -177,7 +175,7 @@
     self.navigationController.navigationBar.userInteractionEnabled = YES;
     tabBarMCACtr.tabBar.userInteractionEnabled = YES;
     
-     [self getTaskList:nil];
+    [self getTaskList:nil];
 
 }
 -(void)apiCalling:(id)sender{
@@ -234,7 +232,6 @@
     [[NSNotificationCenter defaultCenter]removeObserver:self name:NOTIFICATION_TASK_LIST_SUCCESS object:nil];
     [[NSNotificationCenter defaultCenter]removeObserver:self name:NOTIFICATION_TASK_LIST_FAILED object:nil];
 //    [[NSNotificationCenter defaultCenter]removeObserver:self name:NOTIFICATION_LOCAL_UINOTIFICATION_SUCCESS object:nil];
-    
 
 }
 
@@ -309,10 +306,10 @@
 
 -(IBAction)btnSync{
     
-    ViewController *view_temp = [[ViewController alloc]initWithNibName:@"ViewController" bundle:nil];
+    MCAGoogleViewController *view_temp = [[MCAGoogleViewController alloc]initWithNibName:@"MCAGoogleViewController" bundle:nil];
     
+    tabBarMCACtr.tabBar.hidden = YES;
     [self.view addSubview:view_temp.view];
-     
     
 }
 
@@ -1106,7 +1103,7 @@
          {                
             if ([[[NSUserDefaults standardUserDefaults]valueForKey:KEY_USER_TYPE] isEqualToString:@"p"])
             {
-                if (([taskDHolder.str_taskStatus isEqualToString:@"o"] && [taskDHolder.str_grade isEqualToString:sender]) || ([taskDHolder.str_taskStatus isEqualToString:@"o"] && [taskDHolder.str_userId isEqualToString:[[NSUserDefaults standardUserDefaults]valueForKey:KEY_USER_ID]] && [taskDHolder.str_createdBy isEqualToString:@"p"])){
+                if (([taskDHolder.str_taskStatus isEqualToString:@"o"] && [taskDHolder.str_grade isEqualToString:sender])||([taskDHolder.str_taskStatus isEqualToString:@"o"] && [taskDHolder.str_userId isEqualToString:[[NSUserDefaults standardUserDefaults]valueForKey:KEY_USER_ID]] && [taskDHolder.str_createdBy isEqualToString:@"p"])){
                     
                     [arr_currentTaskList addObject:taskDHolder];
                     
@@ -1114,7 +1111,7 @@
                     
                     [arr_completedTaskList addObject:taskDHolder];
                     
-                }else if(([taskDHolder.str_taskStatus isEqualToString:@"d"] && [taskDHolder.str_grade isEqualToString:sender]) || ([taskDHolder.str_taskStatus isEqualToString:@"d"] && [taskDHolder.str_userId isEqualToString:[[NSUserDefaults standardUserDefaults]valueForKey:KEY_USER_ID]] && [taskDHolder.str_createdBy isEqualToString:@"p"])){
+                }else if(([taskDHolder.str_taskStatus isEqualToString:@"d"] && [taskDHolder.str_grade isEqualToString:sender])||([taskDHolder.str_taskStatus isEqualToString:@"d"] && [taskDHolder.str_userId isEqualToString:[[NSUserDefaults standardUserDefaults]valueForKey:KEY_USER_ID]] && [taskDHolder.str_createdBy isEqualToString:@"p"])){
                     
                     [arr_deletedTaskList addObject:taskDHolder];
                 }

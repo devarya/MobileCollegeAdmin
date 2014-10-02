@@ -24,6 +24,7 @@
 -(NSMutableArray*)retrieveTask:(id)sender;
 -(NSMutableArray*)retrieveSelectedTask:(id)sender;
 -(NSMutableArray*)retrieveTodayTask:(id)sender;
+-(NSMutableArray*)retrieveSyncTaskList:(id)sender;
 -(void)updateTaskSnoozeDate:(NSMutableArray*)arr_taskList;
 
 #pragma mark - STUDENT_QUERY

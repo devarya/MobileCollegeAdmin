@@ -311,6 +311,7 @@
     if (![tx_taskName.text isEqualToString:@""] && ![tx_priority.text isEqualToString:@""] && ![tx_chooseDate.text isEqualToString:@""] && ![tv_description.text isEqualToString:@""] && ![tv_description.text isEqualToString:[NSString languageSelectedStringForKey:@"description"]])
     {
         [self keyboardDisappeared];
+        [tv_description resignFirstResponder];
         NSMutableDictionary *dict_addTask =[NSMutableDictionary new];
         
         if (taskEditDHolder) {
@@ -369,6 +370,7 @@
     
     [HUD showForTabBar];
     [self.view bringSubviewToFront:HUD];
+    [self keyboardDisappeared];
     [self requestAddTask:str_jsonAddOrEditTask];
 
 }
@@ -482,7 +484,7 @@
 -(void)addTaskSuccess:(NSNotification*)notification{
     
     [HUD hide];
-    [self keyboardDisappeared];
+//    [self keyboardDisappeared];
     [tx_taskName resignFirstResponder];
     [tv_description resignFirstResponder];
    

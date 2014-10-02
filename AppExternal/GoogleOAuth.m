@@ -488,6 +488,7 @@
             // In case that the user tapped on the Cancel button instead of the Accept, then just
             // remove the webview from the superview.
             [webView removeFromSuperview];
+            [self.gOAuthDelegate btnCancelDidClicked:nil];
         }
     }
 }

@@ -170,7 +170,7 @@
 "export" = "Log in to DropBox to export";
 
 "export_ex" = "Export";
-"note" = " Notes  ";
+"note" = "Notes";
 "ndetail" = "Note Detail";
 "delete" = "Delete";
 "uploading" = "Uploading";
@@ -181,7 +181,7 @@
 "do_you_want_to_remove_new" = "do you wish to remove? ";
 "no_file_found" = "No file found for selected dir.";
 "please_select_atleast_msg" = "Please select atleast one file.";
-"could_not_msg" = "Couldn\'t authenticate with Dropbox: ";
+"could_not_msg" = "Couldn\'t authenticate with Dropbox:";
 "do_you_want_delete_msg" = "do you wish to delete? ";
 "deleted_successfully_msg" = "Deleted successfully.";
 "unable_to_delet_msg" = "unable to delete ";

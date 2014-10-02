@@ -22,7 +22,7 @@
    NSMutableArray *arr_notifyTaskList;
    NSMutableArray *arr_updateNotifyList;
     
-    AryaHUD *HUD;
+   AryaHUD *HUD;
 }
 @property(nonatomic,strong)IBOutlet UIView *myView;
 @property(nonatomic,assign)id<ReminderListDelegate>delegate;

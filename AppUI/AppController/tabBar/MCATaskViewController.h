@@ -12,11 +12,9 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import "AVFoundation/AVFoundation.h"
 #import <QuartzCore/QuartzCore.h>
-
 #import "MCANotificationTable.h"
-
-#import "ViewController.h"
-
+#import "MCAGoogleViewController.h"
+#import "MCATaskDetailViewController.h"
 
 @interface MCATaskViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,SWTableViewCellDelegate,ReminderListDelegate>{
     
@@ -45,7 +43,6 @@
     
     UIView *view_notification ;
     UITableView *tbl_notification;
-    
    
     AryaHUD *HUD;
 }

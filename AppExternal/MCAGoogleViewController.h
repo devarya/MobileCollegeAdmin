@@ -8,7 +8,8 @@
 #import <UIKit/UIKit.h>
 #import "GoogleOAuth.h"
 
-@interface ViewController : UIViewController <GoogleOAuthDelegate>
+
+@interface MCAGoogleViewController : UIViewController <GoogleOAuthDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tblPostData;
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *barItemPost;

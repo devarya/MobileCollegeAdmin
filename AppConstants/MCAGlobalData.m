@@ -57,7 +57,7 @@
      withFinishedUnselectedImage:[UIImage imageNamed:@"more.png"]];
     
     [[UITabBarItem appearance] setTitleTextAttributes:
-     [NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], UITextAttributeTextColor,
+    [NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], UITextAttributeTextColor,
       nil] forState:UIControlStateNormal];
     
     tabBarMCACtr.delegate = self;

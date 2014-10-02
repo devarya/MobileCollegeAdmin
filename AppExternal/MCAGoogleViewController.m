@@ -5,9 +5,9 @@
 //  Copyright (c) 2013 Gabriel Theodoropoulos. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "MCAGoogleViewController.h"
 
-@interface ViewController ()
+@interface MCAGoogleViewController ()
 
 // The string that contains the event description.
 // Its value is set every time the event description gets edited and its
@@ -56,7 +56,7 @@
 
 @end
 
-@implementation ViewController
+@implementation MCAGoogleViewController
 
 - (void)viewDidLoad
 {
@@ -82,6 +82,7 @@
 -(void)btn_closeDidClicked:(id)sender{
     
     [self.view removeFromSuperview];
+    tabBarMCACtr.tabBar.hidden = NO;
 }
 
 - (void)didReceiveMemoryWarning
@@ -99,16 +100,24 @@
 - (IBAction)revokeAccess:(id)sender {
     // Revoke the access token.
     [_googleOAuth revokeAccessToken];
+    
+    [self btn_temp:nil];
 }
 
 
 #pragma mark - GoogleOAuth class delegate method implementation
 
+-(void)btnCancelDidClicked:(id)sender{
+    
+    [self.view removeFromSuperview];
+    tabBarMCACtr.tabBar.hidden = NO;
+}
+
 -(void)authorizationWasSuccessful{
  
      [_googleOAuth callAPI:@"https://www.googleapis.com/calendar/v3/users/me/calendarList"
            withHttpMethod:httpMethod_GET
-       postParameterNames:nil
+      postParameterNames:nil
       postParameterValues:nil];
 }
 
@@ -155,17 +164,67 @@
             
             // Set the first calendar as the selected one.
            
+            
+            NSMutableArray *arr_syncTask = [[MCADBIntraction databaseInteractionManager]retrieveSyncTaskList:nil];
+            
+            
+            NSMutableDictionary *dict = [NSMutableDictionary new];
+            [dict setValue:@"2014-12-12" forKeyPath:@"date"];
+            NSError* error;
+            NSData* jsonData = [NSJSONSerialization dataWithJSONObject:dict
+                                                               options:NSJSONWritingPrettyPrinted
+                                                                 error:&error];
+            NSString* str1=  [[NSString alloc] initWithData:jsonData
+                                                         encoding:NSUTF8StringEncoding];
+            str1 = [str1 stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+            str1 = [str1 stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+            
+            
+            NSMutableDictionary *dict1 = [NSMutableDictionary new];
+            [dict1 setValue:@"2014-12-12" forKeyPath:@"date"];
+            NSData* jsonData1 = [NSJSONSerialization dataWithJSONObject:dict1
+                                                               options:NSJSONWritingPrettyPrinted
+                                                                 error:&error];
+            NSString* str2=  [[NSString alloc] initWithData:jsonData1
+                                                   encoding:NSUTF8StringEncoding];
+            str2 = [str2 stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+            str2 = [str2 stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+            
+         
+            NSMutableDictionary *dict2 = [NSMutableDictionary new];
+            [dict2 setValue:str1 forKeyPath:@"end"];
+            [dict2 setValue:str2 forKeyPath:@"start"];
+            [dict2 setValue:@"ss2edwde" forKey:@"summary"];
+            
+            NSData* jsonData3 = [NSJSONSerialization dataWithJSONObject:dict2
+                                                                options:NSJSONWritingPrettyPrinted
+                                                                  error:&error];
+            NSString* str3=  [[NSString alloc] initWithData:jsonData3
+                                                   encoding:NSUTF8StringEncoding];
+            str3 = [str3 stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+            str3 = [str3 stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+            str3 = [str3 stringByReplacingOccurrencesOfString:@"\\" withString:@""];
+            str3 = [str3 stringByReplacingOccurrencesOfString:@": \"\[" withString:@":["];
+            str3 = [str3 stringByReplacingOccurrencesOfString:@"]\"" withString:@"]"];
+            str3 = [str3 stringByReplacingOccurrencesOfString:@"\"\{" withString:@"{"];
+            str3 = [str3 stringByReplacingOccurrencesOfString:@"}\"" withString:@"}"];
+            
             _dictCurrentCalendar = [[NSDictionary alloc] initWithDictionary:[_arrGoogleCalendars objectAtIndex:0]];
             
-            NSString *apiURLString = [NSString stringWithFormat:@"https://www.googleapis.com/calendar/v3/calendars/%@/events/quickAdd", [_dictCurrentCalendar objectForKey:@"id"]];
+            NSString *apiURLString = [NSString stringWithFormat:@"https://www.googleapis.com/calendar/v3/calendars/calendars/%@/events/%@", [_dictCurrentCalendar objectForKey:@"id"],str3];
             
-            [_googleOAuth callAPI:apiURLString
-                   withHttpMethod:httpMethod_POST
-               postParameterNames:[NSArray arrayWithObjects:@"calendarId",@"text", nil]
-              postParameterValues:[NSArray arrayWithObjects:[_dictCurrentCalendar objectForKey:@"id"], @"test by aditi ", nil]];
-
-    
-          }
+            
+            for (int i = 0; i < arr_syncTask.count; i++) {
+                
+                MCATaskDetailDHolder *taskDHolder = (MCATaskDetailDHolder*)[arr_syncTask objectAtIndex:i];
+                
+                [_googleOAuth callAPI:apiURLString
+                       withHttpMethod:httpMethod_PUT
+                   postParameterNames:[NSArray arrayWithObjects:@"calendarId",@"Request body", nil]
+                  postParameterValues:[NSArray arrayWithObjects:[_dictCurrentCalendar objectForKey:@"id"],str3, nil]];
+                              
+            }
+        }
     } else if ([responseJSONAsString rangeOfString:@"calendar#event"].location != NSNotFound){
       
         NSDictionary *eventInfoDict = [NSJSONSerialization JSONObjectWithData:responseJSONAsData options:NSJSONReadingMutableContainers error:&error];
@@ -177,7 +236,6 @@
             return;
         }
         
-     
         // data fields that Google returns.
         NSString *eventID = [eventInfoDict objectForKey:@"id"];
         NSString *created = [eventInfoDict objectForKey:@"created"];
@@ -187,16 +245,14 @@
         NSString *alertMessage = [NSString stringWithFormat:@"ID: %@\n\nCreated:%@\n\nSummary:%@", eventID, created, summary];
         
         // Show the alert view.
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"New event"
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString languageSelectedStringForKey:@"msg"]
                                                         message:alertMessage
                                                        delegate:self
                                               cancelButtonTitle:nil
-                                              otherButtonTitles:@"Great", nil];
+                                              otherButtonTitles:@"Ok", nil];
         [alert show];
     }
 }
-
-
 -(void)accessTokenWasRevoked{
     
     // Remove all calendars from the array.

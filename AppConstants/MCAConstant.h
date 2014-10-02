@@ -10,8 +10,8 @@
 #define IS_IPHONE_5 ([[UIScreen mainScreen] bounds].size.height == 568)
 
 //Main URL
-#define URL_MAIN @"http://122.176.45.15:8080/careerdefine/api/"
-//#define URL_MAIN @"http://career-define.com/careerdefine/api/"
+//#define URL_MAIN @"http://122.176.45.15:8080/careerdefine/api/"
+#define URL_MAIN @"http://career-define.com/careerdefine/api/"
 #define URL_APPLESTORE @"https://itunes.apple.com/"
 
 //Message

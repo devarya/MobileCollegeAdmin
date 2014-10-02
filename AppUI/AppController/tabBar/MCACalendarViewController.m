@@ -200,7 +200,7 @@
     NSString *str_userId;
     if (btn_temp.index == 0) {
         
-        str_userId = @"All";
+        str_userId = [NSString languageSelectedStringForKey:@"all"];
         
     }else{
         
@@ -293,7 +293,7 @@
     
     if (int_selectedStud == 0) {
         
-        str_selectedStud = @"All";
+        str_selectedStud = [NSString languageSelectedStringForKey:@"all"];
         
     }else{
         str_selectedStud  = [[arr_studentList valueForKey:@"str_userId"] objectAtIndex:[[NSUserDefaults standardUserDefaults]integerForKey:KEY_TASK_STUD_INDEX]-1];
@@ -307,7 +307,7 @@
         {
            if ([[NSUserDefaults standardUserDefaults]integerForKey:KEY_STUDENT_COUNT] > 0)
             {
-                if ([str_selectedStud isEqualToString:@"All"] || [str_selectedStud isEqualToString:@"12"])
+                if ([str_selectedStud isEqualToString:[NSString languageSelectedStringForKey:@"all"]] || [str_selectedStud isEqualToString:@"12"])
                 {
                     if ([taskDHolder.str_taskStatus isEqualToString:@"o"])
                     {
@@ -483,7 +483,7 @@
         
         if (indexPath.row == 0) {
             
-            cell.textLabel.text = @"All";
+            cell.textLabel.text = [NSString languageSelectedStringForKey:@"all"];
             
         }else{
             
@@ -636,7 +636,7 @@
     
     if (int_selectedStud == 0) {
         
-        str_selectedStud = @"All";
+        str_selectedStud = [NSString languageSelectedStringForKey:@"all"];
         
     }else{
         str_selectedStud  = [[arr_studentList valueForKey:@"str_userId"] objectAtIndex:[[NSUserDefaults standardUserDefaults]integerForKey:KEY_TASK_STUD_INDEX]-1];
@@ -685,7 +685,7 @@
         {
             if ([[NSUserDefaults standardUserDefaults]integerForKey:KEY_STUDENT_COUNT] > 0)
             {
-                if ([sender isEqualToString:@"All"] || [sender isEqualToString:@"12"])
+                if ([sender isEqualToString:[NSString languageSelectedStringForKey:@"all"]] || [sender isEqualToString:@"12"])
                 {
                     if ([taskDHolder.str_taskStatus isEqualToString:@"o"])
                     {

@@ -104,7 +104,7 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    MCAResourcesDHolder *reDHolder = (MCAResourcesDHolder*)[arr_resources objectAtIndex:indexPath.row];
+//    MCAResourcesDHolder *reDHolder = (MCAResourcesDHolder*)[arr_resources objectAtIndex:indexPath.row];
     static NSString *cellIdentifier = @"resourcesViewCell";
     UITableViewCell  *cell = nil;
     cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];

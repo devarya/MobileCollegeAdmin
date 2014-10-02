@@ -50,8 +50,6 @@
     UIBarButtonItem *btnBar_export =[[UIBarButtonItem alloc] initWithCustomView:btn_export];
     [self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects:btnBar_export,nil]];
     
-    [self getNotesCategory:nil];
-    
     [MCALocalStoredFolder createRootDir];
     [MCALocalStoredFolder createSubRootDir:@"Notes"];
     
@@ -61,6 +59,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     
     [self getLanguageStrings:nil];
+    [self getNotesCategory:nil];
     
 }
 - (void)didReceiveMemoryWarning

@@ -381,6 +381,58 @@ MCADBIntraction *databaseManager = nil;
     }
     return arr_dbTask;
 }
+-(NSMutableArray*)retrieveSyncTaskList:(id)sender{
+    
+    NSMutableArray *arr_dbTaskList=[[NSMutableArray alloc]init];
+    NSString *query;
+    
+    if ([[[NSUserDefaults standardUserDefaults]valueForKey:KEY_LANGUAGE_CODE] isEqualToString:ENGLISH_LANG]) {
+        
+        query  = [NSString stringWithFormat:@"Select * from tbl_tasklist where taskNameEng != \'%@\' and taskStatus = \'%@\' order by taskStartDate",@"",@"o"];
+    }else{
+        
+        query = [NSString stringWithFormat:@"Select * from tbl_tasklist where taskNameSp != \'%@\'  and taskStatus = \'%@\' order by taskStartDate",@"",@"o"];
+    }
+    
+    @try
+    {
+        [dBCollgeAdmin open];
+        FMResultSet *resultSet=[dBCollgeAdmin executeQuery:query];
+        while ([resultSet next])
+        {
+            MCATaskDetailDHolder *taskDHolder=[MCATaskDetailDHolder new];
+            taskDHolder.str_taskId = [resultSet stringForColumn:@"taskId"];
+            taskDHolder.str_userId = [resultSet stringForColumn:@"userId"];
+            taskDHolder.str_taskNameEng = [resultSet stringForColumn:@"taskNameEng"];
+            taskDHolder.str_taskDetailEng = [resultSet stringForColumn:@"taskDetailEng"];
+            taskDHolder.str_taskNameSp = [resultSet stringForColumn:@"taskNameSp"];
+            taskDHolder.str_taskDetailSp = [resultSet stringForColumn:@"taskDetailSp"];
+            taskDHolder.str_taskPriority = [resultSet stringForColumn:@"taskPriority"];
+            taskDHolder.str_taskStartDate = [resultSet stringForColumn:@"taskStartDate"];
+            taskDHolder.str_taskStatus = [resultSet stringForColumn:@"taskStatus"];
+            taskDHolder.str_createdAt = [resultSet stringForColumn:@"createdAt"];
+            taskDHolder.str_createdBy = [resultSet stringForColumn:@"createdBy"];
+            taskDHolder.str_updatedAt = [resultSet stringForColumn:@"updatedAt"];
+            taskDHolder.str_grade = [resultSet stringForColumn:@"grade"];
+            taskDHolder.str_status = [resultSet stringForColumn:@"status"];
+            taskDHolder.str_nowDate = [resultSet stringForColumn:@"nowDate"];
+            taskDHolder.str_network = [resultSet stringForColumn:@"network"];
+            
+            [arr_dbTaskList addObject:taskDHolder];
+        }
+        [resultSet close];
+    }
+    @catch (NSException *exception)
+    {
+        NSLog(@"%@",exception);
+    }
+    @finally
+    {
+        [dBCollgeAdmin close];
+    }
+    return arr_dbTaskList;
+    
+}
 
 -(void)updateTaskList:(NSMutableArray *)arr_taskList{
  
@@ -522,6 +574,7 @@ MCADBIntraction *databaseManager = nil;
     @try
     {
         [dBCollgeAdmin open];
+        
         FMResultSet *resultSet = [dBCollgeAdmin executeQuery:query];
         while ([resultSet next])
         {

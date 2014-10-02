@@ -274,7 +274,7 @@
         arrtest = [NSMutableArray new];
         count = 0;
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:[NSString languageSelectedStringForKey:@"msg"]
-                                                       message:@"Unable to upload some of the files." delegate:nil
+                                                       message:[NSString languageSelectedStringForKey:@"error"] delegate:nil
                                              cancelButtonTitle:nil
                                              otherButtonTitles:nil, nil];
         
